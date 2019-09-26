@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <!-- 头部内容 -->
     <div class='header' ms-controller='header'>
         <header>
             <!-- 版心 -->
@@ -69,6 +70,7 @@
             </div>
         </div>
     </div>
+    <!-- 头部内容结束 -->
     <!-- 汽车大厅 -->
     <div ms-controller='root'>
         <!-- 版心 -->
@@ -126,61 +128,74 @@
                         <ul>
                             <li>车型用途:</li>
                         </ul>
-                        <ul class='clearfix'>
+                        <ul class='carApply clearfix'>
                             <li>不限</li>
                             <li>牵引车</li>
                             <li>载货车</li>
                             <li>自卸车</li>
-                            <li class='tri'>电动货车<span class='triangle'></span></li>
+                            <li class='newEnergy_detail'>
+                                <label class='tri'>电动货车<span class='triangle'></span></label>
+                                <div class='newEnergy dis_none'>
+                                    <span>电动轻卡</span>
+                                    <span>电动牵引车</span>
+                                    <span>电动自卸车</span>
+                                    <span>电动冷藏车</span>
+                                </div>
+                            </li>
                         </ul>
                         <div class='clearfix'></div>
-                        <div class='newEnergy'>
-                            <span>电动轻卡</span>
-                            <span>电动牵引车</span>
-                            <span>电动自卸车</span>
-                            <span>电动冷藏车</span>
-                        </div>
+                        
                     </div>
                     <div class='carBrands clearfix'>
                         <ul>
                             <li>卡车品牌:</li>
                         </ul>
-                        <ul class='clearfix'>
+                        <ul class='bandsDetail clearfix'>
                             <li>不限</li>
-                            <li>A</li>
+                            <li class='active'>A</li>
                             <li>B</li>
                             <li>C</li>
                             <li>D</li>
                         </ul>
                         <div class='clearfix'></div>
                         <div class='carBrandsDetail'>
-                            <span>卡车品牌</span>
-                            <span>卡车品牌</span>
-                            <span>卡车品牌</span>
-                            <span>卡车品牌</span>
-                            <span>卡车品牌</span>
-                            <span>卡车品牌</span>
-                            <span>卡车品牌</span>
+                            <span>卡车品牌1</span>
+                            <span>卡车品牌2</span>
+                            <span>卡车品牌3</span>
+                            <span>卡车品牌4</span>
+                            <span>卡车品牌5</span>
+                            <span>卡车品牌6</span>
+                            <span>卡车品牌7</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class='selected'>
-                <span>筛选条件:</span>
-                <ul>
-                    <li>
-            
-                    </li>
+            <div class='moreFilter'> 
+                <div class='line'></div>
+                <div class='moreBtn'>更多筛选条件</div>
+            </div>
+            <div class='selected clearfix'>
+                <span class='pull-left'>筛选条件:</span>
+                <ul class='selectItems clearfix'>
+                    <li class='delItem apply'></li>
+                    <li class='delItem brands'></li>
+                    <li class='color-999 delAll'>清除筛选条件</li>
                 </ul>
             </div>
             <!-- 在售 即将上市 停售 -->
              <div class='row statueChoose'>
                 <div class='col-md-12 col-sm-12'>
-                    <ul class='statusList clearfix'>
-                        <li class='hightLight'>在售(11)</li>
-                        <li>即将上市(22)</li>
-                        <li>停售(33)</li>
-                    </ul>
+                    <div class='selectStatus clearfix'>
+                        <ul class='statusList pull-left clearfix'>
+                            <li class='hightLight'>在售(11)</li>
+                            <li>即将上市(22)</li>
+                            <li>停售(33)</li>
+                        </ul>
+                        <ul class='pull-right'>
+                            <li class='pull-left mr20'>最新<span class='up'>↑</span></li>
+                            <li class='pull-left mr20'>价格<span class='up'>↑</span></li>
+                        </ul>
+                    </div>
                     <div class='statusContent'>
                         <div class='statusDetail'>
                             <div class='statusSelect'>
@@ -274,7 +289,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <table class="table table-condensed selectTable" id='loadMore'>
+                                <table class="table table-condensed selectTable">
                                     <tbody>
                                         <tr>
                                             <td>驱动形式6X4</td>
@@ -329,8 +344,8 @@
                                     </tbody>
 
                                 </table>
-                                <div class='row loadMore'>
-                                    <div class='col-md-12 col-sm-12'><button class='btn-loadMore'>点击查看更多</button></div>
+                                <div class='checkMore'>
+                                    <div class='checkBtn'>查看<span class='color-orange'>18</span>款符合条件的车型</div>
                                 </div>
                             </div>
                             <div class='statusSelect'>
@@ -424,7 +439,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <table class="table table-condensed selectTable" id='loadMore'>
+                                <table class="table table-condensed selectTable">
                                     <tbody>
                                         <tr>
                                             <td>驱动形式6X4</td>
@@ -479,10 +494,11 @@
                                     </tbody>
 
                                 </table>
-                                <div class='row loadMore'>
-                                    <div class='col-md-12 col-sm-12'><button class='btn-loadMore'>点击查看更多</button></div>
+                                <div class='checkMore'>
+                                    <div class='checkBtn'>查看<span class='color-orange'>18</span>款符合条件的车型</div>
                                 </div>
                             </div>
+                            <div id="demo2"></div>
                         </div>
                          <div class='statusDetail dis_none'>即将上市</div>
                         <div class='statusDetail dis_none'>停售</div>

@@ -3,6 +3,7 @@
   margin-top: 51px;
   border: 1px solid #999;
   padding: 18px 0px 22px 34px;
+  border-bottom: 1px solid #f57619;
 }
 .carApplication ul,
 .carBrands ul {
@@ -10,6 +11,7 @@
 }
 .carApplication ul li,
 .carBrands ul li {
+  text-align: center;
   float: left;
   margin-left: 42px;
   cursor: pointer;
@@ -17,6 +19,20 @@
 .carApplication ul li:first-child,
 .carBrands ul li:first-child {
   margin-left: 21px;
+}
+.carApplication ul li.active,
+.carBrands ul li.active {
+  background-color: #f57619;
+  color: #fff;
+}
+.bandsDetail li:first-child {
+  padding: 2px 6px;
+}
+.bandsDetail li:not(:first-child) {
+  width: 27px;
+  height: 21px;
+  line-height: 21px;
+  text-align: center;
 }
 .carBrands,
 .selected {
@@ -37,8 +53,23 @@
   margin-left: 0px;
   padding-left: 23px;
 }
+.newEnergy span.active {
+  color: #f57619;
+}
+.carApply > li {
+  padding: 2px 6px;
+}
+.carApply > li:not(:first-child).active {
+  background-color: #f57619;
+  color: #fff;
+}
+.carApply > li:not(:last-child).active {
+  background-color: #f57619;
+  color: #fff;
+}
 .tri {
   position: relative;
+  height: 30px;
 }
 .triangle {
   display: block;
@@ -83,17 +114,37 @@
 }
 .carBrandsDetail span {
   margin-left: 58px;
+  cursor: pointer;
 }
 .carBrandsDetail span:first-child {
   margin-left: 0px;
   padding-left: 23px;
 }
+.carBrandsDetail span.active {
+  color: #f57619;
+}
 .statueChoose {
   margin-top: 54px;
 }
-.statusList {
-  height: 58px;
+.selectStatus {
   border-bottom: 4px solid #f57619;
+  line-height: 57px;
+}
+.selectStatus > ul:nth-child(2) li {
+  position: relative;
+  cursor: pointer;
+  color: #18a112;
+}
+.selectStatus > ul:nth-child(2) li:first-child {
+  color: #ea6f15;
+}
+.selectStatus > ul:nth-child(2) li .up {
+  position: absolute;
+  right: -9px;
+  top: -6px;
+}
+.statusList {
+  height: 57px;
 }
 .statusList li {
   float: left;
@@ -181,6 +232,7 @@
 .statusSelect {
   border: 1px solid #999;
   margin-top: 83px;
+  position: relative;
 }
 .statusSelect:first-child {
   margin-top: 0px;
@@ -269,4 +321,82 @@
   outline: none;
   vertical-align: middle;
   color: #fff;
+}
+label {
+  font-weight: normal!important;
+}
+.newEnergy_detail {
+  position: relative;
+}
+.newEnergy_detail .newEnergy {
+  position: absolute;
+  right: -141px;
+  top: 13px;
+}
+.selected {
+  height: 41px;
+  line-height: 41px;
+  padding-left: 35px;
+  border: 1px solid #999;
+}
+.selected ul > li {
+  float: left;
+  margin-left: 30px;
+  cursor: pointer;
+}
+.selected ul > li:last-child {
+  float: right;
+  margin-right: 15px;
+}
+.del {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  line-height: 12px;
+  text-align: center;
+  color: #fff;
+  background-color: #f57619;
+  border-radius: 12px;
+  font-size: 14px;
+  position: absolute;
+  top: 8px;
+  right: -10px;
+}
+.delItem {
+  position: relative;
+}
+.moreFilter .line {
+  width: 100%;
+  height: 2px;
+  border-left: 1px solid #f57619;
+  border-right: 1px solid #f57619;
+  border-bottom: 1px solid #f57619;
+}
+.moreFilter .moreBtn {
+  color: #f57619;
+  width: 350px;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  border: 1px solid #f57619;
+  border-top: 1px solid #fff;
+  margin-left: 425px;
+  margin-top: -1px;
+  cursor: pointer;
+}
+.checkMore {
+  width: 383px;
+  height: 40px;
+  background-color: #fefaf7;
+  line-height: 40px;
+  text-align: center;
+  color: #999;
+  position: absolute;
+  bottom: -20px;
+  left: 407px;
+  cursor: pointer;
+}
+#demo2 {
+  margin-top: 60px;
+  margin-left: 250px;
 }

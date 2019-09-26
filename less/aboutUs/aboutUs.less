@@ -1,0 +1,78 @@
+.about{
+    margin-top: 52px;
+    .tabs,
+    .tabContent{
+        float: left;
+        
+    }
+}
+// 关于我们标题
+.tabs{
+    width: 245px;
+    height: 385px;
+    background-color: #fffaf6;
+    border-top: solid 1px #ffd1ad;
+    border-right: solid 1px #ffd1ad;
+    li{
+        height: 80px;
+        line-height: 80px;
+        text-align: center;
+        cursor: pointer;
+        &:not(:last-child){
+            border-bottom: solid 1px #eaeaea;
+        }
+        &.active{
+            color:#f57619;
+        }
+    }
+}
+// 关于我们的一系列内容
+.tabContent{
+    width: 894px;
+    background-color: #fffaf6;
+    margin-left: 56px;
+    font-family: MicrosoftYaHei;
+    .tabItem:first-child{
+        height: 636px;
+        box-shadow: 0px 2px 0px 0px rgba(117, 113, 110, 0.32);
+    }
+}
+.tabTitle{
+    margin-top: 19px;
+    height: 37px;
+    line-height: 37px;
+    border-left: 6px solid #f57619;
+    padding-left: 21px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.tabDetail{
+    padding: 29px 26px 0px 27px;
+    p{
+        line-height: 30px;
+    }
+}
+// 首行缩进两个字符
+.textIndent{
+    text-indent: 2em;
+}
+.itemNo{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+// 联系我们
+.tabContact{
+    padding-top: 37px;
+    padding-left: 31px;
+    ul{
+        li{
+            float: left;
+            &:nth-child(2){
+                margin:0 8px;
+            }
+        }
+        &:not(:first-child){
+            margin-top: 15px;
+        }
+    }
+}

@@ -6,7 +6,7 @@ $(document).scroll(function () { //页面加载时，获取滚动条初始高度
         $('.header').removeClass('fixHeader');
     }
 });
-$('.layui-nav .layui-nav-item').on('click', function () {
+$('.layui-nav .layui-nav-item:not(:last-child)').on('click', function () {
     var src = $(this).attr('data-src');
     location.href = src;
 });

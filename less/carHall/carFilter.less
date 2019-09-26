@@ -4,6 +4,7 @@
     margin-top: 51px;
     border:1px solid #999;
     padding:18px 0px 22px 34px;
+    border-bottom: 1px solid #f57619;
 }
 // 车型用途
 .carApplication,
@@ -11,12 +12,30 @@
     ul{
         float:left;
         li{
+            text-align: center;
             float:left;
             margin-left:42px;
             cursor: pointer;
             &:first-child{
                 margin-left:21px;
             }
+            &.active{
+                background-color:#f57619;
+                color:#fff;
+            }
+        }
+    }
+}
+.bandsDetail{
+    li{
+        &:first-child{
+            padding: 2px 6px;
+        }
+        &:not(:first-child){
+            width: 27px;
+            height: 21px;
+            line-height: 21px;
+            text-align: center;
         }
     }
 }
@@ -37,11 +56,34 @@
             margin-left:0px;
             padding-left:23px;
         }
+        &.active{
+            color:#f57619;
+        }
+    }
+}
+.carApply{
+    &>li{
+          padding:2px 6px;
+
+          &:not(:first-child) {
+              &.active {
+                  background-color: #f57619;
+                  color: #fff;
+              }
+          }
+
+          &:not(:last-child) {
+              &.active {
+                  background-color: #f57619;
+                  color: #fff;
+              }
+          }
     }
 }
 // 三角形
 .tri{
     position: relative;
+    height: 30px;
 }
 .triangle{
     display:block;
@@ -89,9 +131,13 @@
     margin-left:112px;
     span {
         margin-left: 58px;
+        cursor: pointer;
         &:first-child {
             margin-left: 0px;
             padding-left: 23px;
+        }
+        &.active{
+            color:#f57619;
         }
     }
 }
@@ -99,10 +145,29 @@
 .statueChoose {
     margin-top: 54px;
 }
-
+.selectStatus{
+    border-bottom:4px solid #f57619;
+    line-height: 57px;
+    &>ul{
+        &:nth-child(2){
+            li{
+                position: relative;
+                cursor: pointer;
+                color: #18a112;
+                &:first-child{
+                    color: #ea6f15;
+                }
+                .up{
+                    position: absolute;
+                    right: -9px;
+                    top: -6px;
+                }
+            }
+        }
+    }
+}
 .statusList {
-    height: 58px;
-
+    height: 57px;
     li {
         float: left;
         width: 156px;
@@ -127,8 +192,7 @@
             color: #fff;
         }
     }
-
-    border-bottom:4px solid #f57619;
+    
 }
 // 驱动表格
 .selectTable {
@@ -216,6 +280,7 @@
 .statusSelect {
     border:1px solid #999;
     margin-top:83px;
+    position: relative;
     &:first-child{
         margin-top: 0px;
         border-top:0px;
@@ -313,4 +378,90 @@
     outline: none;
     vertical-align: middle;
     color: #fff;
+}
+label{
+    font-weight: normal!important;
+}
+// 电动货车下拉
+.newEnergy_detail{
+    position: relative;
+    .newEnergy{
+       position: absolute;
+       right: -141px;
+       top: 13px;
+    }
+}
+// 筛选条件
+.selected{
+    height: 41px;
+    line-height: 41px;
+    padding-left: 35px;
+    border: 1px solid #999;
+    ul{
+        &>li{
+            float: left;
+            margin-left: 30px;
+            cursor: pointer;
+            &:last-child{
+                float: right;
+                margin-right: 15px;
+            }
+        }
+    }
+}
+// 筛选条件的删除
+.del{
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    line-height: 12px;
+    text-align: center;
+    color: #fff;
+    background-color: #f57619;
+    border-radius: 12px;
+    font-size: 14px;
+    position: absolute;
+    top: 8px;
+    right: -10px;
+}
+.delItem{
+    position: relative;
+}
+// 更多筛选条件
+.moreFilter{
+    .line{
+        width: 100%;
+        height: 2px;
+        border-left: 1px solid #f57619;
+        border-right: 1px solid #f57619;
+        border-bottom: 1px solid #f57619;
+    }
+    .moreBtn{
+        color:#f57619;
+        width: 350px;
+        height: 38px;
+        line-height: 38px;
+        text-align: center;
+        border:1px solid #f57619;
+        border-top: 1px solid #fff;
+        margin-left: 425px;
+        margin-top: -1px;
+        cursor: pointer;
+    }
+}
+.checkMore{
+    width: 383px;
+    height: 40px;
+    background-color: #fefaf7;
+    line-height: 40px;
+    text-align: center;
+    color:#999;
+    position: absolute;
+    bottom: -20px;
+    left: 407px;
+    cursor: pointer;
+}
+#demo2{
+    margin-top: 60px;
+    margin-left: 250px;
 }
