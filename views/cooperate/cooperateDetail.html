@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <link rel="stylesheet" href="../../plugins/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../plugins/layui/dist/css/layui.css">
+    <link rel="stylesheet" href="../../common/css/reset.css">
+    <link rel="stylesheet" href="../../common/css/common.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    <link rel="stylesheet" href="../../css/cooperate/cooperateDetail.css">
+    <title>我要合作</title>
+</head>
+
+<body>
+    <div class='header' ms-controller='header'>
+        <header>
+            <!-- 版心 -->
+            <div class='content_box'>
+                <!-- 顶部的引导导航条 -->
+                <div class='row topBar'>
+                    <div class='col-md-6 col-sm-6'>
+                        <div class='row'>
+                            <div class='col-sm-5'>欢迎登陆纵运汽车服务平台</div>
+                            <div class='col-sm-7'>成都市|<span>切换</span></div>
+                        </div>
+                    </div>
+                    <div class='col-md-6 col-sm-6'>
+                        <div class='row  text-right'>
+                            <div class='col-sm-2 col-sm-offset-6'>消息</div>
+                            <div class='col-md-4 col-sm-4 userMsg'>
+                                <ul class='clearfix'>
+                                    <li>头像</li>
+                                    <li>用户名</li>
+                                </ul>
+                            </div>
+                            <!-- <div class='col-sm-4'>您好,请<a href='javascript:;'>登录</a>或<a href='javaascript:;'>注册</a></div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- 导航条 -->
+        <div class='navBar  fixNavBar'>
+            <!-- 版心 -->
+            <div class='content_box'>
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 bg-fff">
+                        <div class='row'>
+                            <div class='col-sm-9 text-left'><img src="../../images/logo.png" width='202px' height='80px' alt="logo"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-sm-9 pl0">
+                        <ul class="layui-nav">
+                            <li class="layui-nav-item" data-src='../../index.html'><a href="javascript:;">首页</a></li>
+                            <li class="layui-nav-item" data-src='../../views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
+                            <li class="layui-nav-item" data-src='../../views/financial/financial.html'><a href="javascript:;">金融服务</a></li>
+                            <li class="layui-nav-item" data-src='../../views/orderDriver/orderDriver.html'><a href="javascript:;">订单管理</a></li>
+                            <li class="layui-nav-item" data-src='../../views/logistics/logistics.html'><a href="javascript:;">物流公司</a></li>
+                            <li class="layui-nav-item layui-this" data-src='../../views/cooperate/cooperate.html'><a href="javascript:;">我要合作</a></li>
+                            <li class="layui-nav-item" data-src='../../views/download/download.html'><a href="javascript:;">APP下载</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cooperateDetail">
+        <div class='content_box clearfix'>
+            <ul class='tabs'>
+                <li class='active'>商家合作</li>
+                <li>物流公司</li>
+                <li>区域代理</li>
+                <li>广告合作</li>
+            </ul>
+            <div class='tabContent'>
+                <div class='tabItem'>
+                    <div class='tabTitle'><label class='line'></label><span>商家合作</span></div>
+                    <div class='tabDetail'>
+                        <ul class='formItem clearfix'>
+                            <li><span>*</span>企业名称</li>
+                            <li>:</li>
+                            <li><input type="text" class='longInput' placeholder="请输入注册企业名称" /></li>
+                        </ul>
+                        <ul class='formItem clearfix'>
+                            <li><span>*</span>联系人</li>
+                            <li>:</li>
+                            <li><input type="text" class='longInput' placeholder="请输入您的姓名" /></li>
+                        </ul>
+                        <ul class='formItem clearfix'>
+                            <li><span>*</span>联系电话</li>
+                            <li>:</li>
+                            <li><input type="text" class='longInput' placeholder="请输入您的电话号码" /></li>
+                        </ul>
+                        <ul class='formItem clearfix'>
+                            <li><span>*</span>合作业务</li>
+                            <li>:</li>
+                            <li class='countWord'>
+                                <textarea  maxlength="500" class="business"></textarea>
+                                <div class="textarea_counter"><span class="num">0</span>/500</div>
+                            </li>
+                        </ul>
+                        <button class='btn-apply'>申请合作</button>
+                    </div>
+                </div>
+                <div class='tabItem dis_none'>
+                    <div class='tabTitle'><label class='line'></label><span>物流公司合作</span></div>
+                    <div class='tabDetail'>
+                        <ul class='formItem clearfix'>
+                            <li><span>*</span>企业名称</li>
+                            <li>:</li>
+                            <li><input type="text" class='longInput' placeholder="请输入注册企业名称" /></li>
+                        </ul>
+                        <ul class='formItem clearfix'>
+                            <li><span>*</span>联系人</li>
+                            <li>:</li>
+                            <li><input type="text" class='longInput' placeholder="请输入您的姓名" /></li>
+                        </ul>
+                        <ul class='formItem clearfix'>
+                            <li><span>*</span>联系电话</li>
+                            <li>:</li>
+                            <li><input type="text" class='longInput' placeholder="请输入您的电话号码" /></li>
+                        </ul>
+                        <ul class='formItem clearfix'>
+                            <li>车辆数量</li>
+                            <li>:</li>
+                            <li class='rl'><input type="text" class='longInput' placeholder="请输入公司车辆数量" /><label class='unit'>辆</label></li>
+                        </ul>
+                        <ul class='formItem clearfix'>
+                            <li><span>*</span>备注信息</li>
+                            <li>:</li>
+                            <li class='countWord'>
+                                <textarea maxlength="500" class="logistics"></textarea>
+                                <div class="textarea_counter"><span class="num">0</span>/500</div>
+                            </li>
+                        </ul>
+                        <button class='btn-apply'>申请合作</button>
+                    </div>
+                </div>
+                <div class='tabItem dis_none'>
+                    <div class='tabTitle'><label class='line'></label><span>区域代理合作</span></div>
+                    <div class='tabDetail'>
+                        <ul class='formItem clearfix'>
+                            <li><span>*</span>代理城市</li>
+                            <li>:</li>
+                            <li>
+                                <form class="form-inline">
+                        <div data-toggle="distpicker" id="distpicker">
+                            <div class="form-group">
+                                <select class="form-control" data-province="-- 选择省 --"  id="province1"></select>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control"  data-city="-- 选择市 --" id="city1" ></select>
+                            </div>
+                        </div>
+                    </form>
+                            </li>
+                        </ul>
+                        <ul class='formItem clearfix'>
+                            <li><span>*</span>联系人</li>
+                            <li>:</li>
+                            <li><input type="text" class='longInput' placeholder="请输入您的姓名" /></li>
+                        </ul>
+                        <ul class='formItem clearfix'>
+                            <li><span>*</span>联系电话</li>
+                            <li>:</li>
+                            <li><input type="text" class='longInput' placeholder="请输入您的电话号码" /></li>
+                        </ul>
+                        <ul class='formItem clearfix'>
+                            <li>合作简介</li>
+                            <li>:</li>
+                            <li class='countWord'>
+                                <textarea maxlength="500" class="agent"></textarea>
+                                <div class="textarea_counter"><span class="num">0</span>/500</div>
+                            </li>
+                        </ul>
+                        <button class='btn-apply'>申请合作</button>
+                    </div>
+                </div>
+                <div class='tabItem dis_none'>
+                    <div class='tabTitle'><label class='line'></label><span>广告合作</span></div>
+                    <div class='tabDetail'>
+                        <ul class='formItem clearfix'>
+                            <li><span>*</span>联系人</li>
+                            <li>:</li>
+                            <li><input type="text" class='longInput' placeholder="请输入您的姓名" /></li>
+                        </ul>
+                        <ul class='formItem clearfix'>
+                            <li><span>*</span>联系电话</li>
+                            <li>:</li>
+                            <li><input type="text" class='longInput' placeholder="请输入您的电话号码" /></li>
+                        </ul>
+                        <ul class='formItem clearfix'>
+                            <li><span>*</span>广告类型</li>
+                            <li>:</li>
+                            <li><input type="text" class='longInput' placeholder="如汽车用品、汽车保养、金融保险等" /></li>
+                        </ul>
+                        <ul class='formItem clearfix'>
+                            <li>备注信息</li>
+                            <li>:</li>
+                            <li class='countWord'>
+                                <textarea maxlength="500" class="ads"></textarea>
+                                <div class="textarea_counter"><span class="num">0</span>/500</div>
+                            </li>
+                        </ul>
+                        <button class='btn-apply'>申请合作</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src='../../plugins/common/include.js'></script>
+    <include src='../../views/footer/footer.html'></include>
+    <script src='../../plugins/jquery/jquery.min.js'></script>
+    <script src='../../plugins/layui/dist/layui.js'></script>
+    <script src='../../plugins/avalon/avalon.min.js'></script>
+    <script src="../../plugins/distpicker/distpicker.data.js"></script>
+    <script src="../../plugins/distpicker/distpicker.js"></script>
+    <script src="../../plugins/distpicker/main.js"></script>
+    <script src='../../js/header.js'></script>
+    <script src='../../js/cooperate/cooperateDetail.js'></script>
+</body>
+</html>

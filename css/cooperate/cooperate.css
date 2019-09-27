@@ -1,0 +1,61 @@
+.cooperate {
+  margin-top: 71px;
+}
+.item_left {
+  width: 421px;
+  height: 312px;
+  border: solid 1px #f57619;
+  margin-left: 16px;
+}
+.item_left img {
+  margin-left: -5px;
+  margin-top: 6px;
+}
+.orangeBox {
+  width: 54px;
+  height: 47px;
+  background-color: #f57619;
+  margin-left: -17px;
+  margin-top: -30px;
+}
+.rightImg .orangeBox {
+  margin-left: 0px;
+  float: right;
+  margin-right: -15px;
+}
+.titleLine {
+  border-left: 5px solid #f57619;
+  padding-left: 12px;
+  line-height: 35px;
+  margin-top: 31px;
+}
+.item_detail {
+  font-size: 20px;
+}
+.item_detail p:not(:first-child) {
+  margin-top: 18px;
+}
+.item_btn {
+  width: 227px;
+  height: 51px;
+  background-color: #f57619;
+  border-radius: 8px;
+  position: relative;
+}
+.item_btn button {
+  width: 209px;
+  height: 41px;
+  border-radius: 8px;
+  border: 0px;
+  border: solid 1px #ffffff;
+  background-color: #f57619;
+  color: #fff;
+  line-height: 41px;
+  text-align: center;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  margin: auto;
+}

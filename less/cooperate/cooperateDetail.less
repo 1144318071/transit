@@ -1,0 +1,158 @@
+.cooperateDetail {
+    margin-top: 46px;
+    .tabs,
+    .tabContent {
+        float: left;
+
+    }
+}
+// 关于我们标题
+.tabs {
+    width: 245px;
+    height: 385px;
+    background-color: #fffaf6;
+    border-top: solid 1px #ffd1ad;
+    border-right: solid 1px #ffd1ad;
+    li {
+        height: 80px;
+        line-height: 80px;
+        text-align: center;
+        cursor: pointer;
+
+        &:not(:last-child) {
+            border-bottom: solid 1px #eaeaea;
+        }
+
+        &.active {
+            color: #f57619;
+        }
+    }
+}
+
+// 关于我们的一系列内容
+.tabContent {
+    width: 894px;
+    background-color: #fffaf6;
+    margin-left: 56px;
+    font-family: MicrosoftYaHei;
+
+    .tabItem{
+        height: 813px;
+        box-shadow: 0px 2px 0px 0px rgba(117, 113, 110, 0.32);
+    }
+}
+
+.tabTitle {
+    margin-top: 19px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.tabTitle{
+    .line{
+        display: inline-block;
+        width: 6px;
+        height: 37px;
+        background-color: #f57619;
+        vertical-align: middle;
+    }
+    span{
+        display: inline-block;
+        width: 846px;
+        border-bottom: 1px solid #999;
+        padding-left: 8px;
+        margin-left: 13px;
+        padding-bottom: 20px;
+    }
+}
+.formItem {
+    margin-top: 30px;
+    li {
+        float: left;
+        line-height: 33px;
+
+        &:first-child {
+            width: 90px;
+            text-align: right;
+        }
+
+        &:nth-child(2) {
+            margin: 0 8px;
+        }
+        .longInput {
+            width: 287px;
+            height: 35px;
+            padding-left: 10px;
+            border: 0px;
+            outline: none;
+            border: 1px solid #999;
+        }
+        .shortInput {
+            width: 124px;
+            height: 32px;
+            padding-left: 10px;
+        }
+        span{
+            color:#f51919;
+        }
+    }
+}
+// 合作业务
+.business,
+.logistics,
+.agent,
+.ads {
+    width: 720px;
+    height: 362px;
+    background-color: #ffffff;
+    border: solid 1px #999999;
+}
+// 计算用户输入了多少字
+.countWord{
+    position: relative;
+    .textarea_counter{
+        position: absolute;
+        right: 9px;
+        bottom: 8px;
+        color: #999;
+    }
+    .num {
+        color: #999;
+    }
+}
+.btn-apply{
+    width: 137px;
+    height: 43px;
+    background-color: #ffffff;
+    border: 0px;
+    border: solid 1px #f57619;
+    color: #f57619;
+    margin-left: 51px;
+    margin-top: 76px;
+}
+// 数量单位
+.unit{
+    position: absolute;
+    right: 6px;
+    bottom: -4px;
+    vertical-align: middle;
+    line-height: 35px;
+}
+// 代理城市
+#distpicker{
+    .form-control {
+        width: 129px;
+        height: 35px;
+        background-color: #ffffff;
+        border: 0px;
+        outline: none;
+        border: solid 1px #999999;
+        border-radius: 0px;
+        box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0);
+        transition:0;
+    }
+    .form-group{
+        &:nth-child(2){
+            margin-left: 58px;
+        }
+    }
+}
