@@ -1,6 +1,7 @@
 .news_list ul li {
   float: left;
   cursor: pointer;
+  margin-top: 9px;
 }
 .news_list ul li .circle-orange {
   display: inline-block;
@@ -22,11 +23,18 @@
 .btn-more {
   color: #999;
 }
+.news_brands {
+  padding-top: 21px;
+}
+.news_brands ul:not(:first-child) {
+  margin-top: 14px;
+}
 .news_brands ul li {
   float: left;
 }
 .latestNews {
-  padding-left: 48px;
+  padding-left: 50px;
+  height: 310px;
 }
 .hotCarSeries {
   margin-top: 65px;

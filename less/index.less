@@ -1,97 +1,152 @@
-.index {
-  width: 100%;
-}
-
-header {
-  width: 100%;
-  height: 34x;
-  background-color: #f57619;
-
-  .topBar {
-    height: 34px;
-    line-height: 34px;
-    background-color: #f57619;
-    color: #fff;
-    font-size: 14px;
-
-    a:hover,
-    a:link,
-    a:visited {
-      color: #fff !important;
-    }
-  }
-
-}
-
-.content {
-  width: 100%;
-  height: 100%;
-  // background-color:#4091ff;
-  color: #fff;
-  margin-top: 20px;
-}
-
-// 导航
-.layui-nav {
-  padding: 0px 20px 0px 0px;
-}
-
-.navBar {
-  width: 100%;
-  height: 106px;
-  box-shadow: 0 5px 10px -5px #d6d6d6;
-  line-height: 106px;
-}
-
-a:hover,
-a:link,
-a:visited {
-  color: #f57619 !important;
-}
-
-.layui-nav {
-  background-color: #fff;
-  color: #f57619 !important;
-}
-
-.layui-nav .layui-nav-item {
-  line-height: 106px;
-  margin-right: 18px;
-
-  &:last-child {
-    margin-right: 0px;
-  }
-}
-
-.layui-this {
-  background-color: #f57619;
-
-  &>a:hover,
-  a:link,
-  a:visited {
-    color: #fff !important;
-  }
-}
-
-.layui-nav .layui-this:after,
-.layui-nav-bar,
-.layui-nav-tree .layui-nav-itemed:after {
-  height: 0px;
-}
-
-.layui-nav * {
-  font-size: 18px;
-}
-
-// 导航结束
+// 轮播图片
 .banner {
   width: 100%;
+  margin-top: 151px;
+}
+// 公告通知
+.inform{
+  margin-top: 18px;
+  ul{
+    li{
+      font-size: 14px;
+      color: #000;
+      float: left;
+      line-height: 24px;
+      &:nth-child(2){
+        margin-left: 14px;
+      }
+      &:nth-child(3){
+        margin:0 8px;
+      }
+    }
+  }
+}
+// 发布订单系列的内容
+.itemContent{
+  margin-top: 31px;
+}
+.itemBox{
+  width: 352px;
+  height: 352px;
+  background-color: #f8f8f8;
+  text-align: center;
+  padding-top: 21px;
+  float: left;
+  &:not(:first-child){
+    margin-left: 72px;
+  }
+  &.active{
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.27);
+  }
+  img{
+    width: 175px;
+    height: 175px;
+    margin: 0 auto;
+  }
+}
+.itemTitle{
+  margin-top: 24px;
+  span{
+    &:nth-child(2){
+      margin:0 12px;
+    }
+  }
+}
+.hLine{
+  display: inline-block;
+  width: 15px;
+  border-bottom: 1px solid #000;
+  vertical-align: middle;
+}
+.itemDes{
+  margin-top: 23px;
+  line-height: 24px;
+}
+// 首页的主体内容
+.indexContent{
+  width: 100%;
+  margin-top: 32px;
+  background-color: #f8f8f8;
+}
+.news_list ul {
+  color: #000;
+  li {
+    float: left;
+    cursor: pointer;
+    margin-top: 12px;
+    .circle-orange {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 6px;
+      background-color: #f57619;
+    }
+
+    &>a:hover {
+      color: #f57619;
+      border-bottom: 1px solid #f57619;
+    }
+
+    &:last-child {
+      color: #666;
+    }
+  }
 }
 
-// 头部抽离
-// .fixNavBar {
-//   position: fixed;
-//   top:0px;
-//   left:0px;
-//   z-index:1000;
-// }
+.news_title {
+  .line{
+    display: inline-block;
+    height: 23px;
+    border-left: 5px solid #ea6f15;
+    padding-right: 7px;
+    line-height: 35px;
+    vertical-align: middle;
+  }
+    
+}
+.latestNews {
+  height: 310px;
+}
+// 轮播改写
+#focus{
+  width: 410px;
+  height: 332px;
+  margin-left: 0px;
+  ul{
+    height: 294px;
+    li{
+      width: 410px;
+      height: 332px;
+      .slideother{
+        top: 298px;
+      }
+    }
+  }
+}
+// 车图片信息展示
+.img_carSeries,
+.img_carSeries_small {
+  position: relative;
+}
+.img_carSeries{
+  cursor: pointer;
+  &:nth-child(2){
+    margin-top: 7px;
+  }
+}
+.info_carSeries {
+  width: 331px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding-left: 12px;
+  color: #fff;
+  .carIntroduce{
+    height: 38px;
+    line-height: 38px;
+  }
+}
+.showImgs{
+  padding-left: 38px;
+}

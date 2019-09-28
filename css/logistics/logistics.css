@@ -1,4 +1,5 @@
 .showMsg {
+  background-color: red;
   width: 100%;
   height: 209px;
   background-image: url('../../images/showBox.png');
@@ -27,6 +28,11 @@
 }
 .companyInfo {
   position: relative;
+}
+.bannerImg {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 106px;
 }
 .showMsg {
   position: absolute;
@@ -92,7 +98,7 @@
 }
 .searchInput {
   margin-top: 20px;
-  margin-bottom: 8px;
+  margin-bottom: 30px;
 }
 .searchInput li {
   float: left;
@@ -132,4 +138,109 @@
   background-color: #f57619;
   vertical-align: middle;
   margin-right: 16px;
+}
+.itemTitle {
+  height: 43px;
+  background-color: #fffaf6;
+  line-height: 43px;
+  padding-right: 23px;
+}
+.itemTitle li {
+  float: right;
+}
+.itemTitle img {
+  vertical-align: middle;
+}
+.itemDetail > div,
+.itemDetail img {
+  float: left;
+}
+.itemDetail ul li {
+  float: left;
+}
+.itemDetail ul li:nth-child(2) {
+  margin: 0 8px;
+}
+.itemDetail img {
+  padding: 11px 0px 0px 17px;
+}
+.itemBox {
+  width: 767px;
+  height: 194px;
+  border: 1px solid #eaeaea;
+  background-color: #ffffff;
+}
+.itemBox:not(:first-child) {
+  margin-top: 48px;
+}
+.itemDes {
+  padding-top: 20px;
+  margin-left: 24px;
+}
+.itemDes .name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+.itemDes .core {
+  width: 66px;
+  height: 27px;
+  background-color: #f57619;
+  color: #fff;
+  line-height: 27px;
+  text-align: center;
+}
+.countBox {
+  width: 309px;
+  height: 303px;
+  border: 1px solid #999;
+  padding-left: 20px;
+  padding-top: 28px;
+}
+.countBox:not(:first-child) {
+  margin-top: 78px;
+}
+.countBox .countTitle {
+  font-size: 22px;
+  font-weight: bold;
+}
+.countBox .countNumber {
+  width: 179px;
+  height: 179px;
+  text-align: center;
+  background-color: #fffaf6;
+  border-radius: 179px;
+  line-height: 179px;
+  margin-left: 48px;
+  margin-top: 32px;
+}
+.countBox .countNumber span {
+  color: #f57619;
+}
+.countBox .countNumber span:first-child {
+  font-size: 44px;
+  font-weight: bold;
+}
+.countBox .countNumber span:last-child {
+  font-size: 35px;
+}
+.countBox .btn-apply {
+  width: 195px;
+  height: 42px;
+  background-color: #f57619;
+  color: #fff;
+  outline: none;
+  border: 0px;
+  border: 1px solid #f57619;
+  line-height: 42px;
+  text-align: center;
+  margin-top: 19px;
+  margin-left: 37px;
+}
+.layui-laypage {
+  margin: 67px 0px 0px 78px;
+}
+.layui-laypage a,
+.layui-laypage span {
+  font-size: 16px;
 }

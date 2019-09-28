@@ -15,7 +15,7 @@
     <title>汽车大厅</title>
 </head>
 <body>
-   <div class='header' ms-controller='header'>
+   <div class='header fixHeader' ms-controller='header'>
         <header>
             <!-- 版心 -->
             <div class='content_box'>
@@ -60,7 +60,7 @@
                             <li class="layui-nav-item" data-src='../../views/orderDriver/orderDriver.html'><a href="javascript:;">订单管理</a></li>
                             <li class="layui-nav-item" data-src='../../views/logistics/logistics.html'><a href="javascript:;">物流公司</a></li>
                             <li class="layui-nav-item" data-src='../../views/cooperate/cooperate.html'><a href="javascript:;">我要合作</a></li>
-                            <li class="layui-nav-item" data-src='../../views/download/download.html'><a href="javascript:;">APP下载</a></li>
+                            <li class="layui-nav-item" data-src='javascript:;'><a href="javascript:;">APP下载</a></li>
                         </ul>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
         </div>
     </div>
     <!-- 汽车大厅 -->
-    <div  ms-controller='root'>
+    <div class='carHallContent'  ms-controller='root'>
         <!-- 版心 -->
         <div class='content_box'>
             <!-- 轻卡等分类系列 -->
@@ -111,7 +111,7 @@
                             <!-- 代码 开始 -->
                             <div id="focus">
                                 <ul>
-                                    <li ms-for='(index,el) in @newsList' ms-if='index < 3'>
+                                    <!-- <li ms-for='(index,el) in @newsList' ms-if='index < 3'>
                                         <h2>
                                             <a href="http://www.baidu.com">
                                                 <img ms-attr='{ src:el.images,alt:el.title }' width='380px' height='270px'  />
@@ -122,16 +122,40 @@
                                                 <a href="http://www.baidu.com" ms-text='el.title'></a>
                                             </div>
                                         </div>
-                                    </li>
+                                    </li> -->
                                     <li>
                                         <h2>
                                             <a href="http://www.baidu.com">
-                                                <img src='../../images/timg.gif'  width='380px' height='270px'  alt="biubiubiu~~~" />
+                                                <img src='../../images/timg.gif'  width='387px' height='276px'  alt="biubiubiu~~~" />
                                             </a>
                                         </h2>
                                         <div class="slideother">
                                             <div class="h12">
                                                 <a href="http://www.baidu.com">biubiubiu~~~</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h2>
+                                            <a href="http://www.baidu.com">
+                                                <img src='../../images/1.jpg'  width='387px' height='276px'  alt="轮播图1~~~" />
+                                            </a>
+                                        </h2>
+                                        <div class="slideother">
+                                            <div class="h12">
+                                                <a href="http://www.baidu.com">轮播23333~~~</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <h2>
+                                            <a href="http://www.baidu.com">
+                                                <img src='../../images/1.jpg'  width='387px' height='276px'  alt="轮播图2~~~" />
+                                            </a>
+                                        </h2>
+                                        <div class="slideother">
+                                            <div class="h12">
+                                                <a href="http://www.baidu.com">轮播QAQ~~~</a>
                                             </div>
                                         </div>
                                     </li>
@@ -141,44 +165,49 @@
                     </div>
                     <!-- 最新新闻 显示8条数据 从第4条开始显示-->
                     <div class='col-md-5 col-sm-5 latestNews pr0'>
-                        <div class="news_title font26  mb10">最新新闻<span class='ml4 mr4'>:</span>新型货车通告</div>
+                        <div class="news_title font26">最新新闻<span class='ml4 mr4'>:</span>新型货车通告</div>
                         <div class='news_list font16'>
                             <ul class='clearfix'>
                                 <li><span class='circle-orange'></span></li>
                                 <li class='ml10'><a  data-src='carNewsDetail.html' href='javascript:;' ms-on-click='@getPage($event)'>国六实施倒计时1天 7月1日这些政策即将实施</a></li>
                                 <li class='ml10'>07/01</li>
                             </ul>
-                            <ul class='clearfix mt10'>
+                            <ul class='clearfix'>
                                 <li><span class='circle-orange'></span></li>
                                 <li class='ml10'>国六实施倒计时1天 7月1日这些政策即将实施</li>
                                 <li class='ml10'>07/01</li>
                             </ul>
-                            <ul class='clearfix mt10'>
+                            <ul class='clearfix'>
                                 <li><span class='circle-orange'></span></li>
                                 <li class='ml10'>国六实施倒计时1天 7月1日这些政策即将实施</li>
                                 <li class='ml10'>07/01</li>
                             </ul>
-                            <ul class='clearfix mt10'>
+                            <ul class='clearfix'>
                                 <li><span class='circle-orange'></span></li>
                                 <li class='ml10'>国六实施倒计时1天 7月1日这些政策即将实施</li>
                                 <li class='ml10'>07/01</li>
                             </ul>
-                            <ul class='clearfix mt10'>
+                            <ul class='clearfix'>
                                 <li><span class='circle-orange'></span></li>
                                 <li class='ml10'>国六实施倒计时1天 7月1日这些政策即将实施</li>
                                 <li class='ml10'>07/01</li>
                             </ul>
-                            <ul class='clearfix mt10'>
+                            <ul class='clearfix'>
                                 <li><span class='circle-orange'></span></li>
                                 <li class='ml10'>国六实施倒计时1天 7月1日这些政策即将实施</li>
                                 <li class='ml10'>07/01</li>
                             </ul>
-                            <ul class='clearfix mt10'>
+                            <ul class='clearfix'>
                                 <li><span class='circle-orange'></span></li>
                                 <li class='ml10'>国六实施倒计时1天 7月1日这些政策即将实施</li>
                                 <li class='ml10'>07/01</li>
                             </ul>
-                            <ul class='clearfix mt10'>
+                            <ul class='clearfix'>
+                                <li><span class='circle-orange'></span></li>
+                                <li class='ml10'>国六实施倒计时1天 7月1日这些政策即将实施</li>
+                                <li class='ml10'>07/01</li>
+                            </ul>
+                            <ul class='clearfix'>
                                 <li><span class='circle-orange'></span></li>
                                 <li class='ml10'>国六实施倒计时1天 7月1日这些政策即将实施</li>
                                 <li class='ml10'>07/01</li>
@@ -187,26 +216,26 @@
                     </div>
                     <!-- 热门品牌 -->
                     <div class='col-md-3 col-sm-3 pl0 pr0'>
-                        <div class="news_title font26  mb10">热门品牌</div>
+                        <div class="news_title font26">热门品牌</div>
                         <div class='news_brands'>
-                            <ul class='clearfix mt10'>
-                                <li data-src='brandsDetail.html' ms-on-click='@getPage($event)'><img src="../../images/brands.png" width='130px' height='42px' alt=""></li>
-                                <li class='ml20'><img src="../../images/brands.png" width='130px' height='42px' alt=""></li>
+                            <ul class='clearfix'>
+                                <li data-src='brandsDetail.html' ms-on-click='@getPage($event)'><img src="../../images/brands.png" width='127px' height='40px' alt=""></li>
+                                <li class='ml20'><img src="../../images/brands.png" width='127px' height='40px' alt=""></li>
                             </ul>
-                            <ul class='clearfix mt10'>
-                                <li><img src="../../images/brands.png" width='130px' height='42px' alt=""></li>
-                                <li class='ml20'><img src="../../images/brands.png" width='130px' height='42px' alt=""></li>
+                            <ul class='clearfix'>
+                                <li><img src="../../images/brands.png" width='127px' height='40px' alt=""></li>
+                                <li class='ml20'><img src="../../images/brands.png" width='127px' height='40px' alt=""></li>
                             </ul>
-                            <ul class='clearfix mt10'>
-                                <li><img src="../../images/brands.png" width='130px' height='42px' alt=""></li>
-                                <li class='ml20'><img src="../../images/brands.png" width='130px' height='42px' alt=""></li>
+                            <ul class='clearfix'>
+                                <li><img src="../../images/brands.png" width='127px' height='40px' alt=""></li>
+                                <li class='ml20'><img src="../../images/brands.png" width='127px' height='40px' alt=""></li>
                             </ul>
-                            <ul class='clearfix mt10'>
-                                <li><img src="../../images/brands.png" width='130px' height='42px' alt=""></li>
-                                <li class='ml20'><img src="../../images/brands.png" width='130px' height='42px' alt=""></li>
+                            <ul class='clearfix'>
+                                <li><img src="../../images/brands.png" width='127px' height='40px' alt=""></li>
+                                <li class='ml20'><img src="../../images/brands.png" width='127px' height='40px' alt=""></li>
                             </ul>
-                            <ul class='clearfix mt10'>
-                                <li><img src="../../images/brands.png" width='130px' height='42px' alt=""></li>
+                            <ul class='clearfix'>
+                                <li><img src="../../images/brands.png" width='127px' height='40px' alt=""></li>
                                 <li class='ml20'><button class='btn-project btn-more' data-src='brandsTotal.html' ms-on-click='@getPage($event)'>查看更多&gt;&gt;</button></li>
                             </ul>
                         </div>
@@ -317,7 +346,7 @@
                     <img src="../../images/ads.png" width='100%' height='144px' alt="加盟广告">
                 </div>
                 <!-- 车市数据 -->
-                <div class='row city_car mt20'>
+                <div class='row  city_car mt20'>
                     <div class='col-md-12 col-sm-12'>
                         <div class="news_title font26 mb40">成都市车市</div>
                         <div class="tab">

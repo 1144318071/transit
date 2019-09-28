@@ -1,15 +1,15 @@
+
 // 展示消息盒子的背景图片
 .showMsg {
+    background-color: red;
     width: 100%;
     height: 209px;
     background-image: url('../../images/showBox.png');
     border: 1px solid #999;
-
     .showImg {
         padding-left: 40px;
         padding-top: 47px;
     }
-
 }
 .cName {
     font-size: 26px;
@@ -35,7 +35,11 @@
 .companyInfo {
     position: relative;
 }
-
+.bannerImg{
+    width: 100%;
+    overflow: hidden;
+    margin-top: 106px;
+}
 .showMsg {
     position: absolute;
     left: 0px;
@@ -104,8 +108,7 @@
 // 搜索
 .searchInput {
     margin-top: 20px;
-    margin-bottom: 8px;
-
+    margin-bottom: 30px;
     li {
         float: left;
 
@@ -130,6 +133,7 @@
         }
     }
 }
+// 司机的内容
 .drivers{
     margin-top: 65px;
 }
@@ -147,4 +151,126 @@
         vertical-align: middle;
         margin-right: 16px;
     }
+}
+// 司机信息
+.itemTitle{
+    height: 43px;
+    background-color: #fffaf6;
+    line-height: 43px;
+    padding-right: 23px;
+    li{
+        float: right;
+    }
+    img{
+        vertical-align: middle;
+    }
+}
+// 司机信息详情
+.itemDetail {
+    &>div,img{
+        float: left;
+    }
+    ul{
+        li{
+            float: left;
+            &:nth-child(2){
+                margin:0 8px;
+            }
+        }
+    }
+    img{
+        padding: 11px 0px 0px 17px;
+    }
+}
+.itemBox{
+    width: 767px;
+    height: 194px;
+    border: 1px solid #eaeaea;
+    background-color: #ffffff;
+    &:not(:first-child){
+        margin-top: 48px;
+    }
+}
+.itemDes{
+    padding-top: 20px;
+    margin-left: 24px;
+    .name{
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 24px;
+    }
+    .core{
+        width: 66px;
+        height: 27px;
+        background-color: #f57619;
+        color: #fff;
+        line-height: 27px;
+        text-align: center;
+    }
+}
+.itemContent{
+    // .item,
+    // .countContent{
+    //     float: left;
+    // }
+}
+// 统计的盒子
+.countBox {
+    width: 309px;
+    height: 303px;
+    border: 1px solid #999;
+    padding-left: 20px;
+    padding-top: 28px;
+    &:not(:first-child) {
+        margin-top: 78px;
+    }
+    .countTitle {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .countNumber {
+        width: 179px;
+        height: 179px;
+        text-align: center;
+        background-color: #fffaf6;
+        border-radius: 179px;
+        line-height: 179px;
+        margin-left: 48px;
+        margin-top: 32px;
+        span {
+            color: #f57619;
+
+            &:first-child {
+                font-size: 44px;
+                font-weight: bold;
+            }
+
+            &:last-child {
+                font-size: 35px;
+            }
+        }
+    }
+
+    .btn-apply {
+        width: 195px;
+        height: 42px;
+        background-color: #f57619;
+        color: #fff;
+        outline: none;
+        border: 0px;
+        border: 1px solid #f57619;
+        line-height: 42px;
+        text-align: center;
+        margin-top: 19px;
+        margin-left: 37px;
+    }
+}
+.layui-laypage {
+    margin: 67px 0px 0px 78px;
+}
+
+.layui-laypage a,
+.layui-laypage span {
+    font-size: 16px;
 }

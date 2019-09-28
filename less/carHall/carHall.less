@@ -1,8 +1,10 @@
+
 // 最新新闻列表
 .news_list ul{
     li{
         float:left;
         cursor: pointer;
+        margin-top: 9px;
         .circle-orange{
             display: inline-block;
             width:6px;
@@ -28,14 +30,19 @@
 }
 // 热门品牌
 .news_brands{
+    padding-top: 21px;
     ul{
+        &:not(:first-child){
+            margin-top: 14px;
+        }
         li{
             float:left;
         }
     }
 }
 .latestNews{
-    padding-left:48px;
+    padding-left:50px;
+    height: 310px;
 }
 // 热门车系
 .hotCarSeries{

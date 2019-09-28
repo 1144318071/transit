@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../../css/logistics/logistics.css">
 </head>
 <body>
-    <div class='header' ms-controller='header'>
+    <div class='header fixHeader' ms-controller='header'>
         <header>
             <!-- 版心 -->
             <div class='content_box'>
@@ -59,7 +59,7 @@
                             <li class="layui-nav-item" data-src='../../views/orderDriver/orderDriver.html'><a href="javascript:;">订单管理</a></li>
                             <li class="layui-nav-item layui-this" data-src='#'><a href="javascript:;">物流公司</a></li>
                             <li class="layui-nav-item" data-src='../../views/cooperate/cooperate.html'><a href="javascript:;">我要合作</a></li>
-                            <li class="layui-nav-item" data-src='../../views/download/download.html'><a href="javascript:;">APP下载</a></li>
+                            <li class="layui-nav-item" data-src='javascript:;'><a href="javascript:;">APP下载</a></li>
                         </ul>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
         <div class='clearfix'></div>
     </div>
     <!-- 内容板块 -->
-    <div class='content_box'>
+    <div class='content_box' ms-controller='root'>
         <div class='countItems clearfix'>
             <div class='countItem clearfix'>
                 <img src="../../images/wl1.png" alt="">
@@ -109,7 +109,7 @@
                     <li>1222<span>单</span></li>
                 </ul>
                 <div class='clearfix'></div>
-                <div class='mask'>
+                <div class='mask' ms-on-click='@checkOrders'>
                     查看所有订单
                 </div>
             </div>
@@ -120,7 +120,7 @@
                     <li>1222<span>￥</span></li>
                 </ul>
                 <div class='clearfix'></div>
-                <div class='mask'>
+                <div class='mask' ms-on-click='@checkAmount'>
                     查看所有订单金额
                 </div>
             </div>
@@ -142,6 +142,111 @@
                 <li><input type="text" placeholder="输入姓名或者电话号码搜索"></li>
                 <li><button>搜索</button></li>
             </ul>
+        </div>
+        <div class='itemContent clearfix'>
+            <div class='item pull-left clearfix'>
+                <div class='itemBox'>
+                    <ul class='itemTitle clearfix'>
+                        <li>185 8541 5626</li>
+                        <li><img src="../../images/phone.png" alt=""></li>
+                    </ul>
+                    <div class='itemDetail clearfix'>
+                        <img src="../../images/driverLogo.png" alt="司机头像">
+                        <div class='itemDes'>
+                            <div class='name'>王某某</div>
+                            <ul class='clearfix'>
+                                <li>信用分</li>
+                                <li>:</li>
+                                <li class='core'>65分</li>
+                            </ul>
+                            <ul class='clearfix mt20'>
+                                <li>运货次数</li>
+                                <li>:</li>
+                                <li>556单</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class='itemBox'>
+                    <ul class='itemTitle clearfix'>
+                        <li>185 8541 5626</li>
+                        <li><img src="../../images/phone.png" alt=""></li>
+                    </ul>
+                    <div class='itemDetail clearfix'>
+                        <img src="../../images/driverLogo.png" alt="司机头像">
+                        <div class='itemDes'>
+                            <div class='name'>王某某</div>
+                            <ul class='clearfix'>
+                                <li>信用分</li>
+                                <li>:</li>
+                                <li class='core'>65分</li>
+                            </ul>
+                            <ul class='clearfix mt20'>
+                                <li>运货次数</li>
+                                <li>:</li>
+                                <li>556单</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class='itemBox'>
+                    <ul class='itemTitle clearfix'>
+                        <li>185 8541 5626</li>
+                        <li><img src="../../images/phone.png" alt=""></li>
+                    </ul>
+                    <div class='itemDetail clearfix'>
+                        <img src="../../images/driverLogo.png" alt="司机头像">
+                        <div class='itemDes'>
+                            <div class='name'>王某某</div>
+                            <ul class='clearfix'>
+                                <li>信用分</li>
+                                <li>:</li>
+                                <li class='core'>65分</li>
+                            </ul>
+                            <ul class='clearfix mt20'>
+                                <li>运货次数</li>
+                                <li>:</li>
+                                <li>556单</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class='itemBox'>
+                    <ul class='itemTitle clearfix'>
+                        <li>185 8541 5626</li>
+                        <li><img src="../../images/phone.png" alt=""></li>
+                    </ul>
+                    <div class='itemDetail clearfix'>
+                        <img src="../../images/driverLogo.png" alt="司机头像">
+                        <div class='itemDes'>
+                            <div class='name'>王某某</div>
+                            <ul class='clearfix'>
+                                <li>信用分</li>
+                                <li>:</li>
+                                <li class='core'>65分</li>
+                            </ul>
+                            <ul class='clearfix mt20'>
+                                <li>运货次数</li>
+                                <li>:</li>
+                                <li>556单</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="demo2"></div>
+            </div>
+            <div class='countContent pull-right'>
+                <div class='countBox'>
+                    <div class='countTitle'>在线司机</div>
+                    <div class='countNumber'>
+                        <span>1222</span><span>位</span></div>
+                </div>
+                <div class='countBox'>
+                    <div class='countTitle'>运输中</div>
+                    <div class='countNumber'>
+                        <span>1222</span></div>
+                </div>
+            </div>
         </div>
     </div>
     <script src='../../plugins/common/include.js'></script>

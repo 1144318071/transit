@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="../../plugins/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../plugins/layui/dist/css/layui.css">
+    <link rel="stylesheet" href="../../common/css/reset.css">
+    <link rel="stylesheet" href="../../common/css/common.css">
+    <link rel="stylesheet" href="../../css/logistics/checkModel.css">
+    </script>
+    <title>全部订单记录</title>
+</head>
+
+<body>
+    <div class='checkOrders' ms-controller='root'>
+        <div class='titleLine'>
+            <span class='line'></span>
+            <span class='title'>全部订单记录(232)</span>
+        </div>
+        <div class='ordersList'>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>序号</td>
+                        <td>订单编号</td>
+                        <td>装货地/卸货地</td>
+                        <td>运输类型</td>
+                        <td>时间</td>
+                        <td>运输司机</td>
+                        <td>联系电话</td>
+                        <td>金额</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>15151513123</td>
+                        <td>绵阳-成都</td>
+                        <td>渣土运输</td>
+                        <td>2019-09-14</td>
+                        <td>张三</td>
+                        <td>18586935686</td>
+                        <td>123.0元</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>15151513123</td>
+                        <td>绵阳-成都</td>
+                        <td>渣土运输</td>
+                        <td>2019-09-14</td>
+                        <td>张三</td>
+                        <td>18586935686</td>
+                        <td>123.0元</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>15151513123</td>
+                        <td>绵阳-成都</td>
+                        <td>渣土运输</td>
+                        <td>2019-09-14</td>
+                        <td>张三</td>
+                        <td>18586935686</td>
+                        <td>123.0元</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>15151513123</td>
+                        <td>绵阳-成都</td>
+                        <td>渣土运输</td>
+                        <td>2019-09-14</td>
+                        <td>张三</td>
+                        <td>18586935686</td>
+                        <td>123.0元</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>15151513123</td>
+                        <td>绵阳-成都</td>
+                        <td>渣土运输</td>
+                        <td>2019-09-14</td>
+                        <td>张三</td>
+                        <td>18586935686</td>
+                        <td>123.0元</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>15151513123</td>
+                        <td>绵阳-成都</td>
+                        <td>渣土运输</td>
+                        <td>2019-09-14</td>
+                        <td>张三</td>
+                        <td>18586935686</td>
+                        <td>123.0元</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>15151513123</td>
+                        <td>绵阳-成都</td>
+                        <td>渣土运输</td>
+                        <td>2019-09-14</td>
+                        <td>张三</td>
+                        <td>18586935686</td>
+                        <td>123.0元</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>15151513123</td>
+                        <td>绵阳-成都</td>
+                        <td>渣土运输</td>
+                        <td>2019-09-14</td>
+                        <td>张三</td>
+                        <td>18586935686</td>
+                        <td>123.0元</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>15151513123</td>
+                        <td>绵阳-成都</td>
+                        <td>渣土运输</td>
+                        <td>2019-09-14</td>
+                        <td>张三</td>
+                        <td>18586935686</td>
+                        <td>123.0元</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>15151513123</td>
+                        <td>绵阳-成都</td>
+                        <td>渣土运输</td>
+                        <td>2019-09-14</td>
+                        <td>张三</td>
+                        <td>18586935686</td>
+                        <td>123.0元</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="demo2"></div>
+    </div>
+    <script src='../../plugins/jquery/jquery.min.js'></script>
+    <script src='../../plugins/layui/dist/layui.js'></script>
+    <script src='../../plugins/avalon/avalon.min.js'></script>
+    <script>
+        layui.use(['laypage', 'layer'], function () {
+            var laypage = layui.laypage,
+                layer = layui.layer;
+            //自定义样式
+            laypage.render({
+                elem: 'demo2',
+                count: 1000,
+                theme: '#f57619'
+            });
+        });
+    </script>
+</body>
+
+</html>

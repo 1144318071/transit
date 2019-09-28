@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="f5739d9c-d2b8-4bca-b6ec-6b8023d519b6" name="Never" url="http://139.155.127.155">
+        <fileTransfer host="139.155.127.155" port="43961">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="43961" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
