@@ -10,3 +10,13 @@ $('.layui-nav .layui-nav-item:not(:last-child)').on('click', function () {
     var src = $(this).attr('data-src');
     location.href = src;
 });
+// app下载
+$('.downLoad').hover(function(){
+    $(this).addClass('layui-this');
+    $(this).siblings().removeClass('layui-this');
+    $(this).find('.downloadApp').slideDown();
+
+},function(){
+    $(this).removeClass('layui-this');
+    $(this).find('.downloadApp').slideUp();
+});

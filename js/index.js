@@ -52,3 +52,8 @@ layui.use(['carousel', 'form'], function () {
         });
     });
 });
+$(function(){
+    var test = new Vcity.CitySelector({
+        input: 'citySelect'
+    });
+}); 

@@ -41,5 +41,6 @@ gulp.task('watch', ['less'], function() {
     gulp.watch('common/js/*.js', ['less','cleanCSS']).on('change', browserSync.reload);
     gulp.watch('less/**/*.less', ['less','cleanCSS']).on('change', browserSync.reload);
     gulp.watch('js/**/*.js', ['less','cleanCSS']).on('change', browserSync.reload);
+    gulp.watch('data/**/*.js', ['less', 'cleanCSS']).on('change', browserSync.reload);
     gulp.watch('css/**/*.css', ['less','cleanCSS']).on('change', browserSync.reload);
 });
