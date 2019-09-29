@@ -13,12 +13,17 @@ function getNowFormatDate() {
     var currentdate = date.getFullYear() + seperator + month + seperator + strDate;
     return currentdate;
 }
+
 getAjax(API.URL_POST_SETTOKEN, 'post', {
     version: '2.0.1',
     author: '丶Lee',
     email: '1144318071@qq.com',
-    date: getNowFormatDate
+    date: getNowFormatDate,
+    xhrFields: {
+        withCredentials: true
+    }
 }).then(function (res) {
     // 保存token
     localStorage.setItem('token',res.result.token);
 });
+var token = localStorage.getItem('token');

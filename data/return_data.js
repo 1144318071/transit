@@ -1,3 +1,4 @@
+var token = localStorage.getItem('token')
 // 错误信息提示
 layui.use('layer', function () {
     layer = layui.layer;
@@ -7,27 +8,27 @@ function alertMsg(msg, icon) {
         icon: icon
     });
 }
-window.token = localStorage.getItem('token');
-function getAjax(url,type,data){
+function getAjax(url, type, data) {
     return new Promise(function (resolve, reject) {
         $.ajax({
             url: url,
             type: type,
             dataType: 'json',
             async: true,
-            data:data,
+            data: data,
             xhrFields: {
                 withCredentials: true
-            },
-        }).done(function (res) {
-            if(res.code == 200){
-                console.log(res)
             }
-            var ajaxdata = res;
-            console.log('23423',res)
-            // 返回thisdata
-            resolve(ajaxdata);
-        }).fail(function (err){
+        }).done(function (res) {
+            if (res.code == 77893 || res.code == 77894) {
+                alertMsg(res.message, 1);
+                location.href = '../views/login.html'
+            } else if (res.code == 200) {
+                resolve(res);
+            } else {
+                alertMsg(res.message, 2);
+            }
+        }).fail(function (err) {
             reject(err);
         });
     });

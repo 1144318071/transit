@@ -20,3 +20,31 @@ $('.downLoad').hover(function(){
     $(this).removeClass('layui-this');
     $(this).find('.downloadApp').slideUp();
 });
+$(function(){
+    avalon.ready(function(){
+        window.vmHeader = avalon.define({
+            $id : 'header',
+            userInfo:{},
+            onLoad:function(){
+                vmHeader.isLogin();
+            },
+            // 判断用户是否登录
+            isLogin:function(){
+                var userInfo = JSON.parse(localStorage.getItem('userInfo'));
+                if(userInfo){
+                    // 已经登录
+                    vmHeader.userInfo = userInfo;
+                    console.log(userInfo);
+                    $('.userMsg').show();
+                    $('.userLogin').hide();
+                }else{
+                    $('.userMsg').hide();
+                    $('.userLogin').show();
+
+                }
+            }
+        });
+        vmHeader.onLoad();
+        avalon.scan(document.body);
+    });
+});
