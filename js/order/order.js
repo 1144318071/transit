@@ -3,7 +3,27 @@ layui.use(['laypage', 'layer'], function () {
     layer = layui.layer;
     //自定义样式
     laypage.render({
+        elem: 'demo1',
+        count: 1000,
+        theme: '#f57619'
+    });
+    laypage.render({
         elem: 'demo2',
+        count: 1000,
+        theme: '#f57619'
+    });
+    laypage.render({
+        elem: 'demo3',
+        count: 1000,
+        theme: '#f57619'
+    });
+    laypage.render({
+        elem: 'demo4',
+        count: 1000,
+        theme: '#f57619'
+    });
+    laypage.render({
+        elem: 'demo5',
         count: 1000,
         theme: '#f57619'
     });
@@ -11,6 +31,12 @@ layui.use(['laypage', 'layer'], function () {
 $('.tab li').click(function(){
     $(this).addClass('active').siblings().removeClass('active');
     $('.tabContent .tabItem').eq($(this).index()).show().siblings().hide();
+});
+// 联系电话
+$('.code').hover(function(){
+    $(this).find('.codeContent').show();
+},function(){
+    $(this).find('.codeContent').hide();
 });
 $(function(){
     avalon.ready(function(){
@@ -38,13 +64,13 @@ $(function(){
                     title: false,
                     skin: 'layui-layer-demo', //样式类名
                     closeBtn: 1, //不显示关闭按钮
-                    area: ['974px', '901px'],
+                    area: ['876px', '625px'],
                     shadeClose: true, //开启遮罩关闭
-                    content: ['/views/orderDriver/orderCancel.html']
+                    content: ['/views/order/orderCancel.html']
                 });
             },
-            // 申述
-            orderAppeal:function(){
+            // 投诉
+            orderComplain: function () {
                 top.layer.open({
                     type: 2,
                     title: false,
@@ -52,7 +78,31 @@ $(function(){
                     closeBtn: 1, //不显示关闭按钮
                     area: ['969px', '848px'],
                     shadeClose: true, //开启遮罩关闭
-                    content: ['/views/orderDriver/orderDes.html']
+                    content: ['/views/order/orderComplain.html']
+                });
+            },
+            // 申述
+            orderState:function(){
+                top.layer.open({
+                    type: 2,
+                    title: false,
+                    skin: 'layui-layer-demo', //样式类名
+                    closeBtn: 1, //不显示关闭按钮
+                    area: ['969px', '848px'],
+                    shadeClose: true, //开启遮罩关闭
+                    content: ['/views/order/orderState.html']
+                });
+            },
+            // 申述中
+            orderStating:function(){
+                top.layer.open({
+                    type: 2,
+                    title: false,
+                    skin: 'layui-layer-demo', //样式类名
+                    closeBtn: 1, //不显示关闭按钮
+                    area: ['969px', '848px'],
+                    shadeClose: true, //开启遮罩关闭
+                    content: ['/views/order/orderStating.html']
                 });
             },
             // 查看路线

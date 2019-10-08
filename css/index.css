@@ -179,30 +179,3 @@
 footer {
   margin-top: 0px;
 }
-.demo {
-  width: 380px;
-  z-index: 1000;
-  border: 1px solid #999;
-  background-color: #fff;
-  border-bottom: 0px;
-}
-.demo input {
-  margin: 20px 0px 10px 36px;
-  width: 284px;
-  height: 46px;
-  line-height: 46px;
-  border: 0px;
-  outline: none;
-  border: 1px solid #999;
-}
-.itemTop {
-  border-bottom: 1px solid #999;
-}
-.citySelect {
-  position: relative;
-}
-.citySelect .demo {
-  position: absolute;
-  top: 34px;
-  left: 44px;
-}

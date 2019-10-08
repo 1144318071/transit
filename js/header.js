@@ -42,6 +42,18 @@ $(function(){
                     $('.userLogin').show();
 
                 }
+            },
+            // 城市选择插件
+            citySelect:function(){
+                top.layer.open({
+                    type: 2,
+                    title: false,
+                    skin: 'layui-layer-demo', //样式类名
+                    closeBtn: 1, //不显示关闭按钮
+                    area: ['963px', '635px'],
+                    shadeClose: true, //开启遮罩关闭
+                    content: ['/views/header/citySelect.html']
+                });
             }
         });
         vmHeader.onLoad();

@@ -14,6 +14,7 @@ footer {
 .footerBar > li {
   float: left;
   margin-right: 100px;
+  cursor: pointer;
 }
 .permission {
   margin-left: 38%;

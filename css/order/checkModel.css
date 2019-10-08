@@ -43,9 +43,27 @@
   color: #f22121;
 }
 .cancelContent {
-  padding-left: 58px;
-  padding-top: 17px;
-  padding-right: 265px;
+  text-align: center;
+  padding-top: 98px;
+}
+.cancelContent img {
+  padding-bottom: 40px;
+}
+.cancelContent .btn-orange {
+  width: 213px;
+  height: 61px;
+  line-height: 61px;
+  text-align: center;
+  font-size: 20px;
+}
+.cancelContent .buttons {
+  margin-top: 103px;
+  margin-left: 143px;
+}
+.cancelContent .tips {
+  color: #999;
+  margin-top: 10px;
+  margin-left: -280;
 }
 .inputCheck {
   position: relative;
@@ -87,13 +105,26 @@
 .eventDetail li textarea {
   width: 616px;
   height: 198px;
-  margin-top: 18px;
+}
+.otherReason li:nth-child(2),
+.eventDetail li:nth-child(2) {
+  margin-top: 17px;
+}
+.orderDes .eventDetail li {
+  float: left;
 }
 .uploadImg {
   margin-top: 30px;
 }
 .uploadImg > ul {
   margin-top: 23px;
+}
+.orderDes .uploadImg > ul,
+.orderDes .uploadImg > div {
+  float: left;
+}
+.orderDes .uploadImg > ul {
+  margin-top: 0px;
 }
 .upload {
   position: relative;
@@ -174,8 +205,8 @@
   margin: 0 8px;
 }
 .input li input {
-  width: 541px;
-  height: 30px;
+  width: 264px;
+  height: 24px;
   border: 0px;
   border: 1px solid #999;
 }
@@ -190,4 +221,20 @@
   height: 820px;
   overflow: hidden;
   margin: 0;
+}
+.orderDes {
+  padding-left: 60px;
+  padding-top: 45px;
+}
+.orderDes input {
+  padding-left: 10px;
+}
+.orderState {
+  padding: 26px 0px 0px 55px;
+}
+.cancelState .btn-orange {
+  width: 228px;
+  height: 39px;
+  line-height: 39px;
+  text-align: center;
 }

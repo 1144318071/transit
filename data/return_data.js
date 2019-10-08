@@ -22,7 +22,7 @@ function getAjax(url, type, data) {
         }).done(function (res) {
             if (res.code == 77893 || res.code == 77894) {
                 alertMsg(res.message, 1);
-                location.href = '../views/login.html'
+                location.href = '../login.html'
             } else if (res.code == 200) {
                 resolve(res);
             } else {

@@ -53,5 +53,5 @@ layui.use(['carousel', 'form'], function () {
     });
 });
 $(function(){
-  
+   
 }); 

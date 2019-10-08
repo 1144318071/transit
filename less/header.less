@@ -17,6 +17,17 @@ header .topBar a:link,
 header .topBar a:visited {
     color: #fff !important;
 }
+header .topBar .city-tabs  a:hover,
+header .topBar .city-tabs a:link,
+header .topBar .city-tabs a:visited {
+    color: #333 !important;
+}
+header .topBar .city-cont a:hover,
+header .topBar .city-cont a:link,
+header .topBar .city-cont a:visited {
+    color: #333 !important;
+}
+
 .layui-nav {
     padding: 0px 20px 0px 0px;
 }
@@ -112,4 +123,15 @@ header .topBar a:visited {
             }
         }
     }
+}
+
+.citySelect{
+    position: relative;
+    span{
+        cursor: pointer;
+    }
+}
+// 城市选择插件
+.city-select .city-info span{
+    background-color: #fff;
 }

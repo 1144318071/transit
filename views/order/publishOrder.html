@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <link rel="stylesheet" href="../../plugins/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../plugins/layui/dist/css/layui.css">
+    <link rel="stylesheet" href="../../common/css/reset.css">
+    <link rel="stylesheet" href="../../common/css/common.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    <link rel="stylesheet" href="../../css/order/publishOrder.css">
+    <title>订单管理</title>
+</head>
+
+<body>
+    <div class='header fixHeader' ms-controller='header'>
+        <header>
+            <!-- 版心 -->
+            <div class='content_box'>
+                <!-- 顶部的引导导航条 -->
+                <div class='row topBar'>
+                    <div class='col-md-6 col-sm-6'>
+                        <div class='row'>
+                            <div class='col-sm-5'>欢迎登陆纵运汽车服务平台</div>
+                            <div class='col-sm-7'>成都市|<span>切换</span></div>
+                        </div>
+                    </div>
+                    <div class='col-md-6 col-sm-6'>
+                        <div class='row  text-right'>
+                            <div class='col-sm-2 col-sm-offset-6'>消息</div>
+                            <div class='col-md-4 col-sm-4 userMsg'>
+                                <ul class='clearfix'>
+                                    <li>头像</li>
+                                    <li>用户名</li>
+                                </ul>
+                            </div>
+                            <!-- <div class='col-sm-4'>您好,请<a href='javascript:;'>登录</a>或<a href='javaascript:;'>注册</a></div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- 导航条 -->
+        <div class='navBar  fixNavBar'>
+            <!-- 版心 -->
+            <div class='content_box'>
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 bg-fff">
+                        <div class='row'>
+                            <div class='col-sm-9 text-left'><img src="../../images/logo.png" width='202px' height='80px' alt="logo"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-sm-9 pl0">
+                        <ul class="layui-nav">
+                            <li class="layui-nav-item" data-src='../../index.html'><a href="javascript:;">首页</a></li>
+                            <li class="layui-nav-item" data-src='../../views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
+                            <li class="layui-nav-item" data-src='../../views/financial/financial.html'><a href="javascript:;">金融服务</a></li>
+                            <li class="layui-nav-item layui-this" data-src='../../views/orderDriver/orderDriver.html'><a href="javascript:;">订单管理</a></li>
+                            <li class="layui-nav-item" data-src='../../views/logistics/logistics.html'><a href="javascript:;">物流公司</a></li>
+                            <li class="layui-nav-item" data-src='../../views/cooperate/cooperate.html'><a  href="javascript:;">我要合作</a></li>
+                            <li class="layui-nav-item" data-src='javascript:;'><a href="javascript:;">APP下载</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='publishOrder bg-gray' ms-controller='root'>
+        <div class='content_box'>
+            <!-- 加盟广告 -->
+            <div class='ads'>
+                <img src="../../images/ads.png" width='100%' height='144px' alt="加盟广告">
+            </div>
+            <div class='row breadNav'>
+                <div class='col-md-12 col-sm-12 ml0'>
+                    <span>当前位置<span style='margin:0 8px;'>:</span></span>
+                    <span class="layui-breadcrumb" lay-separator=">">
+                        <a href="../../index.html">首页</a>
+                        <a href="order.html">订单管理</a>
+                        <a href='javascript:;'><cite>发布订单</cite></a>
+                    </span>
+                </div>
+            </div>
+            <div class='publishSteps clearfix'>
+                <ul>
+                    <li><img src="../../images/step_one.png" alt="填写订单资料"></li>
+                    <li>填写订单资料</li>
+                </ul>
+                <div class='stepLine'></div>
+                <ul>
+                    <li><img src="../../images/step_two.png" alt="选择运输保单"></li>
+                    <li>选择运输保单</li>
+                </ul>
+                <div class='stepLine'></div>
+                <ul>
+                    <li><img src="../../images/step_three.png" alt="支付运费"></li>
+                    <li>支付运费</li>
+                </ul>
+                <div class='stepLine'></div>
+                <ul>
+                    <li><img src="../../images/step_three.png" alt="发布订单"></li>
+                    <li>发布订单</li>
+                </ul>
+            </div>
+            <div class='formContent'>
+                <div class='titleLine'>
+                    <span class='line'></span>
+                    <span class='title'>填写订单资料</span>
+                </div>
+                <div class='form'>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src='../../plugins/common/include.js'></script>
+    <include src='../../views/footer/footer.html'></include>
+    <script src='../../plugins/jquery/jquery.min.js'></script>
+    <script src='../../plugins/layui/dist/layui.js'></script>
+    <script src='../../plugins/avalon/avalon.min.js'></script>
+    <script src='../../js/header.js'></script>
+</body>
+
+</html>
