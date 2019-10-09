@@ -23,19 +23,19 @@
             </div>
             <div class='model-content'>
                 <div class="layui-input-block phone">
-                    <input type="text" name="username" lay-verify="required" lay-reqtext="手机号必填" placeholder="绑定手机号码" autocomplete="off" class="layui-input">
+                    <input type="text" name="username" lay-verify="required" ms-duplex='@postData.username' lay-reqtext="手机号必填" placeholder="绑定手机号码" autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-input-block clearfix">
-                    <input type="text" name="text"  placeholder="请输入验证码" autocomplete="off" class="layui-input checkCode pull-left">
+                    <input type="text" name="text"  placeholder="请输入验证码" ms-duplex='@postData.code' autocomplete="off" class="layui-input checkCode pull-left">
                     <button type="button" id="layui-btn-Code" class="layui-btn-Code pull-left" ms-on-click='@getCheckCode'>获取验证码</button>
                 </div>
                 <div class="layui-input-block">
-                    <input type="text" name="pwd" lay-verify="required" lay-reqtext="新密码" placeholder="输入新密码" autocomplete="off" class="layui-input">
+                    <input type="password" name="pwd" lay-verify="required" lay-reqtext="新密码" ms-duplex='@postData.password' placeholder="输入新密码" autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-input-block">
-                    <input type="text" name="Rpwd" lay-verify="required" lay-reqtext="确认密码" placeholder="确认新密码" autocomplete="off" class="layui-input">
+                    <input type="password" name="Rpwd" lay-verify="required" lay-reqtext="确认密码" ms-duplex='@postData.password_confirm' placeholder="确认新密码" autocomplete="off" class="layui-input">
                 </div>
-                <button type="button" class="layui-btn layui-btn-primary font16 mt60">确<span class='ml40'>定</span></button>
+                <button type="button" class="layui-btn layui-btn-primary font16 mt60" ms-on-click='@changePwd'>确<span class='ml40'>定</span></button>
             </div>
         </div>
     </div>

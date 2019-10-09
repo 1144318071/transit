@@ -116,6 +116,19 @@ $(function(){
                     shadeClose: true, //开启遮罩关闭
                     content: ['/views/orderDriver/checkLine.html']
                 });
+            },
+            // 查看详情
+            checkDetail:function(){
+                console.log('查看详情');
+                top.layer.open({
+                    type: 2,
+                    title: false,
+                    skin: 'layui-layer-demo', //样式类名
+                    closeBtn: 1, //不显示关闭按钮
+                    area: ['1133px', '743px'],
+                    shadeClose: true, //开启遮罩关闭
+                    content: ['/views/order/orderDetail.html']
+                });
             }
         });
         vmOrderDriver.onLoad();

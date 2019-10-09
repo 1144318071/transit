@@ -14,29 +14,38 @@
     <div class="changePhone" ms-controller='root'>
         <div class='row loginTips'>
             <div class='col-md-6 col-sm-6'>纵运服务平台</div>
-            <div class='col-md-6 col-sm-6 text-right'><a class='mr4' href='javascript:;'>个人中心</a>|<a class='ml4'
-                    href='javascript:;'>返回首页</a></div>
+            <div class='col-md-6 col-sm-6 text-right'><a class='mr4' href='../personal/personal.html'>个人中心</a>|<a class='ml4' href='../../index.html'>返回首页</a></div>
         </div>
         <div class='model'>
             <div class='model-title row'>
                 <div class='col-md-12 col-sm-12'>修改手机号</div>
             </div>
-            <div class='model-content'>
-
+            <div class='model-content pwdMsg'>
                 <div class="layui-input-block phone">
-                    <input type="text" name="username" lay-verify="required" lay-reqtext="新手机号必填" placeholder="新手机号" autocomplete="off" class="layui-input">
+                    <input type="text" name="username" ms-duplex='@stepOne.username' lay-verify="required" lay-reqtext="原手机号或账号" placeholder="原手机号或账号" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-input-block">
+                    <input type="password" name="username" ms-duplex='@stepOne.password' lay-verify="required" lay-reqtext="输入账号密码" placeholder="输入账号密码" autocomplete="off" class="layui-input">
+                </div>
+                <button type="button" class="layui-btn layui-btn-primary font16 mt60" ms-on-click='@nextStep'>下一步</button>
+            </div>
+            <div class='model-content codeMsg dis_none'>
+                <div class="layui-input-block phone">
+                    <input type="text" name="username" ms-duplex='@stepTwo.username' lay-verify="required" lay-reqtext="新手机号必填" placeholder="新手机号" autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-input-block clearfix">
-                    <input type="text" name="text" placeholder="请输入验证码" autocomplete="off" class="layui-input checkCode pull-left">
+                    <input type="text" name="text" placeholder="请输入验证码"  ms-duplex='@stepTwo.code' autocomplete="off" class="layui-input checkCode pull-left">
                     <button type="button" id="layui-btn-Code" class="layui-btn-Code pull-left" ms-on-click='@getCheckCode'>获取验证码</button>
                 </div>
-                <button type="button" class="layui-btn layui-btn-primary font16 mt60">确<span class='ml40'>定</span></button>
+                <button type="button" class="layui-btn layui-btn-primary font16 mt60" ms-on-click='@changePwd'>确认</button>
             </div>
         </div>
     </div>
     <script src='../../plugins/jquery/jquery.min.js'></script>
     <script src='../../plugins/layui/dist/layui.js'></script>
     <script src='../../plugins/avalon/avalon.min.js'></script>
+    <script src='../../data/api.js'></script>
+    <script src='../../data/return_data.js'></script>
     <script src='../../js/login/changePhone.js'></script>
 </body>
 </html>

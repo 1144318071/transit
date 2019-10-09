@@ -16,31 +16,45 @@
     <div class="completeInfo" ms-controller='root'>
         <div class='row loginTips'>
             <div class='col-md-6 col-sm-6'>纵运服务平台</div>
-            <div class='col-md-6 col-sm-6 text-right'><a class='mr4' href='javascript:;'>个人中心</a>|<a class='ml4' href='javascript:;'>返回首页</a></div>
+            <div class='col-md-6 col-sm-6 text-right'><a class='mr4' href='../personal/personal.html'>个人中心</a>|<a class='ml4' href='../../index.html'>返回首页</a></div>
         </div>
         <div class='model'>
             <div class='model-title row'>
                 <div class='col-md-12 col-sm-12'>完善信息</div>
             </div>
-            <div class='model-content'>
+            <div class='model-content companyInfo'>
                 <div class="layui-form-item">
                     <label class="layui-form-label font16">公司名称:</label>
                     <div class="layui-input-block name">
-                        <input type="text" name="addtress" lay-verify="required" lay-reqtext="公司名称必填" placeholder="输入公司名称" autocomplete="off" class="layui-input">
+                        <input type="text" name="addtress" ms-duplex='@postData.company_name' lay-verify="required" lay-reqtext="公司名称必填" placeholder="输入公司名称" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item clearfix">
+                    <label class="layui-form-label font16 pull-left">上传公司logo:</label>
+                    <div class="layui-upload upload pull-left">
+                        <img id="logo" src="../../images/license.png" width="88px" height="118px" alt="">
+                        <span class="uploadimg">
+                            <button type="button" class="layui-btn" id="test1">上传图片</button>
+                            <img class="img-responsive" src="../../images/upload.png" alt="">
+                        </span>
+                    </div>
+                    <div class='tips pull-left color-999'>
+                        <p>1、请上传白色底色或者png形式logo图片</p>
+                        <p>2、仅支持jpg、png格式logo上传，大小不超过1M</p>
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label font16">营业执照:</label>
                     <div class="layui-input-block">
-                        <input type="text" lay-verify="required" lay-reqtext="营业执照编号必填" placeholder="输入营业执照编号" autocomplete="off" class="layui-input">
+                        <input type="text" lay-verify="required" ms-duplex='@postData.business_license_number' lay-reqtext="营业执照编号必填" placeholder="输入营业执照编号" autocomplete="off" class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item clearfix">
                     <label class="layui-form-label font16 pull-left">上传营业执照:</label>
                     <div class="layui-upload upload pull-left">
-                        <img id="license" src="../../images/cardetail.png" width="88px" height="118px" alt="">
+                        <img id="license" src="../../images/license.png" width="88px" height="118px" alt="">
                         <span class="uploadimg">
-                            <button type="button" class="layui-btn" id="test3">上传图片</button>
+                            <button type="button" class="layui-btn" id="test2">上传图片</button>
                             <img class="img-responsive" src="../../images/upload.png" alt="">
                         </span>
                     </div>
@@ -48,15 +62,16 @@
                 <div class="layui-form-item clearfix">
                     <label class="layui-form-label font16 pull-left">公司地址:</label>
                     <form class="form-inline ml15 pull-left">
-                        <div data-toggle="distpicker">
+                        <div id='distpicker' data-toggle="distpicker">
                             <div class="form-group">
-                                <select class="form-control" ms-duplex='@areaList.provinceCode' data-duplex-changed='getPcode'id="province1"></select>
+                                <!-- data-duplex-changed='getPcode' -->
+                                <select class="form-control"  ms-duplex='@areaList.provinceCode' data-duplex-changed='getPcode'  id="province1"></select>
                             </div>
                             <div class="form-group">
-                                <select class="form-control" ms-duplex='@areaList.cityCode' data-duplex-changed='getCcode' id="city1"></select>
+                                <select class="form-control" ms-duplex='@areaList.cityCode'  data-duplex-changed='getCcode' id="city1"></select>
                             </div>
                             <div class="form-group">
-                                <select class="form-control" ms-duplex='@areaList.areaCode' data-duplex-changed='getAcode' id="district1"></select>
+                                <select class="form-control" ms-duplex='@areaList.areaCode'  data-duplex-changed='getAcode' id="district1"></select>
                             </div>
                         </div>
                     </form>
@@ -64,10 +79,26 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label font16">详细地址:</label>
                     <div class="layui-input-block">
-                        <input type="text" lay-verify="required" lay-reqtext="" placeholder="" autocomplete="off" class="layui-input">
+                        <input type="text" lay-verify="required" ms-duplex='@postData.address' lay-reqtext="" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
-                <button type="button" class="layui-btn layui-btn-primary font16 mt60">确定修改</span></button>
+                <button type="button" class="layui-btn layui-btn-primary font16 mt60" ms-on-click='@nextStep'>下一步</span></button>
+            </div>
+            <div class='model-content dis_none changePassword'>
+                <div class="layui-input-block phone">
+                    <input type="text" name="username" ms-duplex='@postData.mobile' lay-verify="required" lay-reqtext="手机号必填" placeholder="绑定手机号码" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-input-block clearfix">
+                    <input type="text" name="text"  ms-duplex='@postData.code'  placeholder="请输入验证码" autocomplete="off" class="layui-input checkCode pull-left">
+                    <button type="button" id="layui-btn-Code" class="layui-btn-Code pull-left" ms-on-click='@getCheckCode'>获取验证码</button>
+                </div>
+                <div class="layui-input-block">
+                    <input type="password" name="pwd"  ms-duplex='@postData.password'  lay-verify="required" lay-reqtext="新密码" placeholder="输入新密码" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-input-block">
+                    <input type="password" name="Rpwd"  ms-duplex='@postData.password_confirm'  lay-verify="required" lay-reqtext="确认密码" placeholder="确认新密码" autocomplete="off" class="layui-input">
+                </div>
+                <button type="button" class="layui-btn layui-btn-primary font16 mt60" ms-on-click='@CompleteInfo'>确<span class='ml40'>定</span></button>
             </div>
         </div>
     </div>
@@ -77,37 +108,8 @@
     <script src='../../plugins/distpicker/distpicker.data.js'></script>
     <script src='../../plugins/distpicker/distpicker.js'></script>
     <script src='../../plugins/distpicker/main.js'></script>
+    <script src='../../data/api.js'></script>
+    <script src='../../data/return_data.js'></script>
     <script src='../../js/login/completeInfo.js'></script>
-    <script>
-        layui.use('upload', function () {
-            var $ = layui.jquery,
-                upload = layui.upload;
-           var uploadInst = upload.render({
-                elem: '#test3',
-                url: '/upload/',
-                data: {
-                   
-                },
-                before: function (obj) {
-                    //预读本地文件示例，不支持ie8
-                    obj.preview(function (index, file, result) {
-                        // $('#demo1').attr('src', result); //图片链接（base64）;
-                    });
-                },
-                done: function (res) {
-                    console.log(res)
-                },
-                error: function () {
-
-                }
-            });
-        });
-        $('.upload').hover(function () {
-            $(this).find('.uploadimg').show();
-        }, function () {
-            $(this).find('.uploadimg').hide();
-        })
-    </script>
 </body>
-
 </html>

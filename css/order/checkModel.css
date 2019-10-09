@@ -1,9 +1,10 @@
 .titleLine {
-  font-size: 26px;
+  font-size: 20px;
   height: 82px;
   line-height: 82px;
   border-bottom: 1px solid #999;
   padding-left: 30px;
+  font-weight: bold;
 }
 .titleLine .line {
   display: inline-block;

@@ -26,7 +26,7 @@ header .topBar .city-cont a:visited {
   color: #333 !important;
 }
 .layui-nav {
-  padding: 0px 20px 0px 0px;
+  padding: 0px 20px 0px 0px !important;
 }
 .navBar {
   width: 100%;
@@ -41,7 +41,7 @@ header .topBar .city-cont a:visited {
   color: #f57619 !important;
 }
 .layui-nav {
-  background-color: #fff;
+  background-color: #fff !important;
   color: #f57619 !important;
 }
 .layui-nav .layui-nav-item {

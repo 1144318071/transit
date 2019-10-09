@@ -58,7 +58,7 @@
                             <li class="layui-nav-item" data-src='../../index.html'><a href="javascript:;">首页</a></li>
                             <li class="layui-nav-item" data-src='../../views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
                             <li class="layui-nav-item" data-src='../../views/financial/financial.html'><a href="javascript:;">金融服务</a></li>
-                            <li class="layui-nav-item layui-this" data-src='../../views/orderDriver/orderDriver.html'><a href="javascript:;">订单管理</a></li>
+                            <li class="layui-nav-item layui-this" data-src='../../views/orderDriver/orderDriver.html'><a href="javascript:;">合作商家</a></li>
                             <li class="layui-nav-item" data-src='../../views/logistics/logistics.html'><a href="javascript:;">物流公司</a></li>
                             <li class="layui-nav-item" data-src='../../views/cooperate/cooperate.html'><a href="javascript:;">我要合作</a></li>
                             <li class="layui-nav-item" data-src='javascript:;'><a href="javascript:;">APP下载</a></li>
@@ -113,9 +113,9 @@
                                
                                 <div class='row orderContent'>
                                     <div class='col-md-2 col-sm-2'>
-                                        <img src="../../images/fruit.png" alt="">
+                                        <img src="../../images/fruit.png" ms-on-click='@checkDetail' alt="">
                                     </div>
-                                    <div class='orderDes col-md-8 col-sm-8'>
+                                    <div class='orderDes col-md-8 col-sm-8' ms-on-click='@checkDetail'>
                                         <ul>
                                             <li>
                                                 <span>成都</span>
@@ -137,9 +137,6 @@
                                             </li>
                                             <li>待付金额&nbsp;:&nbsp;<span>12321</span></li>
                                         </ul>
-                                    </div>
-                                    <div class='col-md-2 col-sm-2 code'>
-                                       
                                     </div>
                                     <div class='col-md-2 col-sm-2'>
                                         <ul class='transport'>

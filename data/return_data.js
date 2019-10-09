@@ -1,4 +1,3 @@
-var token = localStorage.getItem('token')
 // 错误信息提示
 layui.use('layer', function () {
     layer = layui.layer;
@@ -22,7 +21,9 @@ function getAjax(url, type, data) {
         }).done(function (res) {
             if (res.code == 77893 || res.code == 77894) {
                 alertMsg(res.message, 1);
-                location.href = '../login.html'
+                setTimeout(function(){
+                    location.href = '../login.html'
+                },2000);
             } else if (res.code == 200) {
                 resolve(res);
             } else {

@@ -91,7 +91,7 @@ footer {
   border: 1px solid #eaeaea;
 }
 .formLogo {
-  padding-left: 22px;
+  padding-left: 22px!important;
 }
 .informTitle li {
   float: left;
@@ -448,4 +448,9 @@ footer {
 }
 .calendar {
   cursor: pointer;
+}
+.btn-orange a:hover,
+.btn-orange a:link,
+.btn-orange a:visited {
+  color: #fff !important;
 }

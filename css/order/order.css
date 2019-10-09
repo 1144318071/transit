@@ -241,3 +241,9 @@
   left: 74px;
   cursor: pointer;
 }
+.order-detail img {
+  cursor: pointer;
+}
+.order-detail .orderDes {
+  cursor: pointer;
+}

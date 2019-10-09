@@ -52,7 +52,7 @@
                             <li class="layui-nav-item" data-src='../../index.html'><a href="javascript:;">首页</a></li>
                             <li class="layui-nav-item" data-src='../../views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
                             <li class="layui-nav-item" data-src='../../views/financial/financial.html'><a href="javascript:;">金融服务</a></li>
-                            <li class="layui-nav-item" data-src='../../views/orderDriver/orderDriver.html'><a href="javascript:;">订单管理</a></li>
+                            <li class="layui-nav-item" data-src='../../views/orderDriver/orderDriver.html'><a href="javascript:;">合作商家</a></li>
                             <li class="layui-nav-item" data-src='../../views/logistics/logistics.html'><a href="javascript:;">物流公司</a></li>
                             <li class="layui-nav-item" data-src='../../views/cooperate/cooperate.html'><a href="javascript:;">我要合作</a></li>
                             <li class="layui-nav-item  downLoad" data-src='javascript:;'>
@@ -110,7 +110,7 @@
                                 </ul>
                             </div>
                             <div class='col-md-6 col-sm-6 text-right'>
-                                <button class='btn-orange'>更换</button>
+                                <button class='btn-orange'><a href='../login/changePhone.html'>更换</a></button>
                             </div>
                         </div>
                         <div class='row description pt50'>
@@ -124,13 +124,13 @@
                                 </ul>
                             </div>
                             <div class='col-md-6 col-sm-6 text-right'>
-                                <button class='btn-orange mt8'>修改</button>
+                                <button class='btn-orange mt8' ms-on-click='@changePwd'>修改</button>
                             </div>
                         </div>
                         <div class='row description pt30'>
                             <div class='col-md-12 col-sm-12'>
                                 <ul class='clearfix'>
-                                    <li>实名人证</li>
+                                    <li>实名认证</li>
                                     <li>:</li>
                                     <li></li>
                                 </ul>
@@ -526,6 +526,8 @@
     <script src='../../plugins/avalon/avalon.min.js'></script>
     <script src='../../js/header.js'></script>
     <script src='../../js/personal/personal.js'></script>
+    <!-- 个人资料 -->
+    <script src='../../js/personal/personalData.js'></script>
     <!-- 车辆管理 -->
     <script src='../../js/personal/vehicleManagement.js'></script>
     <!-- 账户 -->
