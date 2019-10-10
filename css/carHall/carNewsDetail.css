@@ -45,7 +45,7 @@
   color: #000;
 }
 .relativeNews {
-  padding-left: 40px;
+  padding-left: 40px!important;
 }
 .relativeNews ul {
   margin-top: 15px;

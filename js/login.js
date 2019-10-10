@@ -44,28 +44,30 @@ $(function(){
                 vmLogin.postData._token_ = localStorage.getItem('token');
                 getAjax(API.URL_POST_USERLOGIN,'post',vmLogin.postData).then(function(res){
                     localStorage.setItem('userInfo',JSON.stringify(res.result));
-                    console.log(res);
-                    var type = res.result.type;
-                    // 商家登陆
-                    switch(type){
-                        case 'PERSONAL':
-                            location.href = '../index.html';
-                            break;
-                        case 'MERCHANT':
-                            location.href = '../views/login/completeInfo.html';
-                            break;
-                        case 'LOGISTICS':
-                            location.href = '../views/login/completeInfo.html';
-                            break;
-                        case 'PROXY':
-                            location.href = '../views/login/changePwd.html';
-                            break;
-                        default:
-                            break;
+                    var userInfo = res.result;
+                    //没有进行实名认证
+                    if(userInfo.verfied){
+                        location.href = '../index.html';
+                    }else{
+                        var type = res.result.type;
+                        // 商家登陆
+                        switch(type){
+                            case 'PERSONAL':
+                                location.href = '../index.html';
+                                break;
+                            case 'MERCHANT':
+                                location.href = '../views/login/completeInfo.html';
+                                break;
+                            case 'LOGISTICS':
+                                location.href = '../views/login/completeInfo.html';
+                                break;
+                            case 'PROXY':
+                                location.href = '../views/login/changePwd.html';
+                                break;
+                            default:
+                                break;
+                        };
                     }
-                    // setTimeout(function(){
-                    //     location.href = './index.html';
-                    // },1000)
                 });
             },
             // 司机密码登录

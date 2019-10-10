@@ -1,8 +1,13 @@
 layui.use('upload', function () {
     var token = localStorage.getItem('token');
-    console.log(token)
-    var $ = layui.jquery,
-        upload = layui.upload;
+    $ = layui.$;
+    upload = layui.upload;
+    $.ajaxSetup({
+        // 发送cookie
+        xhrFields: {
+            withCredentials: true
+        },
+    });
     //普通图片上传
     var uploadInst = upload.render({
         elem: '#test1',
@@ -10,22 +15,15 @@ layui.use('upload', function () {
         data: {
             "_token_": token,
         },
-        xhrFields: {
-            withCredentials: true
-        },
-        before: function (obj) {
-            //预读本地文件示例，不支持ie8
-            obj.preview(function (index, file, result) {
-                
-            });
-        },
         done: function (res) {
-            //如果上传失败
-            if (res.code > 0) {
-                return layer.msg('上传失败');
-            }
             //上传成功
-            console.log(res)
+            if(res.code === 200){
+                alertMsg(res.message,1);
+                $('#logo').attr('src', getApiHost + res.result.crop).css({'width': "88px", "height": '118px'});
+                vmCompleteInfo.postData.company_logo = res.result.crop;
+            }else{
+                alertMsg(res.message,2);
+            }
         },
         error: function () {
             //演示失败状态，并实现重传
@@ -38,19 +36,18 @@ layui.use('upload', function () {
     });
     upload.render({
         elem: '#test2',
-        url: '/upload/',
-        before: function (obj) {
-            //预读本地文件示例，不支持ie8
-            obj.preview(function (index, file, result) {
-                $('#demo1').attr('src', result); //图片链接（base64）
-            });
+        url: API.URL_POST_UPLOADFILE,
+        data: {
+            "_token_": token,
         },
         done: function (res) {
-            //如果上传失败
-            if (res.code > 0) {
-                return layer.msg('上传失败');
+            if(res.code === 200){
+                alertMsg(res.message,1);
+                $('#license').attr('src', getApiHost + res.result.crop).css({'width': "88px", "height": '118px'});
+                vmCompleteInfo.postData.business_license = res.result.crop;
+            }else{
+                alertMsg(res.message,2);
             }
-            //上传成功
         },
         error: function () {
             //演示失败状态，并实现重传
@@ -110,18 +107,46 @@ layui.use('upload', function () {
             },
             // 下一步
             nextStep: function () {
-                if (vmCompleteInfo.postData.company_name == '' || vmCompleteInfo.postData.business_license_number == '' || vmCompleteInfo.postData.address == '') {
+                console.log(vmCompleteInfo.postData);
+                if (vmCompleteInfo.postData.company_name === '' || vmCompleteInfo.postData.business_license_number === '' || vmCompleteInfo.postData.address === '') {
                     alertMsg('所有信息都不能为空', 2);
-                } else if (vmCompleteInfo.postData.company_logo == '' || vmCompleteInfo.postData.business_license) {
+                } else if (vmCompleteInfo.postData.company_logo ==='' || vmCompleteInfo.postData.business_license === '') {
                     alertMsg('请上传图片', 2);
                 } else {
                     $('.companyInfo').hide();
                     $('.changePassword').show();
-                    console.log(vmCompleteInfo.postData);
                 }
+            },
+            // 获取验证码(加上倒计时功能)
+            getCheckCode:function(){
+                var token  = localStorage.getItem('token');
+                var getCode = {
+                    '_token_': token,
+                    'mobile': vmCompleteInfo.postData.mobile
+                };
+                getAjax(API.URL_POST_SENDCODE, 'post', getCode).then(function (res) {
+                    alertMsg(res.message,1)
+                });
+                let count = 60;
+                const countDown = setInterval(()=>{
+                    if(count === 0){
+                        $('.layui-btn-Code').text('获取验证码').removeAttr('disabled');
+                        clearInterval(countDown);
+                    }else{
+                        $('.layui-btn-Code').attr('disabled',true);
+                        $('.layui-btn-Code').css({'background':'#ff0000','cursor':'pointer'});
+                        $('.layui-btn-Code').text('重新发送(' + count+')');
+                    }
+                    count--;
+                },1000);
             },
             // 完善信息
             CompleteInfo:function(){
+                var token = localStorage.getItem('token');
+                vmCompleteInfo.postData._token_ = token;
+                getAjax(API.URL_POST_VERIFYCOMPANY,'post',vmCompleteInfo.postData).then(function(res){
+                    console.log(res);
+                });
             }
         });
         vmCompleteInfo.onLoad();

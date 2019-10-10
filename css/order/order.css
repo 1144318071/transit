@@ -15,7 +15,7 @@
   padding-bottom: 10px;
 }
 .tab li {
-  font-size: 24px;
+  font-size: 22px;
   float: left;
   cursor: pointer;
 }
@@ -32,7 +32,6 @@
 }
 .tab li.active {
   color: #f57619;
-  font-weight: bold;
 }
 .searchInput {
   margin-top: 20px;
