@@ -27,5 +27,48 @@ var API = {
     URL_POST_EDITCOMPANY: getApiHost + '/company/edit',
     //----------------------------------------------汽车大厅-----------------------------------
     // 最新新闻
-    URL_GET_NEWS: getApiHost + '/news'
+    URL_GET_NEWS: getApiHost + '/news',
+    //----------------------------------------------首页-----------------------------------
+    URL_GET_ENTERPRISELIST : getApiHost + '/enterprise/list',
+    //新闻详情
+    URL_GET_NEWSINFO : getApiHost + '/newsInfo',
+    //获取banner图
+    URL_GET_BANNERLIST : getApiHost + '/banner/list'
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

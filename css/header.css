@@ -131,3 +131,25 @@ header .topBar .city-cont a:visited {
 .userInfo{
   padding-left:10px!important;
 }
+/*物流管理的下拉*/
+.layui-nav .layui-nav-more{
+  border-color: #fff transparent transparent;
+  border-top-color: #fff;
+}
+.layui-nav .layui-nav-mored, .layui-nav-itemed>a .layui-nav-more{
+  border-color: transparent transparent #fff;
+}
+.layui-nav .layui-nav-child dd.layui-this a, .layui-nav-child dd.layui-this{
+  background-color:#f57619;
+}
+.address {
+  border: none;
+  color: #fff;
+  background: border-box;
+}
+.kucity {
+  background: snow;
+  z-index: 10000;
+  width: 40rem;
+  top: 34px !important;
+}

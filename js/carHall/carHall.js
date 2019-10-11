@@ -22,7 +22,7 @@ $(function(){
             newsData:{
                 '_token_': token,
                 'page': '1',
-                'limit': '11',
+                'limit': '14',
                 'type': '20',
                 'news_type': ''
             },
@@ -32,9 +32,9 @@ $(function(){
             },
             getNewsList:function(){
                 getAjax(API.URL_GET_NEWS, 'get', vmCarHall.newsData).then(function (res) {
-                    for(var i=0;i<res.result.length;i++){
-                        res.result[i].images = getApiHost + res.result[i].images;
-                    }
+                    // for(var i=0;i<res.result.length;i++){
+                    //     res.result[i].images = getApiHost + res.result[i].images;
+                    // }
                     vmCarHall.newsList = res.result;
                     console.log(vmCarHall.newsList);
                 });

@@ -14,7 +14,7 @@ $(function(){
             $id : 'header',
             userInfo:{},
             onLoad:function(){
-                vmHeader.isLogin();
+                // vmHeader.isLogin();
             },
             // 判断用户是否登录
             isLogin:function(){

@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="./common/css/common.css">
         <link rel="stylesheet" href="./css/header.css">
         <link rel="stylesheet" href="./css/footer.css">
-        <link rel="stylesheet" href="./css/index.css">
+<!--        <link rel="stylesheet" href="./css/index.css">-->
     </head>
     <body>
         <div class='header fixHeader' ms-controller='header'>
@@ -36,7 +36,7 @@
                                     <ul class='clearfix'>
                                         <li class="userMsg dis_none ml10">头像</li>
                                         <li class="userMsg dis_none" ms-text="@userInfo.username" data-src="./views/personal/personal.html" ms-on-click="@getPage($event)"></li>
-                                        <li class="userLogin">您好,请<a href='./login.html'>登录</a></li>
+                                        <li class="userLogin">您好,请<a href='login.html'>登录</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -59,7 +59,14 @@
                                 <li class="layui-nav-item  layui-this" data-src='./home.html'><a href="javascript:;">首页</a></li>
                                 <li class="layui-nav-item" data-src='./views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
                                 <li class="layui-nav-item" data-src='javascript:;'><a href="javascript:;">金融服务</a></li>
-                                <li class="layui-nav-item" data-src='./views/order/order.html'><a href="javascript:;">物流管理</a></li>
+                                <li class="layui-nav-item">
+                                    <a href="javascript:;" data-src="javascript:;">运输管理</a>
+                                    <dl class="layui-nav-child">
+                                        <dd><a href="javascript:;" data-src="./views/order/order.html" ms-on-click='@getPage($event)'>渣土运输</a></dd>
+                                        <dd><a href="javascript:;" data-src="./views/order/order.html" ms-on-click='@getPage($event)'>产业运输</a></dd>
+                                    </dl>
+                                </li>
+<!--                                <li class="layui-nav-item" data-src='./views/order/order.html'><a href="javascript:;">物流管理</a></li>-->
                                 <li class="layui-nav-item" data-src='./views/logistics/logistics.html'><a href="javascript:;">物流公司</a></li>
                                 <li class="layui-nav-item" data-src='./views/cooperate/cooperate.html'><a href="javascript:;">我要合作</a></li>
                                 <li class="layui-nav-item  downLoad" data-src='javascript:;'>
@@ -110,7 +117,6 @@
             </div>
         </footer>
         <script src='./plugins/jquery/jquery.min.js'></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
         <script src='./plugins/layui/dist/layui.all.js'></script>
         <script src='./plugins/avalon/avalon.min.js'></script>
         <script src='./plugins/banner/js/banner.js'></script>
@@ -120,6 +126,7 @@
         <script src='./js/header.js'></script>
         <script src="./js/footer.js"></script>
         <script>
+
             $('.address').kuCity();
             function reinitIframe() {
                 var iframe = document.getElementById("test");

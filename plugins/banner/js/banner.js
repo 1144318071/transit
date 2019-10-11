@@ -1,6 +1,7 @@
 $(function () {
     var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
-    var len = $("#focus ul li").length; //获取焦点图个数
+    //var len = $("#focus ul li").length; //获取焦点图个数;
+    var len = 3;
     var index = 0;
     var picTimer;
 

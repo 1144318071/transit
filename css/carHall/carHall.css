@@ -1,3 +1,6 @@
+.news_list{
+  padding-right: 28px;
+}
 .news_list ul li {
   float: left;
   cursor: pointer;
@@ -19,6 +22,13 @@
 }
 .news_title {
   color: #333;
+
+}
+.latestNews .news_title{
+  width: 420px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .btn-more {
   color: #999;
@@ -200,7 +210,7 @@
   float: left;
 }
 .tabDetail_right {
-  margin-left: 36px;
+  /*margin-left: 36px;*/
   margin-top: 20px;
   padding-left: 50px;
   border-left: 1px solid #d9d9d9;
