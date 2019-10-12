@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <title>物流公司</title>
-    <!-- <link rel="stylesheet" href="./plugins/bootstrap/dist/css/bootstrap.css"> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+ 	<link rel="stylesheet" href="../../plugins/bootstrap/dist/css/bootstrap.css"> 
     <link rel="stylesheet" href="../../plugins/layui/dist/css/layui.css">
+ 	<link rel="stylesheet" href="../../common/css/kuCity.css">
     <link rel="stylesheet" href="../../common/css/reset.css">
     <link rel="stylesheet" href="../../common/css/common.css">
     <link rel="stylesheet" href="../../css/header.css">
@@ -14,6 +14,78 @@
     <link rel="stylesheet" href="../../css/logistics/logistics.css">
 </head>
 <body>
+	<div class='header fixHeader' ms-controller='header'>
+        <header>
+            <!-- 版心 -->
+            <div class='content_box'>
+                <!-- 顶部的引导导航条 -->
+                <div class='row topBar'>
+                    <div class='col-md-6 col-sm-6'>
+                        <div class='row'>
+                            <div class='col-sm-5'>欢迎登陆纵运汽车服务平台</div>
+                         	<div class='col-sm-7 citySelect'>成都市|
+                                <input class="address" value="切换">
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-md-6 col-sm-6'>
+                        <div class='row  text-right'>
+                            <div class='col-sm-2 col-sm-offset-6'>消息</div>
+                            <div class='col-md-4 col-sm-4 userInfo text-left'>
+                                <ul class='clearfix'>
+                                    <li class="userMsg dis_none ml10">头像</li>
+                                    <li class="userMsg dis_none" ms-text="@userInfo.username" data-src="./views/personal/personal.html" ms-on-click="@getPage($event)"></li>
+                                    <li class="userLogin">您好,请<a href='../../login.html'>登录</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- 导航条 -->
+        <div class='navBar  fixNavBar'>
+            <!-- 版心 -->
+            <div class='content_box'>
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 bg-fff">
+                        <div class='row'>
+                            <div class='col-sm-9 text-left'><img src="../../images/logo.png" width='202px' height='80px' alt="logo"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-sm-9 pl0">
+                        <ul class="layui-nav">
+                            <li class="layui-nav-item" data-src='../../index.html'><a href="javascript:;">首页</a></li>
+                            <li class="layui-nav-item" data-src='../../views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
+                            <li class="layui-nav-item" data-src='../../views/financial/financial.html'><a href="javascript:;">金融服务</a></li>
+                            <li class="layui-nav-item" data-src='javascipt:;'>
+                                <a href="javascript:;">运输管理</a>
+                                <dl class="layui-nav-child">
+                                    <dd><a href="../order/order.html">渣土运输</a></dd>
+                                    <dd><a href="../order/order.html">产业运输</a></dd>
+                                </dl>
+                            </li>
+                            <li class="layui-nav-item layui-this" data-src='../../views/logistics/logistics.html'><a href="javascript:;">物流公司</a></li>
+                            <li class="layui-nav-item" data-src='../../views/cooperate/cooperate.html'><a href="javascript:;">我要合作</a></li>
+                            <li class="layui-nav-item  downLoad" data-src='javascript:;'>
+                                <a href="javascript:;">APP下载</a>
+                                <div class='downloadApp'>
+                                    <ul>
+                                       <li><img src="../../images/qrCode.png" alt=""></li>
+                                        <li>iphone客户端</li>
+                                    </ul>
+                                    <ul>
+                                        <li><img src="../../images/qrCode.png" alt=""></li>
+                                        <li>Android客户端</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class='bannerImg'>
         <img src="../../images/bannerOrder.png" alt="">
     </div>
@@ -202,6 +274,7 @@
     <script src='../../plugins/jquery/jquery.min.js'></script>
     <script src='../../plugins/layui/dist/layui.all.js'></script>
     <script src='../../plugins/avalon/avalon.min.js'></script>
+    <script src='../../common/js/kuCity.js'></script>
     <script src='../../js/header.js'></script>
     <script src='../../js/logistics/logistics.js'></script>
 </body>

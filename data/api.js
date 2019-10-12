@@ -28,12 +28,26 @@ var API = {
     //----------------------------------------------汽车大厅-----------------------------------
     // 最新新闻
     URL_GET_NEWS: getApiHost + '/news',
+    //热门新闻
+    URL_GET_HOTNEWS : getApiHost + '/hotNews/list',
+    //热门车型
+    URL_GET_HOTCAR : getApiHost + '/hot/car',
+    //关注度排行
+    URL_GET_ATTENTION : getApiHost + '/attention',
+    //热门品牌
+    URL_GET_POPULARBRANDS : getApiHost + '/popular/brands',
+    //获取首字母
+    URL_GET_KEYWORD : getApiHost + '/get/keyword',
+    //品牌筛选
+    URL_GET_BRANDSSEARCH : getApiHost + '/brands/search',
     //----------------------------------------------首页-----------------------------------
     URL_GET_ENTERPRISELIST : getApiHost + '/enterprise/list',
     //新闻详情
     URL_GET_NEWSINFO : getApiHost + '/newsInfo',
     //获取banner图
-    URL_GET_BANNERLIST : getApiHost + '/banner/list'
+    URL_GET_BANNERLIST : getApiHost + '/banner/list',
+    //----------------------------------------------关于我们-----------------------------------
+    URL_GET_ABOUTUS : getApiHost + '/about/us'
 }
 
 

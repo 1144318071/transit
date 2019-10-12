@@ -3,19 +3,93 @@
     <title>个人中心</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../plugins/layui/dist/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="../../common/css/kuCity.css"/>
     <link rel="stylesheet" href="../../common/css/reset.css">
+    <link rel="stylesheet" href="../../css/header.css">
     <link rel="stylesheet" href="../../common/css/common.css">
     <link rel="stylesheet" href="../../css/personal/personal.css">
 </head>
 <body>
-    <div class='content_box'>
+    <div class='header fixHeader' ms-controller='header'>
+        <header>
+            <!-- 版心 -->
+            <div class='content_box'>
+                <!-- 顶部的引导导航条 -->
+                <div class='row topBar'>
+                    <div class='col-md-6 col-sm-6'>
+                        <div class='row'>
+                            <div class='col-sm-5'>欢迎登陆纵运汽车服务平台</div>
+                            <div class='col-sm-7 citySelect'>成都市|
+                                <input class="address" value="切换">
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-md-6 col-sm-6'>
+                        <div class='row  text-right'>
+                            <div class='col-sm-2 col-sm-offset-6'>消息</div>
+                            <div class='col-md-4 col-sm-4 userInfo text-left'>
+                                <ul class='clearfix'>
+                                    <li class="userMsg dis_none ml10">头像</li>
+                                    <li class="userMsg dis_none" ms-text="@userInfo.username" data-src="./views/personal/personal.html" ms-on-click="@getPage($event)"></li>
+                                    <li class="userLogin">您好,请<a href='../../login.html'>登录</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- 导航条 -->
+        <div class='navBar  fixNavBar'>
+            <!-- 版心 -->
+            <div class='content_box'>
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 bg-fff">
+                        <div class='row'>
+                            <div class='col-sm-9 text-left'><img src="../../images/logo.png" width='202px' height='80px' alt="logo"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-sm-9 pl0">
+                        <ul class="layui-nav">
+                            <li class="layui-nav-item" data-src='../../index.html'><a href="javascript:;">首页</a></li>
+                            <li class="layui-nav-item" data-src='../../views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
+                            <li class="layui-nav-item" data-src='../../views/financial/financial.html'><a href="javascript:;">金融服务</a></li>
+                            <li class="layui-nav-item" data-src='javascript:;'>
+                                <a href="javascript:;" data-src="javascript:;">运输管理</a>
+                                <dl class="layui-nav-child">
+                                    <dd><a href="../order/order.html">渣土运输</a></dd>
+                                    <dd><a href="../order/order.html">产业运输</a></dd>
+                                </dl>
+                            </li>
+                            <li class="layui-nav-item" data-src='../../views/logistics/logistics.html'><a href="javascript:;">物流公司</a></li>
+                            <li class="layui-nav-item" data-src='../../views/cooperate/cooperate.html'><a href="javascript:;">我要合作</a></li>
+                            <li class="layui-nav-item  downLoad" data-src='javascript:;'>
+                                <a href="javascript:;">APP下载</a>
+                                <div class='downloadApp'>
+                                    <ul>
+                                        <li><img src="../../images/qrCode.png" alt=""></li>
+                                        <li>iphone客户端</li>
+                                    </ul>
+                                    <ul>
+                                        <li><img src="../../images/qrCode.png" alt=""></li>
+                                        <li>Android客户端</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='content_box' ms-controller="root">
         <!-- 个人中心的内容 -->
         <div class='row personal'>
             <div class='col-md-3 col-sm-3 personalItem'>
                 <ul class='avatar'>
                     <li><img src="../../images/avartar.png" alt=""></li>
-                    <li>用户名</li>
-                    <li>用户类型</li>
+                    <li ms-text="@userInfo.username"></li>
+                    <li ms-text="@userInfo.type"></li>
                 </ul>
                 <ul class='personalList'>
                     <li class='active'>个人资料</li>
@@ -28,7 +102,7 @@
             </div>
             <div class='col-md-8 col-sm-8 personalContent'>
                 <!-- 个人资料 -->
-                <div class='personalDetail personalData' ms-controller='personalData'>
+                <div class='personalDetail personalData'>
                     <div class='PanelTitle'>个人资料</div>
                     <div class='personalDes'>
                         <ul class='personalLogo'>
@@ -70,40 +144,40 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class='row description pt30'>
+                        <div class='row description companyInfo pt30'>
                             <div class='col-md-6 col-sm-6'>
                                 <ul class='clearfix'>
                                     <li>公司名称</li>
                                     <li>:</li>
-                                    <li>四川吉兴汽车贸易有限公司</li>
+                                    <li ms-text="@userInfo.company_name"></li>
                                 </ul>
                             </div>
                             <div class='col-md-6 col-sm-6 text-right'>
                                 <button class='btn-orange mt8'>修改</button>
                             </div>
                         </div>
-                        <div class='row description pt30'>
+                        <div class='row description companyInfo pt30'>
                             <div class='col-md-12 col-sm-12'>
                                 <ul class='clearfix'>
                                     <li>营业执照</li>
                                     <li>:</li>
-                                    <li>65123131213131</li>
+                                    <li ms-text="@userInfo.business_license_number"></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class='row description pt30'>
+                        <div class='row description companyInfo pt30'>
                             <div class='col-md-12 col-sm-12'>
                                 <ul class='clearfix'>
                                     <li>公司地址</li>
                                     <li>:</li>
-                                    <li>四川省成都市武侯区红牌楼2栋301</li>
+                                    <li ms-text="@userInfo.address"></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- 车辆管理 -->
-                <div class='personalDetail vehicleManagement dis_none' ms-controller='vehicleManagement'>
+                <div class='personalDetail vehicleManagement dis_none'>
                     <ul class='PanelTitle clearfix'>
                         <li class='pull-left'>车辆管理</li>
                         <li class='pull-right'><button class='btn-add' ms-on-click='@addCar'>添加车辆</button></li>
@@ -132,7 +206,7 @@
                     </div>
                 </div>
                 <!-- 消息 -->
-                <div class='personalDetail personalMsg dis_none' ms-controller='personalMsg'>
+                <div class='personalDetail personalMsg dis_none'>
                     <div class='PanelTitle'>消息</div>
                     <div class='allInforms'>
                         <div class='row informs mt50'>
@@ -174,7 +248,7 @@
                     </div>
                 </div>
                 <!-- 账户 -->
-                <div class='personalDetail personalAccount dis_none' ms-controller='personalAccount'>
+                <div class='personalDetail personalAccount dis_none'>
                     <div class='PanelTitle'>账户</div>
                     <!-- 提现 -->
                     <div class='withdraw'>
@@ -185,7 +259,7 @@
                             </ul>
                             <ul class='pull-right'>
                                 <li><button ms-on-click='@recharge'>充值</button></li>
-                                <li><button ms-on-click='@extract'>提现</button></li>
+                                <li><button ms-on-click='@applyMoney'>提现</button></li>
                             </ul>
                         </div>
                     </div>
@@ -302,7 +376,7 @@
                     </div>
                 </div>
                 <!-- 银行卡 -->
-                <div class='personalDetail personalBankCard dis_none' ms-controller='personalBankCard'>
+                <div class='personalDetail personalBankCard dis_none'>
                     <ul class='PanelTitle clearfix'>
                         <li class='pull-left'>银行卡</li>
                         <li class='pull-right'><button class='btn-add' ms-on-click='@addBankCard'>添加银行卡</button></li>
@@ -320,7 +394,7 @@
                     </div>
                 </div>
                 <!-- 代理商家 -->
-                <div class='personalDetail personalAgent dis_none' ms-controller='personalAgent'>
+                <div class='personalDetail personalAgent dis_none'>
                     <div class='PanelTitle'>代理商家</div>
                     <div class='countContent clearfix'>
                         <div class='countItem'>
@@ -457,17 +531,10 @@
     <script src='../../plugins/jquery/jquery.min.js'></script>
     <script src='../../plugins/layui/dist/layui.all.js'></script>
     <script src='../../plugins/avalon/avalon.min.js'></script>
+    <script src='../../common/js/kuCity.js'></script>
+    <script src="../../data/api.js"></script>
+    <script src="../../data/return_data.js"></script>
     <script src='../../js/header.js'></script>
     <script src='../../js/personal/personal.js'></script>
-    <!-- 个人资料 -->
-    <script src='../../js/personal/personalData.js'></script>
-    <!-- 车辆管理 -->
-    <script src='../../js/personal/vehicleManagement.js'></script>
-    <!-- 账户 -->
-    <script src='../../js/personal/personalAccount.js'></script>
-    <!-- 银行 -->
-    <script src='../../js/personal/personalBankCard.js'></script>
-    <!-- 代理商家 -->
-    <script src='../../js/personal/personalAgent.js'></script>
 </body>
  

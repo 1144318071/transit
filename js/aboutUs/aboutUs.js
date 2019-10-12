@@ -42,3 +42,20 @@ $('.upload').hover(function () {
 $('.del').click(function () {
     $(this).parent().remove();
 });
+
+avalon.ready(function(){
+    window.vmAboutUs = avalon.define({
+        $id : 'root',
+        onLoad:function(){
+
+        },
+        getAboutContent:function(){
+            getAjax(API.URL_GET_ABOUTUS,'get',{'_token_':vmAllBrands._token_,'keyword':''}).then(function (res) {
+                console.log(res);
+                vmAllBrands.brandSearchList = res.result;
+            })
+        },
+    });
+    vmAboutUs.onLoad();
+    avalon.scan(document.body);
+})

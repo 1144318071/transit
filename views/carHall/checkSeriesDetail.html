@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <link rel="stylesheet" href="../../plugins/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../plugins/layui/dist/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="../../common/css/kuCity.css"/>
     <link rel="stylesheet" href="../../common/css/reset.css">
     <link rel="stylesheet" href="../../common/css/common.css">
     <link rel="stylesheet" href="../../css/header.css">
@@ -25,19 +26,21 @@
                     <div class='col-md-6 col-sm-6'>
                         <div class='row'>
                             <div class='col-sm-5'>欢迎登陆纵运汽车服务平台</div>
-                            <div class='col-sm-7'>成都市|<span>切换</span></div>
+                            <div class='col-sm-7 citySelect'>成都市|
+                                <input class="address" value="切换">
+                            </div>
                         </div>
                     </div>
                     <div class='col-md-6 col-sm-6'>
                         <div class='row  text-right'>
                             <div class='col-sm-2 col-sm-offset-6'>消息</div>
-                            <div class='col-md-4 col-sm-4 userMsg'>
+                            <div class='col-md-4 col-sm-4 userInfo text-left'>
                                 <ul class='clearfix'>
-                                    <li>头像</li>
-                                    <li>用户名</li>
+                                    <li class="userMsg dis_none ml10">头像</li>
+                                    <li class="userMsg dis_none" ms-text="@userInfo.username" data-src="./views/personal/personal.html" ms-on-click="@getPage($event)"></li>
+                                    <li class="userLogin">您好,请<a href='../../login.html'>登录</a></li>
                                 </ul>
                             </div>
-                            <!-- <div class='col-sm-4'>您好,请<a href='javascript:;'>登录</a>或<a href='javaascript:;'>注册</a></div> -->
                         </div>
                     </div>
                 </div>
@@ -58,7 +61,13 @@
                             <li class="layui-nav-item" data-src='../../index.html'><a href="javascript:;">首页</a></li>
                             <li class="layui-nav-item layui-this" data-src='../../views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
                             <li class="layui-nav-item" data-src='../../views/financial/financial.html'><a href="javascript:;">金融服务</a></li>
-                            <li class="layui-nav-item" data-src='../../views/order/order.html'><a href="javascript:;">合作商家</a></li>
+                            <li class="layui-nav-item" data-src="javascript:;">
+                                <a href="javascript:;">运输管理</a>
+                                <dl class="layui-nav-child">
+                                    <dd><a href="../../views/order/order.html">渣土运输</a></dd>
+                                    <dd><a href="../../views/order/order.html">产业运输</a></dd>
+                                </dl>
+                            </li>
                             <li class="layui-nav-item" data-src='../../views/logistics/logistics.html'><a href="javascript:;">物流公司</a></li>
                             <li class="layui-nav-item" data-src='../../views/cooperate/cooperate.html'><a href="javascript:;">我要合作</a></li>
                             <li class="layui-nav-item  downLoad" data-src='javascript:;'>
@@ -411,6 +420,7 @@
     <script src='../../plugins/jquery/jquery.min.js'></script>
     <script src='../../plugins/layui/dist/layui.js'></script>
     <script src='../../plugins/avalon/avalon.min.js'></script>
+    <script src='../../common/js/kuCity.js'></script>
     <script src='../../js/data/api.js'></script>
     <script src='../../js/data/return_data.js'></script>
     <script src='../../js/header.js'></script>

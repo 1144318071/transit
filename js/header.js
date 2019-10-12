@@ -8,7 +8,18 @@ $('.downLoad').hover(function(){
     $(this).removeClass('layui-this');
     $(this).find('.downloadApp').slideUp();
 });
+//导航跳转
+ $('.layui-nav .layui-nav-item').on('click', function () {
+    var src = $(this).attr('data-src');
+    location.href = src;
+});
+// $('.layui-nav .layui-nav-item').hover(function(){
+// 	$(this).addClass('layui-this').siblings().removeClass('layui-this');
+// },function(){
+// 	$(this).removeClass('layui-this');
+// });
 $(function(){
+	$('.address').kuCity();
     avalon.ready(function(){
         window.vmHeader = avalon.define({
             $id : 'header',

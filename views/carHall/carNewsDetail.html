@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <link rel="stylesheet" href="../../plugins/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../plugins/layui/dist/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="../../common/css/kuCity.css"/>
     <link rel="stylesheet" href="../../common/css/reset.css">
     <link rel="stylesheet" href="../../common/css/common.css">
     <link rel="stylesheet" href="../../css/header.css">
@@ -23,17 +24,19 @@
                     <div class='col-md-6 col-sm-6'>
                         <div class='row'>
                             <div class='col-sm-5'>欢迎登陆纵运汽车服务平台</div>
-                            <div class='col-sm-7'>成都市|<span>切换</span></div>
+                            <div class='col-sm-7 citySelect'>成都市|
+                                <input class="address" value="切换">
+                            </div>
                         </div>
                     </div>
                     <div class='col-md-6 col-sm-6'>
                         <div class='row  text-right'>
                             <div class='col-sm-2 col-sm-offset-6'>消息</div>
-                            <div class='col-md-4 col-sm-4 userMsg'>
+                            <div class='col-md-4 col-sm-4 userInfo text-left'>
                                 <ul class='clearfix'>
                                     <li class="userMsg dis_none ml10">头像</li>
                                     <li class="userMsg dis_none" ms-text="@userInfo.username" data-src="./views/personal/personal.html" ms-on-click="@getPage($event)"></li>
-                                    <li class="userLogin">您好,请<a href='./login.html'>登录</a></li>
+                                    <li class="userLogin">您好,请<a href='../../login.html'>登录</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -57,7 +60,13 @@
                             <li class="layui-nav-item" data-src='../../index.html'><a href="javascript:;">首页</a></li>
                             <li class="layui-nav-item layui-this" data-src='../../views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
                             <li class="layui-nav-item" data-src='../../views/financial/financial.html'><a href="javascript:;">金融服务</a></li>
-                            <li class="layui-nav-item" data-src='../../views/order/order.html'><a href="javascript:;">合作商家</a></li>
+                            <li class="layui-nav-item" data-src="javascript:;">
+                                <a href="javascript:;">运输管理</a>
+                                <dl class="layui-nav-child">
+                                    <dd><a href="../../views/order/order.html">渣土运输</a></dd>
+                                    <dd><a href="../../views/order/order.html">产业运输</a></dd>
+                                </dl>
+                            </li>
                             <li class="layui-nav-item" data-src='../../views/logistics/logistics.html'><a href="javascript:;">物流公司</a></li>
                             <li class="layui-nav-item" data-src='../../views/cooperate/cooperate.html'><a href="javascript:;">我要合作</a></li>
                             <li class="layui-nav-item  downLoad" data-src='javascript:;'>
@@ -117,145 +126,55 @@
             <!-- 新闻详情 -->
             <div class='newsContent row ml0'>
                 <div class='col-md-8 col-sm-8 newsDetail'>
-                    <div class='newsTitle'>G7领投 伙伴又增加 车满满获7000万投资</div>
+                    <div class='newsTitle' ms-text="@newsDetail.title"></div>
                     <div class='newsSubTitle'>
                         <ul class='clearfix'>
-                            <li>2019-08-29 15:32:54</li>
+                            <li ms-text="@newsDetail.create_time"></li>
                         </ul> 
                     </div>
-                    <p>
-                        2019年7月9日,中国公路物流领域领先的信息科技公司车满满宣布正式完成总金额超7000万人民币的新一轮融资。 本轮融资由全球知名的物联网科技公司G7战略投资,车满满的现有股东传化智联、阿米巴等也共同参与投资。
-                    </p>
-                    <img src="../../images/detailImg.png" alt="">
-                    <p>
-                        作为国内公路物流领域领先的信息科技公司,基于先进的云计算、搜索引擎技术,车满满依托SaaS服务平台为数万家物流企业提供业务全流程信息化解决方案,帮助物流企业客户从订单流转、在途运输到财务结算实现全场景数据化与在线化。
-                    </p>
-                    <p>
-                        覆盖客户类型包括三方企业、专线公司、零担快运网络、加盟型物流平台等等。截至目前,车满满服务的各类物流企业超过43000家,已成为中国零担物流领域最大的订单管理SaaS服务平台。
-                    </p>
+                    <div class="news_detail" ms-html="@newsDetail.content">
+<!--                        <p>-->
+<!--                            2019年7月9日,中国公路物流领域领先的信息科技公司车满满宣布正式完成总金额超7000万人民币的新一轮融资。 本轮融资由全球知名的物联网科技公司G7战略投资,车满满的现有股东传化智联、阿米巴等也共同参与投资。-->
+<!--                        </p>-->
+<!--                        <img src="../../images/detailImg.png" alt="">-->
+<!--                        <p>-->
+<!--                            作为国内公路物流领域领先的信息科技公司,基于先进的云计算、搜索引擎技术,车满满依托SaaS服务平台为数万家物流企业提供业务全流程信息化解决方案,帮助物流企业客户从订单流转、在途运输到财务结算实现全场景数据化与在线化。-->
+<!--                        </p>-->
+<!--                        <p>-->
+<!--                            覆盖客户类型包括三方企业、专线公司、零担快运网络、加盟型物流平台等等。截至目前,车满满服务的各类物流企业超过43000家,已成为中国零担物流领域最大的订单管理SaaS服务平台。-->
+<!--                        </p>-->
+                    </div>
                 </div>
                 <div class='col-md-4 col-sm-4 pr0 relativeNews'>
                     <div class='title_line'>相关新闻</div>
-                    <ul class='clearfix'>
+                    <ul class='clearfix' ms-for="(index,el) in @relativeNewsList" ms-if="el.content != undefined">
                         <li><span class='circle-orange'></span></li>
-                        <li><a href='javascript:;'>颠覆传统!车联网系统带你走上节油之路</a></li>
-                    </ul>
-                    <ul class='clearfix'>
-                        <li><span class='circle-orange'></span></li>
-                        <li><a href='javascript:;'>颠覆传统!车联网系统带你走上节油之路</a></li>
-                    </ul>
-                    <ul class='clearfix'>
-                        <li><span class='circle-orange'></span></li>
-                        <li><a href='javascript:;'>颠覆传统!车联网系统带你走上节油之路</a></li>
-                    </ul>
-                    <ul class='clearfix'>
-                        <li><span class='circle-orange'></span></li>
-                        <li><a href='javascript:;'>颠覆传统!车联网系统带你走上节油之路</a></li>
-                    </ul>
-                    <ul class='clearfix'>
-                        <li><span class='circle-orange'></span></li>
-                        <li><a href='javascript:;'>颠覆传统!车联网系统带你走上节油之路</a></li>
-                    </ul>
-                    <ul class='clearfix'>
-                        <li><span class='circle-orange'></span></li>
-                        <li><a href='javascript:;'>颠覆传统!车联网系统带你走上节油之路</a></li>
-                    </ul>
-                    <ul class='clearfix'>
-                        <li><span class='circle-orange'></span></li>
-                        <li><a href='javascript:;'>颠覆传统!车联网系统带你走上节油之路</a></li>
-                    </ul>
-                    <ul class='clearfix'>
-                        <li><span class='circle-orange'></span></li>
-                        <li><a href='javascript:;'>颠覆传统!车联网系统带你走上节油之路</a></li>
-                    </ul>
-                    <ul class='clearfix'>
-                        <li><span class='circle-orange'></span></li>
-                        <li><a href='javascript:;'>颠覆传统!车联网系统带你走上节油之路</a></li>
-                    </ul>
-                    <ul class='clearfix'>
-                        <li><span class='circle-orange'></span></li>
-                        <li><a href='javascript:;'>颠覆传统!车联网系统带你走上节油之路</a></li>
-                    </ul>
-                    <ul class='clearfix'>
-                        <li><span class='circle-orange'></span></li>
-                        <li><a href='javascript:;'>颠覆传统!车联网系统带你走上节油之路</a></li>
-                    </ul>
-                    <ul class='clearfix'>
-                        <li><span class='circle-orange'></span></li>
-                        <li><a href='javascript:;'>颠覆传统!车联网系统带你走上节油之路</a></li>
-                    </ul>
-                    <ul class='clearfix'>
-                        <li><span class='circle-orange'></span></li>
-                        <li><a href='javascript:;'>颠覆传统!车联网系统带你走上节油之路</a></li>
+                        <li><a ms-attr="{href:'./carNewsDetail.html?id='+ el.id + '&type=' + el.type + '&news_type=' + el.news_type}" ms-text="el.title"></a></li>
                     </ul>
                 </div>
             </div>
             <div class='hotNews row ml0'>
                 <div class='col-md-8 col-sm-8 pl0 pr0'>
                     <div class='title_line'>热门新闻</div>
-                    <div class='row hotNewsDetail'>
+                    <div class='row hotNewsDetail' ms-for="(index,el) in @hotNewsList" >
                         <div class='col-md-4 col-sm-4 pr0'>
-                            <img src="../../images/hotImg.png" alt="">
+                            <a ms-attr="{href:'./carNewsDetail.html?id='+ el.id + '&type=' + el.type + '&news_type=' + el.news_type}"><img ms-attr="{ src :el.images }" width="240" height="180" alt=""></a>
                         </div>
                         <div class='col-md-8 col-sm-8 pr0 pl0'>
-                            <div class='hotNewsTitle'>高速物流 威龙牵引车进入南川市场</div>
+                            <div class='hotNewsTitle'>
+                                <a ms-attr="{href:'./carNewsDetail.html?id='+ el.id + '&type=' + el.type + '&news_type=' + el.news_type}" ms-text="el.title"></a>
+                            </div>
                             <div class='hotNewsSubTitle'>
                                 <ul class='clearfix'>
-                                    <li>2019-08-29 15:32:54</li>
-                                    <!-- <li>类型<span>:</span>新闻稿</li>
-                                    <li>来源<span>:</span>厂商投稿</li>
-                                    <li>作者<span>:</span>张三</li>
-                                    <li>编辑<span>:</span>李四</li> -->
+                                    <li ms-text="el.create_time"></li>
                                 </ul>
                             </div>
-                            <p>
-                                2019年08月01日,重庆智胜汽车销售服务有限公司在南川举办了以“江铃福特重卡夏季大放送”为主题的江铃重汽威龙重卡420马力6X4牵引车产品推介会,来自周边地市的100位客户和经销商共同参加,现场收获5台订单
-                            </p>
-                        </div>
-                    </div>
-                    <div class='row hotNewsDetail'>
-                        <div class='col-md-4 col-sm-4 pr0'>
-                            <img src="../../images/hotImg.png" alt="">
-                        </div>
-                        <div class='col-md-8 col-sm-8 pr0 pl0'>
-                            <div class='hotNewsTitle'>高速物流 威龙牵引车进入南川市场</div>
-                            <div class='hotNewsSubTitle'>
-                                <ul class='clearfix'>
-                                    <li>2019-08-29 15:32:54</li>
-                                    <!-- <li>类型<span>:</span>新闻稿</li>
-                                    <li>来源<span>:</span>厂商投稿</li>
-                                    <li>作者<span>:</span>张三</li>
-                                    <li>编辑<span>:</span>李四</li> -->
-                                </ul>
-                            </div>
-                            <p>
-                                2019年08月01日,重庆智胜汽车销售服务有限公司在南川举办了以“江铃福特重卡夏季大放送”为主题的江铃重汽威龙重卡420马力6X4牵引车产品推介会,来自周边地市的100位客户和经销商共同参加,现场收获5台订单
-                            </p>
-                        </div>
-                    </div>
-                    <div class='row hotNewsDetail'>
-                        <div class='col-md-4 col-sm-4 pr0'>
-                            <img src="../../images/hotImg.png" alt="">
-                        </div>
-                        <div class='col-md-8 col-sm-8 pr0 pl0'>
-                            <div class='hotNewsTitle'>高速物流 威龙牵引车进入南川市场</div>
-                            <div class='hotNewsSubTitle'>
-                                <ul class='clearfix'>
-                                    <li>2019-08-29 15:32:54</li>
-                                    <!-- <li>类型<span>:</span>新闻稿</li>
-                                    <li>来源<span>:</span>厂商投稿</li>
-                                    <li>作者<span>:</span>张三</li>
-                                    <li>编辑<span>:</span>李四</li> -->
-                                </ul>
-                            </div>
-                            <p>
-                                2019年08月01日,重庆智胜汽车销售服务有限公司在南川举办了以“江铃福特重卡夏季大放送”为主题的江铃重汽威龙重卡420马力6X4牵引车产品推介会,来自周边地市的100位客户和经销商共同参加,现场收获5台订单
+                            <p ms-text="el.des">
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
         <!--content_box -->
     </div>
@@ -264,6 +183,7 @@
     <script src='../../plugins/jquery/jquery.min.js'></script>
     <script src='../../plugins/layui/dist/layui.js'></script>
     <script src='../../plugins/avalon/avalon.min.js'></script>
+    <script src='../../common/js/kuCity.js'></script>
     <script src='../../plugins/banner/js/banner.js'></script>
     <script src='../../data/api.js'></script>
     <script src='../../data/return_data.js'></script>

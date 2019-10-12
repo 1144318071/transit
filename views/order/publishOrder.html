@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <link rel="stylesheet" href="../../plugins/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../plugins/layui/dist/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="../../common/css/kuCity.css"/>
     <link rel="stylesheet" href="../../common/css/reset.css">
     <link rel="stylesheet" href="../../common/css/common.css">
     <link rel="stylesheet" href="../../css/header.css">
@@ -57,7 +58,13 @@
                             <li class="layui-nav-item" data-src='../../index.html'><a href="javascript:;">首页</a></li>
                             <li class="layui-nav-item" data-src='../../views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
                             <li class="layui-nav-item" data-src='../../views/financial/financial.html'><a href="javascript:;">金融服务</a></li>
-                            <li class="layui-nav-item layui-this" data-src='../../views/orderDriver/orderDriver.html'><a href="javascript:;">订单管理</a></li>
+                            <li class="layui-nav-item" data-src='javascript:;'>
+                                <a href="javascript:;" data-src="javascript:;">运输管理</a>
+                                <dl class="layui-nav-child">
+                                    <dd><a href="../order/order.html">渣土运输</a></dd>
+                                    <dd><a href="../order/order.html">产业运输</a></dd>
+                                </dl>
+                            </li>
                             <li class="layui-nav-item" data-src='../../views/logistics/logistics.html'><a href="javascript:;">物流公司</a></li>
                             <li class="layui-nav-item" data-src='../../views/cooperate/cooperate.html'><a  href="javascript:;">我要合作</a></li>
                             <li class="layui-nav-item" data-src='javascript:;'><a href="javascript:;">APP下载</a></li>
@@ -119,6 +126,7 @@
     <script src='../../plugins/jquery/jquery.min.js'></script>
     <script src='../../plugins/layui/dist/layui.js'></script>
     <script src='../../plugins/avalon/avalon.min.js'></script>
+    <script src='../../common/js/kuCity.js'></script>
     <script src='../../js/header.js'></script>
 </body>
 

@@ -14,16 +14,24 @@ function getNowFormatDate() {
     return currentdate;
 }
 
-getAjax(API.URL_POST_SETTOKEN, 'post', {
-    version: '2.0.1',
-    author: '丶Lee',
-    email: '1144318071@qq.com',
-    date: getNowFormatDate,
-    xhrFields: {
-        withCredentials: true
-    }
-}).then(function (res) {
-    // 保存token
-    localStorage.setItem('token',res.result.token);
-});
 var token = localStorage.getItem('token');
+if(token == null){
+    $.ajax({
+        url: API.URL_POST_SETTOKEN,
+        type: 'post',
+        dataType: 'json',
+        async: true,
+        data: { version: '2.0.1', author: '丶Lee', email: '1144318071@qq.com', date: getNowFormatDate},
+        xhrFields: {
+            withCredentials: true
+        },
+        success:function(res){
+            if(res.code == 200){
+                localStorage.setItem('token',res.result.token);
+            }
+        }
+    });
+}
+
+
+

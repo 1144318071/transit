@@ -40,7 +40,6 @@
 }
 .menuGroup > div {
   height: 350px;
-  display: none;
 }
 .menuGroup:nth-child(2) {
   margin-top: 36px;

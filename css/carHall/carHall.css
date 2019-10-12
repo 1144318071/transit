@@ -36,11 +36,18 @@
 .news_brands {
   padding-top: 21px;
 }
+.news_brands>ul{
+  margin-left: 20px;
+  float: left;
+}
+.news_brands>ul:nth-child(2n+1){
+  margin-left: 0px;
+}
 .news_brands ul:not(:first-child) {
   margin-top: 14px;
 }
-.news_brands ul li {
-  float: left;
+.news_brands ul:nth-child(2){
+  margin-top: 0px;
 }
 .latestNews {
   padding-left: 50px!important;
@@ -270,4 +277,7 @@
 }
 .agent_detail .logo {
   margin-left: 8px;
+}
+.city_car{
+  margin-top: 56px;
 }
