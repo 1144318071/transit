@@ -56,7 +56,7 @@ $(function(){
                 getAjax(API.URL_POST_CHANGEPHONETWO,'post',vmChangePhone.stepTwo).then(function(res){
                     alertMsg(res.message,1);
                     setTimeout(function(){
-
+                            location.href = '../.../login.html'
                     },2000)
                 });
             }

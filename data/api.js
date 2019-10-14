@@ -40,6 +40,12 @@ var API = {
     URL_GET_KEYWORD : getApiHost + '/get/keyword',
     //品牌筛选
     URL_GET_BRANDSSEARCH : getApiHost + '/brands/search',
+    //优质经销商
+    URL_GET_QUALITYAGENT : getApiHost +'/quality/distributor',
+    //品牌详情
+    URL_GET_BRANDINFO :getApiHost+'/brands/info',
+    //定位地车辆
+    URL_GET_CITYCAR : getApiHost + '/city/car',
     //----------------------------------------------首页-----------------------------------
     URL_GET_ENTERPRISELIST : getApiHost + '/enterprise/list',
     //新闻详情

@@ -29,16 +29,10 @@ $(function(){
             getBrandsList:function(){
                 console.log(vmAllBrands.keyword)
                 getAjax(API.URL_GET_BRANDSSEARCH,'get',{'_token_':vmAllBrands._token_,'keyword':''}).then(function (res) {
-                    for(var i=0;i<res.result.length;i++){
-                       res.result[i][0].logo = getApiHost + res.result[i][0].logo;
+                    for(var i=0;i<res.result.data.length;i++){
+                       res.result.data[i][0].logo = getApiHost + res.result.data[i][0].logo;
                     }
-                    vmAllBrands.brandSearchList = res.result;
-                    for(var i=0;i<res.result.length;i++){
-                        console.log(res.result[i]);
-                        for(var j=0;j<res.result[i].length;j++){
-                            console.log(res.result[i][j].series)
-                        }
-                    }
+                    vmAllBrands.brandSearchList = res.result.data;
                 });
             },
         });

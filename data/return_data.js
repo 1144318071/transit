@@ -21,6 +21,7 @@ function getNowFormatDate() {
     var currentdate = date.getFullYear() + seperator + month + seperator + strDate;
     return currentdate;
 }
+//ajax请求数据的公共方法
 function getAjax(url, type, data) {
     return new Promise(function (resolve, reject) {
         $.ajax({
@@ -64,6 +65,7 @@ function getAjax(url, type, data) {
         });
     });
 };
+//获取get传值的参数
 function GetRequest(urlStr) {
     if (typeof urlStr == "undefined") {
         var url = decodeURI(location.search); //获取url中"?"符后的字符串
@@ -79,4 +81,28 @@ function GetRequest(urlStr) {
         }
     }
     return theRequest;
+};
+//获取城市的code码
+function getCode(name){
+    for(var i in Area.provinces.province){
+        for(var j in Area.provinces.province[i].cities.city){
+            if(Area.provinces.province[i].cities.city[j].ssqname == name){
+                // console.log(Area.provinces.province[i].cities.city[j])
+                return Area.provinces.province[i].cities.city[j].ssqid;
+            }
+        }
+
+    }
 }
+//510100
+// console.log(getCode('成都市'));
+function getCityName(code){
+    for(var k in Area.provinces.province){
+        for(var l in Area.provinces.province[k].cities.city){
+            if(Area.provinces.province[k].cities.city[l].ssqid == code){
+                return Area.provinces.province[k].cities.city[l].ssqname;
+            }
+        }
+    }
+}
+// console.log(getCityName('510100'))

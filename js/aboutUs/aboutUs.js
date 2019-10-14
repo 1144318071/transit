@@ -46,14 +46,16 @@ $('.del').click(function () {
 avalon.ready(function(){
     window.vmAboutUs = avalon.define({
         $id : 'root',
+        aboutUsContent:{},
         onLoad:function(){
-
+            vmAboutUs.getAboutContent();
         },
         getAboutContent:function(){
-            getAjax(API.URL_GET_ABOUTUS,'get',{'_token_':vmAllBrands._token_,'keyword':''}).then(function (res) {
-                console.log(res);
-                vmAllBrands.brandSearchList = res.result;
-            })
+            var token = localStorage.getItem('token');
+            getAjax(API.URL_GET_ABOUTUS,'get',{'_token_':token}).then(function (res) {
+                vmAboutUs.aboutUsContent = res.result;
+                console.log(res.result)
+            });
         },
     });
     vmAboutUs.onLoad();

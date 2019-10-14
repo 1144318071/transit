@@ -8,6 +8,7 @@
 .detail_img {
   padding: 40px 40px 58px 25px;
   border-right: 1px solid #999;
+
 }
 .detail_img ul {
   text-align: center;
@@ -35,6 +36,7 @@
 }
 .detail_content {
   float: left;
+  width: 48%;
 }
 .detail_content:nth-child(2) {
   margin-left: 16px;
@@ -51,6 +53,7 @@
 }
 .changeStatus > ul li {
   float: left;
+  cursor: pointer;
 }
 .changeStatus > ul li:first-child {
   color: #f57619;
@@ -160,6 +163,22 @@
 }
 .carItems .carDes li span {
   margin: 0px 6px;
+}
+.carItems .carDes li:first-child span{
+    display: inline-block;
+    vertical-align: middle;
+}
+.carItems .carDes li:first-child span:first-child{
+      width: 100px;
+      text-align: left;
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      vertical-align: middle;
+}
+.carItems .carDes li:nth-child(2){
+    width: 175px;
 }
 .carItems:nth-child(even) {
   margin-left: 44px;
@@ -280,4 +299,12 @@
 }
 .city {
   padding-top: 16px;
+}
+/*车系详情中的新能源样式*/
+.energyType{
+  width: 100%;
+  margin-top: 37px;
+}
+.energyType .carBrands{
+  width: 90%;
 }

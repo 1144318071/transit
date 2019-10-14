@@ -171,17 +171,17 @@
                     <div class='row groupItems' ms-for="(index,el) in @brandSearchList">
                         <div class='col-md-3 col-sm-3'>
                             <ul>
-                                <li><img ms-attr="{ src : el[0].logo }" width="201" height="120" /></li>
+                                <li><img ms-attr="{ src : el[0].logo }" width="192" height="120" /></li>
                                 <li ms-text="el[0].nick_name"></li>
                             </ul>
                         </div>
                         <div class='col-md-9 col-sm-9'>
                             <ul>
-                                <li  ms-for="(i,val) in el" ms-text="val.series">奔驰新Actros</li>
+                                <li  ms-for="(i,val) in el" ms-text="val.series" ms-attr="{ title : el.series }"></li>
                             </ul>
                         </div>
                     </div>
-                    <div class='row groupItems'>
+                    <!--<div class='row groupItems'>
                         <div class='col-md-3 col-sm-3'>
                             <ul>
                                 <li><img src='../../images/pinpai.png' class='品牌查找图片' /></li>
@@ -220,7 +220,7 @@
                                 <li>奔驰新Actros</li>
                             </ul>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                     <div class='col-md-9 col-sm-9 groupContent dis_none'>
                         <ul class='barTitle clearfix'>

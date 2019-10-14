@@ -108,6 +108,19 @@
   float: left;
   font-size: 16px;
 }
+.rankList ul li:nth-child(2) span{
+  display: inline-block;
+  vertical-align: middle;
+}
+.rankList ul li:first-child span:nth-child(2){
+  display: inline-block;
+  width: 190px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
 .rankList ul li .radius_circle {
   display: inline-block;
   width: 27px;

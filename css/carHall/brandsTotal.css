@@ -117,7 +117,7 @@ div.kindsContent span:nth-child(odd) {
 .groupItems > div:first-child img {
   vertical-align: middle;
   margin-top: 100px;
-  margin-left: 12px;
+  /*margin-left: 12px;*/
 }
 .groupItems > div:first-child ul li:last-child {
   margin-top: 20px;
@@ -133,6 +133,11 @@ div.kindsContent span:nth-child(odd) {
   float: left;
   margin-right: 60px;
   color: #333;
+  width: 97px;
+  line-height: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .groupItems > div:last-child ul:not(:first-child) {
   margin-top: 26px;
