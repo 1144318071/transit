@@ -54,18 +54,18 @@ $(function(){
                         switch(type){
                             case 'PERSONAL':
                                 location.href = '../index.html';
-                                break;
+                            break;
                             case 'MERCHANT':
                                 location.href = '../views/login/completeInfo.html';
-                                break;
+                            break;
                             case 'LOGISTICS':
                                 location.href = '../views/login/completeInfo.html';
-                                break;
+                            break;
                             case 'PROXY':
                                 location.href = '../views/login/changePwd.html';
-                                break;
+                            break;
                             default:
-                                break;
+                            break;
                         };
                     }
                 });

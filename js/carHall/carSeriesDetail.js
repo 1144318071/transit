@@ -73,15 +73,45 @@ $(function(){
     avalon.ready(function(){
         window.vmCarSeriesDetail = avalon.define({
             $id:'root',
+            data:{},
+            newsList:[],
+            carList:[],
+            relatedCars:[],
+            carDetail:{},
             onLoad:function(){
-
+                vmCarSeriesDetail.getUrlJosn();
             },
             getPage: function (el) {
                 var src = el.currentTarget.dataset.src;
                 location.href = src;
+            },
+            //获取url传过来的值
+            getUrlJosn:function(){
+                var url = location.href;
+                var data = GetRequest(url);
+                var token = localStorage.getItem('token');
+                data.token = token;
+                vmCarSeriesDetail.data = data;
+                vmCarSeriesDetail.getSeriesDetail();
+            },
+            getSeriesDetail:function(){
+                var postData={
+                    '_token_':vmCarSeriesDetail.data.token,
+                    'series':vmCarSeriesDetail.data.series,
+                    'brands_id':vmCarSeriesDetail.data.id,
+                    'type':vmCarSeriesDetail.data.car_ty
+                }
+                getAjax(API.URL_GET_CARSERIESDETAIL,'get',postData).then(function(res){
+                    vmCarSeriesDetail.newsList = res.result.news;
+                    vmCarSeriesDetail.carList = res.result.carList;
+                    vmCarSeriesDetail.relatedCars = res.result.relatedCars;
+                    vmCarSeriesDetail.carDetail = res.result.list;
+                    console.log(res);
+                });
             }
         });
-        avalon.scan(document.body);
         vmCarSeriesDetail.onLoad();
+        avalon.scan(document.body);
+
     });
 });

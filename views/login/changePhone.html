@@ -13,7 +13,7 @@
 <body>
     <div class="changePhone" ms-controller='root'>
         <div class='row loginTips'>
-            <div class='col-md-6 col-sm-6'>纵运服务平台</div>
+            <div class='col-md-6 col-sm-6 loginTipTitle'><img src="../../images/loginLogo.png" /><span class="font36 fontw">纵运服务平台</span></div>
             <div class='col-md-6 col-sm-6 text-right'><a class='mr4' href='../personal/personal.html'>个人中心</a>|<a class='ml4' href='../../index.html'>返回首页</a></div>
         </div>
         <div class='model'>
@@ -37,7 +37,9 @@
                     <input type="text" name="text" placeholder="请输入验证码"  ms-duplex='@stepTwo.code' autocomplete="off" class="layui-input checkCode pull-left">
                     <button type="button" id="layui-btn-Code" class="layui-btn-Code pull-left" ms-on-click='@getCheckCode'>获取验证码</button>
                 </div>
-                <button type="button" class="layui-btn layui-btn-primary font16 mt60" ms-on-click='@changePwd'>确认</button>
+                <div class="btn-operate">
+                    <button type="button" class="layui-btn layui-btn-primary font16 mt60" ms-on-click='@changePwd'>确认</button>
+                </div>
             </div>
         </div>
     </div>

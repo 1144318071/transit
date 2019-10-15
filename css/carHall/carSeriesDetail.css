@@ -224,6 +224,10 @@
 }
 .seriesNews ul li:last-child {
   margin-left: 6px;
+  width: 252px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .seriesNews ul li > a:hover {
   color: #f57619;
@@ -244,6 +248,17 @@
 }
 .relativeSeries .relativeDetail:last-child {
   border-bottom: 1px solid #e9e9e9;
+}
+.relativeTitle{
+  max-width: 230px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.relativeDetail a:hover,
+.relativeDetail a:link,
+.relativeDetail a:visited{
+  color:#f57619;
 }
 .agent_detail {
   width: 362px;

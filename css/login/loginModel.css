@@ -6,12 +6,21 @@
   height: 706px;
   margin: 120px 350px auto;
 }
+body{
+  background-color:#EFEFEF;
+}
+.loginTips{
+  width: 774px;
+  margin: 0 auto;
+  padding-top: 52px;
+}
 .model {
-  width: 740px;
+  width: 774px;
   height: 630px;
   margin: 0 auto;
-  margin-top: 52px;
   text-align: center;
+  background-color:#fff;
+  margin-top: 18px;
 }
 .model .model-title {
   width: 100%;
@@ -24,11 +33,10 @@
   border-top-right-radius: 4px;
 }
 .model .model-content {
-  border-left: 1px solid #d6d6d6;
+/*  border-left: 1px solid #d6d6d6;
   border-right: 1px solid #d6d6d6;
-  border-bottom: 1px solid #d6d6d6;
-  padding-top: 90px;
-  padding-bottom: 90px;
+  border-bottom: 1px solid #d6d6d6;*/
+  padding-top: 37px;
 }
 .model .row {
   margin-left: 0px;
@@ -39,8 +47,8 @@
 }
 .model .layui-input,
 .model .layui-textarea {
-  width: 50%;
-  margin-left: 25%;
+  width: 396px;
+  margin-left: 24%;
 }
 .model .layui-input,
 .model .layui-select,
@@ -67,7 +75,7 @@
   border: 0px;
   background-color: #f57619;
   color: #fff;
-  width: 50%;
+  width: 382px;
 }
 .model .layui-btn {
   height: 44px;
@@ -138,4 +146,34 @@ input[type=file] {
   text-align: left;
   margin-left: 20px;
   margin-top: 35px;
+}
+.btn-operate{
+  background-color:#fff;
+  margin-top: 20px;
+  padding-bottom: 50px;
+
+}
+.loginTipTitle span{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 36px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.loginTipTitle+div{
+  color: #f57619;
+  padding-top: 28px;
+}
+.loginTipTitle+div a:hover,
+.loginTipTitle+div a:link,
+.loginTipTitle+div a:visited{
+  color: #f57619;
+}
+/*下一步按钮*/
+.model .btn-operate .nextStep{
+  width: 200px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  margin-left: -182px;
 }

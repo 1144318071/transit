@@ -1,14 +1,13 @@
 $(function () {
     avalon.ready(function () {
-        window.vmForgetPwd = avalon.define({
+        window.vmChangePayCode = avalon.define({
             $id: 'root',
+            username:'',
             postData:{
                 '_token_':'',
-                'username': '',
                 'code': '',
-                'password': '',
-                'password_confirm': '',
-                '_t': '', //PERSONAL（个人） MERCHANT（商家） LOGISTICS（物流公司） PROXY （区域代理）
+                'payment_password': '',
+                'payment_password_confirm': ''
             },
             onLoad: function () {
             },
@@ -17,16 +16,17 @@ $(function () {
                 var token  = localStorage.getItem('token');
                 var getCode = {
                     '_token_': token,
-                    'mobile': vmForgetPwd.postData.username
+                    'mobile': vmChangePayCode.username
                 };
                 getAjax(API.URL_POST_SENDCODE, 'post', getCode).then(function (res) {
-                    alertMsg(res.message,1)
-                    console.log(res);
+                    console.log(res)
+                    // alertMsg(res.message,1);
                 });
                 let count = 60;
                 const countDown = setInterval(()=>{
                     if(count == 0){
                         $('.layui-btn-Code').text('获取验证码').removeAttr('disabled');
+                        $('.layui-btn-Code').css({'background':'#999','cursor':'pointer'});
                         clearInterval(countDown);
                     }else{
                         $('.layui-btn-Code').attr('disabled',true);
@@ -36,16 +36,16 @@ $(function () {
                     count--;
                 },1000);
             },
-            // 修改密码
-            changePwd:function(){
-                vmForgetPwd.postData._token_ = localStorage.getItem('token');
-                vmForgetPwd.postData._t = localStorage.getItem('_t');
-                getAjax(API.URL_POST_CHANGEPWD,'post',vmForgetPwd.postData).then(function(res){
+            // 修改支付密码
+            changePayCode:function(){
+                vmChangePayCode.postData._token_ = localStorage.getItem('token');
+                vmChangePayCode.postData._t = localStorage.getItem('_t');
+                getAjax(API.URL_POST_SETPAYMENT,'post',vmChangePayCode.postData).then(function(res){
                     alertMsg(res.message,1);
                 });
             }
         });
-        vmForgetPwd.onLoad();
+        vmChangePayCode.onLoad();
         avalon.scan(document.body);
     });
 });

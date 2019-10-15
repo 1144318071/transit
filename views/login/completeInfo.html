@@ -15,7 +15,7 @@
 <body>
     <div class="completeInfo" ms-controller='root'>
         <div class='row loginTips'>
-            <div class='col-md-6 col-sm-6'>纵运服务平台</div>
+            <div class='col-md-6 col-sm-6 loginTipTitle'><img src="../../images/loginLogo.png" /><span class="font36 fontw">纵运服务平台</span></div>
             <div class='col-md-6 col-sm-6 text-right'><a class='mr4' href='../personal/personal.html'>个人中心</a>|<a class='ml4' href='../../index.html'>返回首页</a></div>
         </div>
         <div class='model'>
@@ -82,7 +82,9 @@
                         <input type="text" lay-verify="required" ms-duplex='@postData.address' lay-reqtext="" placeholder="" autocomplete="off" class="layui-input">
                     </div>
                 </div>
-                <button type="button" class="layui-btn layui-btn-primary font16 mt60" ms-on-click='@nextStep'>下一步</span></button>
+                <div class="btn-operate">
+                    <button type="button" class="layui-btn layui-btn-primary font16 nextStep" ms-on-click='@nextStep'>下一步</span></button>
+                </div>
             </div>
             <div class='model-content dis_none changePassword'>
                 <div class="layui-input-block phone">
@@ -98,7 +100,9 @@
                 <div class="layui-input-block">
                     <input type="password" name="Rpwd"  ms-duplex='@postData.password_confirm'  lay-verify="required" lay-reqtext="确认密码" placeholder="确认新密码" autocomplete="off" class="layui-input">
                 </div>
-                <button type="button" class="layui-btn layui-btn-primary font16 mt60" ms-on-click='@CompleteInfo'>确<span class='ml40'>定</span></button>
+                <div class="btn-operate">
+                    <button type="button" class="layui-btn layui-btn-primary font16" ms-on-click='@CompleteInfo'>确<span class='ml40'>定</span></button>
+                </div>
             </div>
         </div>
     </div>

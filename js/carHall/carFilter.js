@@ -3,12 +3,21 @@ $('.statusList li').click(function(){
     $('.statusContent .statusDetail').eq($(this).index()).show().siblings().hide();
 });
 // 车型用途
-$('.carApply li:not(:last-child)').click(function () {
+$('.car_type li:not(:last-child)').click(function () {
+    $('.filterNew .filterDetail').hide();
+    $(this).addClass('active').siblings().removeClass('active');
+    $('.newEnergy span').removeClass('active');
+    $('.filterTra .filterDetail').eq($(this).index()).show().siblings().hide();
+    var text = $(this).text();
+    var html = "<li class='delItem'>" + text + "<span class = 'del'> x </span></li>";
+    $('.apply').html(html)
+});
+$('.carLevel li').click(function () {
     $(this).addClass('active').siblings().removeClass('active');
     $('.newEnergy span').removeClass('active');
     var text = $(this).text();
     var html = "<li class='delItem'>" + text + "<span class = 'del'> x </span></li>";
-    $('.apply').html(html)
+    $('.level').html(html)
 });
 // 电动货车
 $('.tri').click(function () {
@@ -27,6 +36,8 @@ $('.tri').click(function () {
 $('.newEnergy span').click(function(){
     $('.carApply li:not(:last-child)').removeClass('active');
     $(this).addClass('active').siblings().removeClass('active');
+    $('.filterTra .filterDetail').hide();
+    $('.filterNew .filterDetail').eq($(this).index()).show().siblings().hide();
     var text = $(this).text();
     var html = "<li class='delItem'>" + text + "<span class = 'del'> x </span></li>";
     $('.apply').html(html);

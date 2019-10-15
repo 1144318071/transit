@@ -20,7 +20,6 @@ layui.use(['laypage', 'layer'], function () {
 // 日历
 layui.use('laydate', function () {
     var laydate = layui.laydate;
-
     //执行一个laydate实例
     laydate.render({
         elem: '#test1' //指定元素
@@ -30,7 +29,10 @@ $(function(){
     avalon.ready(function(){
         window.vmPersonal = avalon.define({
             $id : 'root',
+            token:'',
             onLoad:function(){
+                var token = localStorage.getItem('token');
+                vmPersonal.token = token;
                 vmPersonal.getUserInfo();
             },
             userInfo:{},
@@ -40,16 +42,16 @@ $(function(){
                 location.href = '../../views/login/changePwd.html';
             },
             addCar:function(){
-                // layer.open({
-                //     type: 2,
-                //     title: false,
-                //     skin: 'layui-layer-demo', //样式类名
-                //     closeBtn: 1, //不显示关闭按钮
-                //     area: ['819px', '667px'],
-                //     shadeClose: true, //开启遮罩关闭
-                //     content: ['addCar.html']
-                // });
                 layer.open({
+                    type: 2,
+                    title: false,
+                    skin: 'layui-layer-demo', //样式类名
+                    closeBtn: 1, //不显示关闭按钮
+                    area: ['819px', '667px'],
+                    shadeClose: true, //开启遮罩关闭
+                    content: ['addCar.html']
+                });
+                /*layer.open({
                     type: 2,
                     title: false,
                     skin: 'layui-layer-demo', //样式类名
@@ -57,7 +59,7 @@ $(function(){
                     area: ['759px', '470px'],
                     shadeClose: true, //开启遮罩关闭
                     content: ['carChecking.html']
-                });
+                });*/
             },
             // 充值
             recharge:function(){
@@ -120,34 +122,33 @@ $(function(){
             },
             //获取个人信息
             getUserInfo:function(){
-                var userInfo = JSON.parse(localStorage.getItem('userInfo'));
-                vmPersonal.userInfo = userInfo;
-                console.log(userInfo)
-                var userType = userInfo.type;
-                console.log(vmPersonal.userInfo)
-                switch(userType){
-                    case 'PERSONAL':
-                        $('.companyInfo').hide();
-                        vmPersonal.userInfo.type = '个人';
-                    break;
-                    //'PERSONAL MERCHANT LOGISTICS PROXY', //支持个人 商家 物流公司 代理
-                    case 'MERCHANT':
-                        vmPersonal.userInfo.type = '商家';
-                        $('.personalList li').eq(1).hide();
-                        $('.vehicleManagement').hide();
-                    break;
-                    case 'LOGISTICS':
-                        vmPersonal.userInfo.type = '物流公司';
-                        $('.personalList li').eq(1).hide();
-                        $('.vehicleManagement').hide();
-                    break;
-                    case 'PROXY':
-                        vmPersonal.userInfo.type = '代理';
-                        $('.personalList li').eq(1).hide();
-                        $('.vehicleManagement').hide();
-                    break;
-                }
-            }
+                getAjax(API.URL_GET_PERSONALINFO,'get',{'_token_':vmPersonal.token}).then(function(res){
+                    console.log('个人信息',res);
+                    vmPersonal.userInfo = res.result;
+                    var userType = res.result.type;
+                    switch(userType){
+                        case 'PERSONAL':
+                            /*$('.companyInfo').hide();*/
+                            vmPersonal.userInfo.type = '个人';
+                        break;
+                        case 'MERCHANT':
+                            vmPersonal.userInfo.type = '商家';
+                           /* $('.personalList li').eq(1).hide();
+                            $('.vehicleManagement').hide();*/
+                        break;
+                        case 'LOGISTICS':
+                            vmPersonal.userInfo.type = '物流公司';
+                            /*$('.personalList li').eq(1).hide();
+                            $('.vehicleManagement').hide();*/
+                        break;
+                        case 'PROXY':
+                            vmPersonal.userInfo.type = '代理';
+                            /*$('.personalList li').eq(1).hide();
+                            $('.vehicleManagement').hide();*/
+                        break;
+                    }
+                });
+            },
         });
         vmPersonal.onLoad();
         avalon.scan(document.body);

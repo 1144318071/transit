@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="../../css/carHall/carSeriesDetail.css">
     <title>汽车大厅</title>
 </head>
-
 <body>
     <div class='header fixHeader' ms-controller='header'>
         <header>
@@ -141,7 +140,7 @@
             </div>
             <div class='row'>
                 <div class='col-md-12 col-sm-12'>
-                    <div class="title_line">陕汽德龙X3000牵引车</div>
+                    <div class="title_line" ms-text="@carDetail.series"></div>
                 </div>
             </div>
             <div class='row carSeriesDetail'>
@@ -150,41 +149,40 @@
                     <div class='row detailDes clearfix'>
                         <div class='col-md-6 col-sm-6 detailImg' data-src='carImg.html' ms-on-click='@getPage($event)'><img src="../../images/carSeiresDetail.png" alt="车系信息详情"></div>
                         <div class='col-md-6 col-sm-6 detailDescription'>
-                            <div class='carPrice'>30.19-75.00<span class='priceUnit'>万元</span><span>(200款车型)</span></div>
+                            <div class='carPrice'><label ms-text="@carDetail.minPrice"></label>-<label ms-text="@carDetail.maxPrice"></label><span class='priceUnit'>万元</span><span>(<label ms-text="@carDetail.car_count"></label>款车型)</span></div>
                             <div class="row detailMsg">
                                 <div class="col-md-3 col-sm-3">驱动形式<span>:</span></div>
                                 <div class="col-md-9 col-sm-9">
-                                    <span>6X4</span><span>8X8</span><span>6X6</span><span>4X2</span><span>6X2</span>
+                                    <span ms-text="@carDetail.base_drive">6X4</span>
+                                    <!--<span>8X8</span><span>6X6</span><span>4X2</span><span>6X2</span>-->
                                 </div>
                             </div>
                             <div class="row detailMsg">
                                 <div class="col-md-3 col-sm-3" style='letter-spacing: 5.5px'>发动机<span>:</span></div>
-                                <div class="col-md-9 col-sm-9">潍柴 西安康明斯 函宇动力</div>
+                                <div class="col-md-9 col-sm-9" ms-text="@carDetail.engine_model"></div>
                             </div>
                             <div class="row detailMsg">
                                 <div class="col-md-3 col-sm-3">最大马力<span>:</span></div>
-                                <div class="col-md-9 col-sm-9">500 550 430 600 460 380 440 450
-                                    420 375 580 385 480 350 400 345
-                                    530 336</div>
+                                <div class="col-md-9 col-sm-9" ms-text="@carDetail.engine_max_power"></div>
                             </div>
                             <div class="row detailMsg">
                                 <div class="col-md-3 col-sm-3">排放标准<span>:</span></div>
-                                <div class="col-md-9 col-sm-9">国五 国六 国四 国五/京五 国三</div>
+                                <div class="col-md-9 col-sm-9" ms-text="@carDetail.engine_emission"></div>
                             </div>
                             <div class="row detailMsg">
                                 <div class="col-md-3 col-sm-3" style='letter-spacing: 5.5px'>变速箱<span>:</span></div>
-                                <div class="col-md-9 col-sm-9"> 法士特 伊顿</div>
+                                <div class="col-md-9 col-sm-9" ms-text="@carDetail.gearbox"></div>
                             </div>
                             <div class="row detailMsg">
                                 <div class="col-md-3 col-sm-3">前进档位<span>:</span></div>
-                                <div class="col-md-9 col-sm-9">12 16 13 9</div>
+                                <div class="col-md-9 col-sm-9" ms-text="@carDetail.gearbox_forward_gear"></div>
                             </div>
                             <div class='row detailMsg agentPhone'>
                                 <div class='col-md-12 col-sm-12'>
                                     <ul class='clearfix'>
                                         <li>icon</li>
                                         <li>厂商电话<span>:</span></li>
-                                        <li>8959-65243656</li>
+                                        <li ms-text="@carDetail.tell">8959-65243656</li>
                                     </ul>
                                 </div>
                             </div>
@@ -340,14 +338,6 @@
                                         <div class='col-md-12 col-sm-12'><button>点击查看更多</button></div>
                                     </div>
                                     <table class="table table-condensed selectTable">
-                                        <!-- <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Username</th>
-                                            </tr>
-                                        </thead> -->
                                         <tbody>
                                             <tr>
                                                 <td>驱动形式6X6</td>
@@ -404,14 +394,6 @@
                                         <div class='col-md-12 col-sm-12'><button>点击查看更多</button></div>
                                     </div>
                                     <table class="table table-condensed selectTable">
-                                        <!-- <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Username</th>
-                                            </tr>
-                                        </thead> -->
                                         <tbody>
                                             <tr>
                                                 <td>驱动形式4X2</td>
@@ -468,14 +450,6 @@
                                         <div class='col-md-12 col-sm-12'><button>点击查看更多</button></div>
                                     </div>
                                     <table class="table table-condensed selectTable">
-                                        <!-- <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Username</th>
-                                            </tr>
-                                        </thead> -->
                                         <tbody>
                                             <tr>
                                                 <td>驱动形式6X2</td>
@@ -526,7 +500,6 @@
                                                 <td>查看参数</td>
                                             </tr>
                                         </tbody>
-
                                     </table>
                                     <div class='row loadMore'>
                                         <div class='col-md-12 col-sm-12'><button>点击查看更多</button></div>
@@ -669,93 +642,22 @@
                         </div>
                     </div>
                 </div>
+                <!--新闻-->
                 <div class='col-md-3 col-sm-3'>
                     <div class='seriesNews'>
-                        <div class='title_line'>牵引车新闻</div>
-                        <ul class='clearfix'>
+                        <div class='title_line'>新闻</div>
+                        <ul class='clearfix' ms-for="el in @newsList">
                             <li><span class='circle-gray'></span></li>
-                            <li><a href='javascript:;'>东风天龙载货限时促销中 优惠0.5万</a></li>
-                        </ul>
-                        <ul class='clearfix'>
-                            <li><span class='circle-gray'></span></li>
-                            <li><a href='javascript:;'>东风天龙载货限时促销中 优惠0.5万</a></li>
-                        </ul>
-                        <ul class='clearfix'>
-                            <li><span class='circle-gray'></span></li>
-                            <li><a href='javascript:;'>东风天龙载货限时促销中 优惠0.5万</a></li>
-                        </ul>
-                        <ul class='clearfix'>
-                            <li><span class='circle-gray'></span></li>
-                            <li><a href='javascript:;'>东风天龙载货限时促销中 优惠0.5万</a></li>
-                        </ul>
-                        <ul class='clearfix'>
-                            <li><span class='circle-gray'></span></li>
-                            <li><a href='javascript:;'>东风天龙载货限时促销中 优惠0.5万</a></li>
-                        </ul>
-                        <ul class='clearfix'>
-                            <li><span class='circle-gray'></span></li>
-                            <li><a href='javascript:;'>东风天龙载货限时促销中 优惠0.5万</a></li>
-                        </ul>
-                        <ul class='clearfix'>
-                            <li><span class='circle-gray'></span></li>
-                            <li><a href='javascript:;'>东风天龙载货限时促销中 优惠0.5万</a></li>
-                        </ul>
-                        <ul class='clearfix'>
-                            <li><span class='circle-gray'></span></li>
-                            <li><a href='javascript:;'>东风天龙载货限时促销中 优惠0.5万</a></li>
-                        </ul>
-                        <ul class='clearfix'>
-                            <li><span class='circle-gray'></span></li>
-                            <li><a href='javascript:;'>东风天龙载货限时促销中 优惠0.5万</a></li>
-                        </ul>
-                        <ul class='clearfix'>
-                            <li><span class='circle-gray'></span></li>
-                            <li><a href='javascript:;'>东风天龙载货限时促销中 优惠0.5万</a></li>
-                        </ul>
-                        <ul class='clearfix'>
-                            <li><span class='circle-gray'></span></li>
-                            <li><a href='javascript:;'>东风天龙载货限时促销中 优惠0.5万</a></li>
-                        </ul>
-                        <ul class='clearfix'>
-                            <li><span class='circle-gray'></span></li>
-                            <li><a href='javascript:;'>东风天龙载货限时促销中 优惠0.5万</a></li>
+                            <li><a ms-attr="{href:'./carNewsDetail.html?id='+ el.id + '&type=' + el.type + '&news_type=' + el.news_type}"  ms-text="el.title"></a></li>
                         </ul>
                     </div>
                     <div class='relativeSeries'>
                         <div class='title_line'>相关车系</div>
-                        <div class='relativeDetail'>
-                            <div class='relativeTitle'>格尔发K3 牵引车</div>
+                        <div class='relativeDetail' ms-for="el in relatedCars" >
+                            <div class='relativeTitle'ms-text="el.series"></div>
                             <ul class='clearfix'>
-                                <li class='pull-left'>25.0~36.6万</li>
-                                <li class='pull-right'>询底价&gt;&gt;</li>
-                            </ul>
-                        </div>
-                        <div class='relativeDetail'>
-                            <div class='relativeTitle'>格尔发K3 牵引车</div>
-                            <ul class='clearfix'>
-                                <li class='pull-left'>25.0~36.6万</li>
-                                <li class='pull-right'>询底价&gt;&gt;</li>
-                            </ul>
-                        </div>
-                        <div class='relativeDetail'>
-                            <div class='relativeTitle'>格尔发K3 牵引车</div>
-                            <ul class='clearfix'>
-                                <li class='pull-left'>25.0~36.6万</li>
-                                <li class='pull-right'>询底价&gt;&gt;</li>
-                            </ul>
-                        </div>
-                        <div class='relativeDetail'>
-                            <div class='relativeTitle'>格尔发K3 牵引车</div>
-                            <ul class='clearfix'>
-                                <li class='pull-left'>25.0~36.6万</li>
-                                <li class='pull-right'>询底价&gt;&gt;</li>
-                            </ul>
-                        </div>
-                        <div class='relativeDetail'>
-                            <div class='relativeTitle'>格尔发K3 牵引车</div>
-                            <ul class='clearfix'>
-                                <li class='pull-left'>25.0~36.6万</li>
-                                <li class='pull-right'>询底价&gt;&gt;</li>
+                                <li class='pull-left'><span ms-text="el.minPrice"></span>~<span ms-text="el.maxPrice"></span>万</li>
+                                <li class='pull-right'><a ms-attr="{ href : './carSeriesDetail.html?car_ty='+el.car_ty + '&id=' + el.manager_id+'&series='+el.series }" >询底价&gt;&gt;</a></li>
                             </ul>
                         </div>
                     </div>
@@ -771,8 +673,8 @@
     <script src='../../plugins/avalon/avalon.min.js'></script>
     <script src='../../common/js/kuCity.js'></script>
     <script src='../../plugins/banner/js/banner.js'></script>
-    <script src='../../js/data/api.js'></script>
-    <script src='../../js/data/return_data.js'></script>
+    <script src='../../data/api.js'></script>
+    <script src='../../data/return_data.js'></script>
     <script src='../../data/data.js'></script>
     <script src='../../js/header.js'></script>
     <script src='../../js/carHall/carSeriesDetail.js'></script>

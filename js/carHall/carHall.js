@@ -38,11 +38,11 @@ geolocation.getCurrentPosition(function(r){
             //或者其他信息
             console.log(rs);
             vmCarHall.city = rs.addressComponents.city;
-            vmCarHall.getCityCar();
+            // vmCarHall.getCityCar();
         })
     }
     else {
-        alert('获取当前定位失败');
+        console.log('获取当前定位失败');
     }
 },{enableHighAccuracy: true});
 
@@ -57,19 +57,28 @@ $(function(){
                 'type': '20',
                 'news_type': ''
             },
-            city:'',
+            cityCarType:{
+                '_token_' :'',
+                'city':'',
+                //10：载货车 20：牵引车  30：自卸车 40：新能源  50：轻卡  60：挂车
+                'car_type':'40'
+            },
+            city:'成都市',
             token:'',
             newsList:[],
             brandsList:[],
             hotCarList:[],
             agentList:[],
             attentionList:[],
+            carTypeList:[],
+            carTypeNews:[],
             onLoad:function(){
                 var token = localStorage.getItem('token');
                 vmCarHall.token = token;
                 vmCarHall.getNewsList();
                 vmCarHall.getPopularBrands();
                 vmCarHall.getAttention();
+                vmCarHall.getXNYList();
             },
             getNewsList:function(){
                 vmCarHall.newsData._token_ = vmCarHall.token;
@@ -126,19 +135,46 @@ $(function(){
                     vmCarHall.agentList = res.result;
                 });
             },
-            getCityCar:function(){
-                var data = {
-                    '_token_' :vmCarHall.token,
-                    'city':'',
-                    //10：载货车 20：牵引车  30：自卸车 40：新能源  50：轻卡  60：挂车
-                    'car_type':'20'
-                };
+            getCityCarList:function(){
+                vmCarHall.cityCarType._token_ = vmCarHall.token;
                 var cityCode = getCode(vmCarHall.city);
-                data.city = cityCode;
-                getAjax(API.URL_GET_CITYCAR,'get',data).then(function(res){
-                    console.log(res);
+                vmCarHall.cityCarType.city = cityCode;
+                getAjax(API.URL_GET_CITYCAR,'get',vmCarHall.cityCarType).then(function(res){
+                    vmCarHall.carTypeList = res.result.list;
+                    vmCarHall.carTypeNews = res.result.news;
+                    if(res.result.list == ''){
+                        alertMsg('暂无数据',2);
+                    }
+                    console.log('获取到的数据',res)
+                    console.log(vmCarHall.carTypeList);
+                    console.log(vmCarHall.carTypeNews);
                 });
-            }
+            },
+            //10：载货车 20：牵引车  30：自卸车 40：新能源  50：轻卡  60：挂车
+            getQKList:function(){
+                vmCarHall.cityCarType.car_type = '50';
+                vmCarHall.getCityCarList();
+            },
+            getQYList:function(){
+                vmCarHall.cityCarType.car_type = '20';
+                vmCarHall.getCityCarList();
+            },
+            getZXList:function(){
+                vmCarHall.cityCarType.car_type = '30';
+                vmCarHall.getCityCarList();
+            },
+            getXNYList:function(){
+                vmCarHall.cityCarType.car_type = '40';
+                vmCarHall.getCityCarList();
+            },
+            getZHList:function(){
+                vmCarHall.cityCarType.car_type = '10';
+                vmCarHall.getCityCarList();
+            },
+            getGCList:function(){
+                vmCarHall.cityCarType.car_type = '60';
+                vmCarHall.getCityCarList();
+            },
         });
         vmCarHall.onLoad();
         avalon.scan(document.body);

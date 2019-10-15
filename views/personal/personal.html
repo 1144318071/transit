@@ -87,7 +87,8 @@
         <div class='row personal'>
             <div class='col-md-3 col-sm-3 personalItem'>
                 <ul class='avatar'>
-                    <li><img src="../../images/avartar.png" alt=""></li>
+                    <li class="avatar"><img src="../../images/avartar.png" alt=""></li>
+                    <!--<li ms-text="@userInfo.actual_name"></li>-->
                     <li ms-text="@userInfo.username"></li>
                     <li ms-text="@userInfo.type"></li>
                 </ul>
@@ -107,7 +108,8 @@
                     <div class='personalDes'>
                         <ul class='personalLogo'>
                             <li><img src="../../images/avartar.png" alt=""></li>
-                            <li class='font20 fontw mt30'>用户名</li>
+                            <!--<li class='font20 fontw mt30' ms-text="@userInfo.actual_name">用户名</li>-->
+                            <li class='font20 fontw mt30' ms-text="@userInfo.username">用户名</li>
                         </ul>
                         <div class='row description pt50'>
                             <div class='col-md-6 col-sm-6'>
@@ -135,6 +137,20 @@
                                 <button class='btn-orange mt8' ms-on-click='@changePwd'>修改</button>
                             </div>
                         </div>
+                        <div class='row description pt50'>
+                            <div class='col-md-6 col-sm-6'>
+                                <ul class='clearfix'>
+                                    <li>支付密码</li>
+                                    <li>:</li>
+                                    <li>密码设置为六位数字组合,用于余额支付</br>
+                                        及提现,建议经常修改及保密,以防泄露。</br>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class='col-md-6 col-sm-6 text-right'>
+                                <button class='btn-orange mt8'>修改</button>
+                            </div>
+                        </div>
                         <div class='row description pt30'>
                             <div class='col-md-12 col-sm-12'>
                                 <ul class='clearfix'>
@@ -153,7 +169,7 @@
                                 </ul>
                             </div>
                             <div class='col-md-6 col-sm-6 text-right'>
-                                <button class='btn-orange mt8'>修改</button>
+                                <button class='btn-orange' style="margin-top: -6px">修改</button>
                             </div>
                         </div>
                         <div class='row description companyInfo pt30'>
@@ -270,7 +286,7 @@
                                 <div class='pull-left font18 fontw'>提现记录</div>
                                 <ul class='pull-right clearfix'>
                                     <li class='calendar'>2019-06 至 2017-06<img src="../../images/accountIcon.png" alt=""></li>
-                                    <!-- <li>
+                                   <!--  <li>
                                         <input type="text" class="layui-input" id="test1">
                                     </li> -->
                                 </ul>

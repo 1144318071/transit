@@ -1,9 +1,18 @@
 $(function () {
     avalon.ready(function () {
-        window.vmBankCard = avalon.define({
+        window.vmAddBankCard = avalon.define({
             $id: 'root',
+            postData:{
+                '_token_':'',
+                'account_name':'',
+                'bank':'',
+                'card_number':'',
+                'mobile':'',
+                'code':''
+            },
             onLoad: function () {
 
+                vmAddBankCard.getUserInfo();
             },
             // 取消
             cancel: function () {
@@ -12,6 +21,15 @@ $(function () {
             // 获取验证码
             getCheckCode: function () {
                 let count = 60;
+                var token = localStorage.getItem('token');
+                vmAddBankCard.postData._token_ = token;
+                var getCode = {
+                    '_token_': token ,
+                    'mobile': vmAddBankCard.postData.mobile
+                };
+                getAjax(API.URL_POST_SENDCODE, 'post', getCode).then(function (res) {
+                    console.log(res)
+                });
                 const countDown = setInterval(() => {
                     if (count == 0) {
                         $('.btn-gray').text('获取验证码').removeAttr('disabled');
@@ -27,9 +45,19 @@ $(function () {
                     }
                     count--;
                 }, 1000);
+            },
+            getUserInfo:function(){
+                var userInfo  = JSON.parse(localStorage.getItem('userInfo'));
+                vmAddBankCard.postData.mobile = userInfo.mobile;
+                vmAddBankCard.postData.account_name = userInfo.actual_name;
+            },
+            addBankCard:function(){
+                getAjax(API.URL_POST_BANKADD,'post',vmAddBankCard.postData).then(function(res){
+                    console.log(res);
+                });
             }
         });
-        vmBankCard.onLoad();
+        vmAddBankCard.onLoad();
         avalon.scan(document.body);
     });
 });

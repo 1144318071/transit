@@ -9,7 +9,7 @@ var API = {
     // ----------------------------------------------登录-----------------------------------
     URL_POST_USERLOGIN: getApiHost + '/api/user/login',
     // 退出登录
-    URL_POST_LOGINOUT : getApiHost + '/login/out',
+    URL_POST_LOGINOUT: getApiHost + '/login/out',
     // 商家信息完善
     URL_POST_VERIFYCOMPANY: getApiHost + '/company/verify',
     // ----------------------------------------------个人中心-----------------------------------
@@ -17,7 +17,7 @@ var API = {
     URL_GET_PERSONALINFO: getApiHost + '/personal/info',
     // 修改头像
     URL_POST_CHANGEAVATAR: getApiHost + '/personal/update/avatar',
-    // 修改密码
+    // 修改密
     URL_POST_CHANGEPWD: getApiHost + '/personal/update/password',
     // 更换手机号第一步
     URL_POST_CHANGEPHONEONE: getApiHost + '/personal/update/mobile/first',
@@ -25,70 +25,54 @@ var API = {
     URL_POST_CHANGEPHONETWO: getApiHost + '/personal/update/mobile/second',
     // 修改公司信息
     URL_POST_EDITCOMPANY: getApiHost + '/company/edit',
+    //修改头像
+    URL_POST_UPDATEAVATAR : getApiHost + '/personal/update/avatar',
+    //修改支付密码
+    URL_POST_SETPAYMENT : getApiHost + '/personal/set/payment',
+    //----------------------------------------------账户管理-----------------------------------
+    //银行卡列表
+    URL_GET_BANKLIST : getApiHost + '/bank/list',
+    //添加银行卡
+    URL_POST_BANKADD : getApiHost + '/bank/add',
+    //设置默认
+    URL_POST_BANKDEFAULT : getApiHost + '/bank/default',
+    //银行卡解绑
+    URL_POST_BANKUNTIED : getApiHost + '/bank/untied',
+    //充值
+    URL_POST_BALANCERECHARGE : getApiHost + '/balance/recharge',
+    //提现
+    URL_POST_BALANCEWITHDRAW : getApiHost + '/balance/withdraw',
+    //明细
+    URL_POST_BALANCEREFUNDDETAILS : getApiHost + '/balance/fundDetails',
     //----------------------------------------------汽车大厅-----------------------------------
     // 最新新闻
     URL_GET_NEWS: getApiHost + '/news',
     //热门新闻
-    URL_GET_HOTNEWS : getApiHost + '/hotNews/list',
+    URL_GET_HOTNEWS: getApiHost + '/hotNews/list',
     //热门车型
-    URL_GET_HOTCAR : getApiHost + '/hot/car',
+    URL_GET_HOTCAR: getApiHost + '/hot/car',
     //关注度排行
-    URL_GET_ATTENTION : getApiHost + '/attention',
+    URL_GET_ATTENTION: getApiHost + '/attention',
     //热门品牌
-    URL_GET_POPULARBRANDS : getApiHost + '/popular/brands',
+    URL_GET_POPULARBRANDS: getApiHost + '/popular/brands',
     //获取首字母
-    URL_GET_KEYWORD : getApiHost + '/get/keyword',
+    URL_GET_KEYWORD: getApiHost + '/get/keyword',
     //品牌筛选
-    URL_GET_BRANDSSEARCH : getApiHost + '/brands/search',
+    URL_GET_BRANDSSEARCH: getApiHost + '/brands/search',
     //优质经销商
-    URL_GET_QUALITYAGENT : getApiHost +'/quality/distributor',
+    URL_GET_QUALITYAGENT: getApiHost + '/quality/distributor',
     //品牌详情
-    URL_GET_BRANDINFO :getApiHost+'/brands/info',
+    URL_GET_BRANDINFO: getApiHost + '/brands/info',
     //定位地车辆
-    URL_GET_CITYCAR : getApiHost + '/city/car',
+    URL_GET_CITYCAR: getApiHost + '/city/car',
+    //获取车系详情
+    URL_GET_CARSERIESDETAIL : getApiHost + '/series/info',
     //----------------------------------------------首页-----------------------------------
-    URL_GET_ENTERPRISELIST : getApiHost + '/enterprise/list',
+    URL_GET_ENTERPRISELIST: getApiHost + '/enterprise/list',
     //新闻详情
-    URL_GET_NEWSINFO : getApiHost + '/newsInfo',
+    URL_GET_NEWSINFO: getApiHost + '/newsInfo',
     //获取banner图
-    URL_GET_BANNERLIST : getApiHost + '/banner/list',
+    URL_GET_BANNERLIST: getApiHost + '/banner/list',
     //----------------------------------------------关于我们-----------------------------------
-    URL_GET_ABOUTUS : getApiHost + '/about/us'
+    URL_GET_ABOUTUS: getApiHost + '/about/us'
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

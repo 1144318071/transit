@@ -21,6 +21,23 @@ function getNowFormatDate() {
     var currentdate = date.getFullYear() + seperator + month + seperator + strDate;
     return currentdate;
 }
+function getToken(){
+    $.ajax({
+        url: API.URL_POST_SETTOKEN,
+        type: 'post',
+        dataType: 'json',
+        async: true,
+        data: { version: '2.0.1', author: '丶Lee', email: '1144318071@qq.com', date: getNowFormatDate},
+        xhrFields: {
+            withCredentials: true
+        },
+        success:function(res){
+            if(res.code == 200){
+                localStorage.setItem('token',res.result.token);
+            }
+        }
+    });
+}
 //ajax请求数据的公共方法
 function getAjax(url, type, data) {
     return new Promise(function (resolve, reject) {
@@ -34,31 +51,16 @@ function getAjax(url, type, data) {
                 withCredentials: true
             }
         }).done(function (res) {
-            if (res.code == 77893 || res.code == 77894) {
-                alertMsg(res.message, 1);
-                setTimeout(function(){
-                    location.href = '../login.html'
-                },2000);
-            }else if(res.code == 43968){//token失效
-                $.ajax({
-                    url: API.URL_POST_SETTOKEN,
-                    type: 'post',
-                    dataType: 'json',
-                    async: true,
-                    data: { version: '2.0.1', author: '丶Lee', email: '1144318071@qq.com', date: getNowFormatDate},
-                    xhrFields: {
-                        withCredentials: true
-                    },
-                    success:function(res){
-                        if(res.code == 200){
-                            localStorage.setItem('token',res.result.token);
-                        }
-                    }
-                });
-            }else if (res.code == 200) {
+            if(res.code == 200){
                 resolve(res);
-            } else {
-                alertMsg(res.message, 2);
+            }else{
+                if(res.code == 77893 || res.code == 77894){
+                    alertMsg(res.message, 1);
+                    setTimeout(function(){
+                        location.href = '../../login.html';
+                    },2000);
+                }
+                getToken();
             }
         }).fail(function (err) {
             reject(err);

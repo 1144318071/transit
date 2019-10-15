@@ -1,6 +1,6 @@
 $(function () {
     avalon.ready(function () {
-        window.vmForgetPwd = avalon.define({
+        window.vmChangePwd = avalon.define({
             $id: 'root',
             postData:{
                 '_token_':'',
@@ -17,11 +17,10 @@ $(function () {
                 var token  = localStorage.getItem('token');
                 var getCode = {
                     '_token_': token,
-                    'mobile': vmForgetPwd.postData.username
+                    'mobile': vmChangePwd.postData.username
                 };
                 getAjax(API.URL_POST_SENDCODE, 'post', getCode).then(function (res) {
                     alertMsg(res.message,1)
-                    console.log(res);
                 });
                 let count = 60;
                 const countDown = setInterval(()=>{
@@ -38,14 +37,14 @@ $(function () {
             },
             // 修改密码
             changePwd:function(){
-                vmForgetPwd.postData._token_ = localStorage.getItem('token');
-                vmForgetPwd.postData._t = localStorage.getItem('_t');
-                getAjax(API.URL_POST_CHANGEPWD,'post',vmForgetPwd.postData).then(function(res){
+                vmChangePwd.postData._token_ = localStorage.getItem('token');
+                vmChangePwd.postData._t = localStorage.getItem('_t');
+                getAjax(API.URL_POST_CHANGEPWD,'post',vmChangePwd.postData).then(function(res){
                     alertMsg(res.message,1);
                 });
             }
         });
-        vmForgetPwd.onLoad();
+        vmChangePwd.onLoad();
         avalon.scan(document.body);
     });
 });

@@ -144,9 +144,9 @@
                 <div class='col-md-12 col-sm-12'>
                     <div class='carApplication clearfix'>
                         <ul>
-                            <li>车型用途:</li>
+                            <li>车型用途<span class="ml4 mr4">:</span></li>
                         </ul>
-                        <ul class='carApply clearfix'>
+                        <ul class='carApply car_type clearfix'>
                             <li>不限</li>
                             <li>牵引车</li>
                             <li>载货车</li>
@@ -162,11 +162,23 @@
                             </li>
                         </ul>
                         <div class='clearfix'></div>
-                        
+                    </div>
+                    <div class='carApplication clearfix'>
+                        <ul>
+                            <li>卡车级别<span class="ml4 mr4">:</span></li>
+                        </ul>
+                        <ul class='carApply carLevel clearfix'>
+                            <li>不限</li>
+                            <li>微卡</li>
+                            <li>轻卡</li>
+                            <li>中卡</li>
+                            <li>重卡</li>
+                        </ul>
+                        <div class='clearfix'></div>
                     </div>
                     <div class='carBrands clearfix'>
                         <ul>
-                            <li>卡车品牌:</li>
+                            <li>卡车品牌<span class="ml4 mr4">:</span></li>
                         </ul>
                         <ul class='bandsDetail clearfix'>
                             <li>不限</li>
@@ -185,6 +197,562 @@
                             <span>卡车品牌6</span>
                             <span>卡车品牌7</span>
                         </div>
+                        <div class="filterContent filterTra">
+                            <div class="filterDetail"></div>
+                            <!--牵引车-->
+                            <div class="filterDetail dis_none">
+                                <ul class="filterItem clearfix">
+                                    <li>价格<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>5万以下</li>
+                                    <li>5-8万</li>
+                                    <li>8-10万</li>
+                                    <li>10-13万</li>
+                                    <li>13-16万</li>
+                                    <li>16-25万</li>
+                                    <li>25-30万</li>
+                                    <li>30-35万</li>
+                                    <li>35-45万</li>
+                                    <li>45万-60万</li>
+                                    <li>60万以上</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>驱动形式<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>4X2(单桥)</li>
+                                    <li>6X2(前四后四) </li>
+                                    <li>6X4</li>
+                                    <li>6X6</li>
+                                    <li>8X2(前四后六)</li>
+                                    <li>8X4(前四后八)</li>
+                                    <li>4X4</li>
+                                    <li>8X8</li>
+                                </ul>
+                                <ul class="filterItem clearfix maxPower">
+                                    <li>最大马力<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>90马力以下</li>
+                                    <li>90-140马力</li>
+                                    <li>140-190马力</li>
+                                    <li>190-240马力</li>
+                                    <li>240-290马力</li>
+                                    <li>8X4(前四后八)</li>
+                                    <li>290-340马力</li>
+                                    <li>340-400马力</li>
+                                    <li>400-460马力</li>
+                                    <li>460马力以上</li>
+                                </ul>
+                                <!--<ul class="filterItem clearfix">
+                                    <li>货箱长度<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>2.5米以下</li>
+                                    <li>2.5-3.2米</li>
+                                    <li>3.2-3.6米</li>
+                                    <li>3.6-4.2米</li>
+                                    <li>4.2-5.2米</li>
+                                    <li>5.2-6.8米</li>
+                                    <li>6.8-7.2米</li>
+                                    <li>7.2-8米</li>
+                                    <li>8-9.6米</li>
+                                    <li>9.6米以上</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>座位排数<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>单排</li>
+                                    <li>双排</li>
+                                </ul>-->
+                               <!-- <ul class="filterItem clearfix">
+                                    <li>总质量<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>3.5吨以下</li>
+                                    <li>3.5-4.499吨</li>
+                                    <li>4.5-8.299吨</li>
+                                    <li>8.3-11.999吨</li>
+                                    <li>12-18吨</li>
+                                    <li>18.1-25吨</li>
+                                    <li>25-31吨</li>
+                                </ul>-->
+                                <ul class="filterItem clearfix">
+                                    <li>前进挡位<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>5档</li>
+                                    <li>6档</li>
+                                    <li>7档</li>
+                                    <li>8档</li>
+                                    <li>9档</li>
+                                    <li>10档</li>
+                                    <li>12档</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>燃料种类<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>柴油</li>
+                                    <li>汽油</li>
+                                    <li>LNG/CNG</li>
+                                    <li>油气两用</li>
+                                    <li>电动</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>排放标准<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>国五</li>
+                                    <li>国六</li>
+                                    <li>京五</li>
+                                    <li>国四</li>
+                                    <li>国三</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>牌照<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>黄牌</li>
+                                    <li>蓝牌</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>国别<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>国产</li>
+                                    <li>进口</li>
+                                </ul>
+                            </div>
+                            <!--载货车-->
+                            <div class="filterDetail dis_none">
+                                <ul class="filterItem clearfix">
+                                    <li>价格<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>5万以下</li>
+                                    <li>5-8万</li>
+                                    <li>8-10万</li>
+                                    <li>10-13万</li>
+                                    <li>13-16万</li>
+                                    <li>16-25万</li>
+                                    <li>25-30万</li>
+                                    <li>30-35万</li>
+                                    <li>35-45万</li>
+                                    <li>45万-60万</li>
+                                    <li>60万以上</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>驱动形式<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>4X2(单桥)</li>
+                                    <li>6X2(前四后四) </li>
+                                    <li>6X4</li>
+                                    <li>6X6</li>
+                                    <li>8X2(前四后六)</li>
+                                    <li>8X4(前四后八)</li>
+                                    <li>4X4</li>
+                                    <li>8X8</li>
+                                </ul>
+                                <ul class="filterItem clearfix maxPower">
+                                    <li>最大马力<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>90马力以下</li>
+                                    <li>90-140马力</li>
+                                    <li>140-190马力</li>
+                                    <li>190-240马力</li>
+                                    <li>240-290马力</li>
+                                    <li>8X4(前四后八)</li>
+                                    <li>290-340马力</li>
+                                    <li>340-400马力</li>
+                                    <li>400-460马力</li>
+                                    <li>460马力以上</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>货箱长度<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>2.5米以下</li>
+                                    <li>2.5-3.2米</li>
+                                    <li>3.2-3.6米</li>
+                                    <li>3.6-4.2米</li>
+                                    <li>4.2-5.2米</li>
+                                    <li>5.2-6.8米</li>
+                                    <li>6.8-7.2米</li>
+                                    <li>7.2-8米</li>
+                                    <li>8-9.6米</li>
+                                    <li>9.6米以上</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>座位排数<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>单排</li>
+                                    <li>双排</li>
+                                </ul>
+                                 <ul class="filterItem clearfix">
+                                     <li>总质量<span>:</span></li>
+                                     <li>不限</li>
+                                     <li>3.5吨以下</li>
+                                     <li>3.5-4.499吨</li>
+                                     <li>4.5-8.299吨</li>
+                                     <li>8.3-11.999吨</li>
+                                     <li>12-18吨</li>
+                                     <li>18.1-25吨</li>
+                                     <li>25-31吨</li>
+                                 </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>前进挡位<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>5档</li>
+                                    <li>6档</li>
+                                    <li>7档</li>
+                                    <li>8档</li>
+                                    <li>9档</li>
+                                    <li>10档</li>
+                                    <li>12档</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>燃料种类<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>柴油</li>
+                                    <li>汽油</li>
+                                    <li>LNG/CNG</li>
+                                    <li>油气两用</li>
+                                    <li>电动</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>排放标准<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>国五</li>
+                                    <li>国六</li>
+                                    <li>京五</li>
+                                    <li>国四</li>
+                                    <li>国三</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>牌照<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>黄牌</li>
+                                    <li>蓝牌</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>国别<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>国产</li>
+                                    <li>进口</li>
+                                </ul>
+                            </div>
+                            <!--自卸车-->
+                            <div class="filterDetail dis_none">
+                                <ul class="filterItem clearfix">
+                                    <li>价格<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>5万以下</li>
+                                    <li>5-8万</li>
+                                    <li>8-10万</li>
+                                    <li>10-13万</li>
+                                    <li>13-16万</li>
+                                    <li>16-25万</li>
+                                    <li>25-30万</li>
+                                    <li>30-35万</li>
+                                    <li>35-45万</li>
+                                    <li>45万-60万</li>
+                                    <li>60万以上</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>驱动形式<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>4X2(单桥)</li>
+                                    <li>6X2(前四后四) </li>
+                                    <li>6X4</li>
+                                    <li>6X6</li>
+                                    <li>8X2(前四后六)</li>
+                                    <li>8X4(前四后八)</li>
+                                    <li>4X4</li>
+                                    <li>8X8</li>
+                                </ul>
+                                <ul class="filterItem clearfix maxPower">
+                                    <li>最大马力<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>90马力以下</li>
+                                    <li>90-140马力</li>
+                                    <li>140-190马力</li>
+                                    <li>190-240马力</li>
+                                    <li>240-290马力</li>
+                                    <li>8X4(前四后八)</li>
+                                    <li>290-340马力</li>
+                                    <li>340-400马力</li>
+                                    <li>400-460马力</li>
+                                    <li>460马力以上</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>货箱长度<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>2.5米以下</li>
+                                    <li>2.5-3.2米</li>
+                                    <li>3.2-3.6米</li>
+                                    <li>3.6-4.2米</li>
+                                    <li>4.2-5.2米</li>
+                                    <li>5.2-6.8米</li>
+                                    <li>6.8-7.2米</li>
+                                    <li>7.2-8米</li>
+                                    <li>8-9.6米</li>
+                                    <li>9.6米以上</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>总质量<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>3.5吨以下</li>
+                                    <li>3.5-4.499吨</li>
+                                    <li>4.5-8.299吨</li>
+                                    <li>8.3-11.999吨</li>
+                                    <li>12-18吨</li>
+                                    <li>18.1-25吨</li>
+                                    <li>25-31吨</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>前进挡位<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>5档</li>
+                                    <li>6档</li>
+                                    <li>7档</li>
+                                    <li>8档</li>
+                                    <li>9档</li>
+                                    <li>10档</li>
+                                    <li>12档</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>燃料种类<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>柴油</li>
+                                    <li>汽油</li>
+                                    <li>LNG/CNG</li>
+                                    <li>油气两用</li>
+                                    <li>电动</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>排放标准<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>国五</li>
+                                    <li>国六</li>
+                                    <li>京五</li>
+                                    <li>国四</li>
+                                    <li>国三</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>牌照<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>黄牌</li>
+                                    <li>蓝牌</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>国别<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>国产</li>
+                                    <li>进口</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="filterContent filterNew">
+                            <!--电动轻卡-->
+                            <div class="filterDetail dis_none">
+                                <ul class="filterItem clearfix">
+                                    <li>价格<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>5万以下</li>
+                                    <li>5-8万</li>
+                                    <li>8-10万</li>
+                                    <li>10-13万</li>
+                                    <li>13-16万</li>
+                                    <li>16-25万</li>
+                                    <li>25-30万</li>
+                                    <li>30-35万</li>
+                                    <li>35-45万</li>
+                                    <li>45万-60万</li>
+                                    <li>60万以上</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>驱动形式<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>4X2</li>
+                                    <li>6X4</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>车身长度<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>5米以下</li>
+                                    <li>5-6米</li>
+                                    <li>6-7米</li>
+                                    <li>7-8米</li>
+                                    <li>8米以上</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>货箱长度<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>3.2米以下</li>
+                                    <li>3.2-3.6米</li>
+                                    <li>3.6-4.2米</li>
+                                    <li>4.2-5.2米</li>
+                                    <li>5.2米以上</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>总质量<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>2.5吨以下</li>
+                                    <li>2.5-3.5吨</li>
+                                    <li>3.5-4.5吨</li>
+                                    <li>4.5-7.5吨</li>
+                                    <li>7.5吨以上</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>峰值功率<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>60kW以下</li>
+                                    <li>60-100kW</li>
+                                    <li>100-150kW </li>
+                                    <li>150-200kW</li>
+                                    <li>200kW以上</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>厂标续航<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>150公里以下</li>
+                                    <li>150-200公里</li>
+                                    <li>200-300公里</li>
+                                    <li>300公里以上</li>
+                                </ul>
+                            </div>
+                            <!--电动牵引车-->
+                            <div class="filterDetail dis_none">
+                                <ul class="filterItem clearfix">
+                                    <li>价格<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>5万以下</li>
+                                    <li>5-8万</li>
+                                    <li>8-10万</li>
+                                    <li>10-13万</li>
+                                    <li>13-16万</li>
+                                    <li>16-25万</li>
+                                    <li>25-30万</li>
+                                    <li>30-35万</li>
+                                    <li>35-45万</li>
+                                    <li>45万-60万</li>
+                                    <li>60万以上</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>驱动形式<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>4X2</li>
+                                    <li>6X4</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>满载续航里程<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>100-200公里</li>
+                                    <li>200-500公里</li>
+                                    <li>500公里以上</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>峰值功率<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>200kW以下</li>
+                                    <li>200-300kW</li>
+                                    <li>300kW以上</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>厂标续航<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>150公里以下</li>
+                                    <li>150-200公里</li>
+                                    <li>200-300公里</li>
+                                    <li>300公里以上</li>
+                                </ul>
+                            </div>
+                            <!--电动自卸车-->
+                            <div class="filterDetail dis_none">
+                                <ul class="filterItem clearfix">
+                                    <li>吨位级别<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>微卡</li>
+                                    <li>轻卡</li>
+                                    <li>中卡</li>
+                                    <li>重卡</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>价格<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>5万以下</li>
+                                    <li>5-8万</li>
+                                    <li>8-10万</li>
+                                    <li>10-13万</li>
+                                    <li>13-16万</li>
+                                    <li>16-25万</li>
+                                    <li>25-30万</li>
+                                    <li>30-35万</li>
+                                    <li>35-45万</li>
+                                    <li>45万-60万</li>
+                                    <li>60万以上</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>驱动形式<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>4X2</li>
+                                    <li>6X4</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>峰值功率<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>200kW以下</li>
+                                    <li>200-300kW</li>
+                                    <li>300kW以上</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>厂标续航<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>150公里以下</li>
+                                    <li>150-200公里</li>
+                                    <li>200-300公里</li>
+                                    <li>300公里以上</li>
+                                </ul>
+                            </div>
+                            <!--电动冷藏车-->
+                            <div class="filterDetail dis_none">
+                                <ul class="filterItem clearfix">
+                                    <li>价格<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>5万以下</li>
+                                    <li>5-8万</li>
+                                    <li>8-10万</li>
+                                    <li>10-13万</li>
+                                    <li>13-16万</li>
+                                    <li>16-25万</li>
+                                    <li>25-30万</li>
+                                    <li>30-35万</li>
+                                    <li>35-45万</li>
+                                    <li>45万-60万</li>
+                                    <li>60万以上</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>驱动形式<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>4X2</li>
+                                    <li>6X4</li>
+                                </ul>
+                                <ul class="filterItem clearfix maxPower">
+                                    <li>货箱长度<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>3.2米以下</li>
+                                    <li>3.2-3.6米</li>
+                                    <li>3.6-4.2米</li>
+                                    <li>4.2-5.2米</li>
+                                    <li>5.2米以上</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>峰值功率<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>200kW以下</li>
+                                    <li>200-300kW</li>
+                                    <li>300kW以上</li>
+                                </ul>
+                                <ul class="filterItem clearfix">
+                                    <li>厂标续航<span>:</span></li>
+                                    <li>不限</li>
+                                    <li>150公里以下</li>
+                                    <li>150-200公里</li>
+                                    <li>200-300公里</li>
+                                    <li>300公里以上</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -196,6 +764,7 @@
                 <span class='pull-left'>筛选条件:</span>
                 <ul class='selectItems clearfix'>
                     <li class='delItem apply'></li>
+                    <li class='delItem level'></li>
                     <li class='delItem brands'></li>
                     <li class='color-999 delAll'>清除筛选条件</li>
                 </ul>
@@ -533,8 +1102,8 @@
     <script src='../../plugins/avalon/avalon.min.js'></script>
     <script src='../../common/js/kuCity.js'></script>
     <script src='../../plugins/banner/js/banner.js'></script>
-    <script src='../../js/data/api.js'></script>
-    <script src='../../js/data/return_data.js'></script>
+    <script src='../../data/api.js'></script>
+    <script src='../../data/return_data.js'></script>
     <script src='../../data/data.js'></script>
     <script src='../../js/header.js'></script>
     <script src='../../js/carHall/carFilter.js'></script>

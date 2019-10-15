@@ -15,8 +15,8 @@
 <body>
     <div class="changePwd" ms-controller='root'>
         <div class='row loginTips'>
-            <div class='col-md-6 col-sm-6'>纵运服务平台</div>
-            <div class='col-md-6 col-sm-6 text-right'><a class='mr4' href='../personal/personal.html'>个人中心</a>|<a class='ml4' href='../../index.html'>返回首页</a></div>
+            <div class='col-md-6 col-sm-6 loginTipTitle'><img src="../../images/loginLogo.png" /><span class="font36 fontw">纵运服务平台</span></div>
+            <div class='col-md-6 col-sm-6 text-right'><a class='mr4' href='../../login.html'>返回登录</a>|<a class='ml4' href='../../index.html'>返回首页</a></div>
         </div>
         <div class='model'>
             <div class='model-title row'>
@@ -24,7 +24,7 @@
             </div>
             <div class='model-content'>
                 <div class="layui-input-block phone">
-                    <input type="text" name="username" ms-duplex='@postData.mobile' lay-verify="required" lay-reqtext="手机号必填" placeholder="输入手机号" autocomplete="off" class="layui-input">
+                    <input type="text" name="username" ms-duplex='@postData.username' lay-verify="required" lay-reqtext="手机号必填" placeholder="输入手机号" autocomplete="off" class="layui-input">
                 </div>
                 <div class="layui-input-block clearfix">
                     <input type="text" name="text"  ms-duplex='@postData.code'  placeholder="请输入验证码" autocomplete="off" class="layui-input checkCode pull-left">
@@ -36,7 +36,7 @@
                 <div class="layui-input-block">
                     <input type="password" name="Rpwd"  ms-duplex='@postData.password_confirm'  lay-verify="required" lay-reqtext="确认密码" placeholder="确认新密码" autocomplete="off" class="layui-input">
                 </div>
-                <button type="button" class="layui-btn layui-btn-primary font16 mt60">确<span class='ml40'>定</span></button>
+                <button type="button" class="layui-btn layui-btn-primary font16 mt60" ms-on-click="@changePwd">确<span class='ml40'>定</span></button>
             </div>
         </div>
     </div>
@@ -45,7 +45,6 @@
     <script src='../../plugins/avalon/avalon.min.js'></script>
     <script src='../../data/api.js'></script>
     <script src='../../data/return_data.js'></script>
-    <script src='../../js/login/forgetPwd.js'></script>
+    <script src='../../js/login/changePwd.js'></script>
 </body>
-
 </html>
