@@ -1,6 +1,20 @@
 var Area = {
     provinces: {
-        province: [{
+        province: [
+            {
+                ssqid: "1",
+                ssqname: "全部",
+                ssqename: "",
+                cities: {
+                    city: [{
+                        ssqid: "1",
+                        ssqname: "",
+                        ssqename: "",
+                    }
+                    ]
+                }
+            },
+            {
                 ssqid: "110000",
                 ssqname: "北京",
                 ssqename: "",

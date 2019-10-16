@@ -309,48 +309,45 @@
                         <div class='col-md-1 col-sm-1'>省份:</div>
 
                         <div class='col-md-11 col-sm-11 clearfix'>
-                            <a class="pull-left" href="javascript:;">全部</a>
                             <div class="pull-left" id="province"></div>
                         </div>
                     </div>
                     <div class='row city'>
                         <div class='col-md-1 col-sm-1'>城市:</div>
                         <div class='col-md-11 col-sm-11'>
-                            <a class="pull-left" href="javascript:;">全部</a>
                             <div class="pull-left" id='city'></div>
                         </div>
                     </div>
                     <div class='row agent'>
                         <div class='col-md-12 col-sm-12'>
                             <div class='agent_content clearfix'>
-                                <div class='agent_detail fl'>
+                                <div class='agent_detail fl' ms-for="el in @agentList">
                                     <ul class='pull-left font16'>
-                                        <li>四川信智益汽车销售服务有限公司</li>
+                                        <li ms-text="el.shop_name"></li>
                                         <li>
                                             <button>4S店</button>
-                                            <button>售本市</button>
-                                            <button>2年</button>
+                                            <button><i ms-text="el.year"></i>年</button>
                                         </li>
                                     </ul>
                                     <ul class='pull-left logo'>
-                                        <li><img src="../../images/qx.jpg" width='96px' height='59px' alt=""></li>
+                                        <li><img ms-attr="{ src : el.shop_logo }" width='96px' height='59px' alt=""></li>
                                     </ul>
                                     <div class='clearfix'></div>
                                     <ul class='clearfix'>
                                         <li class='pull-left'>品&emsp;&emsp;牌&nbsp;:&nbsp;</li>
-                                        <li class='pull-left'>中国重汽</li>
+                                        <li class='pull-left' ms-text="el.brands">中国重汽</li>
                                     </ul>
                                     <ul class='clearfix'>
                                         <li class='pull-left'>地&emsp;&emsp;址&nbsp;:&nbsp;</li>
-                                        <li class='pull-left'>四川省成都双流会缘汽配城21栋</li>
+                                        <li class='pull-left' ms-text="el.province + el.city + el.area + el.address"></li>
                                     </ul>
                                     <ul class='clearfix'>
                                         <li class='pull-left'>经销商电话&nbsp;:&nbsp;</li>
-                                        <li class='pull-left font20'>4006839788</li>
+                                        <li class='pull-left font20'  ms-text="el.hot_line">4006839788</li>
                                     </ul>
                                 </div>
 
-                                <div class='agent_detail fl'>
+                                <!--<div class='agent_detail fl'>
                                     <ul class='pull-left font16'>
                                         <li>四川信智益汽车销售服务有限公司</li>
                                         <li>
@@ -375,59 +372,7 @@
                                         <li class='pull-left'>经销商电话&nbsp;:&nbsp;</li>
                                         <li class='pull-left font20'>4006839788</li>
                                     </ul>
-                                </div>
-                                <div class='agent_detail fl'>
-                                    <ul class='pull-left font16'>
-                                        <li>四川信智益汽车销售服务有限公司</li>
-                                        <li>
-                                            <button>4S店</button>
-                                            <button>售本市</button>
-                                            <button>2年</button>
-                                        </li>
-                                    </ul>
-                                    <ul class='pull-left logo'>
-                                        <li><img src="../../images/qx.jpg" width='96px' height='59px' alt=""></li>
-                                    </ul>
-                                    <div class='clearfix'></div>
-                                    <ul class='clearfix'>
-                                        <li class='pull-left'>品&emsp;&emsp;牌&nbsp;:&nbsp;</li>
-                                        <li class='pull-left'>中国重汽</li>
-                                    </ul>
-                                    <ul class='clearfix'>
-                                        <li class='pull-left'>地&emsp;&emsp;址&nbsp;:&nbsp;</li>
-                                        <li class='pull-left'>四川省成都双流会缘汽配城21栋</li>
-                                    </ul>
-                                    <ul class='clearfix'>
-                                        <li class='pull-left'>经销商电话&nbsp;:&nbsp;</li>
-                                        <li class='pull-left font20'>4006839788</li>
-                                    </ul>
-                                </div>
-                                <div class='agent_detail fl'>
-                                    <ul class='pull-left font16'>
-                                        <li>四川信智益汽车销售服务有限公司</li>
-                                        <li>
-                                            <button>4S店</button>
-                                            <button>售本市</button>
-                                            <button>2年</button>
-                                        </li>
-                                    </ul>
-                                    <ul class='pull-left logo'>
-                                        <li><img src="../../images/qx.jpg" width='96px' height='59px' alt=""></li>
-                                    </ul>
-                                    <div class='clearfix'></div>
-                                    <ul class='clearfix'>
-                                        <li class='pull-left'>品&emsp;&emsp;牌&nbsp;:&nbsp;</li>
-                                        <li class='pull-left'>中国重汽</li>
-                                    </ul>
-                                    <ul class='clearfix'>
-                                        <li class='pull-left'>地&emsp;&emsp;址&nbsp;:&nbsp;</li>
-                                        <li class='pull-left'>四川省成都双流会缘汽配城21栋</li>
-                                    </ul>
-                                    <ul class='clearfix'>
-                                        <li class='pull-left'>经销商电话&nbsp;:&nbsp;</li>
-                                        <li class='pull-left font20'>4006839788</li>
-                                    </ul>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                     </div>

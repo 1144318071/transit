@@ -59,8 +59,12 @@ function getAjax(url, type, data) {
                     setTimeout(function(){
                         location.href = '../../login.html';
                     },2000);
+                }else if(res.code ==43961 || res.code ==43962 ||res.code == 43963|| res.code ==43964|| res.code ==43965|| res.code ==43966|| res.code ==43967|| res.code ==43968){
+                    getToken();
+                }else{
+                    alertMsg(res.message,2)
                 }
-                getToken();
+
             }
         }).fail(function (err) {
             reject(err);
@@ -103,6 +107,24 @@ function getCityName(code){
         for(var l in Area.provinces.province[k].cities.city){
             if(Area.provinces.province[k].cities.city[l].ssqid == code){
                 return Area.provinces.province[k].cities.city[l].ssqname;
+            }
+        }
+    }
+}
+function getProvinceName(code){
+    for(var m in Area.provinces.province){
+        if(Area.provinces.province[m].ssqid == code){
+            return Area.provinces.province[m].ssqname;
+        }
+    }
+}
+function getAreaName(code){
+    for(var i in Area.provinces.province){
+        for(var j in Area.provinces.province[i].cities.city){
+            for(var k in Area.provinces.province[i].cities.city[j].areas.area){
+                if(Area.provinces.province[i].cities.city[j].areas.area[k].ssqid == code){
+                    return Area.provinces.province[i].cities.city[j].areas.area[k].ssqname;
+                }
             }
         }
     }

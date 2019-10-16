@@ -140,76 +140,63 @@
                 <div class='col-md-3 col-sm-3 ml0 selectChoose'>
                     <ul class="parentWrap">
                         <li class="menuGroup">
-                            <span class="groupTitle titleActive">品牌查找</span>
+                            <span class="groupTitle titleActive" ms-on-click="@getKeyWordList('')">品牌查找</span>
                             <div>
                                 <div class='selectContent'>
                                     <div class='letterSelect'>
-                                        <span ms-for="el in @keyWordList" ms-text="el.keyword"></span>
+                                        <span ms-for="(index,el) in @keyWordList" ms-on-click="getKeyWordList(el.keyword)" ms-text="el.keyword"></span>
                                     </div>
                                 </div>
                             </div>
                         </li>
                         <li class="menuGroup">
-                            <span class="groupTitle">类型查找</span>
+                            <span class="groupTitle" ms-on-click="@carType('','')">类型查找</span>
                             <div class='kindsContent  dis_none'>
-                                <span>牵引车</span>
-                                <span>载货车</span>
-                                <div class='cl'></div>
-                                <span>自卸车</span>
-                                <span>挂车</span>
-                                <div class='cl'></div>
-                                <span>轻卡</span>
-                                <span>封闭货车</span>
-                                <div class='cl'></div>
-                                <span>新能源</span>
+                                <div class="clearfix">
+                                    <span class="pull-left" ms-on-click="@carType(10,'TRADITIONAL')">载货车</span>
+                                    <span class="pull-right" ms-on-click="@carType(20,'TRADITIONAL')">牵引车</span>
+                                </div>
+                                <div class="clearfix">
+                                    <span class="pull-left" ms-on-click="@carType(30,'TRADITIONAL')">自卸车</span>
+                                    <span class="pull-right" ms-on-click="@carType('','ENERGY')">新能源</span>
+                                </div>
                             </div>
                         </li>
                     </ul>
                 </div>
                 <div class="allKinds">
-                    <div class='col-md-9 col-sm-9 groupContent'>
-                    <div class='row groupItems' ms-for="(index,el) in @brandSearchList">
-                        <div class='col-md-3 col-sm-3'>
-                            <ul>
-                                <li><img ms-attr="{ src : el[0].logo }" width="192" height="120" /></li>
-                                <li ms-text="el[0].nick_name"></li>
-                            </ul>
+                    <div class='col-md-9 col-sm-9 groupContent' id="brands">
+                        <div class='row groupItems'>
+                            <div class='col-md-3 col-sm-3'>
+                                <ul>
+                                    <li><a href=""><img src="" width="192" height="120" /></a></li>
+                                    <li><a href=""></a></li>
+                                </ul>
+                            </div>
+                            <div class='col-md-9 col-sm-9'>
+                                <ul>
+
+                                </ul>
+                            </div>
                         </div>
-                        <div class='col-md-9 col-sm-9'>
-                            <ul>
-                                <li  ms-for="(i,val) in el" ms-text="val.series" ms-attr="{ title : el.series }"></li>
-                            </ul>
-                        </div>
+                       <!-- <div class='row groupItems' ms-for="(index,el) in @brandSearchList">
+                            <div class='col-md-3 col-sm-3'>
+                                <ul>
+                                    <li><a ms-attr="{href:''+ el[0].manager_id}"><img ms-attr="{ src : el[0].logo }" width="192" height="120" /></a></li>
+                                    <li><a ms-attr="{href:'./brandsDetail.html?id='+ el[0].manager_id}"  ms-text="el[0].nick_name"></a></li>
+                                </ul>
+                            </div>
+                            <div class='col-md-9 col-sm-9'>
+                                <ul>
+                                    <li  ms-for="(i,val) in el">
+                                        <a ms-attr="{ href : './carSeriesDetail.html?car_ty='+ val.car_ty + '&id=' + val.manager_id+'&series='+val.series }" ms-text="val.series"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>-->
                     </div>
-                </div>
-                    <div class='col-md-9 col-sm-9 groupContent dis_none'>
-                        <ul class='barTitle clearfix'>
-                            <li class='titleLine'></li>
-                            <li>牵引车</li>
-                        </ul>
-                        <div class='groupDetail'>
-                            <ul class='clearfix'>
-                                <li>奔驰新Actros</li>
-                                <li>奔驰新Actros</li>
-                                <li>奔驰新Actros</li>
-                                <li>奔驰新Actros</li>
-                                <li>奔驰新Actros</li>
-                            </ul>
-                            <ul class='clearfix'>
-                                <li>奔驰新Actros</li>
-                                <li>奔驰新Actros</li>
-                                <li>奔驰新Actros</li>
-                                <li>奔驰新Actros</li>
-                                <li>奔驰新Actros</li>
-                            </ul>
-                            <ul class='clearfix'>
-                                <li>奔驰新Actros</li>
-                                <li>奔驰新Actros</li>
-                                <li>奔驰新Actros</li>
-                                <li>奔驰新Actros</li>
-                                <li>奔驰新Actros</li>
-                            </ul>
-                        </div>
+                    <div id="test" class='col-md-9 col-sm-9 groupContent dis_none'>
+
                     </div>
                 </div>
             </div>
@@ -227,5 +214,12 @@
     <script src='../../data/return_data.js'></script>
     <script src='../../js/header.js'></script>
     <script src='../../js/carHall/brandsTotal.js'></script>
+    <script>
+
+        //类型筛选
+
+
+
+    </script>
 </body>
 </html>

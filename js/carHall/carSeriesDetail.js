@@ -2,32 +2,52 @@ $('.statusList li').click(function(){
     $(this).addClass('hightLight').siblings().removeClass('hightLight');
     $('.statusContent .statusDetail').eq($(this).index()).show().siblings().hide();
 });
-
 var province = [];
-
 function getProvince() {
     for (var i in Area.provinces.province) {
         province.push('<a href="javascript:setCity(' + Area.provinces.province[i].ssqid + ')">' + Area.provinces.province[i].ssqname + '</a>');
     }
     return province.join(' ');
 }
-// console.log(Area.provinces.province)
 var city = [];
-
 function getCity(id) {
     for (var k in Area.provinces.province) {
         if (Area.provinces.province[k].ssqid == id) {
             for (var i in Area.provinces.province[k].cities.city) {
-                city.push('<a href="javascript:;">' + Area.provinces.province[k].cities.city[i].ssqname + '</a>');
+                city.push('<a href="javascript:getAgentList(' + Area.provinces.province[k].cities.city[i].ssqid +')">' + Area.provinces.province[k].cities.city[i].ssqname + '</a>');
             }
         }
     }
     return city.join(' ');
 }
-
 function setCity(id) {
     city = [];
     document.getElementById('city').innerHTML = getCity(id);
+    vmCarSeriesDetail.agentData.province = id;
+    if(id == 1){
+        vmCarSeriesDetail.agentData.province='',
+        vmCarSeriesDetail.agentData.city='';
+        getAgentList();
+    }
+}
+function getAgentList(res) {
+    vmCarSeriesDetail.agentData.city = res;
+    getAjax(API.URL_GET_QUALITYAGENT,'get',vmCarSeriesDetail.agentData).then(function(res){
+        vmCarSeriesDetail.agentList = res.result;
+        for(var i=0;i<res.result.length;i++){
+            var provinceCode = res.result[i].province;
+            var cityCode = res.result[i].city;
+            var areaCode = res.result[i].area;
+            var p = getProvinceName(provinceCode)
+            var c= getCityName(cityCode);
+            /*var a = getAreaName(areaCode);*/
+            res.result[i].province = p;
+            res.result[i].city = c;
+           /* res.result[i].area = a;*/
+            res.result[i].shop_logo = getApiHost + res.result[i].shop_logo;
+        }
+        console.log(vmCarSeriesDetail.agentList);
+    });
 }
 document.getElementById('province').innerHTML = getProvince();
 $('#province a').click(function () {
@@ -38,38 +58,6 @@ $("#city").delegate("a", "click", function () {
 });
 
 $(function(){
-    var counter = 0;
-    var pageStart = 2;
-    var pageSize = 1; 
-    $('.btn-loadMore').on('click', function () {
-        pageStart++
-        getData(pageStart, pageSize);
-    });
-    getData(pageStart, pageSize)
-    function getData(offset,size){
-        $.ajax({
-            url: '../../data/data.json',
-            type: 'get',
-            success: function (res) {
-                var data = res;
-                var sum = res.length;
-                var result = '';
-                for(var i=(offset - 1)*size;i<sum;i++){
-                    result += "<tr>"+
-                                "<td>"+
-                                "<div class='selectDetail'> <span>" + data[i].title_one + "</span><span>" + data[i].title_two + "</span><span>" + data[i].title_three + "</span><span>" + data[i].title_four + "</span><span>" + data[i].title_five + "</span><span></div>" +
-                                "<div class='allStatus'><button>" + data[i].status_one + "</button><button>" + data[i].status_two + "</button><button>" + data[i].status_three + "</button><button>" + data[i].status_four + "</button><button>" + data[i].status_five + "</button></div>"+
-                                "</td>"+
-                                "<td>" + data[i].price+"</td>"+
-                                "<td>" + data[i].Img + "</td>" +
-                                "<td>" + data[i].canshu + "</td>" +
-                                "</tr>" ;
-                                $('#loadMore tbody').append(result);
-                }
-                // console.log(res);
-            }
-        });
-    };
     avalon.ready(function(){
         window.vmCarSeriesDetail = avalon.define({
             $id:'root',
@@ -78,6 +66,30 @@ $(function(){
             carList:[],
             relatedCars:[],
             carDetail:{},
+            filterData:{
+                '_token_':'',
+                'series':'',
+                'group':'',
+                'type':'',
+                'status':'10',
+                'base_drive':'',
+                'engine':'',
+                'engine_max_power':'',
+                'gearbox_forward_gear':'',
+                'page':'',
+                'limit':''
+            },
+            agentData:{
+                '_token_':'',
+                'brands_id':'',
+                'province':'',
+                'city':''
+            },
+            ZSList:[],
+            TSList:[],
+            SSList:[],
+            filterList:[],
+            agentList:[],
             onLoad:function(){
                 vmCarSeriesDetail.getUrlJosn();
             },
@@ -92,7 +104,10 @@ $(function(){
                 var token = localStorage.getItem('token');
                 data.token = token;
                 vmCarSeriesDetail.data = data;
+                vmCarSeriesDetail.agentData._token_ = token;
+                vmCarSeriesDetail.agentData.brands_id = data.id;
                 vmCarSeriesDetail.getSeriesDetail();
+                console.log('url传参传过来的数据',vmCarSeriesDetail.data)
             },
             getSeriesDetail:function(){
                 var postData={
@@ -103,11 +118,71 @@ $(function(){
                 }
                 getAjax(API.URL_GET_CARSERIESDETAIL,'get',postData).then(function(res){
                     vmCarSeriesDetail.newsList = res.result.news;
-                    vmCarSeriesDetail.carList = res.result.carList;
+                    vmCarSeriesDetail.ZSList = res.result.carList;
                     vmCarSeriesDetail.relatedCars = res.result.relatedCars;
                     vmCarSeriesDetail.carDetail = res.result.list;
-                    console.log(res);
+                    vmCarSeriesDetail.getStatusList();
                 });
+
+            },
+            getStatusList:function(){
+                vmCarSeriesDetail.filterData._token_ = vmCarSeriesDetail.data.token;
+                vmCarSeriesDetail.filterData.series = vmCarSeriesDetail.carDetail.series;
+                vmCarSeriesDetail.filterData.group = vmCarSeriesDetail.carDetail.group;
+                vmCarSeriesDetail.filterData.type = vmCarSeriesDetail.data.car_ty;
+                getAjax(API.URL_GET_CARFILTER,'get',vmCarSeriesDetail.filterData).then(function(res){
+                    vmCarSeriesDetail.carList = res.result;
+                    console.log(res.result)
+                    switch(vmCarSeriesDetail.filterData.status){
+                        case '10':
+                            vmCarSeriesDetail.ZSList = res.result;
+                        break;
+                        case '20':
+                            vmCarSeriesDetail.TSList = res.result;
+                        break;
+                        case '30':
+                            vmCarSeriesDetail.SSList = res.result;
+                        break;
+                        default:
+                        break;
+                    }
+                });
+            },
+            /*在售*/
+            getZSList:function(){
+                vmCarSeriesDetail.filterData.status = '10';
+                vmCarSeriesDetail.filterData.base_drive = '';
+                vmCarSeriesDetail.filterData.engine = '';
+                vmCarSeriesDetail.filterData.engine_max_power = '';
+                vmCarSeriesDetail.filterData.gearbox_forward_gear = '';
+                vmCarSeriesDetail.filterData.page = '';
+                vmCarSeriesDetail.filterData.limit = '';
+                vmCarSeriesDetail.getStatusList();
+            },
+            /*停售*/
+            getTSList:function(){
+                vmCarSeriesDetail.filterData.status = '20';
+                vmCarSeriesDetail.filterData.base_drive = '';
+                vmCarSeriesDetail.filterData.engine = '';
+                vmCarSeriesDetail.filterData.engine_max_power = '';
+                vmCarSeriesDetail.filterData.gearbox_forward_gear = '';
+                vmCarSeriesDetail.filterData.page = '';
+                vmCarSeriesDetail.filterData.limit = '';
+                vmCarSeriesDetail.getStatusList();
+            },
+            /*即将上市*/
+            getSHList:function () {
+                vmCarSeriesDetail.filterData.status = '30';
+                vmCarSeriesDetail.filterData.base_drive = '';
+                vmCarSeriesDetail.filterData.engine = '';
+                vmCarSeriesDetail.filterData.engine_max_power = '';
+                vmCarSeriesDetail.filterData.gearbox_forward_gear = '';
+                vmCarSeriesDetail.filterData.page = '';
+                vmCarSeriesDetail.filterData.limit = '';
+                vmCarSeriesDetail.getStatusList();
+            },
+            getFilterList:function(){
+                vmCarSeriesDetail.getStatusList();
             }
         });
         vmCarSeriesDetail.onLoad();

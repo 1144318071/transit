@@ -114,7 +114,7 @@
 }
 .rankList ul li:first-child span:nth-child(2){
   display: inline-block;
-  width: 190px;
+  width: 180px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

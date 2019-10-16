@@ -192,69 +192,64 @@
                     <div class='row statueChoose'>
                         <div class='col-md-12 col-sm-12'>
                             <ul class='statusList clearfix'>
-                                <li class='hightLight'>在售</li>
-                                <li>即将上市</li>
-                                <li>停售</li>
+                                <li class='hightLight' ms-on-click="@getZSList">在售</li>
+                                <li ms-on-click="@getSHList">即将上市</li>
+                                <li ms-on-click="@getTSList">停售</li>
                             </ul>
                             <!-- 筛选 -->
-                            <div class='filter clearfix'>
-                                <select>
+                            <div class='filter clearfix' ms-visible="@data.car_ty == 'TRADITIONAL'">
+                                <select ms-duplex="@filterData.engine" data-duplex-changed="@getFilterList">
+                                    <!--发动机-->
                                     <option value="发动机">发动机</option>
-                                    <option value="驱动">驱动</option>
-                                    <option value="马力">马力</option>
-                                    <option value="档位">档位</option>
+                                    <option ms-if="@carDetail.engine_model_arr.length" ms-for="el in @carDetail.engine_model_arr" ms-attr="{ value : el }" ms-text="el"></option>
                                 </select>
-                                <select>
-                                    <option value="驱动">驱动</option>
-                                    <option value="发动机">发动机</option>
-                                    <option value="马力">马力</option>
-                                    <option value="档位">档位</option>
+                                <select ms-duplex="@filterData.base_drive" data-duplex-changed="@getFilterList">
+                                    <!--驱动形式-->
+                                    <option value="驱动形式">驱动形式</option>
+                                    <option ms-if="@carDetail.base_drive_arr.length" ms-for="el in @carDetail.base_drive_arr" ms-attr="{ value : el }" ms-text="el"></option>
                                 </select>
-                                <select>
+                                <select ms-duplex="@filterData.engine_max_power" data-duplex-changed="@getFilterList">
+                                    <!--马力-->
                                     <option value="马力">马力</option>
-                                    <option value="驱动">驱动</option>
-                                    <option value="发动机">发动机</option>
-                                    <option value="档位">档位</option>
+                                    <option ms-if="@carDetail.engine_max_power_arr.length" ms-for="el in @carDetail.engine_max_power_arr" ms-attr="{ value : el }" ms-text="el"></option>
                                 </select>
-                                <select>
+                                <select ms-duplex="@filterData.gearbox_forward_gear" data-duplex-changed="@getFilterList">
+                                    <!--档位-->
                                     <option value="档位">档位</option>
-                                    <option value="驱动">驱动</option>
-                                    <option value="发动机">发动机</option>
-                                    <option value="马力">马力</option>
+                                    <option ms-if="!@carDetail.gearbox_forward_gear_arr.length" ms-for="el in @carDetail.gearbox_forward_gear_arr" ms-attr="{ value : el }" ms-text="el"></option>
                                 </select>
                             </div>
                             <div class='statusContent'>
+                                <!--在售-->
                                 <div class='statusDetail'>
-                                    <table class="table table-condensed selectTable" id='loadMore'>
+                                    <table class="table table-condensed selectTable"  ms-for="(index,el) in @ZSList">
                                         <tbody>
                                             <tr>
-                                                <td>驱动形式6X4</td>
+                                                <td>驱动形式<span ms-text="el[0].base_drive"></span></td>
                                                 <td>厂商指导价</td>
                                                 <td>图片</td>
                                                 <td>相关信息</td>
                                             </tr>
-                                            <tr>
+                                            <tr ms-for="val in el">
                                                 <td>
                                                     <div class='selectDetail'>
-                                                        <span>一汽解放</span>
-                                                        <span>J6P重卡</span>
-                                                        <span>350马力</span>
-                                                        <span>4x2牵引车(12档)</span>
-                                                        <span>(CA4180P66K2E5)</span>
+                                                        <span ms-text="val.manager_name"></span>
+                                                        <span ms-text="val.type_name"></span>
+                                                        <span><span ms-text="val.engine_max_power"></span>马力</span>
+                                                        <span><span ms-text="val.base_drive"></span></span>
+                                                        <span>(<i ms-text="val.car_number"></i>)</span>
                                                     </div>
                                                     <div class='allStatus'>
                                                         <button>在售</button>
-                                                        <button>大柴</button>
-                                                        <button>国五</button>
-                                                        <button>6.75米</button>
-                                                        <button>核载9.6吨</button>
+                                                        <button><span ms-text="val.base_long"></span>米</button>
+                                                        <button>核载<span ms-text="val.base_load"></span>吨</button>
                                                     </div>
                                                 </td>
-                                                <td>25.55万</td>
+                                                <td><span ms-text="val.price"></span>万</td>
                                                 <td data-src='checkSeriesDetail.html' ms-on-click='@getPage($event)' >查看图片</td>
                                                 <td data-src='checkSeriesDetail.html' ms-on-click='@getPage($event)' >查看参数</td>
                                             </tr>
-                                            <tr>
+                                            <!--<tr>
                                                 <td>
                                                     <div class='selectDetail'>
                                                         <span>一汽解放</span>
@@ -271,249 +266,87 @@
                                                         <button>核载9.6吨</button>
                                                     </div>
                                                 </td>
-                                                <td>25.55万</td>
+                                                <td><span></span>22.5万</td>
                                                 <td>查看图片</td>
                                                 <td>查看参数</td>
-                                            </tr>
+                                            </tr>-->
                                         </tbody>
-                                        
+                                       <!-- <div class='row loadMore'>
+                                            <div class='col-md-12 col-sm-12'><button class='btn-loadMore'>点击查看更多</button></div>
+                                        </div>-->
                                     </table>
-                                    <div class='row loadMore'>
-                                        <div class='col-md-12 col-sm-12'><button class='btn-loadMore'>点击查看更多</button></div>
-                                    </div>
-                                    <table class="table table-condensed selectTable">
-                                        <tbody>
-                                            <tr>
-                                                <td>驱动形式8X8</td>
-                                                <td>厂商指导价</td>
-                                                <td>图片</td>
-                                                <td>相关信息</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class='selectDetail'>
-                                                        <span>一汽解放</span>
-                                                        <span>J6P重卡</span>
-                                                        <span>350马力</span>
-                                                        <span>4x2牵引车(12档)</span>
-                                                        <span>(CA4180P66K2E5)</span>
-                                                    </div>
-                                                    <div class='allStatus'>
-                                                        <button>在售</button>
-                                                        <button>大柴</button>
-                                                        <button>国五</button>
-                                                        <button>6.75米</button>
-                                                        <button>核载9.6吨</button>
-                                                    </div>
-                                                </td>
-                                                <td>25.55万</td>
-                                                <td>查看图片</td>
-                                                <td>查看参数</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class='selectDetail'>
-                                                        <span>一汽解放</span>
-                                                        <span>J6P重卡</span>
-                                                        <span>350马力</span>
-                                                        <span>4x2牵引车(12档)</span>
-                                                        <span>(CA4180P66K2E5)</span>
-                                                    </div>
-                                                    <div class='allStatus'>
-                                                        <button>在售</button>
-                                                        <button>大柴</button>
-                                                        <button>国五</button>
-                                                        <button>6.75米</button>
-                                                        <button>核载9.6吨</button>
-                                                    </div>
-                                                </td>
-                                                <td>25.55万</td>
-                                                <td>查看图片</td>
-                                                <td>查看参数</td>
-                                            </tr>
-                                        </tbody>
-
-                                    </table>
-                                    <div class='row loadMore'>
-                                        <div class='col-md-12 col-sm-12'><button>点击查看更多</button></div>
-                                    </div>
-                                    <table class="table table-condensed selectTable">
-                                        <tbody>
-                                            <tr>
-                                                <td>驱动形式6X6</td>
-                                                <td>厂商指导价</td>
-                                                <td>图片</td>
-                                                <td>相关信息</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class='selectDetail'>
-                                                        <span>一汽解放</span>
-                                                        <span>J6P重卡</span>
-                                                        <span>350马力</span>
-                                                        <span>4x2牵引车(12档)</span>
-                                                        <span>(CA4180P66K2E5)</span>
-                                                    </div>
-                                                    <div class='allStatus'>
-                                                        <button>在售</button>
-                                                        <button>大柴</button>
-                                                        <button>国五</button>
-                                                        <button>6.75米</button>
-                                                        <button>核载9.6吨</button>
-                                                    </div>
-                                                </td>
-                                                <td>25.55万</td>
-                                                <td>查看图片</td>
-                                                <td>查看参数</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class='selectDetail'>
-                                                        <span>一汽解放</span>
-                                                        <span>J6P重卡</span>
-                                                        <span>350马力</span>
-                                                        <span>4x2牵引车(12档)</span>
-                                                        <span>(CA4180P66K2E5)</span>
-                                                    </div>
-                                                    <div class='allStatus'>
-                                                        <button>在售</button>
-                                                        <button>大柴</button>
-                                                        <button>国五</button>
-                                                        <button>6.75米</button>
-                                                        <button>核载9.6吨</button>
-                                                    </div>
-                                                </td>
-                                                <td>25.55万</td>
-                                                <td>查看图片</td>
-                                                <td>查看参数</td>
-                                            </tr>
-                                        </tbody>
-
-                                    </table>
-                                    <div class='row loadMore'>
-                                        <div class='col-md-12 col-sm-12'><button>点击查看更多</button></div>
-                                    </div>
-                                    <table class="table table-condensed selectTable">
-                                        <tbody>
-                                            <tr>
-                                                <td>驱动形式4X2</td>
-                                                <td>厂商指导价</td>
-                                                <td>图片</td>
-                                                <td>相关信息</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class='selectDetail'>
-                                                        <span>一汽解放</span>
-                                                        <span>J6P重卡</span>
-                                                        <span>350马力</span>
-                                                        <span>4x2牵引车(12档)</span>
-                                                        <span>(CA4180P66K2E5)</span>
-                                                    </div>
-                                                    <div class='allStatus'>
-                                                        <button>在售</button>
-                                                        <button>大柴</button>
-                                                        <button>国五</button>
-                                                        <button>6.75米</button>
-                                                        <button>核载9.6吨</button>
-                                                    </div>
-                                                </td>
-                                                <td>25.55万</td>
-                                                <td>查看图片</td>
-                                                <td>查看参数</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class='selectDetail'>
-                                                        <span>一汽解放</span>
-                                                        <span>J6P重卡</span>
-                                                        <span>350马力</span>
-                                                        <span>4x2牵引车(12档)</span>
-                                                        <span>(CA4180P66K2E5)</span>
-                                                    </div>
-                                                    <div class='allStatus'>
-                                                        <button>在售</button>
-                                                        <button>大柴</button>
-                                                        <button>国五</button>
-                                                        <button>6.75米</button>
-                                                        <button>核载9.6吨</button>
-                                                    </div>
-                                                </td>
-                                                <td>25.55万</td>
-                                                <td>查看图片</td>
-                                                <td>查看参数</td>
-                                            </tr>
-                                        </tbody>
-
-                                    </table>
-                                    <div class='row loadMore'>
-                                        <div class='col-md-12 col-sm-12'><button>点击查看更多</button></div>
-                                    </div>
-                                    <table class="table table-condensed selectTable">
-                                        <tbody>
-                                            <tr>
-                                                <td>驱动形式6X2</td>
-                                                <td>厂商指导价</td>
-                                                <td>图片</td>
-                                                <td>相关信息</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class='selectDetail'>
-                                                        <span>一汽解放</span>
-                                                        <span>J6P重卡</span>
-                                                        <span>350马力</span>
-                                                        <span>4x2牵引车(12档)</span>
-                                                        <span>(CA4180P66K2E5)</span>
-                                                    </div>
-                                                    <div class='allStatus'>
-                                                        <button>在售</button>
-                                                        <button>大柴</button>
-                                                        <button>国五</button>
-                                                        <button>6.75米</button>
-                                                        <button>核载9.6吨</button>
-                                                    </div>
-                                                </td>
-                                                <td>25.55万</td>
-                                                <td>查看图片</td>
-                                                <td>查看参数</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class='selectDetail'>
-                                                        <span>一汽解放</span>
-                                                        <span>J6P重卡</span>
-                                                        <span>350马力</span>
-                                                        <span>4x2牵引车(12档)</span>
-                                                        <span>(CA4180P66K2E5)</span>
-                                                    </div>
-                                                    <div class='allStatus'>
-                                                        <button>在售</button>
-                                                        <button>大柴</button>
-                                                        <button>国五</button>
-                                                        <button>6.75米</button>
-                                                        <button>核载9.6吨</button>
-                                                    </div>
-                                                </td>
-                                                <td>25.55万</td>
-                                                <td>查看图片</td>
-                                                <td>查看参数</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <div class='row loadMore'>
-                                        <div class='col-md-12 col-sm-12'><button>点击查看更多</button></div>
-                                    </div>
                                 </div>
-                                <div class='statusDetail dis_none'>即将上市</div>
-                                <div class='statusDetail dis_none'>停售</div>
+                                <!--即将上市-->
+                                <div class='statusDetail dis_none'>
+                                    <table class="table table-condensed selectTable"  ms-for="(index,el) in @SSList">
+                                        <tbody>
+                                            <tr>
+                                                <td>驱动形式<span ms-text="el[0].base_drive"></span></td>
+                                                <td>厂商指导价</td>
+                                                <td>图片</td>
+                                                <td>相关信息</td>
+                                            </tr>
+                                            <tr ms-for="val in el">
+                                                <td>
+                                                    <div class='selectDetail'>
+                                                        <span ms-text="val.manager_name"></span>
+                                                        <span ms-text="val.type_name"></span>
+                                                        <span><span ms-text="val.engine_max_power"></span>马力</span>
+                                                        <span><span ms-text="val.base_drive"></span></span>
+                                                        <span>(<i ms-text="val.car_number"></i>)</span>
+                                                    </div>
+                                                    <div class='allStatus'>
+                                                        <button>即将上市</button>
+                                                        <button><span ms-text="val.base_long"></span>米</button>
+                                                        <button>核载<span ms-text="val.base_load"></span>吨</button>
+                                                    </div>
+                                                </td>
+                                                <td><span ms-text="val.price"></span>万</td>
+                                                <td data-src='checkSeriesDetail.html' ms-on-click='@getPage($event)' >查看图片</td>
+                                                <td data-src='checkSeriesDetail.html' ms-on-click='@getPage($event)' >查看参数</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!--停售-->
+                                <div class='statusDetail dis_none'>
+                                    <table class="table table-condensed selectTable"  ms-for="(index,el) in @TSList">
+                                        <tbody>
+                                        <tr>
+                                            <td>驱动形式<span ms-text="el[0].base_drive"></span></td>
+                                            <td>厂商指导价</td>
+                                            <td>图片</td>
+                                            <td>相关信息</td>
+                                        </tr>
+                                        <tr ms-for="val in el">
+                                            <td>
+                                                <div class='selectDetail'>
+                                                    <span ms-text="val.manager_name"></span>
+                                                    <span ms-text="val.type_name"></span>
+                                                    <span><span ms-text="val.engine_max_power"></span>马力</span>
+                                                    <span><span ms-text="val.base_drive"></span></span>
+                                                    <span>(<i ms-text="val.car_number"></i>)</span>
+                                                </div>
+                                                <div class='allStatus'>
+                                                    <button>停售</button>
+                                                    <button><span ms-text="val.base_long"></span>米</button>
+                                                    <button>核载<span ms-text="val.base_load"></span>吨</button>
+                                                </div>
+                                            </td>
+                                            <td><span ms-text="val.price"></span>万</td>
+                                            <td data-src='checkSeriesDetail.html' ms-on-click='@getPage($event)' >查看图片</td>
+                                            <td data-src='checkSeriesDetail.html' ms-on-click='@getPage($event)' >查看参数</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!-- 经销商 -->
                     <div class='row dealer'>
                         <div class='dealerTitle'>
-                          <div class="title_line">德龙X3000牵引车<span>经销商</span></div>
+                          <div class="title_line"><i  ms-text="@carDetail.series"></i><span>经销商</span></div>
                         </div>
                         <div class='col-md-12 col-sm-12'>
                             <div class='row province'>
@@ -527,7 +360,32 @@
                             <div class='row agent'>
                                 <div class='col-md-12 col-sm-12'>
                                     <div class='agent_content clearfix'>
-                                        <div class='agent_detail fl'>
+                                        <div class='agent_detail fl' ms-for="el in @agentList">
+                                            <ul class='pull-left font16'>
+                                                <li ms-text="el.shop_name"></li>
+                                                <li>
+                                                    <button>4S店</button>
+                                                    <button><i ms-text="el.year"></i>年</button>
+                                                </li>
+                                            </ul>
+                                            <ul class='pull-left logo'>
+                                                <li><img ms-attr="{ src : el.shop_logo }" width='96px' height='59px' alt=""></li>
+                                            </ul>
+                                            <div class='clearfix'></div>
+                                            <ul class='clearfix'>
+                                                <li class='pull-left'>品&emsp;&emsp;牌&nbsp;:&nbsp;</li>
+                                                <li class='pull-left' ms-text="el.brands"></li>
+                                            </ul>
+                                            <ul class='clearfix'>
+                                                <li class='pull-left'>地&emsp;&emsp;址&nbsp;:&nbsp;</li>
+                                                <li class='pull-left' ms-text="el.province + el.city + el.area + el.address"></li>
+                                            </ul>
+                                            <ul class='clearfix'>
+                                                <li class='pull-left'>经销商电话&nbsp;:&nbsp;</li>
+                                                <li class='pull-left font20' ms-text="el.hot_line"></li>
+                                            </ul>
+                                        </div>
+                                        <!--<div class='agent_detail fl'>
                                             <ul class='pull-left font16'>
                                                 <li>四川信智益汽车销售服务有限公司</li>
                                                 <li>
@@ -553,89 +411,7 @@
                                                 <li class='pull-left'>经销商电话&nbsp;:&nbsp;</li>
                                                 <li class='pull-left font20'>4006839788</li>
                                             </ul>
-                                        </div>
-
-                                        <div class='agent_detail fl'>
-                                            <ul class='pull-left font16'>
-                                                <li>四川信智益汽车销售服务有限公司</li>
-                                                <li>
-                                                    <button>4S店</button>
-                                                    <button>售本市</button>
-                                                    <button>2年</button>
-                                                </li>
-                                            </ul>
-                                            <ul class='pull-left logo'>
-                                                <li><img src="../../images/qx.jpg" width='96px' height='59px' alt="">
-                                                </li>
-                                            </ul>
-                                            <div class='clearfix'></div>
-                                            <ul class='clearfix'>
-                                                <li class='pull-left'>品&emsp;&emsp;牌&nbsp;:&nbsp;</li>
-                                                <li class='pull-left'>中国重汽</li>
-                                            </ul>
-                                            <ul class='clearfix'>
-                                                <li class='pull-left'>地&emsp;&emsp;址&nbsp;:&nbsp;</li>
-                                                <li class='pull-left'>四川省成都双流会缘汽配城21栋</li>
-                                            </ul>
-                                            <ul class='clearfix'>
-                                                <li class='pull-left'>经销商电话&nbsp;:&nbsp;</li>
-                                                <li class='pull-left font20'>4006839788</li>
-                                            </ul>
-                                        </div>
-                                        <div class='agent_detail fl'>
-                                            <ul class='pull-left font16'>
-                                                <li>四川信智益汽车销售服务有限公司</li>
-                                                <li>
-                                                    <button>4S店</button>
-                                                    <button>售本市</button>
-                                                    <button>2年</button>
-                                                </li>
-                                            </ul>
-                                            <ul class='pull-left logo'>
-                                                <li><img src="../../images/qx.jpg" width='96px' height='59px' alt="">
-                                                </li>
-                                            </ul>
-                                            <div class='clearfix'></div>
-                                            <ul class='clearfix'>
-                                                <li class='pull-left'>品&emsp;&emsp;牌&nbsp;:&nbsp;</li>
-                                                <li class='pull-left'>中国重汽</li>
-                                            </ul>
-                                            <ul class='clearfix'>
-                                                <li class='pull-left'>地&emsp;&emsp;址&nbsp;:&nbsp;</li>
-                                                <li class='pull-left'>四川省成都双流会缘汽配城21栋</li>
-                                            </ul>
-                                            <ul class='clearfix'>
-                                                <li class='pull-left'>经销商电话&nbsp;:&nbsp;</li>
-                                                <li class='pull-left font20'>4006839788</li>
-                                            </ul>
-                                        </div>
-                                        <div class='agent_detail fl'>
-                                            <ul class='pull-left font16'>
-                                                <li>四川信智益汽车销售服务有限公司</li>
-                                                <li>
-                                                    <button>4S店</button>
-                                                    <button>售本市</button>
-                                                    <button>2年</button>
-                                                </li>
-                                            </ul>
-                                            <ul class='pull-left logo'>
-                                                <li><img src="../../images/qx.jpg" width='96px' height='59px' alt="">
-                                                </li>
-                                            </ul>
-                                            <div class='clearfix'></div>
-                                            <ul class='clearfix'>
-                                                <li class='pull-left'>品&emsp;&emsp;牌&nbsp;:&nbsp;</li>
-                                                <li class='pull-left'>中国重汽</li>
-                                            </ul>
-                                            <ul class='clearfix'>
-                                                <li class='pull-left'>地&emsp;&emsp;址&nbsp;:&nbsp;</li>
-                                                <li class='pull-left'>四川省成都双流会缘汽配城21栋</li>
-                                            </ul>
-                                            <ul class='clearfix'>
-                                                <li class='pull-left'>经销商电话&nbsp;:&nbsp;</li>
-                                                <li class='pull-left font20'>4006839788</li>
-                                            </ul>
-                                        </div>
+                                        </div>-->
                                     </div>
                                 </div>
                             </div>

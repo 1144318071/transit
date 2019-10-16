@@ -133,7 +133,6 @@
   border: 1px solid #999;
   margin-left: 22px;
   margin-top: 22px;
-  margin-bottom: 22px;
 }
 .selectTable tbody tr:first-child {
   background-color: #e6e6e6;
@@ -232,7 +231,7 @@
 .seriesNews ul li > a:hover {
   color: #f57619;
 }
-.selectTable:not(:first-child) {
+.selectTable {
   margin-top: 31px;
 }
 .relativeDetail {
@@ -337,4 +336,7 @@
 }
 .agent {
   padding-bottom: 27px;
+}
+i{
+  font-style: normal;
 }

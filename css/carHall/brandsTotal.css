@@ -23,6 +23,9 @@
   cursor: pointer;
   margin-top: 20px;
 }
+.letterSelect span.active{
+  color: #f57619;
+}
 .parentWrap {
   width: 177px;
 }
@@ -58,14 +61,20 @@ div.kindsContent span {
   margin-top: 20px;
   cursor: pointer;
 }
-div.kindsContent span:nth-child(even) {
+div.kindsContent span.active{
+  color: #f57619;
+}
+/*div.kindsContent span:nth-child(even) {
   float: left;
 }
 div.kindsContent span:nth-child(odd) {
   float: right;
-}
+}*/
 .groupContent {
   margin-left: 70px;
+}
+.groupContent .groupItem:not(:first-child){
+  margin-top: 30px;
 }
 .barTitle {
   height: 58px;
@@ -133,7 +142,7 @@ div.kindsContent span:nth-child(odd) {
   float: left;
   margin-right: 60px;
   color: #333;
-  width: 97px;
+  width:150px;
   line-height: 60px;
   overflow: hidden;
   text-overflow: ellipsis;

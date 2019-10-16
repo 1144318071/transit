@@ -10,13 +10,12 @@
      }
      return province.join(' ');
  }
- // console.log(Area.provinces.province)
  var city = [];
  function getCity(id) {
      for (var k in Area.provinces.province) {
          if (Area.provinces.province[k].ssqid == id) {
              for (var i in Area.provinces.province[k].cities.city) {
-                 city.push('<a href="javascript:;">' + Area.provinces.province[k].cities.city[i].ssqname + '</a>');
+                 city.push('<a href="javascript:getAgentList(' + Area.provinces.province[k].cities.city[i].ssqid +')">' + Area.provinces.province[k].cities.city[i].ssqname + '</a>');
              }
          }
      }
@@ -25,6 +24,30 @@
  function setCity(id) {
      city = [];
      document.getElementById('city').innerHTML = getCity(id);
+     if(id == 1){
+         vmBrandDetail.agentData.province='',
+         vmBrandDetail.agentData.city='';
+         getAgentList();
+     }
+ }
+ function getAgentList(res) {
+     vmBrandDetail.agentData.city = res;
+     getAjax(API.URL_GET_QUALITYAGENT,'get',vmBrandDetail.agentData).then(function(res){
+         vmBrandDetail.agentList = res.result;
+         for(var i=0;i<res.result.length;i++){
+             var provinceCode = res.result[i].province;
+             var cityCode = res.result[i].city;
+             var areaCode = res.result[i].area;
+             var p = getProvinceName(provinceCode)
+             var c= getCityName(cityCode);
+             /*var a = getAreaName(areaCode);*/
+             res.result[i].province = p;
+             res.result[i].city = c;
+             /*res.result[i].area = a;*/
+             res.result[i].shop_logo = getApiHost + res.result[i].shop_logo;
+         }
+         console.log(vmBrandDetail.agentList);
+     });
  }
  document.getElementById('province').innerHTML = getProvince();
 $('#province a').click(function () {
@@ -41,6 +64,13 @@ $(function(){
             brandInfo:{},
             carDetail:[],
             carType:[],
+            agentList:[],
+            agentData:{
+                '_token_':'',
+                'brands_id':'',
+                'province':'',
+                'city':''
+            },
             onLoad:function(){
                 vmBrandDetail.getNewsId();
                 vmBrandDetail.getBrandInfo();
@@ -51,6 +81,8 @@ $(function(){
                 vmBrandDetail.queryData = urlJson;
                 var token = localStorage.getItem('token');
                 vmBrandDetail.queryData.token = token;
+                vmBrandDetail.agentData._token_ = token;
+                vmBrandDetail.agentData.brands_id = urlJson.id;
             },
             getBrandInfo:function(){
                 var postData = {

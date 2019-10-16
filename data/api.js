@@ -59,6 +59,8 @@ var API = {
     URL_GET_KEYWORD: getApiHost + '/get/keyword',
     //品牌筛选
     URL_GET_BRANDSSEARCH: getApiHost + '/brands/search',
+    //类型筛选
+    URL_GET_TYPESEARCH : getApiHost + '/type/search',
     //优质经销商
     URL_GET_QUALITYAGENT: getApiHost + '/quality/distributor',
     //品牌详情
@@ -67,6 +69,8 @@ var API = {
     URL_GET_CITYCAR: getApiHost + '/city/car',
     //获取车系详情
     URL_GET_CARSERIESDETAIL : getApiHost + '/series/info',
+    //车型筛选(在售停售即将上市)
+    URL_GET_CARFILTER : getApiHost + '/car/filter',
     //----------------------------------------------首页-----------------------------------
     URL_GET_ENTERPRISELIST: getApiHost + '/enterprise/list',
     //新闻详情
