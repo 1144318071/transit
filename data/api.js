@@ -71,6 +71,10 @@ var API = {
     URL_GET_CARSERIESDETAIL : getApiHost + '/series/info',
     //车型筛选(在售停售即将上市)
     URL_GET_CARFILTER : getApiHost + '/car/filter',
+    //车型详情
+    URL_GET_CARINFO : getApiHost + '/car/info',
+    //筛选条件
+    URL_GET_FILTERCONDITION : getApiHost + '/filter/condition',
     //----------------------------------------------首页-----------------------------------
     URL_GET_ENTERPRISELIST: getApiHost + '/enterprise/list',
     //新闻详情

@@ -246,34 +246,15 @@
                                                     </div>
                                                 </td>
                                                 <td><span ms-text="val.price"></span>万</td>
-                                                <td data-src='checkSeriesDetail.html' ms-on-click='@getPage($event)' >查看图片</td>
-                                                <td data-src='checkSeriesDetail.html' ms-on-click='@getPage($event)' >查看参数</td>
+                                                <td><a  ms-attr="{ href : './checkSeriesDetail.html?car_ty=' + val.car_type + '&id=' + val.id }">查看图片</a></td>
+                                                <td><a  ms-attr="{ href : './checkSeriesDetail.html?car_ty=' + val.car_type + '&id=' + val.id }">查看参数</a></td>
                                             </tr>
-                                            <!--<tr>
-                                                <td>
-                                                    <div class='selectDetail'>
-                                                        <span>一汽解放</span>
-                                                        <span>J6P重卡</span>
-                                                        <span>350马力</span>
-                                                        <span>4x2牵引车(12档)</span>
-                                                        <span>(CA4180P66K2E5)</span>
-                                                    </div>
-                                                    <div class='allStatus'>
-                                                        <button>在售</button>
-                                                        <button>大柴</button>
-                                                        <button>国五</button>
-                                                        <button>6.75米</button>
-                                                        <button>核载9.6吨</button>
-                                                    </div>
+                                            <tr class="moreData" style="border-bottom: 0px;border-top:1px solid #e9e9e9;">
+                                                <td colspan="4">
+                                                    <div class="loadMoreData" ms-on-click="@getMoreData(10)">点击查看更多</div>
                                                 </td>
-                                                <td><span></span>22.5万</td>
-                                                <td>查看图片</td>
-                                                <td>查看参数</td>
-                                            </tr>-->
+                                            </tr>
                                         </tbody>
-                                       <!-- <div class='row loadMore'>
-                                            <div class='col-md-12 col-sm-12'><button class='btn-loadMore'>点击查看更多</button></div>
-                                        </div>-->
                                     </table>
                                 </div>
                                 <!--即将上市-->
@@ -292,7 +273,7 @@
                                                         <span ms-text="val.manager_name"></span>
                                                         <span ms-text="val.type_name"></span>
                                                         <span><span ms-text="val.engine_max_power"></span>马力</span>
-                                                        <span><span ms-text="val.base_drive"></span></span>
+                                                        <span ms-text="val.base_drive"></span>
                                                         <span>(<i ms-text="val.car_number"></i>)</span>
                                                     </div>
                                                     <div class='allStatus'>
@@ -302,8 +283,13 @@
                                                     </div>
                                                 </td>
                                                 <td><span ms-text="val.price"></span>万</td>
-                                                <td data-src='checkSeriesDetail.html' ms-on-click='@getPage($event)' >查看图片</td>
-                                                <td data-src='checkSeriesDetail.html' ms-on-click='@getPage($event)' >查看参数</td>
+                                                <td><a  ms-attr="{ href : './checkSeriesDetail.html?car_ty=' + val.car_type + '&id=' + val.id }">查看图片</a></td>
+                                                <td><a  ms-attr="{ href : './checkSeriesDetail.html?car_ty=' + val.car_type + '&id=' + val.id }">查看参数</a></td>
+                                            </tr>
+                                            <tr class="moreData" style="border-bottom: 0px;border-top:1px solid #e9e9e9;">
+                                                <td colspan="4">
+                                                    <div class="loadMoreData" ms-on-click="@getMoreData(30)">点击查看更多</div>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -334,8 +320,13 @@
                                                 </div>
                                             </td>
                                             <td><span ms-text="val.price"></span>万</td>
-                                            <td data-src='checkSeriesDetail.html' ms-on-click='@getPage($event)' >查看图片</td>
-                                            <td data-src='checkSeriesDetail.html' ms-on-click='@getPage($event)' >查看参数</td>
+                                            <td><a  ms-attr="{ href : './checkSeriesDetail.html?car_ty=' + val.car_type + '&id=' + val.id }">查看图片</a></td>
+                                            <td><a  ms-attr="{ href : './checkSeriesDetail.html?car_ty=' + val.car_type + '&id=' + val.id }">查看参数</a></td>
+                                        </tr>
+                                        <tr class="moreData" style="border-bottom: 0px;border-top:1px solid #e9e9e9;">
+                                            <td colspan="4">
+                                                <div class="loadMoreData" ms-on-click="@getMoreData(20)">点击查看更多</div>
+                                            </td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -457,3 +448,30 @@
 </body>
 
 </html>
+
+<!--
+<tr>
+    <td>
+        <div class="selectDetail">
+            <span>中国重汽</span>
+            <span>云内动力 </span>
+            <span><span>421</span>马力</span>
+            <span><span>6x4</span></span>
+            <span>(<i>ZH2019090900001N</i>)</span>
+        </div>
+        <div class="allStatus">
+            <button>在售</button>
+            <button><span>9.66</span>米</button>
+            <button>核载<span>10.00</span>吨</button>
+        </div>
+    </td>
+    <td>
+        <span>29.40</span>万
+    </td>
+    <td>
+        <a href="./checkSeriesDetail.html?car_ty=ENERGY&id=37">查看图片</a>
+    </td>
+    <td>
+        <a href="./checkSeriesDetail.html?car_ty=ENERGY&id=37">查看参数</a>
+    </td>
+</tr>-->

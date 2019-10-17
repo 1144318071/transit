@@ -90,15 +90,16 @@ $(function(){
             SSList:[],
             filterList:[],
             agentList:[],
+            moreList:[],
             onLoad:function(){
-                vmCarSeriesDetail.getUrlJosn();
+                vmCarSeriesDetail.getUrlJson();
             },
             getPage: function (el) {
                 var src = el.currentTarget.dataset.src;
                 location.href = src;
             },
             //获取url传过来的值
-            getUrlJosn:function(){
+            getUrlJson:function(){
                 var url = location.href;
                 var data = GetRequest(url);
                 var token = localStorage.getItem('token');
@@ -136,6 +137,7 @@ $(function(){
                     switch(vmCarSeriesDetail.filterData.status){
                         case '10':
                             vmCarSeriesDetail.ZSList = res.result;
+                            console.log('在售',vmCarSeriesDetail.ZSList)
                         break;
                         case '20':
                             vmCarSeriesDetail.TSList = res.result;
@@ -183,6 +185,62 @@ $(function(){
             },
             getFilterList:function(){
                 vmCarSeriesDetail.getStatusList();
+            },
+            getMoreData:function(el){
+                vmCarSeriesDetail.filterData.page = 1;
+                vmCarSeriesDetail.filterData.limit = 2;
+                vmCarSeriesDetail.filterData.status = el;
+                getAjax(API.URL_GET_CARFILTER,'get',vmCarSeriesDetail.filterData).then(function(res){
+                    vmCarSeriesDetail.moreList = res.result[0];
+                    var moreList = res.result[0];
+                    switch (el) {
+                        case 10:
+                            for(var i in moreList){
+                                moreList[i].statusContent='在售';
+                            }
+                        break;
+                        case 20:
+                            for(var j in moreList){
+                                moreList[j].statusContent='停售';
+                            }
+                        break;
+                        case 30:
+                            for(var k in moreList){
+                                moreList[k].statusContent='即将上市';
+                            }
+                        break;
+                    }
+                    var loopItem='';
+                    $(moreList).each(function(index,item){
+                        loopItem += "<tr>\n" +
+                            "    <td>\n" +
+                            "        <div class=\"selectDetail\">\n" +
+                            "            <span>"+item.manager_name+"</span>\n" +
+                            "            <span>"+item.type_name +"</span>\n" +
+                            "            <span><span>"+item.engine_max_power+"</span>马力</span>\n" +
+                            "            <span><span>"+item.base_drive+"</span></span>\n" +
+                            "            <span>(<i>"+item.car_number+"</i>)</span>\n" +
+                            "        </div>\n" +
+                            "        <div class=\"allStatus\">\n" +
+                            "            <button>"+item.statusContent+"</button>\n" +
+                            "            <button><span>"+item.base_long+"</span>米</button>\n" +
+                            "            <button>核载<span>"+item.base_load+"</span>吨</button>\n" +
+                            "        </div>\n" +
+                            "    </td>\n" +
+                            "    <td>\n" +
+                            "        <span>"+item.price+"</span>万\n" +
+                            "    </td>\n" +
+                            "    <td>\n" +
+                            "        <a href=\"./checkSeriesDetail.html?car_ty="+item.car_type+'&id='+item.id+"\">查看图片</a>\n" +
+                            "    </td>\n" +
+                            "    <td>\n" +
+                            "        <a href=\"./checkSeriesDetail.html?car_ty="+item.car_type+'&id='+item.id+"\">查看参数</a>\n" +
+                            "    </td>\n" +
+                            "</tr>";
+                    });
+                    $('.moreData').before(loopItem)
+                    console.log('加载更多',res.result[0]);
+                });
             }
         });
         vmCarSeriesDetail.onLoad();

@@ -123,44 +123,40 @@
             <!-- 车型信息详情 -->
             <div class='row checkMsg'>
                 <div class='col-md-4 col-sm-4'>
-                    <img src="../../images/checkImg.png" alt="">
+                    <img ms-if="@carInfo.image !=''" ms-attr="{ src : @carInfo.image }" src="../../images/checkImg.png" width="360px" height="273px" alt="">
+                    <img ms-if="@carInfo.image ==''" src="../../images/checkImg.png" alt="">
                 </div>
                 <div class='col-md-8 col-sm-8 msgDes'>
                     <div class='desTitle'>
-                        <span>中国重汽</span>
-                        <span>豪曼H5</span>
-                        <span>210马力</span>
-                        <span>6X4</span>
-                        <span>5.77方混凝土搅拌车(9档)</span>
-                        <span>(ZZ5258GJBG47EB1)</span>
+                        <span ms-text="@carInfo.title"></span>
                         <span class='headLine'></span>
                     </div>
                     <div class='desContent clearfix'>
                         <ul>
                             <li>底牌车系</li>
-                            <li>重汽豪曼H5</li>
+                            <li ms-text="@carInfo.series"></li>
                         </ul>
                         <ul>
                             <li>上装品牌</li>
-                            <li>重汽豪曼</li>
+                            <li ms-text="@carInfo.manager_name"></li>
                         </ul>
                         <ul>
                             <li>发动机</li>
-                            <li>中国重汽MC05.21-50</li>
+                            <li ms-text="@carInfo.engine_brand + @carInfo.engine_model"></li>
                         </ul>
                         <ul>
                             <li>最大马力</li>
-                            <li>210马力</li>
+                            <li ms-text="@carInfo.engine_max_power"></li>
                         </ul>
                     </div>
                     <div class='moreDes clearfix'>
                         <ul class='clearfix'>
                             <li>厂商指导价:</li>
-                            <li>26~56万</li>
+                            <li><span ms-text="@carInfo.price"></span>万</li>
                         </ul>
                         <ul class='clearfix'>
                             <li>联系电话:</li>
-                            <li>0258-5621332</li>
+                            <li ms-text="@carInfo.tell"></li>
                         </ul>
                     </div>
                 </div>
@@ -174,133 +170,1203 @@
                             <li>查看图片</li>
                         </ul>
                         <div class='tabContent'>
-                            <div class='tabDetail'>
-                                <div class='titleLine'>基本信息</div>
-                                <div class='row tabMsg'>
-                                    <div class='col-md-6 col-sm-6 clearfix'>
-                                        <ul class='clearfix pull-left'>
-                                            <li class='pull-left'>公告型号&nbsp;:</li>
-                                            <li class='pull-left'>ZZ5167XXYH4215F1</li>
-                                        </ul>
+                            <div class='tabDetail pb20'>
+                                <!--新能源-->
+                                <div class="newEnergyDetail">
+                                    <div class='titleLine'>基本信息</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>公告型号:</li>
+                                                <li class="pull-left" ms-text="@carInfo.base_model"></li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>类型:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.base_type == '10'">平板式</li>
+                                                <li class='pull-left' ms-visible="@carInfo.base_type == '20'">栏板式</li>
+                                                <li class='pull-left' ms-visible="@carInfo.base_type == '30'">箱式</li>
+                                                <li class='pull-left' ms-visible="@carInfo.base_type == '40'">仓栏式</li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class='col-md-6 col-sm-6'>
-                                        <ul class='clearfix pull-left'>
-                                            <li class='pull-left'>类型&nbsp;:</li>
-                                            <li class='pull-left'>厢式载货车</li>
-                                        </ul>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>驱动形式:</li>
+                                                <li class='pull-left' ms-text="@carInfo.base_drive"></li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>轴距:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.base_wheel"></span>mm</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>车身长度:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.base_long"></span>米</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>车身高度:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.base_height"></span>米</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>车身宽度:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.base_width"></span>米</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>额定载重:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.base_load"></span>吨</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>总质量:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.base_quality"></span>吨</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>吨位级别:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.base_tonnage == '10'">微卡</li>
+                                                <li class='pull-left' ms-visible="@carInfo.base_tonnage == '20'">轻卡</li>
+                                                <li class='pull-left' ms-visible="@carInfo.base_tonnage == '30'">中卡</li>
+                                                <li class='pull-left' ms-visible="@carInfo.base_tonnage == '40'">重卡</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>整车质量:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.base_weight"></span>吨</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>厂标续航:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.base_endurance"></span>km</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>产地:</li>
+                                                <li class='pull-left' ms-text="@carInfo.base_origin"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>电机</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>电机品牌:</li>
+                                                <li class='pull-left' ms-text="@carInfo.engine_brand">福田康明斯 F3.8NS6B190</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>电机型号:</li>
+                                                <li class='pull-left' ms-text="@carInfo.engine_model">福田康明斯</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>电机形式:</li>
+                                                <li class='pull-left' ms-text="@carInfo.engine_form">富康 F3.8</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>最大马力:</li>
+                                                <li class='pull-left' ms-text="@carInfo.engine_max_power">4马力</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>额定功率:</li>
+                                                <li class='pull-left'><span  ms-text="@carInfo.engine_rated_power"></span>kW</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>峰值功率:</li>
+                                                <li class='pull-left'><span  ms-text="@carInfo.engine_peak_power"></span>kW</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>额定扭矩:</li>
+                                                <li class='pull-left'><span  ms-text="@carInfo.engine_rated_torque"></span>n.m</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>峰值扭矩:</li>
+                                                <li class='pull-left'><span  ms-text="@carInfo.engine_peak_torque"></span>n.m</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>货箱参数</div>
+                                    <div class='row tabMsg'>
+
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>货箱类型:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.container_model !='' && @carInfo.container_model == 10">箱式</li>
+                                                <li class='pull-left' ms-visible="@carInfo.container_model !='' && carInfo.container_model == 20">仓栏式</li>
+                                                <li class='pull-left' ms-visible="@carInfo.container_model !='' && carInfo.container_model == 30">栏板式</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left' ms-visible="carInfo.container_long !='' || @carInfo.container_long !='0.00' ">
+                                                <li class='pull-left'>货箱长度:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.container_long"></span>米</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>货箱宽度:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.container_width"></span>米</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>货箱高度:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.container_height"></span>米</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>货箱容积:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.container_volume"></span>m³</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>驾驶室参数</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>驾驶室:</li>
+                                                <li class='pull-left' ms-text="@carInfo.cab_"></li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>驾驶室悬挂:</li>
+                                                <li class='pull-left' ms-text="@carInfo.cab_hang"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>座位排数:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.cab_seat == 10">单排</li>
+                                                <li class='pull-left' ms-visible="@carInfo.cab_seat == 20">双排</li>
+                                                <li class='pull-left' ms-visible="@carInfo.cab_seat == 30">排半</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>准乘人数:</li>
+                                                <li class='pull-left' ms-text="@carInfo.cab_people"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>主驾座椅形式:</li>
+                                                <li class='pull-left' ms-text="@carInfo.cab_main_seat"></li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>天窗:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.cab_skylight == 1">手动</li>
+                                                <li class='pull-left' ms-visible="@carInfo.cab_skylight == 2">自动</li>
+                                                <li class='pull-left' ms-visible="@carInfo.cab_skylight == 3">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>轮胎</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>轮胎品牌:</li>
+                                                <li class='pull-left' ms-text="@carInfo.tire_brand"></li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>轮胎规格:</li>
+                                                <li class='pull-left' ms-text="@carInfo.tire_specification"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>轮胎个数:</li>
+                                                <li class='pull-left' ms-text="@carInfo.tire_number"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>电池</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>电池品牌:</li>
+                                                <li class='pull-left' ms-text="@carInfo.battery_model"></li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>电池型号:</li>
+                                                <li class='pull-left' ms-text="@carInfo.battery_brand"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>电池类型:</li>
+                                                <li class='pull-left' ms-text="@carInfo.battery_type"></li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>电池容量:</li>
+                                                <li class='pull-left' ms-text="@carInfo.battery_volume"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>额定电压:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.battery_rated_voltage"></span>v</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>充电时间:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.battery_char_time"></span>h</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>满载续航里程:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.battery_endurance"></span>km</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>能量密度:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.battery_density"></span>wh/kg</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>底盘参数</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>前桥描述:</li>
+                                                <li class='pull-left' ms-text="@carInfo.chassis_front_axle"></li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>前桥允许载荷:</li>
+                                                <li class='pull-left' ms-text="@carInfo.chassis_front_load"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>后桥描述:</li>
+                                                <li class='pull-left' ms-text="@carInfo.chassis_rear_axle"></li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>后桥允许载荷:</li>
+                                                <li class='pull-left' ms-text="@carInfo.chassis_rear_load"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>后桥速比:</li>
+                                                <li class='pull-left' ms-text="@carInfo.chassis_rear_speed"></li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>弹簧片数:</li>
+                                                <li class='pull-left' ms-text="@carInfo.chassis_spring"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>操控配置</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>ABS防抱死:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.manipulation_abs == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.manipulation_abs == 2">无</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>轮间差数锁:</li>
+                                                <li class='pull-left' ms-text="@carInfo.difference_lock"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>内部配置</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>多功能方向盘:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_steering_wheel == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_steering_wheel == 2">无</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>独立空调:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_air == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_air == 2">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>空调调节形式:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_air_type == 10">自动</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_air_type == 20">手动</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_air_type == 30">无</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>独立暖风:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_warm_air == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_warm_air == 2">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>电动后视镜:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_review_mirror == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_review_mirror == 2">无</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>电动车窗:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_car_window == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_car_window == 2">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>后视镜加热:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_heating == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_heating == 2">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>外部配置</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>导流罩:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.external_shroud == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.external_shroud == 2">无</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>铝合金车轮:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.external_wheel == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.external_wheel == 2">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>一体式挡泥板:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.external_fender == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.external_fender == 2">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>灯光配置</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>日夜行车灯:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.light_headlight == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.light_headlight == 2">无</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>LED尾灯:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.light_led == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.light_led == 2">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>制动安全</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>电子中控锁:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.brake_central_lock == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.brake_central_lock == 2">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>多媒体配置</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>GPS/北斗行车记录仪:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.multimedia_gps == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.multimedia_gps == 2">无</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>收音机:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.multimedia_radio == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.multimedia_radio == 2">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>高科技配置</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>胎压监测装置:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.tech_tire_pressure == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.tech_tire_pressure == 2">无</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>定速巡航:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.tech_cruise == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.tech_cruise == 2">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--other-->
+                                    <div class='titleLine'>其他配置</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>驾驶室:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_heating == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_heating == 2">无</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>驾驶室悬挂:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_heating == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_heating == 2">无</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class='row tabMsg'>
-                                    <div class='col-md-6 col-sm-6 clearfix'>
-                                        <ul class='clearfix pull-left'>
-                                            <li class='pull-left'>驱动形式&nbsp;:</li>
-                                            <li class='pull-left'>4X2</li>
-                                        </ul>
+                                <!--传统车型-->
+                                <div class="traditionalDetail">
+                                    <div class='titleLine'>基本信息</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>公告型号&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.base_model">ZZ5167XXYH4215F1</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>驱动&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.base_type == 10">平板式</li>
+                                                <li class='pull-left' ms-visible="@carInfo.base_type == 20">栏板式</li>
+                                                <li class='pull-left' ms-visible="@carInfo.base_type == 30">箱式</li>
+                                                <li class='pull-left' ms-visible="@carInfo.base_type == 40">仓栏式</li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class='col-md-6 col-sm-6'>
-                                        <ul class='clearfix pull-left'>
-                                            <li class='pull-left'>轴距&nbsp;:</li>
-                                            <li class='pull-left'>4200mm</li>
-                                        </ul>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>轴距&nbsp;:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.base_wheel"></span>mm</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>轮距&nbsp;:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.track"></span>mm</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>发动机&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.engine"></li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>变速箱&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.gearbox"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>车身宽度&nbsp;:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.base_width"></span>米</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>车身长度&nbsp;:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.base_long"></span>米</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>车身高度:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.base_height"></span>米</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>总质量:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.base_quality"></span>吨</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>吨位级别:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.base_tonnage == 10">微卡</li>
+                                                <li class='pull-left' ms-visible="@carInfo.base_tonnage == 20">轻卡</li>
+                                                <li class='pull-left' ms-visible="@carInfo.base_tonnage == 30">中卡</li>
+                                                <li class='pull-left' ms-visible="@carInfo.base_tonnage == 40">重卡</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>额定载重:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.base_load"></span>吨</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>整车重量:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.base_weight"></span>吨</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>接近角:</li>
+                                                <li class='pull-left' ms-text="@carInfo.base_near"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>离去角:</li>
+                                                <li class='pull-left' ms-text="@carInfo.base_away"></li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>产地:</li>
+                                                <li class='pull-left' ms-text="@carInfo.base_origin"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>发动机</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>发动机&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.engine_model">福田康明斯 F3.8NS6B190</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>发动机品牌&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.engine_brand">福田康明斯</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>气缸数&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.engine_cylinder">富康 F3.8</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>燃料种类&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.engine_fuel">4马力</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>气缸排列形式&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.engine_arrangement">kW</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>发动机形式&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.engine_form">kW</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>排量&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.engine_displacement">n.m</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>排放标准&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.engine_emission == 10">国三</li>
+                                                <li class='pull-left' ms-visible="@carInfo.engine_emission == 20">国四</li>
+                                                <li class='pull-left' ms-visible="@carInfo.engine_emission == 30">国五</li>
+                                                <li class='pull-left' ms-visible="@carInfo.engine_emission == 40">京五</li>
+                                                <li class='pull-left' ms-visible="@carInfo.engine_emission == 50">国六</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>最大马力&nbsp;:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.engine_max_power"></span>马力</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>最大输出功率&nbsp;:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.engine_put_power"></span>kW</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>扭矩&nbsp;:</li>
+                                                <li class='pull-left'><span  ms-text="@carInfo.engine_torque"></span>n.m</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>最大扭矩转速&nbsp;:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.engine_speed"></span>rpm</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>额定转速&nbsp;:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.engine_rated_speed"></span>rpm</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>货箱参数</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'  ms-if="@carInfo.container_model !=''">
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>货箱类型&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.container_model == 10">箱式</li>
+                                                <li class='pull-left' ms-visible="@carInfo.container_model == 20">仓栏式</li>
+                                                <li class='pull-left' ms-visible="@carInfo.container_model == 30">栏板式</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'  ms-if="@carInfo.container_long !=''">
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>货箱长度&nbsp;:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.container_long"></span>米</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6'  ms-if="@carInfo.container_width !=''">
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>货箱宽度&nbsp;:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.container_width"></span>米</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'  ms-if="@carInfo.container_height !=''">
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>货箱高度&nbsp;:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.container_height"></span>米</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>货箱容积&nbsp;:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.container_volume"></span>米</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>驾驶室参数</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'   ms-if="@carInfo.cab_ !=''">
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>驾驶室&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.cab_"></li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'  ms-if="@carInfo.cab_hang !=''">
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>驾驶室悬挂&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.cab_hang"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'  ms-if="@carInfo.cab_seat !=''">
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>座位排数&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.cab_seat == 10">单排</li>
+                                                <li class='pull-left' ms-visible="@carInfo.cab_seat == 20">双排</li>
+                                                <li class='pull-left' ms-visible="@carInfo.cab_seat == 30">排半</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'  ms-if="@carInfo.cab_people !=''">
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>准乘人数&nbsp;:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.cab_people"></span>人</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix' ms-if="@carInfo.cab_main_seat !=''">
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>主驾座椅形式&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.cab_main_seat">厢式8</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6' ms-if="@carInfo.cab_main_seat !=''">
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>天窗&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.cab_skylight == 1">手动</li>
+                                                <li class='pull-left' ms-visible="@carInfo.cab_skylight == 2">自动</li>
+                                                <li class='pull-left' ms-visible="@carInfo.cab_skylight == 3">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>变速箱</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>变速箱&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.gearbox"></li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>变速箱品牌&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.gearbox_brands"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>前进挡位&nbsp;:</li>
+                                                <li class='pull-left'>厢式8</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>倒挡数&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.gearbox_back_gear"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>换挡方式&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.gearbox_type"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>轮胎</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>轮胎品牌&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.tire_brand">厢式8</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>轮胎规格&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.tire_specification">2.44米</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>轮胎个数&nbsp;:</li>
+                                                <li class='pull-left'><span ms-text="@carInfo.tire_number"></span>个</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>底盘参数</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>前桥描述&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.chassis_front_axle">厢式8</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>前桥允许载荷&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.chassis_front_load">2.44米</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>后桥描述&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.chassis_rear_axle">厢式8</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>后桥允许载荷&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.chassis_rear_load">2.44米</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>后桥速比&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.chassis_rear_speed">厢式8</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>弹簧片数&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.chassis_spring">2.44米</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>鞭座&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.chassis_whip">厢式8</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>油箱</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>油箱/气罐材质&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.fuel_tank">厢式8</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>油箱/气罐容量&nbsp;:</li>
+                                                <li class='pull-left' ms-text="@carInfo.fuel_capacity">2.44米</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>操控配置</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>ABS防抱死&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.manipulation_abs == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.manipulation_abs == 2">无</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>轮间差数锁&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.difference_lock == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.difference_lock == 2">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>内部配置</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>多功能方向盘&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_steering_wheel == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_steering_wheel == 2">无</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>独立空调&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_air == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_air == 2">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>空调调节形式&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_air_type == 10">自动</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_air_type == 20">手动</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_air_type == 30">无</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>独立暖风&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_warm_air == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_warm_air == 2">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>电动后视镜&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_review_mirror == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_review_mirror == 2">无</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>电动车窗&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_car_window == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_car_window == 2">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>后视镜加热&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_heating == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.internal_heating == 2">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>外部配置</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>导流罩&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.external_shroud == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.external_shroud == 2">无</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>铝合金车轮&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.external_wheel == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.external_wheel == 2">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>一体式挡泥板&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.external_fender == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.external_fender == 2">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>灯光配置</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>日夜行车灯&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.light_headlight == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.light_headlight == 2">无</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>LED尾灯&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.light_led == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.light_led == 2">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>制动安全</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>电子中控锁&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.brake_central_lock == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.brake_central_lock == 2">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>多媒体配置</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>GPS/北斗行车记录仪&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.multimedia_gps == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.multimedia_gps == 2">无</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>收音机&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.multimedia_radio == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.multimedia_radio == 2">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>高科技配置</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>胎压监测装置&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.tech_tire_pressure == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.tech_tire_pressure == 2">无</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>定速巡航&nbsp;:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.tech_cruise == 1">有</li>
+                                                <li class='pull-left' ms-visible="@carInfo.tech_cruise == 2">无</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class='titleLine'>其他配置</div>
+                                    <div class='row tabMsg'>
+                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>驾驶室&nbsp;:</li>
+                                                <li class='pull-left'>厢式8</li>
+                                            </ul>
+                                        </div>
+                                        <div class='col-md-6 col-sm-6'>
+                                            <ul class='clearfix pull-left'>
+                                                <li class='pull-left'>驾驶室悬挂&nbsp;:</li>
+                                                <li class='pull-left'>2.44米</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class='row tabMsg'>
-                                    <div class='col-md-6 col-sm-6 clearfix'>
-                                        <ul class='clearfix pull-left'>
-                                            <li class='pull-left'>箱长级别&nbsp;:</li>
-                                            <li class='pull-left'>5.5米</li>
-                                        </ul>
-                                    </div>
-                                    <div class='col-md-6 col-sm-6'>
-                                        <ul class='clearfix pull-left'>
-                                            <li class='pull-left'>发动机&nbsp;:</li>
-                                            <li class='pull-left'>福田康明斯 F3.8NS6B190</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class='row tabMsg'>
-                                    <div class='col-md-6 col-sm-6 clearfix'>
-                                        <ul class='clearfix pull-left'>
-                                            <li class='pull-left'>车身宽度&nbsp;:</li>
-                                            <li class='pull-left'>2.55米</li>
-                                        </ul>
-                                    </div>
-                                    <div class='col-md-6 col-sm-6'>
-                                        <ul class='clearfix pull-left'>
-                                            <li class='pull-left'>车身高度&nbsp;:</li>
-                                            <li class='pull-left'>3.8米</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class='titleLine'>发动机</div>
-                                <div class='row tabMsg'>
-                                    <div class='col-md-6 col-sm-6 clearfix'>
-                                        <ul class='clearfix pull-left'>
-                                            <li class='pull-left'>发动机&nbsp;:</li>
-                                            <li class='pull-left'>福田康明斯 F3.8NS6B190</li>
-                                        </ul>
-                                    </div>
-                                    <div class='col-md-6 col-sm-6'>
-                                        <ul class='clearfix pull-left'>
-                                            <li class='pull-left'>发动机品牌&nbsp;:</li>
-                                            <li class='pull-left'>福田康明斯</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class='row tabMsg'>
-                                    <div class='col-md-6 col-sm-6 clearfix'>
-                                        <ul class='clearfix pull-left'>
-                                            <li class='pull-left'>发动机俗称&nbsp;:</li>
-                                            <li class='pull-left'>富康 F3.8</li>
-                                        </ul>
-                                    </div>
-                                    <div class='col-md-6 col-sm-6'>
-                                        <ul class='clearfix pull-left'>
-                                            <li class='pull-left'>汽 缸 数&nbsp;:</li>
-                                            <li class='pull-left'>4</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class='titleLine'>货箱参数</div>
-                                <div class='row tabMsg'>
-                                    <div class='col-md-6 col-sm-6 clearfix'>
-                                        <ul class='clearfix pull-left'>
-                                            <li class='pull-left'>货箱形式&nbsp;:</li>
-                                            <li class='pull-left'>厢式8</li>
-                                        </ul>
-                                    </div>
-                                    <div class='col-md-6 col-sm-6'>
-                                        <ul class='clearfix pull-left'>
-                                            <li class='pull-left'>货箱宽度&nbsp;:</li>
-                                            <li class='pull-left'>2.44米</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class='row tabMsg'>
-                                    <div class='col-md-6 col-sm-6'>
-                                        <ul class='clearfix pull-left'>
-                                            <li class='pull-left'>货箱长度&nbsp;:</li>
-                                            <li class='pull-left'>5.5米</li>
-                                        </ul>
-                                    </div>
-                                    <div class='col-md-6 col-sm-6'>
-                                        <ul class='clearfix pull-left'>
-                                            <li class='pull-left'>货箱高度&nbsp;:</li>
-                                            <li class='pull-left'>2.5米</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div style='height: 507px'></div>
                             </div>
+                            <!--查看图片-->
                             <div class='tabDetail dis_none'>
                                 <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
                                     <ul class="layui-tab-title">
                                         <li class="layui-this">外观133张</li>
-                                        <li>驾驶舱123张</li>
+                                        <li>内饰123张</li>
                                         <li>底盘67张</li>
+                                        <li>上装67张</li>
+                                        <li>其他67张</li>
                                     </ul>
                                     <div class="layui-tab-content">
                                         <div class="layui-tab-item layui-show clearfix">
+                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <div class='clearfix'></div>
+                                        </div>
+                                        <div class="layui-tab-item">
+                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <div class='clearfix'></div>
+                                            <div style='height:320px'></div>
+                                        </div>
+                                        <div class="layui-tab-item">
                                             <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
                                             <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
                                             <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
@@ -346,68 +1412,29 @@
                     </div>
                 </div>
                 <div class='col-md-4 col-sm-4 hotType'>
-                    <div class='titleBottom'>热销车型</div>
-                    <div class='typeDetail'>
+                    <div class='titleBottom font26 fontw'>热销车型</div>
+                    <div class='typeDetail' ms-for="(index,el) in @hotCarList">
                         <ul>
-                            <li>
+                            <li ms-if="el.appearance_pic==''">
                                 <img src="../../images/hotSaleType .png" width='294' height="214" alt="">
                             </li>
-                            <li>
-                                <span>一汽解放</span>
-                                <span>J6P重卡</span>
-                                <span>350马卡</span>
-                                <span>4X2牵引车</span>
+                            <li ms-if="el.appearance_pic!=''">
+                                <img ms-attr="{ src : el.appearance_pic }" width='294' height="214" alt="">
                             </li>
                             <li>
-                                <span>(12档)</span>
-                                <span>(CA4180P66K2E5)</span>
+                                <span ms-text="el.manager_name"></span>
+                                <span ms-text="el.type_name"></span>
+                                <span><span ms-text="el.engine_max_power"></span></span>
+                                <span ms-text="el.base_drive"></span>
+                            </li>
+                            <li>
+                                <!--<span>(12档)</span>-->
+                                <span>(<span ms-text="el.car_number"></span>)</span>
                             </li>
                         </ul>
                         <ul class='clearfix'>
-                            <li class='pull-left'>25.0~36.6万</li>
-                            <li class='pull-right'>询底价&gt;&gt;</li>
-                        </ul>
-                    </div>
-                    <div class='typeDetail'>
-                        <ul>
-                            <li>
-                                <img src="../../images/hotSaleType .png" width='294' height="214" alt="">
-                            </li>
-                            <li>
-                                <span>一汽解放</span>
-                                <span>J6P重卡</span>
-                                <span>350马卡</span>
-                                <span>4X2牵引车</span>
-                            </li>
-                            <li>
-                                <span>(12档)</span>
-                                <span>(CA4180P66K2E5)</span>
-                            </li>
-                        </ul>
-                        <ul class='clearfix'>
-                            <li class='pull-left'>25.0~36.6万</li>
-                            <li class='pull-right'>询底价&gt;&gt;</li>
-                        </ul>
-                    </div>
-                    <div class='typeDetail'>
-                        <ul>
-                            <li>
-                                <img src="../../images/hotSaleType .png" width='294' height="214" alt="">
-                            </li>
-                            <li>
-                                <span>一汽解放</span>
-                                <span>J6P重卡</span>
-                                <span>350马卡</span>
-                                <span>4X2牵引车</span>
-                            </li>
-                            <li>
-                                <span>(12档)</span>
-                                <span>(CA4180P66K2E5)</span>
-                            </li>
-                        </ul>
-                        <ul class='clearfix'>
-                            <li class='pull-left'>25.0~36.6万</li>
-                            <li class='pull-right'>询底价&gt;&gt;</li>
+                            <li class='pull-left'><span ms-text="el.price"></span>万</li>
+                            <li class='pull-right'><a ms-attr="{ href : './checkSeriesDetail.html?car_ty=' + el.car_ty +'&id=' + el.id }">询底价&gt;&gt;</a></li>
                         </ul>
                     </div>
                 </div>
@@ -421,8 +1448,8 @@
     <script src='../../plugins/layui/dist/layui.js'></script>
     <script src='../../plugins/avalon/avalon.min.js'></script>
     <script src='../../common/js/kuCity.js'></script>
-    <script src='../../js/data/api.js'></script>
-    <script src='../../js/data/return_data.js'></script>
+    <script src='../../data/api.js'></script>
+    <script src='../../data/return_data.js'></script>
     <script src='../../js/header.js'></script>
     <script src='../../js/carHall/checkSeriesDetail.js'></script>
 </body>

@@ -18,7 +18,7 @@
 }
 .carApplication>ul li:first-child,
 .carBrands>ul li:first-child {
-  margin-left: 21px;
+  margin-left: 25px;
 }
 .carApplication ul li.active,
 .carBrands ul li.active {
@@ -404,25 +404,36 @@ label {
 .filterItem li{
   float: left;
 }
+i{
+  font-style: normal;
+}
 .filterItem li:first-child span{
   margin:0 4px;
 }
-.filterContent .filterDetail .filterItem li:first-child{
+.filterContent .filterDetail .filterItem>li:first-child{
   width: 78px;
   text-align: right;
   cursor: pointer;
+}
+.filterItem>li>span{
+  margin:0 10px;
 }
 .filterContent .filterDetail .filterItem{
   margin-top: 20px;
   margin-left: 21px;
 }
-.filterContent .filterDetail .filterItem li:nth-child(2){
-  margin-left: 20px;
-}
+
 .filterContent .filterDetail .filterItem li:not(:first-child){
   padding: 4px 4px;
   margin-right: 10px;
   cursor: pointer;
+}
+.filterContent .filterDetail .filterItem li:nth-child(2){
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 0px 0px;
+  visibility: hidden;
+  content:'';
 }
 .filterContent .filterDetail .maxPower li:nth-last-child(2){
   margin-left: 98px;

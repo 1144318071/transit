@@ -79,3 +79,34 @@ layui.use(['laypage', 'layer'], function () {
         theme: '#f57619'
     });
 });
+$(function(){
+   avalon.ready(function(){
+      window.vmCarFilter = avalon.define({
+          $id : 'root',
+          filterList:[],
+          onLoad:function(){
+              vmCarFilter.getFilterCondition();
+          },
+          getFilterCondition:function(){
+              var token = localStorage.getItem('token');
+              var postData={
+                  '_token_':token,
+                  '_t':'TRADITIONAL',
+                  '_m':''
+              };
+              getAjax(API.URL_GET_FILTERCONDITION,'get',postData).then(function(res){
+                  vmCarFilter.filterList = res.result;
+                  for(var i in res.result){
+                      /*console.log(res.result[i]);*/
+                      for(var j in res.result[i]){
+                          console.log(res.result[i][j])
+                      }
+                  }
+                  /*console.log(res.result)*/
+              });
+          }
+      }) ;
+      vmCarFilter.onLoad();
+      avalon.scan(document.body);
+   });
+});
