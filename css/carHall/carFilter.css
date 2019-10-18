@@ -3,25 +3,25 @@
   margin-top: 51px;
   border: 1px solid #999;
   padding: 18px 0px 22px 34px;
-  border-bottom: 1px solid #f57619;
+  /*border-bottom: 1px solid #f57619;*/
 }
-.carApplication>ul,
-.carBrands>ul {
-  float: left;
-}
-.carApplication>ul li,
-.carBrands>ul li {
+.carApplication ul li{
   text-align: center;
   float: left;
-  margin-left: 42px;
+  margin-left: 26px;
   cursor: pointer;
 }
-.carApplication>ul li:first-child,
-.carBrands>ul li:first-child {
+.carApplication ul:not(:first-child) li{
+  float: left;
+  cursor: pointer;
+}
+.carApplication ul li:first-child{
   margin-left: 25px;
 }
-.carApplication ul li.active,
-.carBrands ul li.active {
+.carApplication ul li:nth-child(2){
+  margin-left: 12px;
+}
+.carApplication ul li.active{
   background-color: #f57619;
   color: #fff;
 }
@@ -34,7 +34,6 @@
   line-height: 21px;
   text-align: center;
 }
-.carBrands,
 .selected {
   margin-top: 20px;
 }
@@ -56,6 +55,9 @@
 .newEnergy span.active {
   color: #f57619;
 }
+.carApply{
+  margin-top: 20px;
+}
 .carApply > li {
   padding: 2px 6px;
 }
@@ -63,13 +65,8 @@
   background-color: #f57619;
   color: #fff;
 }
-.carApply > li:not(:last-child).active {
-  background-color: #f57619;
-  color: #fff;
-}
 .tri {
   position: relative;
-  height: 30px;
 }
 .triangle {
   display: block;
@@ -400,41 +397,16 @@ label {
   margin-top: 60px;
   margin-left: 250px;
 }
-/*更多筛选条件*/
-.filterItem li{
-  float: left;
+/*卡车品牌*/
+.carBrands{
+  position:relative;
 }
-i{
-  font-style: normal;
+.carBrandItem .carBrandsDetail{
+  position: absolute;
+  top: 13px;
+  left: 14px;
 }
-.filterItem li:first-child span{
-  margin:0 4px;
-}
-.filterContent .filterDetail .filterItem>li:first-child{
-  width: 78px;
-  text-align: right;
-  cursor: pointer;
-}
-.filterItem>li>span{
-  margin:0 10px;
-}
-.filterContent .filterDetail .filterItem{
-  margin-top: 20px;
-  margin-left: 21px;
-}
-
-.filterContent .filterDetail .filterItem li:not(:first-child){
-  padding: 4px 4px;
-  margin-right: 10px;
-  cursor: pointer;
-}
-.filterContent .filterDetail .filterItem li:nth-child(2){
-  margin-left: 0px;
-  margin-right: 0px;
-  padding: 0px 0px;
-  visibility: hidden;
-  content:'';
-}
-.filterContent .filterDetail .maxPower li:nth-last-child(2){
-  margin-left: 98px;
+.carBrandItem .active{
+  background-color:#f57619;
+  color: #fff;
 }

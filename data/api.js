@@ -82,5 +82,8 @@ var API = {
     //获取banner图
     URL_GET_BANNERLIST: getApiHost + '/banner/list',
     //----------------------------------------------关于我们-----------------------------------
-    URL_GET_ABOUTUS: getApiHost + '/about/us'
+    URL_GET_ABOUTUS: getApiHost + '/about/us',
+    //----------------------------------------------我要合作-----------------------------------
+    //商家合作 物流公司 区域代理 广告合作
+    URL_POST_ABOUTTEAMWORK : getApiHost + '/about/teamwork',
 }

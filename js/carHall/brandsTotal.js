@@ -92,8 +92,12 @@ $(function(){
                     $.each(seriesList,function (index,elt) {
                         str = '';
                         $.each(elt,function (el,item) {
-                            str += "\n" +
-                                "<li>"+item.series+"</li>\n" + "";
+                            str +=
+                                "<li>\n" +
+                                "<a href='./carSeriesDetail.html?car_ty="+item.car_ty+"&id="+item.manager_id+"&series="+item.series+"'>"+item.series+"</a>\n" +
+                                "</li>\n" ;
+                           /* str += "\n" +
+                                "<li>"+item.series+"</li>\n" + "";*/
                         });
                         info = "<div class=\"groupItem\">\n" +
                             "<ul class='barTitle clearfix'>\n" +

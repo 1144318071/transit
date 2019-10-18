@@ -66,6 +66,7 @@ $(function(){
             carList:[],
             relatedCars:[],
             carDetail:{},
+            page:'1',
             filterData:{
                 '_token_':'',
                 'series':'',
@@ -187,7 +188,11 @@ $(function(){
                 vmCarSeriesDetail.getStatusList();
             },
             getMoreData:function(el){
-                vmCarSeriesDetail.filterData.page = 1;
+                var page = parseInt(vmCarSeriesDetail.page);
+                vmCarSeriesDetail.page = page;
+                vmCarSeriesDetail.page += 1;
+                vmCarSeriesDetail.filterData.page = vmCarSeriesDetail.page;
+                console.log(vmCarSeriesDetail.filterData.page)
                 vmCarSeriesDetail.filterData.limit = 2;
                 vmCarSeriesDetail.filterData.status = el;
                 getAjax(API.URL_GET_CARFILTER,'get',vmCarSeriesDetail.filterData).then(function(res){

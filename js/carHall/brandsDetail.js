@@ -94,14 +94,16 @@ $(function(){
                     vmBrandDetail.brandInfo = res.result.info;
                     vmBrandDetail.carDetail = res.result.data[0];
                     for(var i=0;i<res.result.car_type.length;i++){
-                        if(!res.result.car_type[i].appearance_pic==''){
+                        if(res.result.car_type[i].appearance_pic !=''){
                             res.result.car_type[i].appearance_pic = getApiHost + res.result.car_type[i].appearance_pic;
                         }
                     }
                     vmBrandDetail.carType = res.result.car_type;
                     var data = res.result.data[0];
                     for(var j=0;j<data.length;j++){
-                        data[j].image = getApiHost + data[j].image
+                        if(data[j].image !=''){
+                            data[j].image = getApiHost + data[j].image
+                        }
                     }
                     console.log(vmBrandDetail.carDetail)
                 });

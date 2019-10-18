@@ -161,7 +161,7 @@
 .carItems .carDes li {
   line-height: 36px;
 }
-.carItems .carDes li span {
+.carItems .carDes li:not(:first-child) span {
   margin: 0px 6px;
 }
 .carItems .carDes li:first-child span{
@@ -169,7 +169,7 @@
     vertical-align: middle;
 }
 .carItems .carDes li:first-child span:first-child{
-      width: 100px;
+      width: 180px;
       text-align: left;
       display: inline-block;
       overflow: hidden;
@@ -178,7 +178,7 @@
       vertical-align: middle;
 }
 .carItems .carDes li:nth-child(2){
-    width: 175px;
+    width: 182px;
 }
 .carItems:nth-child(even) {
   margin-left: 44px;

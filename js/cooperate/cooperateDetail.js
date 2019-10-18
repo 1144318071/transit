@@ -33,4 +33,25 @@ $('.tabs li').click(function(){
 });
 $(function(){
     $('#distpicker').distpicker('reset', true);
+    avalon.ready(function(){
+        window.vmCooperate = avalon.define({
+           $id : 'root',
+            postData:{
+                '_token_':'',
+                'type':'',
+                'c_name':'',
+                'u_name':'',
+                'u_phone':'',
+                'information':''
+            },
+           onLoad:function(){
+
+           },
+            cooperate:function () {
+                // getAjax(API.URL_POST_ABOUTTEAMWORK,'post')
+            }
+        });
+        vmCooperate.onLoad();
+        avalon.scan(document.body);
+    });
 });

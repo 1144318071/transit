@@ -143,586 +143,162 @@
             <div class='row filterCondition'>
                 <div class='col-md-12 col-sm-12'>
                     <div class='carApplication clearfix'>
-                        <ul>
-                            <li>车型用途<span class="ml4 mr4">:</span></li>
-                        </ul>
                         <ul class='carApply car_type clearfix'>
+                            <li>车型用途<span class="ml4 mr4">:</span></li>
                             <li>不限</li>
-                            <li>牵引车</li>
-                            <li>载货车</li>
-                            <li>自卸车</li>
+                            <li ms-on-click="@getFilterCondition('TRADITIONAL',20)">牵引车</li>
+                            <li ms-on-click="@getFilterCondition('TRADITIONAL',10)">载货车</li>
+                            <li ms-on-click="@getFilterCondition('TRADITIONAL',30)">自卸车</li>
                             <li class='newEnergy_detail'>
                                 <label class='tri'>电动货车<span class='triangle'></span></label>
                                 <div class='newEnergy dis_none'>
-                                    <span>电动载货车</span>
-                                    <span>电动牵引车</span>
-                                    <span>电动自卸车</span>
-                                    <span>电动冷藏车</span>
+                                    <span ms-on-click="@getFilterCondition('ENERGY',10)">电动载货车</span>
+                                    <span ms-on-click="@getFilterCondition('ENERGY',20)">电动牵引车</span>
+                                    <span ms-on-click="@getFilterCondition('ENERGY',30)">电动自卸车</span>
+                                    <span ms-on-click="@getFilterCondition('ENERGY',40)">电动冷藏车</span>
                                 </div>
                             </li>
                         </ul>
-                        <div class='clearfix'></div>
-                    </div>
-                    <div class="filterContent filterTra">
-                        <!--牵引车-->
-                        <div class="filterDetail">
-                            <ul class="filterItem clearfix" ms-for="(index,el) in @filterList">
-                                <li><i ms-text="el[0][0].title"></i><span>:</span></li>
-                                <li ms-for="(i,val) in el">
-                                    <span ms-for="item in val">{{ item.mixed }}</span>
+                        <div id="filterCondition"></div>
+                       <!-- <ul class='carApply carLevel clearfix' ms-for="el in @filterList"  ms-if="el[0].field == 'base_tonnage'">
+                            <li><span  ms-text="el[0].title"></span><span class="ml4 mr4">:</span></li>
+                            <li  ms-for="val in el[1]" ms-attr="{ id : 'level'+val.keyword }" ms-on-click="@active('level'+val.keyword)">
+                                {{ val.mixed  }}
+                            </li>
+                        </ul>
+                        <ul class='carApply carBrands clearfix' ms-for="el in @filterList"  ms-if="el[0].field == 'group'">
+                            <li><span  ms-text="el[0].title"></span><span class="ml4 mr4">:</span></li>
+                            <li class="carBrandItem" ms-for="val in el[1]">
+                                <span ms-text="val.mixed" ms-on-click="mixed(val.mixed)"></span>
+                                <div class='carBrandsDetail dis_none clearfix'>
+                                    <div class="pull-left"  ms-for="item in val.list" ms-attr="{id:val.mixed}">
+                                        <span ms-text="item.nick_name"></span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>-->
+                        <div class="filterItem"  ms-for="el in @filterList">
+                            <!--卡车级别-->
+                            <ul class='carApply carLevel clearfix' ms-if="el[0].field == 'base_tonnage'">
+                                <li><span  ms-text="el[0].title"></span><span class="ml4 mr4">:</span></li>
+                                <li  ms-for="val in el[1]" ms-attr="{ id : 'level'+val.keyword }" ms-on-click="@active('level'+val.keyword)">
+                                    {{ val.mixed  }}
                                 </li>
                             </ul>
+                            <!--卡车品牌-->
+                            <ul class='carApply carBrands clearfix' ms-if="el[0].field == 'group'">
+                                <li><span  ms-text="el[0].title"></span><span class="ml4 mr4">:</span></li>
+                                <li class="carBrandItem" ms-for="val in el[1]">
+                                    <span ms-text="val.mixed" ms-on-click="mixed(val.mixed)"></span>
+                                    <div class='carBrandsDetail dis_none clearfix'>
+                                        <div class="pull-left"  ms-for="item in val.list" ms-attr="{id:val.mixed}">
+                                            <span ms-text="item.nick_name"></span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <!--卡车价格-->
+                            <ul class='carApply carLevel clearfix' ms-if="el[0].field == 'price'">
+                                <li><span  ms-text="el[0].title"></span><span class="ml4 mr4">:</span></li>
+                                <li  ms-for="val in el[1]" ms-attr="{ id : 'level'+val.keyword }" ms-on-click="@active('level'+val.keyword)">
+                                    {{ val.mixed  }}
+                                </li>
+                            </ul>
+                            <!--驱动形式-->
+                            <ul class='carApply carLevel clearfix' ms-if="el[0].field == 'base_drive'">
+                                <li><span  ms-text="el[0].title"></span><span class="ml4 mr4">:</span></li>
+                                <li  ms-for="val in el[1]" ms-attr="{ id : 'level'+val.keyword }" ms-on-click="@active('level'+val.keyword)">
+                                    {{ val.mixed  }}
+                                </li>
+                            </ul>
+                            <!--车身长度-->
+                            <ul class='carApply carLevel clearfix' ms-if="el[0].field == 'base_long'">
+                                <li><span  ms-text="el[0].title"></span><span class="ml4 mr4">:</span></li>
+                                <li  ms-for="val in el[1]" ms-attr="{ id : 'level'+val.keyword }" ms-on-click="@active('level'+val.keyword)">
+                                    {{ val.mixed  }}
+                                </li>
+                            </ul>
+                            <!--货箱长度container_long-->
+                            <ul class='carApply carLevel clearfix' ms-if="el[0].field == 'container_long'">
+                                <li><span  ms-text="el[0].title"></span><span class="ml4 mr4">:</span></li>
+                                <li  ms-for="val in el[1]" ms-attr="{ id : 'level'+val.keyword }" ms-on-click="@active('level'+val.keyword)">
+                                    {{ val.mixed  }}
+                                </li>
+                            </ul>
+                            <ul class='carApply carLevel clearfix' ms-if="el[0].field == 'base_quality'">
+                                <li><span  ms-text="el[0].title"></span><span class="ml4 mr4">:</span></li>
+                                <li  ms-for="val in el[1]" ms-attr="{ id : 'level'+val.keyword }" ms-on-click="@active('level'+val.keyword)">
+                                    {{ val.mixed  }}
+                                </li>
+                            </ul>
+                            <ul class='carApply carLevel clearfix' ms-if="el[0].field == 'engine_peak_power'">
+                                <li><span  ms-text="el[0].title"></span><span class="ml4 mr4">:</span></li>
+                                <li  ms-for="val in el[1]" ms-attr="{ id : 'level'+val.keyword }" ms-on-click="@active('level'+val.keyword)">
+                                    {{ val.mixed  }}
+                                </li>
+                            </ul>
+                            <ul class='carApply carLevel clearfix' ms-if="el[0].field == 'battery_endurance'">
+                                <li><span  ms-text="el[0].title"></span><span class="ml4 mr4">:</span></li>
+                                <li  ms-for="val in el[1]" ms-attr="{ id : 'level'+val.keyword }" ms-on-click="@active('level'+val.keyword)">
+                                    {{ val.mixed  }}
+                                </li>
+                            </ul>
+                            <!--最大马力-->
+                            <ul class='carApply carLevel clearfix' ms-if="el[0].field == 'engine_max_power'">
+                                <li><span  ms-text="el[0].title"></span><span class="ml4 mr4">:</span></li>
+                                <li  ms-for="val in el[1]" ms-attr="{ id : 'level'+val.keyword }" ms-on-click="@active('level'+val.keyword)">
+                                    {{ val.mixed  }}
+                                </li>
+                            </ul>
+                            <!--前进档位-->
+                            <ul class='carApply carLevel clearfix' ms-if="el[0].field == 'gearbox_forward_gear'">
+                                <li><span  ms-text="el[0].title"></span><span class="ml4 mr4">:</span></li>
+                                <li  ms-for="val in el[1]" ms-attr="{ id : 'level'+val.keyword }" ms-on-click="@active('level'+val.keyword)">
+                                    {{ val.mixed  }}
+                                </li>
+                            </ul>
+                            <!--燃料种类-->
+                            <ul class='carApply carLevel clearfix' ms-if="el[0].field == 'engine_fuel'">
+                                <li><span  ms-text="el[0].title"></span><span class="ml4 mr4">:</span></li>
+                                <li  ms-for="val in el[1]" ms-attr="{ id : 'level'+val.keyword }" ms-on-click="@active('level'+val.keyword)">
+                                    {{ val.mixed  }}
+                                </li>
+                            </ul>
+                            <!--排放标准-->
+                            <ul class='carApply carLevel clearfix' ms-if="el[0].field == 'engine_emission'">
+                                <li><span  ms-text="el[0].title"></span><span class="ml4 mr4">:</span></li>
+                                <li  ms-for="val in el[1]" ms-attr="{ id : 'level'+val.keyword }" ms-on-click="@active('level'+val.keyword)">
+                                    {{ val.mixed  }}
+                                </li>
+                            </ul>
+                            <!--国别-->
+                            <ul class='carApply carLevel clearfix' ms-if="el[0].field == 'country'">
+                                <li><span  ms-text="el[0].title"></span><span class="ml4 mr4">:</span></li>
+                                <li  ms-for="val in el[1]" ms-attr="{ id : 'level'+val.keyword }" ms-on-click="@active('level'+val.keyword)">
+                                    {{ val.mixed  }}
+                                </li>
+                            </ul>
+                            <!--<ul class='carApply clearfix' ms-if="el[0].field != 'base_tonnage' && el[0].field != 'group'">
+                                <li><span  ms-text="el[0].title"></span><span class="ml4 mr4">:</span></li>
+                                <li ms-for="val in el[1]"  ms-attr="{ id : 'fItem'+val.keyword }" ms-on-click="@active('fItem'+val.keyword)">
+                                    {{ val.mixed }}
+                                </li>
+                            </ul>-->
                         </div>
-                    </div>
-                    <div class='carBrands clearfix'>
-                        <ul>
-                            <li>卡车品牌<span class="ml4 mr4">:</span></li>
+                        <!--
+                        <ul class='carApply clearfix'>
                         </ul>
-                        <ul class='bandsDetail clearfix'>
-                            <li>不限</li>
-                            <li class='active'>A</li>
-                            <li>B</li>
-                            <li>C</li>
-                            <li>D</li>
-                        </ul>
-                        <div class='clearfix'></div>
-                        <div class='carBrandsDetail'>
-                            <span>卡车品牌1</span>
-                            <span>卡车品牌2</span>
-                            <span>卡车品牌3</span>
-                            <span>卡车品牌4</span>
-                            <span>卡车品牌5</span>
-                            <span>卡车品牌6</span>
-                            <span>卡车品牌7</span>
-                        </div>
+                        -->
+                       <!-- <ul class='carApply clearfix' ms-for="el in @filterList"  ms-if="el[0].field != 'base_tonnage' && el[0].field != 'group'">
+                            <li><span  ms-text="el[0].title"></span><span class="ml4 mr4">:</span></li>
+                            <li ms-for="val in el[1]"  ms-attr="{ id : 'fItem'+val.keyword }" ms-on-click="@active('fItem'+val.keyword)">
+                                {{ val.mixed }}
+                            </li>
+                        </ul>-->
                     </div>
-                    <div class="filterContent filterTra">
-                        <!--牵引车-->
-                        <div class="filterDetail">
-                            <ul class="filterItem clearfix">
-                                <li>价格<span>:</span></li>
-                                <li>不限</li>
-                                <li>5万以下</li>
-                                <li>5-8万</li>
-                                <li>8-10万</li>
-                                <li>10-13万</li>
-                                <li>13-16万</li>
-                                <li>16-25万</li>
-                                <li>25-30万</li>
-                                <li>30-35万</li>
-                                <li>35-45万</li>
-                                <li>45万-60万</li>
-                                <li>60万以上</li>
-                            </ul>
-                            <ul class="filterItem clearfix">
-                                <li>驱动形式<span>:</span></li>
-                                <li>不限</li>
-                                <li>4X2(单桥)</li>
-                                <li>6X2(前四后四) </li>
-                                <li>6X4</li>
-                                <li>6X6</li>
-                                <li>8X2(前四后六)</li>
-                                <li>8X4(前四后八)</li>
-                                <li>4X4</li>
-                                <li>8X8</li>
-                            </ul>
-                            <ul class="filterItem clearfix maxPower">
-                                <li>最大马力<span>:</span></li>
-                                <li>不限</li>
-                                <li>90马力以下</li>
-                                <li>90-140马力</li>
-                                <li>140-190马力</li>
-                                <li>190-240马力</li>
-                                <li>240-290马力</li>
-                                <li>8X4(前四后八)</li>
-                                <li>290-340马力</li>
-                                <li>340-400马力</li>
-                                <li>400-460马力</li>
-                                <li>460马力以上</li>
-                            </ul>
-                            <ul class="filterItem clearfix">
-                                <li>前进挡位<span>:</span></li>
-                                <li>不限</li>
-                                <li>5档</li>
-                                <li>6档</li>
-                                <li>7档</li>
-                                <li>8档</li>
-                                <li>9档</li>
-                                <li>10档</li>
-                                <li>12档</li>
-                            </ul>
-                            <ul class="filterItem clearfix">
-                                <li>燃料种类<span>:</span></li>
-                                <li>不限</li>
-                                <li>柴油</li>
-                                <li>汽油</li>
-                                <li>LNG/CNG</li>
-                                <li>油气两用</li>
-                                <li>电动</li>
-                            </ul>
-                            <ul class="filterItem clearfix">
-                                <li>排放标准<span>:</span></li>
-                                <li>不限</li>
-                                <li>国五</li>
-                                <li>国六</li>
-                                <li>京五</li>
-                                <li>国四</li>
-                                <li>国三</li>
-                            </ul>
-                            <ul class="filterItem clearfix">
-                                <li>牌照<span>:</span></li>
-                                <li>不限</li>
-                                <li>黄牌</li>
-                                <li>蓝牌</li>
-                            </ul>
-                            <ul class="filterItem clearfix">
-                                <li>国别<span>:</span></li>
-                                <li>不限</li>
-                                <li>国产</li>
-                                <li>进口</li>
-                            </ul>
-                        </div>
-                        <!--载货车-->
-                        <div class="filterDetail dis_none">
-                            <ul class="filterItem clearfix">
-                                <li>价格<span>:</span></li>
-                                <li>不限</li>
-                                <li>5万以下</li>
-                                <li>5-8万</li>
-                                <li>8-10万</li>
-                                <li>10-13万</li>
-                                <li>13-16万</li>
-                                <li>16-25万</li>
-                                <li>25-30万</li>
-                                <li>30-35万</li>
-                                <li>35-45万</li>
-                                <li>45万-60万</li>
-                                <li>60万以上</li>
-                            </ul>
-                            <ul class="filterItem clearfix">
-                                <li>驱动形式<span>:</span></li>
-                                <li>不限</li>
-                                <li>4X2(单桥)</li>
-                                <li>6X2(前四后四) </li>
-                                <li>6X4</li>
-                                <li>6X6</li>
-                                <li>8X2(前四后六)</li>
-                                <li>8X4(前四后八)</li>
-                                <li>4X4</li>
-                                <li>8X8</li>
-                            </ul>
-                            <ul class="filterItem clearfix maxPower">
-                                <li>最大马力<span>:</span></li>
-                                <li>不限</li>
-                                <li>90马力以下</li>
-                                <li>90-140马力</li>
-                                <li>140-190马力</li>
-                                <li>190-240马力</li>
-                                <li>240-290马力</li>
-                                <li>8X4(前四后八)</li>
-                                <li>290-340马力</li>
-                                <li>340-400马力</li>
-                                <li>400-460马力</li>
-                                <li>460马力以上</li>
-                            </ul>
-                            <ul class="filterItem clearfix">
-                                <li>货箱长度<span>:</span></li>
-                                <li>不限</li>
-                                <li>2.5米以下</li>
-                                <li>2.5-3.2米</li>
-                                <li>3.2-3.6米</li>
-                                <li>3.6-4.2米</li>
-                                <li>4.2-5.2米</li>
-                                <li>5.2-6.8米</li>
-                                <li>6.8-7.2米</li>
-                                <li>7.2-8米</li>
-                                <li>8-9.6米</li>
-                                <li>9.6米以上</li>
-                            </ul>
-                            <ul class="filterItem clearfix">
-                                <li>座位排数<span>:</span></li>
-                                <li>不限</li>
-                                <li>单排</li>
-                                <li>双排</li>
-                            </ul>
-                             <ul class="filterItem clearfix">
-                                 <li>总质量<span>:</span></li>
-                                 <li>不限</li>
-                                 <li>3.5吨以下</li>
-                                 <li>3.5-4.499吨</li>
-                                 <li>4.5-8.299吨</li>
-                                 <li>8.3-11.999吨</li>
-                                 <li>12-18吨</li>
-                                 <li>18.1-25吨</li>
-                                 <li>25-31吨</li>
-                             </ul>
-                            <ul class="filterItem clearfix">
-                                <li>前进挡位<span>:</span></li>
-                                <li>不限</li>
-                                <li>5档</li>
-                                <li>6档</li>
-                                <li>7档</li>
-                                <li>8档</li>
-                                <li>9档</li>
-                                <li>10档</li>
-                                <li>12档</li>
-                            </ul>
-                            <ul class="filterItem clearfix">
-                                <li>燃料种类<span>:</span></li>
-                                <li>不限</li>
-                                <li>柴油</li>
-                                <li>汽油</li>
-                                <li>LNG/CNG</li>
-                                <li>油气两用</li>
-                                <li>电动</li>
-                            </ul>
-                            <ul class="filterItem clearfix">
-                                <li>排放标准<span>:</span></li>
-                                <li>不限</li>
-                                <li>国五</li>
-                                <li>国六</li>
-                                <li>京五</li>
-                                <li>国四</li>
-                                <li>国三</li>
-                            </ul>
-                            <ul class="filterItem clearfix">
-                                <li>牌照<span>:</span></li>
-                                <li>不限</li>
-                                <li>黄牌</li>
-                                <li>蓝牌</li>
-                            </ul>
-                            <ul class="filterItem clearfix">
-                                <li>国别<span>:</span></li>
-                                <li>不限</li>
-                                <li>国产</li>
-                                <li>进口</li>
-                            </ul>
-                        </div>
-                        <!--自卸车-->
-                        <div class="filterDetail dis_none">
-                            <ul class="filterItem clearfix">
-                                <li>价格<span>:</span></li>
-                                <li>不限</li>
-                                <li>5万以下</li>
-                                <li>5-8万</li>
-                                <li>8-10万</li>
-                                <li>10-13万</li>
-                                <li>13-16万</li>
-                                <li>16-25万</li>
-                                <li>25-30万</li>
-                                <li>30-35万</li>
-                                <li>35-45万</li>
-                                <li>45万-60万</li>
-                                <li>60万以上</li>
-                            </ul>
-                            <ul class="filterItem clearfix">
-                                <li>驱动形式<span>:</span></li>
-                                <li>不限</li>
-                                <li>4X2(单桥)</li>
-                                <li>6X2(前四后四) </li>
-                                <li>6X4</li>
-                                <li>6X6</li>
-                                <li>8X2(前四后六)</li>
-                                <li>8X4(前四后八)</li>
-                                <li>4X4</li>
-                                <li>8X8</li>
-                            </ul>
-                            <ul class="filterItem clearfix maxPower">
-                                <li>最大马力<span>:</span></li>
-                                <li>不限</li>
-                                <li>90马力以下</li>
-                                <li>90-140马力</li>
-                                <li>140-190马力</li>
-                                <li>190-240马力</li>
-                                <li>240-290马力</li>
-                                <li>8X4(前四后八)</li>
-                                <li>290-340马力</li>
-                                <li>340-400马力</li>
-                                <li>400-460马力</li>
-                                <li>460马力以上</li>
-                            </ul>
-                            <ul class="filterItem clearfix">
-                                <li>货箱长度<span>:</span></li>
-                                <li>不限</li>
-                                <li>2.5米以下</li>
-                                <li>2.5-3.2米</li>
-                                <li>3.2-3.6米</li>
-                                <li>3.6-4.2米</li>
-                                <li>4.2-5.2米</li>
-                                <li>5.2-6.8米</li>
-                                <li>6.8-7.2米</li>
-                                <li>7.2-8米</li>
-                                <li>8-9.6米</li>
-                                <li>9.6米以上</li>
-                            </ul>
-                            <ul class="filterItem clearfix">
-                                <li>总质量<span>:</span></li>
-                                <li>不限</li>
-                                <li>3.5吨以下</li>
-                                <li>3.5-4.499吨</li>
-                                <li>4.5-8.299吨</li>
-                                <li>8.3-11.999吨</li>
-                                <li>12-18吨</li>
-                                <li>18.1-25吨</li>
-                                <li>25-31吨</li>
-                            </ul>
-                            <ul class="filterItem clearfix">
-                                <li>前进挡位<span>:</span></li>
-                                <li>不限</li>
-                                <li>5档</li>
-                                <li>6档</li>
-                                <li>7档</li>
-                                <li>8档</li>
-                                <li>9档</li>
-                                <li>10档</li>
-                                <li>12档</li>
-                            </ul>
-                            <ul class="filterItem clearfix">
-                                <li>燃料种类<span>:</span></li>
-                                <li>不限</li>
-                                <li>柴油</li>
-                                <li>汽油</li>
-                                <li>LNG/CNG</li>
-                                <li>油气两用</li>
-                                <li>电动</li>
-                            </ul>
-                            <ul class="filterItem clearfix">
-                                <li>排放标准<span>:</span></li>
-                                <li>不限</li>
-                                <li>国五</li>
-                                <li>国六</li>
-                                <li>京五</li>
-                                <li>国四</li>
-                                <li>国三</li>
-                            </ul>
-                            <ul class="filterItem clearfix">
-                                <li>牌照<span>:</span></li>
-                                <li>不限</li>
-                                <li>黄牌</li>
-                                <li>蓝牌</li>
-                            </ul>
-                            <ul class="filterItem clearfix">
-                                <li>国别<span>:</span></li>
-                                <li>不限</li>
-                                <li>国产</li>
-                                <li>进口</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="filterContent filterNew">
-                            <!--电动轻卡-->
-                            <div class="filterDetail dis_none">
-                                <ul class="filterItem clearfix">
-                                    <li>价格<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>5万以下</li>
-                                    <li>5-8万</li>
-                                    <li>8-10万</li>
-                                    <li>10-13万</li>
-                                    <li>13-16万</li>
-                                    <li>16-25万</li>
-                                    <li>25-30万</li>
-                                    <li>30-35万</li>
-                                    <li>35-45万</li>
-                                    <li>45万-60万</li>
-                                    <li>60万以上</li>
-                                </ul>
-                                <ul class="filterItem clearfix">
-                                    <li>驱动形式<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>4X2</li>
-                                    <li>6X4</li>
-                                </ul>
-                                <ul class="filterItem clearfix">
-                                    <li>车身长度<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>5米以下</li>
-                                    <li>5-6米</li>
-                                    <li>6-7米</li>
-                                    <li>7-8米</li>
-                                    <li>8米以上</li>
-                                </ul>
-                                <ul class="filterItem clearfix">
-                                    <li>货箱长度<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>3.2米以下</li>
-                                    <li>3.2-3.6米</li>
-                                    <li>3.6-4.2米</li>
-                                    <li>4.2-5.2米</li>
-                                    <li>5.2米以上</li>
-                                </ul>
-                                <ul class="filterItem clearfix">
-                                    <li>总质量<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>2.5吨以下</li>
-                                    <li>2.5-3.5吨</li>
-                                    <li>3.5-4.5吨</li>
-                                    <li>4.5-7.5吨</li>
-                                    <li>7.5吨以上</li>
-                                </ul>
-                                <ul class="filterItem clearfix">
-                                    <li>峰值功率<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>60kW以下</li>
-                                    <li>60-100kW</li>
-                                    <li>100-150kW </li>
-                                    <li>150-200kW</li>
-                                    <li>200kW以上</li>
-                                </ul>
-                                <ul class="filterItem clearfix">
-                                    <li>厂标续航<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>150公里以下</li>
-                                    <li>150-200公里</li>
-                                    <li>200-300公里</li>
-                                    <li>300公里以上</li>
-                                </ul>
-                            </div>
-                            <!--电动牵引车-->
-                            <div class="filterDetail dis_none">
-                                <ul class="filterItem clearfix">
-                                    <li>价格<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>5万以下</li>
-                                    <li>5-8万</li>
-                                    <li>8-10万</li>
-                                    <li>10-13万</li>
-                                    <li>13-16万</li>
-                                    <li>16-25万</li>
-                                    <li>25-30万</li>
-                                    <li>30-35万</li>
-                                    <li>35-45万</li>
-                                    <li>45万-60万</li>
-                                    <li>60万以上</li>
-                                </ul>
-                                <ul class="filterItem clearfix">
-                                    <li>驱动形式<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>4X2</li>
-                                    <li>6X4</li>
-                                </ul>
-                                <ul class="filterItem clearfix">
-                                    <li>满载续航里程<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>100-200公里</li>
-                                    <li>200-500公里</li>
-                                    <li>500公里以上</li>
-                                </ul>
-                                <ul class="filterItem clearfix">
-                                    <li>峰值功率<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>200kW以下</li>
-                                    <li>200-300kW</li>
-                                    <li>300kW以上</li>
-                                </ul>
-                                <ul class="filterItem clearfix">
-                                    <li>厂标续航<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>150公里以下</li>
-                                    <li>150-200公里</li>
-                                    <li>200-300公里</li>
-                                    <li>300公里以上</li>
-                                </ul>
-                            </div>
-                            <!--电动自卸车-->
-                            <div class="filterDetail dis_none">
-                                <ul class="filterItem clearfix">
-                                    <li>吨位级别<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>微卡</li>
-                                    <li>轻卡</li>
-                                    <li>中卡</li>
-                                    <li>重卡</li>
-                                </ul>
-                                <ul class="filterItem clearfix">
-                                    <li>价格<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>5万以下</li>
-                                    <li>5-8万</li>
-                                    <li>8-10万</li>
-                                    <li>10-13万</li>
-                                    <li>13-16万</li>
-                                    <li>16-25万</li>
-                                    <li>25-30万</li>
-                                    <li>30-35万</li>
-                                    <li>35-45万</li>
-                                    <li>45万-60万</li>
-                                    <li>60万以上</li>
-                                </ul>
-                                <ul class="filterItem clearfix">
-                                    <li>驱动形式<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>4X2</li>
-                                    <li>6X4</li>
-                                </ul>
-                                <ul class="filterItem clearfix">
-                                    <li>峰值功率<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>200kW以下</li>
-                                    <li>200-300kW</li>
-                                    <li>300kW以上</li>
-                                </ul>
-                                <ul class="filterItem clearfix">
-                                    <li>厂标续航<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>150公里以下</li>
-                                    <li>150-200公里</li>
-                                    <li>200-300公里</li>
-                                    <li>300公里以上</li>
-                                </ul>
-                            </div>
-                            <!--电动冷藏车-->
-                            <div class="filterDetail dis_none">
-                                <ul class="filterItem clearfix">
-                                    <li>价格<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>5万以下</li>
-                                    <li>5-8万</li>
-                                    <li>8-10万</li>
-                                    <li>10-13万</li>
-                                    <li>13-16万</li>
-                                    <li>16-25万</li>
-                                    <li>25-30万</li>
-                                    <li>30-35万</li>
-                                    <li>35-45万</li>
-                                    <li>45万-60万</li>
-                                    <li>60万以上</li>
-                                </ul>
-                                <ul class="filterItem clearfix">
-                                    <li>驱动形式<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>4X2</li>
-                                    <li>6X4</li>
-                                </ul>
-                                <ul class="filterItem clearfix maxPower">
-                                    <li>货箱长度<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>3.2米以下</li>
-                                    <li>3.2-3.6米</li>
-                                    <li>3.6-4.2米</li>
-                                    <li>4.2-5.2米</li>
-                                    <li>5.2米以上</li>
-                                </ul>
-                                <ul class="filterItem clearfix">
-                                    <li>峰值功率<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>200kW以下</li>
-                                    <li>200-300kW</li>
-                                    <li>300kW以上</li>
-                                </ul>
-                                <ul class="filterItem clearfix">
-                                    <li>厂标续航<span>:</span></li>
-                                    <li>不限</li>
-                                    <li>150公里以下</li>
-                                    <li>150-200公里</li>
-                                    <li>200-300公里</li>
-                                    <li>300公里以上</li>
-                                </ul>
-                            </div>
-                        </div>
                 </div>
             </div>
-            <div class='moreFilter'> 
+            <div class='moreFilter dis_none'>
                 <div class='line'></div>
                 <div class='moreBtn'>更多筛选条件</div>
             </div>
@@ -1076,3 +652,14 @@
 </body>
 
 </html>
+<!--
+<div class="filterItem">
+    <ul class="carApply carLevel clearfix">
+        <li><span>卡车级别</span><span class="ml4 mr4">:</span></li>
+        <li id="level0" avalon-events="click:eclick_0_64active4039level3943val46keyword41">不限</li>
+        <li id="level10" avalon-events="click:eclick_0_64active4039level3943val46keyword41">微卡</li>
+        <li id="level20" avalon-events="click:eclick_0_64active4039level3943val46keyword41">轻卡</li>
+        <li id="level30" avalon-events="click:eclick_0_64active4039level3943val46keyword41">中卡</li>
+        <li id="level40" avalon-events="click:eclick_0_64active4039level3943val46keyword41">重卡</li>
+    </ul>
+</div>-->
