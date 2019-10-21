@@ -1,0 +1,211 @@
+.ads {
+    padding-top: 177px;
+}
+.breadNav {
+    color: #333;
+    margin-top: 38px;
+}
+.layui-breadcrumb > * {
+    font-size: 16px;
+}
+.layui-breadcrumb a {
+    color: #333 !important;
+}
+.layui-breadcrumb a cite {
+    color: #333;
+}
+.layui-breadcrumb span[lay-separator] {
+    color: #333;
+    margin: 0 2px;
+}
+.breadNav a:hover,
+.breadNav a:link,
+.breadNav a:visited {
+    color: #333 !important;
+}
+.publishSteps {
+    width: 1167px;
+    height: 146px;
+    margin-top: 60px;
+    background-color: #ffffff;
+    margin-left: 16px;
+    -moz-box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 14px rgba(0, 0, 0, 0.1);
+    padding-left: 62px;
+}
+.publishSteps > ul,
+.publishSteps > div {
+    float: left;
+}
+.publishSteps > ul {
+    margin-top: 24px;
+    width: 136px;
+    text-align: center;
+}
+.publishSteps > ul li:last-child {
+    margin-top: 10px;
+}
+.publishSteps .stepLine {
+    width: 172px;
+    height: 1px;
+    background-color: #999;
+    margin-top: 72px;
+}
+.titleLine {
+    font-size: 26px;
+    height: 82px;
+    line-height: 82px;
+}
+.titleLine .line {
+    display: inline-block;
+    width: 6px;
+    height: 24px;
+    background-color: #f57619;
+    vertical-align: middle;
+}
+.titleLine .title {
+    margin-left: 11px;
+}
+/*表单信息*/
+.form{
+    background-color:#fff;
+    padding-top: 36px;
+}
+.address_detail{
+    margin-top: 35px;
+}
+.address_detail li{
+    float: left;
+}
+.address_detail li input{
+    width: 324px;
+    height: 23px;
+    border: solid 1px #999999;
+    outline: none;
+}
+.addressItem .form-group select{
+    width: 120px;
+    height: 24px;
+    line-height: 24px;
+    outline: none!important;
+    padding: 0px;
+}
+.addressItem .form-group:not(:first-child) span{
+    margin-left: 8px;
+}
+.addressItem .form-group:not(:first-child){
+    margin-left: 30px;
+}
+.addressItem .form-group:nth-child(2){
+    margin-left: 0px;
+}
+.addressItem  .form-inline:not(:first-child){
+    margin-top: 35px;
+}
+.addressItem:nth-child(2){
+    margin-top: 24px;
+}
+.addressAdd{
+    font-size: 26px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+label{
+    font-weight: normal;
+}
+.formItem,.addressItem{
+    padding-left: 37px;
+}
+.formItem ul li{
+    float: left;
+}
+.formItem ul li input[type='radio']{
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin: 0px 0px 0px;
+}
+.formItem ul li select,.formItem ul li input[type='text']{
+    width: 120px;
+    height: 24px;
+    border: solid 1px #999999;
+    outline: none;
+}
+.formItem ul li input.longerInput{
+    width: 183px;
+}
+.formItem ul li:not(:first-child){
+    margin-left: 35px;
+}
+.formItem ul li:nth-child(2){
+    margin-left: 0px;
+}
+.formItem .innerItem li{
+    margin-left: 35px;
+}
+.formItem .innerItem li:nth-child(2){
+    margin-left: 35px;
+}
+.formItem .innerItem li:first-child{
+    margin-left: 81px;
+}
+.formItem ul li label{
+    margin-left: 6px;
+}
+.formItem ul li textarea{
+    width: 520px;
+    height: 136px;
+    border: solid 1px #999999;
+}
+.dateItem{
+    padding-left: 5px;
+}
+.contactPerson{
+    padding-left: 53px;
+}
+.contractPhone{
+    padding-left: 37px;
+}
+.checkCode{
+    padding-left: 20px;
+}
+.dateItem ul li .time{
+    width: 210px;
+}
+.buttons{
+    padding-left: 118px;
+    margin-top: 70px;
+    padding-bottom: 48px;
+}
+.buttons li{
+    float: left;
+}
+.buttons li button{
+    width: 135px;
+    height: 44px;
+    background-color: #f57619;
+    outline: none;
+    border: 0px;
+    color: #fff;
+    font-weight: bold;
+}
+.buttons li .btn-next{
+    margin-left: 85px;
+}
+.formItem{
+    margin-top: 29px;
+}
+.formContent{
+    padding-bottom: 80px;
+}
+.btn-code{
+    width: 104px;
+    height: 24px;
+    line-height: 24px;
+    background-color: #999999;
+    border-radius: 6px;
+    border: solid 1px #999999;
+    outline: none;
+    color: #fff;
+}

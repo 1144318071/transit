@@ -123,6 +123,17 @@
 .drivers {
   margin-top: 65px;
 }
+.drivers .title li{
+  float: left;
+  cursor: pointer;
+  font-size: 24px;
+}
+.drivers .title li:nth-child(2){
+  margin: 0 12px;
+}
+.drivers .title li.active{
+  color: #f57619;
+}
 .titleLine {
   font-size: 24px;
   font-weight: bold;
@@ -149,6 +160,56 @@
 }
 .itemTitle img {
   vertical-align: middle;
+}
+.rentItem .itemTitle{
+  padding-right: 0px;
+  padding-left: 16px;
+  color: #f57619;
+}
+.rentItem .itemTitle li{
+  float: left;
+}
+.rentItem .itemDetail{
+  padding-left: 16px;
+  padding-top: 16px;
+}
+.rentItem .itemBox{
+  height: 198px;
+}
+.rentItem .itemDetail .rentTitle ul li{
+  font-size: 20px;
+  font-weight: bold;
+}
+.rentItem .itemDetail .rentTitle ul li{
+  margin: 0 8px;
+}
+.rentItem .itemDetail .rentTitle ul li:first-child{
+  margin: 0 0px;
+}
+.rentItem .itemDetail .rentDes ul{
+  margin-top: 8px;
+}
+.rentItem .itemDetail .rentDes ul:first-child{
+  margin-top: 16px;
+}
+.rentItem .rent_right{
+  padding-top: 31px;
+  padding-right: 18px;
+}
+.rentItem .rent_right .btn-cancel{
+  width: 106px;
+  height: 32px;
+  border: solid 1px #f57619;
+  outline: none;
+  color: #f57619;
+  line-height: 32px;
+  font-size: 14px;
+}
+.rentItem .rent_right .cancelOrder{
+  text-align: center;
+  margin-top: 16px;
+  color: #999;
+  font-size: 14px;
 }
 .itemDetail > div,
 .itemDetail img {
@@ -191,7 +252,7 @@
 }
 .countBox {
   width: 309px;
-  height: 303px;
+  height: 328px;
   border: 1px solid #999;
   padding-left: 20px;
   padding-top: 28px;
@@ -222,6 +283,11 @@
 }
 .countBox .countNumber span:last-child {
   font-size: 35px;
+}
+.countBox .countDes{
+  margin-top: 22px;
+  font-size: 22px;
+  text-align: center;
 }
 .countBox .btn-apply {
   width: 195px;

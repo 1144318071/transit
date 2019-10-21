@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <link rel="stylesheet" href="../../plugins/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../../plugins/layui/dist/css/layui.css">
+    <link rel="stylesheet" type="text/css" href="../../common/css/kuCity.css"/>
+    <link rel="stylesheet" href="../../common/css/reset.css">
+    <link rel="stylesheet" href="../../common/css/common.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    <link rel="stylesheet" href="../../css/logistics/rentOrder.css">
+    <title>发布订单</title>
+</head>
+
+<body>
+<div class='header fixHeader' ms-controller='header'>
+    <header>
+        <!-- 版心 -->
+        <div class='content_box'>
+            <!-- 顶部的引导导航条 -->
+            <div class='row topBar'>
+                <div class='col-md-6 col-sm-6'>
+                    <div class='row'>
+                        <div class='col-sm-5'>欢迎登陆纵运汽车服务平台</div>
+                        <div class='col-sm-7 citySelect'>成都市|
+                            <input class="address" value="切换">
+                        </div>
+                    </div>
+                </div>
+                <div class='col-md-6 col-sm-6'>
+                    <div class='row  text-right'>
+                        <div class='col-sm-2 col-sm-offset-6'>消息</div>
+                        <div class='col-md-4 col-sm-4 userInfo text-left'>
+                            <ul class='clearfix'>
+                                <li class="userMsg dis_none ml10">头像</li>
+                                <li class="userMsg dis_none" ms-text="@userInfo.username" data-src="./views/personal/personal.html" ms-on-click="@getPage($event)"></li>
+                                <li class="userLogin">您好,请<a href='../../login.html'>登录</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- 导航条 -->
+    <div class='navBar  fixNavBar'>
+        <!-- 版心 -->
+        <div class='content_box'>
+            <div class="row">
+                <div class="col-md-3 col-sm-3 bg-fff">
+                    <div class='row'>
+                        <div class='col-sm-9 text-left'><img src="../../images/logo.png" width='202px' height='80px' alt="logo"></div>
+                    </div>
+                </div>
+                <div class="col-md-9 col-sm-9 pl0">
+                    <ul class="layui-nav">
+                        <li class="layui-nav-item" data-src='../../index.html'><a href="javascript:;">首页</a></li>
+                        <li class="layui-nav-item" data-src='../../views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
+                        <li class="layui-nav-item" data-src='../../views/financial/financial.html'><a href="javascript:;">金融服务</a></li>
+                        <li class="layui-nav-item" data-src='javascript:;'>
+                            <a href="javascript:;" data-src="javascript:;">运输管理</a>
+                            <dl class="layui-nav-child">
+                                <dd><a href="../order/order.html">渣土运输</a></dd>
+                                <dd><a href="../order/order.html">产业运输</a></dd>
+                            </dl>
+                        </li>
+                        <li class="layui-nav-item layui-this" data-src='../../views/logistics/logistics.html'><a href="javascript:;">物流公司</a></li>
+                        <li class="layui-nav-item" data-src='../../views/cooperate/cooperate.html'><a  href="javascript:;">我要合作</a></li>
+                        <li class="layui-nav-item" data-src='javascript:;'><a href="javascript:;">APP下载</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class='publishOrder bg-gray' ms-controller='root'>
+    <div class='content_box'>
+        <!-- 加盟广告 -->
+        <div class='ads'>
+            <img src="../../images/ads.png" width='100%' height='144px' alt="加盟广告">
+        </div>
+        <div class='row breadNav'>
+            <div class='col-md-12 col-sm-12 ml0'>
+                <span>当前位置<span style='margin:0 8px;'>:</span></span>
+                <span class="layui-breadcrumb" lay-separator=">">
+                        <a href="../../index.html">首页</a>
+                        <a href="./logistics.html">物流公司</a>
+                        <a href='javascript:;'><cite>发布订单</cite></a>
+                    </span>
+            </div>
+        </div>
+        <div class='publishSteps clearfix'>
+            <ul>
+                <li><img src="../../images/step_one.png" alt="填写订单资料"></li>
+                <li>填写租赁信息</li>
+            </ul>
+            <div class='stepLine'></div>
+            <ul>
+                <li><img src="../../images/step_two.png" alt="选择运输保单"></li>
+                <li>选择人员/车辆数量</li>
+            </ul>
+            <div class='stepLine'></div>
+            <ul>
+                <li><img src="../../images/step_three.png" alt="支付运费"></li>
+                <li>支付订单金额</li>
+            </ul>
+            <div class='stepLine'></div>
+            <ul>
+                <li><img src="../../images/step_three.png" alt="发布订单"></li>
+                <li>发布订单</li>
+            </ul>
+        </div>
+        <div class='formContent'>
+            <div class='titleLine'>
+                <span class='line'></span>
+                <span class='title fontw'>填写租赁信息</span>
+            </div>
+            <div class='form'>
+                <div class="addressItem">
+                    <form class="form-inline">
+                        <div id='distpicker' data-toggle="distpicker">
+                            <div class="form-group"><span>装货地址</span><span class="ml4 mr10">:</span></div>
+                            <div class="form-group">
+                                <!-- data-duplex-changed='getPcode' -->
+                                <select class="form-control"   id="province1"></select>
+                                <span>省/直辖市</span>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" id="city1"></select>
+                                <span>市</span>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" id="district1"></select>
+                                <span>区县</span>
+                            </div>
+                            <div class="form-group">
+                                <span class="addressAdd">+</span>
+                            </div>
+                        </div>
+                    </form>
+                    <form class="form-inline  dis_none">
+                        <div id='distpicker_two' data-toggle="distpicker">
+                            <div class="form-group"><span>装货地址</span><span class="ml4 mr10">:</span></div>
+                            <div class="form-group">
+                                <!-- data-duplex-changed='getPcode' -->
+                                <select class="form-control"   id="province1_two"></select>
+                                <span>省/直辖市</span>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" id="city1_two"></select>
+                                <span>市</span>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" id="district1_two"></select>
+                                <span>区县</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="addressItem">
+                    <form class="form-inline">
+                        <div id='distpicker_three' data-toggle="distpicker">
+                            <div class="form-group"><span>卸货地址</span><span class="ml4 mr10">:</span></div>
+                            <div class="form-group">
+                                <!-- data-duplex-changed='getPcode' -->
+                                <select class="form-control"   id="province1_three"></select>
+                                <span>省/直辖市</span>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" id="city1_three"></select>
+                                <span>市</span>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" id="district1_three"></select>
+                                <span>区县</span>
+                            </div>
+                            <div class="form-group">
+                                <span class="addressAdd">+</span>
+                            </div>
+                        </div>
+                    </form>
+                    <form class="form-inline  dis_none">
+                        <div id='distpicker_four' data-toggle="distpicker">
+                            <div class="form-group"><span>卸货地址</span><span class="ml4 mr10">:</span></div>
+                            <div class="form-group">
+                                <!-- data-duplex-changed='getPcode' -->
+                                <select class="form-control"   id="province1_four"></select>
+                                <span>省/直辖市</span>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" id="city1_four"></select>
+                                <span>市</span>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" id="district1_four"></select>
+                                <span>区县</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="formItem">
+                    <ul class="clearfix">
+                        <li>所需车型<span class="ml4 mr10">:</span></li>
+                        <li>
+                            <select>
+                                <option value="不限">不限</option>
+                            </select>
+                            <label>类型</label>
+                        </li>
+                        <li>
+                            <select>
+                                <option value="不限">不限</option>
+                            </select>
+                            <label>车长</label>
+                        </li>
+                        <li>
+                            <input type="text" placeholder="所需数量" />
+                            <label>辆</label>
+                        </li>
+                        <li>
+                            <input type="text"  placeholder="每辆价格" />
+                            <label>元/天</label>
+                        </li>
+                    </ul>
+                    <ul class="clearfix innerItem dis_none">
+                        <li>
+                            <select>
+                                <option value="不限">不限</option>
+                            </select>
+                            <label>类型</label>
+                        </li>
+                        <li>
+                            <select>
+                                <option value="不限">不限</option>
+                            </select>
+                            <label>车长</label>
+                        </li>
+                        <li>
+                            <input type="text" placeholder="所需数量" />
+                            <label>辆</label>
+                        </li>
+                        <li>
+                            <input type="text"  placeholder="每辆价格" />
+                            <label>元/天</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="formItem">
+                    <ul class="clearfix">
+                        <li>所需司机<span class="ml4 mr10">:</span></li>
+                        <li>
+                            <select>
+                                <option value="不限">不限</option>
+                            </select>
+                            <label>驾照</label>
+                        </li>
+                        <li>
+                            <input type="text" placeholder="所需司机数量" />
+                            <label>人&emsp;</label>
+                        </li>
+                        <li>
+                            <input type="text"  placeholder="每辆价格" />
+                            <label>元/天</label>
+                        </li>
+                    </ul>
+                    <ul class="innerItem clearfix dis_none">
+                        <li>
+                            <select>
+                                <option value="不限">不限</option>
+                            </select>
+                            <label>驾照</label>
+                        </li>
+                        <li>
+                            <input type="text" placeholder="所需司机数量" />
+                            <label>人&emsp;</label>
+                        </li>
+                        <li>
+                            <input type="text"  placeholder="每辆价格" />
+                            <label>元/天</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="formItem">
+                    <ul class="clearfix">
+                        <li>运输距离<span class="ml4 mr10">:</span></li>
+                        <li>
+                            <input type="text" placeholder="大约运输里程" />
+                            <label>km</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="formItem">
+                    <ul class="clearfix">
+                        <li>货物属性<span class="ml4 mr10">:</span></li>
+                        <li>
+                            <select>
+                                <option value="农畜牧业">农畜牧业</option>
+                                <option value="轻工业">轻工业</option>
+                                <option value="重工业">重工业</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <div class="formItem">
+                    <ul class="clearfix">
+                        <li>运输货物<span class="ml4 mr10">:</span></li>
+                        <li>
+                            <input type="text" class="longerInput" placeholder="如:木材，钢铁等" />
+                        </li>
+                    </ul>
+                </div>
+                <div class="formItem dateItem">
+                    <ul class="clearfix">
+                        <li>信息下架日期<span class="ml4 mr10">:</span></li>
+                        <li>
+                            <div class="layui-form">
+                                <div class="layui-input-inline">
+                                    <input type="text" class="layui-input" id="test1" placeholder="年-月-日">
+                                </div>
+                                <label>日期</label>
+                            </div>
+                        </li>
+                        <li>
+                            <select class="time">
+                                <option value="全天(00:00 - 24:00)">全天(00:00 - 24:00)</option>
+                                <option value="凌晨(00:00 - 06:00)">凌晨(00:00 - 06:00)</option>
+                                <option value="上午(06:00 - 12:00)">凌晨(06:00 - 12:00)</option>
+                                <option value="下午(12:00 - 18:00)">凌晨(12:00 - 18:00)</option>
+                                <option value="晚上(18:00 - 24:00)">晚上(18:00 - 24:00)</option></select>
+                            <label>时间</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="formItem">
+                    <ul class="clearfix">
+                        <li>备注信息<span class="ml4 mr10">:</span></li>
+                        <li>
+                            <textarea></textarea>
+                        </li>
+                    </ul>
+                </div>
+                <div class="formItem contactPerson">
+                    <ul class="clearfix">
+                        <li>联系人<span class="ml4 mr10">:</span></li>
+                        <li><input type="text" class="longerInput" placeholder="先生/女士" /></li>
+                    </ul>
+                </div>
+                <div class="formItem contractPhone">
+                    <ul class="clearfix">
+                        <li>联系电话<span class="ml4 mr10">:</span></li>
+                        <li><input type="text" class="longerInput" placeholder="请输入您的电话号码" /><label><button class="btn-code">获取验证码</button></label></li>
+                    </ul>
+                </div>
+                <div class="formItem checkCode">
+                    <ul class="clearfix">
+                        <li>填写验证码<span class="ml4 mr10">:</span></li>
+                        <li><input type="text" class="longerInput" placeholder="请输入6位数验证码" /></li>
+                    </ul>
+                </div>
+                <ul class="buttons clearfix">
+                    <li><button>重置</button></li>
+                    <li><button class="btn-next">发布订单</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src='../../plugins/common/include.js'></script>
+<include src='../../views/footer/footer.html'></include>
+<script src='../../plugins/jquery/jquery.min.js'></script>
+<script src='../../plugins/layui/dist/layui.js'></script>
+<script src='../../plugins/avalon/avalon.min.js'></script>
+<script src='../../plugins/distpicker/distpicker.data.js'></script>
+<script src='../../plugins/distpicker/distpicker.js'></script>
+<script src='../../plugins/distpicker/main.js'></script>
+<script src='../../common/js/kuCity.js'></script>
+<script src='../../js/header.js'></script>
+<script src="../../data/api.js"></script>
+<script src="../../data/return_data.js"></script>
+<script src="../../js/order/publishOrder.js"></script>
+</body>
+</html>

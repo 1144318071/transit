@@ -88,6 +88,12 @@ function GetRequest(urlStr) {
     }
     return theRequest;
 };
+//改变url的参数值
+function changeUrlArg(url, arg, val){
+    var pattern = arg+'=([^&]*)';
+    var replaceText = arg+'='+val;
+    return url.match(pattern) ? url.replace(eval('/('+ arg+'=)([^&]*)/gi'), replaceText) : (url.match('[\?]') ? url+'&'+replaceText : url+'?'+replaceText);
+}
 //获取城市的code码
 function getCode(name){
     for(var i in Area.provinces.province){

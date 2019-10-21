@@ -67,3 +67,231 @@
 .titleLine .title {
   margin-left: 11px;
 }
+/*表单信息*/
+.form{
+  background-color:#fff;
+  padding-top: 36px;
+}
+.address_detail{
+  margin-top: 35px;
+}
+.address_detail li{
+  float: left;
+}
+.address_detail li input{
+  width: 324px;
+  height: 23px;
+  border: solid 1px #999999;
+  outline: none;
+}
+.addressItem .form-group select{
+  width: 120px;
+  height: 24px;
+  line-height: 24px;
+  outline: none!important;
+  padding: 0px;
+}
+.addressItem .form-group:not(:first-child) span{
+  margin-left: 8px;
+}
+.addressItem .form-group:not(:first-child){
+  margin-left: 30px;
+}
+.addressItem .form-group:nth-child(2){
+  margin-left: 0px;
+}
+.addressItem  .form-inline:not(:first-child){
+  margin-top: 35px;
+}
+.addressItem:nth-child(2){
+  margin-top: 24px;
+}
+.addressAdd{
+  font-size: 26px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+label{
+  font-weight: normal;
+}
+.formItem,.addressItem{
+  padding-left: 37px;
+}
+.formItem ul li{
+  float: left;
+}
+.formItem ul li input[type='radio']{
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin: 0px 0px 0px;
+}
+.formItem ul li select,.formItem ul li input[type='text']{
+  width: 120px;
+  height: 24px;
+  border: solid 1px #999999;
+  outline: none;
+}
+.formItem ul li:not(:first-child){
+  margin-left: 35px;
+}
+.formItem ul li:nth-child(2){
+  margin-left: 0px;
+}
+.formItem .innerItem li{
+  margin-left: 35px;
+}
+.formItem .innerItem li:nth-child(2){
+  margin-left: 35px;
+}
+.formItem .innerItem li:first-child{
+  margin-left: 81px;
+}
+.formItem ul li label{
+  margin-left: 6px;
+}
+.formItem ul li textarea{
+  width: 520px;
+  height: 136px;
+  border: solid 1px #999999;
+}
+.dateItem ul li .time{
+  width: 210px;
+}
+.buttons{
+  padding-left: 118px;
+  margin-top: 70px;
+  padding-bottom: 48px;
+}
+.buttons li{
+  float: left;
+}
+.buttons li button{
+  width: 135px;
+  height: 44px;
+  background-color: #f57619;
+  outline: none;
+  border: 0px;
+  color: #fff;
+  font-weight: bold;
+}
+.buttons li .btn-next{
+  margin-left: 85px;
+}
+.formItem{
+  margin-top: 29px;
+}
+.formContent{
+  padding-bottom: 80px;
+}
+footer{
+  margin-top: 0px;
+}
+.order-detail {
+  border: 1px solid #999;
+  margin-top: 27px;
+  position: relative;
+}
+.order-detail .orderTitle {
+  background-color: #fffaf6;
+  height: 45px;
+  line-height: 45px;
+  font-size: 14px;
+}
+.order-detail .orderTitle ul:first-child {
+  color: #f57619;
+  padding-left: 16px;
+}
+.order-detail .orderTitle ul li {
+  float: left;
+}
+.order-detail .orderTitle ul li span {
+  margin: 0px 6px;
+}
+.order-detail .orderTitle ul:nth-child(2) li:first-child {
+  margin-right: 43px;
+  color: #f57619;
+  cursor: pointer;
+}
+.orderContent {
+  padding: 23px 18px 30px 15px;
+}
+.orderContent .orderDes {
+  padding-left: 12px;
+}
+.orderContent .orderDes ul li {
+  line-height: 27px;
+  font-size: 14px;
+}
+.orderContent .orderDes ul li:first-child {
+  margin-bottom: 10px;
+  margin-top: 0px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.orderContent .orderDes ul li:first-child span {
+  margin-right: 8px;
+}
+.orderPrice{
+  margin-top: 40px;
+}
+.orderPrice .title{
+  font-size: 22px;
+  font-weight: bold;
+}
+.orderPrice ul li {
+  float: left;
+}
+.orderPrice ul {
+  margin-top: 30px;
+}
+
+.upload {
+  position: relative;
+  margin-left: 15px;
+}
+.uploadimg {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  width: 88px;
+  height: 118px;
+  display: none;
+}
+.uploadimg img {
+  margin-left: 28px;
+  margin-top: -76px;
+}
+
+#test2 {
+  opacity: 0;
+  background-color: transparent;
+  margin-left: -2px;
+  margin-top: 1px;
+  height: 116px;
+  line-height: 54px;
+}
+input[type=file] {
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0;
+}
+.payWay button{
+  width: 130px;
+  height: 40px;
+  border: 0px;
+  border: 1px solid #f57619;
+  outlinie: none;
+  outline: none;
+  color: #f57619;
+}
+.payWay button:not(:first-child){
+  margin-left: 30px;
+}
+.btn-pay{
+  padding-left: 80px;
+}

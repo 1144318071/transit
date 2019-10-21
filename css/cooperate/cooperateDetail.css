@@ -112,8 +112,8 @@
   border: 0px;
   border: solid 1px #f57619;
   color: #f57619;
-  margin-left: 51px;
   margin-top: 76px;
+  margin-left: 110px;
 }
 .unit {
   position: absolute;
@@ -135,4 +135,7 @@
 }
 #distpicker .form-group:nth-child(2) {
   margin-left: 30px;
+}
+.btn-logistic{
+  margin-top: 32px;
 }

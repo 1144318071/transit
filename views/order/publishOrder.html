@@ -25,19 +25,21 @@
                     <div class='col-md-6 col-sm-6'>
                         <div class='row'>
                             <div class='col-sm-5'>欢迎登陆纵运汽车服务平台</div>
-                            <div class='col-sm-7'>成都市|<span>切换</span></div>
+                            <div class='col-sm-7 citySelect'>成都市|
+                                <input class="address" value="切换">
+                            </div>
                         </div>
                     </div>
                     <div class='col-md-6 col-sm-6'>
                         <div class='row  text-right'>
                             <div class='col-sm-2 col-sm-offset-6'>消息</div>
-                            <div class='col-md-4 col-sm-4 userMsg'>
+                            <div class='col-md-4 col-sm-4 userInfo text-left'>
                                 <ul class='clearfix'>
-                                    <li>头像</li>
-                                    <li>用户名</li>
+                                    <li class="userMsg dis_none ml10">头像</li>
+                                    <li class="userMsg dis_none" ms-text="@userInfo.username" data-src="./views/personal/personal.html" ms-on-click="@getPage($event)"></li>
+                                    <li class="userLogin">您好,请<a href='../../login.html'>登录</a></li>
                                 </ul>
                             </div>
-                            <!-- <div class='col-sm-4'>您好,请<a href='javascript:;'>登录</a>或<a href='javaascript:;'>注册</a></div> -->
                         </div>
                     </div>
                 </div>
@@ -114,9 +116,311 @@
             <div class='formContent'>
                 <div class='titleLine'>
                     <span class='line'></span>
-                    <span class='title'>填写订单资料</span>
+                    <span class='title fontw'>填写订单资料</span>
                 </div>
                 <div class='form'>
+                    <div class="addressItem">
+                        <form class="form-inline">
+                            <div id='distpicker' data-toggle="distpicker">
+                                <div class="form-group"><span>装货地址</span><span class="ml4 mr10">:</span></div>
+                                <div class="form-group">
+                                    <!-- data-duplex-changed='getPcode' -->
+                                    <select class="form-control"   id="province1"></select>
+                                    <span>省/直辖市</span>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="city1"></select>
+                                    <span>市</span>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="district1"></select>
+                                    <span>区县</span>
+                                </div>
+                                <div class="form-group">
+                                    <span class="addressAdd">+</span>
+                                </div>
+                                <ul class="address_detail clearfix">
+                                    <li>详细地址<span class="ml4 mr10">:</span></li>
+                                    <li><input type="text" /></li>
+                                </ul>
+                            </div>
+                        </form>
+                        <form class="form-inline  dis_none">
+                            <div id='distpicker_two' data-toggle="distpicker">
+                                <div class="form-group"><span>装货地址</span><span class="ml4 mr10">:</span></div>
+                                <div class="form-group">
+                                    <!-- data-duplex-changed='getPcode' -->
+                                    <select class="form-control"   id="province1_two"></select>
+                                    <span>省/直辖市</span>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="city1_two"></select>
+                                    <span>市</span>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="district1_two"></select>
+                                    <span>区县</span>
+                                </div>
+                            </div>
+                            <ul class="address_detail clearfix">
+                                <li>详细地址<span class="ml4 mr10">:</span></li>
+                                <li><input type="text" /></li>
+                            </ul>
+                        </form>
+                    </div>
+                    <div class="addressItem">
+                        <form class="form-inline">
+                            <div id='distpicker_three' data-toggle="distpicker">
+                                <div class="form-group"><span>卸货地址</span><span class="ml4 mr10">:</span></div>
+                                <div class="form-group">
+                                    <!-- data-duplex-changed='getPcode' -->
+                                    <select class="form-control"   id="province1_three"></select>
+                                    <span>省/直辖市</span>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="city1_three"></select>
+                                    <span>市</span>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="district1_three"></select>
+                                    <span>区县</span>
+                                </div>
+                                <div class="form-group">
+                                    <span class="addressAdd">+</span>
+                                </div>
+                            </div>
+                            <ul class="address_detail clearfix">
+                                <li>详细地址<span class="ml4 mr10">:</span></li>
+                                <li><input type="text" /></li>
+                            </ul>
+                        </form>
+                        <form class="form-inline  dis_none">
+                            <div id='distpicker_four' data-toggle="distpicker">
+                                <div class="form-group"><span>卸货地址</span><span class="ml4 mr10">:</span></div>
+                                <div class="form-group">
+                                    <!-- data-duplex-changed='getPcode' -->
+                                    <select class="form-control"   id="province1_four"></select>
+                                    <span>省/直辖市</span>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="city1_four"></select>
+                                    <span>市</span>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="district1_four"></select>
+                                    <span>区县</span>
+                                </div>
+                            </div>
+                            <ul class="address_detail clearfix">
+                                <li>详细地址<span class="ml4 mr10">:</span></li>
+                                <li><input type="text" /></li>
+                            </ul>
+                        </form>
+                    </div>
+                    <div class="formItem">
+                        <ul class="clearfix">
+                            <li>所需车型<span class="ml4 mr10">:</span></li>
+                            <li>
+                                <select>
+                                    <option value="整车">整车</option>
+                                    <option value="不限">不限</option>
+                                </select>
+                                <label>类型</label>
+                            </li>
+                            <li>
+                                <select>
+                                    <option value="不限">不限</option>
+                                </select>
+                                <label>车长</label>
+                            </li>
+                        </ul>
+                        <ul class="clearfix innerItem dis_none">
+                            <li>
+                                <select>
+                                    <option value="不限">不限</option>
+                                </select>
+                                <label>类型</label>
+                            </li>
+                            <li>
+                                <select>
+                                    <option value="不限">不限</option>
+                                </select>
+                                <label>车长</label>
+                            </li>
+                            <li>
+                                <input type="text" placeholder="所需数量" />
+                                <label>辆</label>
+                            </li>
+                            <li>
+                                <input type="text"  placeholder="每辆价格" />
+                                <label>元/天</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="formItem">
+                        <ul class="clearfix">
+                            <li>货物重量<span class="ml4 mr10">:</span></li>
+                            <li>
+                                <input type="text" placeholder="1~1000" />
+                                <label>吨&emsp;</label>
+                            </li>
+                            <li>
+                                <input type="text" placeholder="1~1000" />
+                                <label>方</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="formItem">
+                        <ul class="clearfix">
+                            <li>货物属性<span class="ml4 mr10">:</span></li>
+                            <li>
+                                <select>
+                                    <option value="农畜牧业">农畜牧业</option>
+                                    <option value="轻工业">轻工业</option>
+                                    <option value="重工业">重工业</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="formItem">
+                        <ul class="clearfix">
+                            <li>货物类型<span class="ml4 mr10">:</span></li>
+                            <li>
+                                <input type="text" placeholder="如:水果，酒水等等" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="formItem">
+                        <ul class="clearfix">
+                            <li>购买运输险<span class="ml4 mr10">:</span></li>
+                            <li> </li>
+                        </ul>
+                    </div>
+                    <div class="formItem">
+                        <ul class="clearfix">
+                            <li>加急处理<span class="ml4 mr10">:</span></li>
+                            <li class="ml40"><input type="radio" name="urgent"/>是</li>
+                            <li><input type="radio" name="urgent"/>否</li>
+                        </ul>
+                    </div>
+                    <div class="formItem dateItem">
+                        <ul class="clearfix">
+                            <li>装货时间<span class="ml4 mr10">:</span></li>
+                            <li>
+                                <div class="layui-form">
+                                    <div class="layui-input-inline">
+                                        <input type="text" class="layui-input" id="test1" placeholder="年-月-日">
+                                    </div>
+                                    <label>日期</label>
+                                </div>
+                            </li>
+                            <li>
+                                <select class="time">
+                                    <option value="全天(00:00 - 24:00)">全天(00:00 - 24:00)</option>
+                                    <option value="凌晨(00:00 - 06:00)">凌晨(00:00 - 06:00)</option>
+                                    <option value="上午(06:00 - 12:00)">凌晨(06:00 - 12:00)</option>
+                                    <option value="下午(12:00 - 18:00)">凌晨(12:00 - 18:00)</option>
+                                    <option value="晚上(18:00 - 24:00)">晚上(18:00 - 24:00)</option></select>
+                                <label>时间</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="formItem">
+                        <ul class="clearfix">
+                            <li>货物图片<span class="ml4 mr10">:</span></li>
+                            <li>
+                                <div class="layui-upload upload pull-left">
+                                    <img id="logo" src="../../images/license.png" width="88px" height="118px" alt="">
+                                    <span class="uploadimg">
+                                        <button type="button" class="layui-btn" id="test2">上传图片</button>
+                                        <img class="img-responsive" src="../../images/upload.png" alt="">
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="formItem">
+                        <ul class="clearfix">
+                            <li>备注信息<span class="ml4 mr10">:</span></li>
+                            <li>
+                                <textarea></textarea>
+                            </li>
+                        </ul>
+                    </div>
+                        <ul class="buttons clearfix">
+                            <li><button>重置</button></li>
+                            <li><button class="btn-next">下一步</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="orderDetail dis_none">
+                    <div class='order-detail'>
+                        <div class='orderTitle clearfix'>
+                            <ul class='pull-left clearfix'>
+                                <li>订单编号<span>:</span></li>
+                                <li>1451234564</li>
+                            </ul>
+                        </div>
+                        <div class='row orderContent'>
+                            <div class='col-md-2 col-sm-2'>
+                                <img src="../../images/fruit.png" alt="">
+                            </div>
+                            <div class='orderDes col-md-8 col-sm-8'>
+                                <ul>
+                                    <li>
+                                        <span>成都</span>
+                                        <span>武侯区</span>
+                                        <span>→</span>
+                                        <span>绵阳</span>
+                                        <span>游仙</span>
+                                    </li>
+                                    <li>
+                                        <span>整车/</span>
+                                        <span>1.2米/</span>
+                                        <span>平板/</span>
+                                        <span>7吨/</span>
+                                        <span>50方</span>
+                                    </li>
+                                    <li>
+                                        <span>水果/</span>
+                                        <span>一装一卸</span>
+                                    </li>
+                                    <li>待付金额&nbsp;:&nbsp;<span>12321</span>元</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="orderPrice">
+                        <div class="title">运费计算</div>
+                        <ul class="clearfix">
+                            <li>运费金额<span class="ml4 mr10">:</span></li>
+                            <li>￥182.00元</li>
+                        </ul>
+                        <ul class="clearfix">
+                            <li>保单金额<span class="ml4 mr10">:</span></li>
+                            <li>￥182.00元</li>
+                        </ul>
+                        <ul class="clearfix">
+                            <li>共计金额<span class="ml4 mr10">:</span></li>
+                            <li>￥182.00元</li>
+                        </ul>
+                        <ul  class="clearfix payWay">
+                            <li>支付方式<span class="ml4 mr10">:</span></li>
+                            <li>
+                                <button>余额支付</button>
+                                <button>支付宝</button>
+                                <button>微信支付</button>
+                                <button>银行卡支付</button>
+                            </li>
+                        </ul>
+                        <div class="bankCars">
+
+                        </div>
+                        <ul class="buttons  btn-pay clearfix">
+                            <li><button>去支付</button></li>
+                        </ul>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -126,8 +430,13 @@
     <script src='../../plugins/jquery/jquery.min.js'></script>
     <script src='../../plugins/layui/dist/layui.js'></script>
     <script src='../../plugins/avalon/avalon.min.js'></script>
+    <script src='../../plugins/distpicker/distpicker.data.js'></script>
+    <script src='../../plugins/distpicker/distpicker.js'></script>
+    <script src='../../plugins/distpicker/main.js'></script>
     <script src='../../common/js/kuCity.js'></script>
+    <script src='../../data/api.js'></script>
+    <script src='../../data/return_data.js'></script>
     <script src='../../js/header.js'></script>
+    <script src="../../js/order/publishOrder.js"></script>
 </body>
-
 </html>

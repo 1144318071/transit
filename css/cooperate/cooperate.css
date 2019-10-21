@@ -59,3 +59,6 @@
   left: 0px;
   margin: auto;
 }
+.btn-apply a:hover,.btn-apply a:link,.btn-apply a:visited{
+  color: #fff;
+}

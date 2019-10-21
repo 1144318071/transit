@@ -31,6 +31,27 @@ $('.tabs li').click(function(){
     $(this).addClass('active').siblings().removeClass('active');
     $('.tabContent .tabItem').eq($(this).index()).show().siblings().hide();
 });
+var url = window.location.href;
+var urlJson = GetRequest(url);
+var activeItem = urlJson.item;
+switch (activeItem) {
+    case '10':
+        $('.tabs li').eq(0).addClass('active').siblings().removeClass('active');
+        $('.tabContent .tabItem').eq(0).show().siblings().hide();
+    break;
+    case '20':
+        $('.tabs li').eq(1).addClass('active').siblings().removeClass('active');
+        $('.tabContent .tabItem').eq(1).show().siblings().hide();
+    break;
+    case '30':
+        $('.tabs li').eq(2).addClass('active').siblings().removeClass('active');
+        $('.tabContent .tabItem').eq(2).show().siblings().hide();
+    break;
+    case '40':
+        $('.tabs li').eq(3).addClass('active').siblings().removeClass('active');
+        $('.tabContent .tabItem').eq(3).show().siblings().hide();
+    break;
+}
 $(function(){
     $('#distpicker').distpicker('reset', true);
     avalon.ready(function(){
@@ -47,7 +68,9 @@ $(function(){
            onLoad:function(){
 
            },
-            cooperate:function () {
+
+            cooperate:function (item) {
+               console.log(item)
                 // getAjax(API.URL_POST_ABOUTTEAMWORK,'post')
             }
         });

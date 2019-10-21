@@ -102,27 +102,27 @@
                         <ul class='formItem clearfix'>
                             <li><span>*</span>企业名称</li>
                             <li>:</li>
-                            <li><input type="text" class='longInput' placeholder="请输入注册企业名称" /></li>
+                            <li><input type="text" class='longInput' ms-duplex="@postData.c_name" placeholder="请输入注册企业名称" /></li>
                         </ul>
                         <ul class='formItem clearfix'>
                             <li><span>*</span>联系人</li>
                             <li>:</li>
-                            <li><input type="text" class='longInput' placeholder="请输入您的姓名" /></li>
+                            <li><input type="text" class='longInput'  ms-duplex="@postData.u_name" placeholder="请输入您的姓名" /></li>
                         </ul>
                         <ul class='formItem clearfix'>
                             <li><span>*</span>联系电话</li>
                             <li>:</li>
-                            <li><input type="text" class='longInput' placeholder="请输入您的电话号码" /></li>
+                            <li><input type="text" class='longInput'   ms-duplex="@postData.u_phone" placeholder="请输入您的电话号码" /></li>
                         </ul>
                         <ul class='formItem clearfix'>
                             <li><span>*</span>合作业务</li>
                             <li>:</li>
                             <li class='countWord'>
-                                <textarea  maxlength="500" class="business"></textarea>
+                                <textarea  maxlength="500"   ms-duplex="@postData.information" class="business"></textarea>
                                 <div class="textarea_counter"><span class="num">0</span>/500</div>
                             </li>
                         </ul>
-                        <button class='btn-apply'>申请合作</button>
+                        <button class='btn-apply' ms-on-click="cooperate(10)">申请合作</button>
                     </div>
                 </div>
                 <div class='tabItem dis_none'>
@@ -156,7 +156,7 @@
                                 <div class="textarea_counter"><span class="num">0</span>/500</div>
                             </li>
                         </ul>
-                        <button class='btn-apply'>申请合作</button>
+                        <button class='btn-apply btn-logistic' ms-on-click="cooperate(20)">申请合作</button>
                     </div>
                 </div>
                 <div class='tabItem dis_none'>
@@ -196,7 +196,7 @@
                                 <div class="textarea_counter"><span class="num">0</span>/500</div>
                             </li>
                         </ul>
-                        <button class='btn-apply'>申请合作</button>
+                        <button class='btn-apply' ms-on-click="cooperate(30)">申请合作</button>
                     </div>
                 </div>
                 <div class='tabItem dis_none'>
@@ -225,7 +225,7 @@
                                 <div class="textarea_counter"><span class="num">0</span>/500</div>
                             </li>
                         </ul>
-                        <button class='btn-apply'>申请合作</button>
+                        <button class='btn-apply' ms-on-click="cooperate(40)">申请合作</button>
                     </div>
                 </div>
             </div>

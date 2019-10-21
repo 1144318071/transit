@@ -12,6 +12,15 @@ layui.use(['laypage', 'layer'], function () {
         count: 1000,
         theme: '#f57619'
     });
+    laypage.render({
+        elem: 'demo3',
+        count: 1000,
+        theme: '#f57619'
+    });
+});
+$('.drivers .title li').click(function(){
+   $(this).addClass('active').siblings().removeClass('active');
+   $('.itemCon .item').eq($(this).index()).show().siblings().hide();
 });
 $(function(){
     // checkOrders
