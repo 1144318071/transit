@@ -71,7 +71,6 @@
 .formItem li .longInput {
   width: 287px;
   height: 35px;
-  padding-left: 10px;
   border: 0px;
   outline: none;
   border: 1px solid #999;
@@ -79,7 +78,6 @@
 .formItem li .shortInput {
   width: 124px;
   height: 32px;
-  padding-left: 10px;
 }
 .formItem li span {
   color: #f51919;

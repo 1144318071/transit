@@ -28,6 +28,9 @@ $(".ads").keyup(function () {
 });
 // tab菜单切换
 $('.tabs li').click(function(){
+    $('.formItem li input[type="text"]').val('');
+    $('#distpicker').distpicker('reset', true);
+    $('.formItem li textarea').val('');
     $(this).addClass('active').siblings().removeClass('active');
     $('.tabContent .tabItem').eq($(this).index()).show().siblings().hide();
 });
@@ -57,21 +60,39 @@ $(function(){
     avalon.ready(function(){
         window.vmCooperate = avalon.define({
            $id : 'root',
+            getCode:{
+               'province':'',
+                'city':''
+            },
             postData:{
                 '_token_':'',
                 'type':'',
                 'c_name':'',
                 'u_name':'',
                 'u_phone':'',
-                'information':''
+                'information':'',
+                'car_num':'',//车辆数量
+                'province':'',
+                'city':'',
+                'ad_type':''
             },
            onLoad:function(){
 
            },
-
+            getPCode:function(){
+                vmCooperate.postData.province = $("#province1 option[value =" + vmCooperate.getCode.province + "]").attr('data-code');
+            },
+            getCCode:function(){
+                vmCooperate.postData.city = $("#city1 option[value =" + vmCooperate.getCode.city + "]").attr('data-code');
+            },
             cooperate:function (item) {
-               console.log(item)
-                // getAjax(API.URL_POST_ABOUTTEAMWORK,'post')
+                var token = localStorage.getItem('token');
+                vmCooperate.postData._token_ = token;
+                vmCooperate.postData.type = item;
+                console.log(vmCooperate.postData)
+                getAjax(API.URL_POST_ABOUTTEAMWORK,'post',vmCooperate.postData).then(function (res) {
+                    alertMsg(res.message,1);
+                })
             }
         });
         vmCooperate.onLoad();

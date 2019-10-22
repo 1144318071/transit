@@ -13,17 +13,18 @@ $('.downLoad').hover(function(){
     var src = $(this).attr('data-src');
     location.href = src;
 });
-// $('.layui-nav .layui-nav-item').hover(function(){
-// 	$(this).addClass('layui-this').siblings().removeClass('layui-this');
-// },function(){
-// 	$(this).removeClass('layui-this');
-// });
+/*$('.layui-nav .layui-nav-item').hover(function(){
+	$(this).addClass('layui-this');
+},function(){
+	$(this).removeClass('layui-this');
+});*/
 $(function(){
 	$('.address').kuCity();
     avalon.ready(function(){
         window.vmHeader = avalon.define({
             $id : 'header',
             userInfo:{},
+            city:'成都市',
             onLoad:function(){
                 // vmHeader.isLogin();
             },

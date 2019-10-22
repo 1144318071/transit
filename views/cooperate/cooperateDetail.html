@@ -62,8 +62,8 @@
                             <li class="layui-nav-item" data-src='javascipt:;'>
                                 <a href="javascript:;" data-src="javascript:;">运输管理</a>
                                 <dl class="layui-nav-child">
-                                    <dd><a href="../order/order.html">渣土运输</a></dd>
-                                    <dd><a href="../order/order.html">产业运输</a></dd>
+                                    <dd><a href="../order/order.html" style="color:#f57619!important">渣土运输</a></dd>
+                                    <dd><a href="../order/order.html" style="color:#f57619!important">产业运输</a></dd>
                                 </dl>
                             </li>
                             <li class="layui-nav-item" data-src='../../views/logistics/logistics.html'><a href="javascript:;">物流公司</a></li>
@@ -96,9 +96,10 @@
                 <li>广告合作</li>
             </ul>
             <div class='tabContent'>
+                <!--商家合作-->
                 <div class='tabItem'>
                     <div class='tabTitle'><label class='line'></label><span>商家合作</span></div>
-                    <div class='tabDetail'>
+                    <div class='tabDetail businessItem'>
                         <ul class='formItem clearfix'>
                             <li><span>*</span>企业名称</li>
                             <li>:</li>
@@ -125,40 +126,42 @@
                         <button class='btn-apply' ms-on-click="cooperate(10)">申请合作</button>
                     </div>
                 </div>
+                <!--物流公司-->
                 <div class='tabItem dis_none'>
                     <div class='tabTitle'><label class='line'></label><span>物流公司合作</span></div>
                     <div class='tabDetail'>
                         <ul class='formItem clearfix'>
                             <li><span>*</span>企业名称</li>
                             <li>:</li>
-                            <li><input type="text" class='longInput' placeholder="请输入注册企业名称" /></li>
+                            <li><input type="text" class='longInput' ms-duplex="@postData.c_name" placeholder="请输入注册企业名称" /></li>
                         </ul>
                         <ul class='formItem clearfix'>
                             <li><span>*</span>联系人</li>
                             <li>:</li>
-                            <li><input type="text" class='longInput' placeholder="请输入您的姓名" /></li>
+                            <li><input type="text" class='longInput' ms-duplex="@postData.u_name" placeholder="请输入您的姓名" /></li>
                         </ul>
                         <ul class='formItem clearfix'>
                             <li><span>*</span>联系电话</li>
                             <li>:</li>
-                            <li><input type="text" class='longInput' placeholder="请输入您的电话号码" /></li>
+                            <li><input type="text" class='longInput' ms-duplex="@postData.u_phone" placeholder="请输入您的电话号码" /></li>
                         </ul>
                         <ul class='formItem clearfix'>
                             <li>车辆数量</li>
                             <li>:</li>
-                            <li class='rl'><input type="text" class='longInput' placeholder="请输入公司车辆数量" /><label class='unit'>辆</label></li>
+                            <li class='rl'><input type="text" class='longInput' ms-duplex="@postData.car_num" placeholder="请输入公司车辆数量" /><label class='unit'>辆</label></li>
                         </ul>
                         <ul class='formItem clearfix'>
                             <li><span>*</span>备注信息</li>
                             <li>:</li>
                             <li class='countWord'>
-                                <textarea maxlength="500" class="logistics"></textarea>
+                                <textarea maxlength="500" ms-duplex="@postData.information" class="logistics"></textarea>
                                 <div class="textarea_counter"><span class="num">0</span>/500</div>
                             </li>
                         </ul>
                         <button class='btn-apply btn-logistic' ms-on-click="cooperate(20)">申请合作</button>
                     </div>
                 </div>
+                <!--区域代理-->
                 <div class='tabItem dis_none'>
                     <div class='tabTitle'><label class='line'></label><span>区域代理合作</span></div>
                     <div class='tabDetail'>
@@ -167,61 +170,62 @@
                             <li>:</li>
                             <li>
                                 <form class="form-inline">
-                        <div data-toggle="distpicker" id="distpicker">
-                            <div class="form-group">
-                                <select class="form-control" data-province="-- 选择省 --"  id="province1"></select>
-                            </div>
-                            <div class="form-group">
-                                <select class="form-control"  data-city="-- 选择市 --" id="city1" ></select>
-                            </div>
-                        </div>
-                    </form>
+                                    <div data-toggle="distpicker" id="distpicker">
+                                        <div class="form-group">
+                                            <select class="form-control" data-province="-- 选择省 --" ms-duplex="@getCode.province" data-duplex-changed="@getPCode" id="province1"></select>
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control"  data-city="-- 选择市 --" ms-duplex="@getCode.city"  data-duplex-changed="@getCCode" id="city1" ></select>
+                                        </div>
+                                    </div>
+                                </form>
                             </li>
                         </ul>
                         <ul class='formItem clearfix'>
                             <li><span>*</span>联系人</li>
                             <li>:</li>
-                            <li><input type="text" class='longInput' placeholder="请输入您的姓名" /></li>
+                            <li><input type="text" class='longInput' ms-duplex="@postData.u_name" placeholder="请输入您的姓名" /></li>
                         </ul>
                         <ul class='formItem clearfix'>
                             <li><span>*</span>联系电话</li>
                             <li>:</li>
-                            <li><input type="text" class='longInput' placeholder="请输入您的电话号码" /></li>
+                            <li><input type="text" class='longInput' ms-duplex="@postData.u_phone" placeholder="请输入您的电话号码" /></li>
                         </ul>
                         <ul class='formItem clearfix'>
                             <li>合作简介</li>
                             <li>:</li>
                             <li class='countWord'>
-                                <textarea maxlength="500" class="agent"></textarea>
+                                <textarea maxlength="500" ms-duplex="@postData.information" class="agent"></textarea>
                                 <div class="textarea_counter"><span class="num">0</span>/500</div>
                             </li>
                         </ul>
                         <button class='btn-apply' ms-on-click="cooperate(30)">申请合作</button>
                     </div>
                 </div>
+                <!--广告合作-->
                 <div class='tabItem dis_none'>
                     <div class='tabTitle'><label class='line'></label><span>广告合作</span></div>
                     <div class='tabDetail'>
                         <ul class='formItem clearfix'>
                             <li><span>*</span>联系人</li>
                             <li>:</li>
-                            <li><input type="text" class='longInput' placeholder="请输入您的姓名" /></li>
+                            <li><input type="text" class='longInput' ms-duplex="@postData.u_name" placeholder="请输入您的姓名" /></li>
                         </ul>
                         <ul class='formItem clearfix'>
                             <li><span>*</span>联系电话</li>
                             <li>:</li>
-                            <li><input type="text" class='longInput' placeholder="请输入您的电话号码" /></li>
+                            <li><input type="text" class='longInput' ms-duplex="@postData.u_phone" placeholder="请输入您的电话号码" /></li>
                         </ul>
                         <ul class='formItem clearfix'>
                             <li><span>*</span>广告类型</li>
                             <li>:</li>
-                            <li><input type="text" class='longInput' placeholder="如汽车用品、汽车保养、金融保险等" /></li>
+                            <li><input type="text" class='longInput' ms-duplex="@postData.ad_type" placeholder="如汽车用品、汽车保养、金融保险等" /></li>
                         </ul>
                         <ul class='formItem clearfix'>
                             <li>备注信息</li>
                             <li>:</li>
                             <li class='countWord'>
-                                <textarea maxlength="500" class="ads"></textarea>
+                                <textarea maxlength="500" ms-duplex="@postData.information" class="ads"></textarea>
                                 <div class="textarea_counter"><span class="num">0</span>/500</div>
                             </li>
                         </ul>

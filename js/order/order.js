@@ -27,16 +27,18 @@ layui.use(['laypage', 'layer'], function () {
         count: 1000,
         theme: '#f57619'
     });
+    laypage.render({
+        elem: 'demo6',
+        count: 1000,
+        theme: '#f57619'
+    });
 });
-$('.tab li').click(function(){
+$('.tabTitle li').click(function () {
     $(this).addClass('active').siblings().removeClass('active');
     $('.tabContent .tabItem').eq($(this).index()).show().siblings().hide();
-});
-// 联系电话
-$('.code').hover(function(){
-    $(this).find('.codeContent').show();
-},function(){
-    $(this).find('.codeContent').hide();
+})
+$('.tabType li').click(function(){
+    $(this).addClass('active').siblings().removeClass('active');
 });
 $(function(){
     avalon.ready(function(){

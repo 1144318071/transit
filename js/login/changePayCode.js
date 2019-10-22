@@ -19,8 +19,7 @@ $(function () {
                     'mobile': vmChangePayCode.username
                 };
                 getAjax(API.URL_POST_SENDCODE, 'post', getCode).then(function (res) {
-                    console.log(res)
-                    // alertMsg(res.message,1);
+                    alertMsg(res.message,1);
                 });
                 let count = 60;
                 const countDown = setInterval(()=>{

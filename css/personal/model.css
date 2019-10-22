@@ -1,3 +1,6 @@
+label{
+  font-weight: normal;
+}
 .title {
   height: 57px;
   line-height: 57px;
@@ -36,6 +39,10 @@
   width: 124px;
   height: 32px;
   padding-left: 10px;
+}
+.formItem li select{
+  width: 307px;
+  height: 33px;
 }
 .tips {
   margin-left: 109px;

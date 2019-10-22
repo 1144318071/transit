@@ -162,7 +162,8 @@
         citySelect: function() {
             var self = this;
             $('.kucity_item dd').on('click', 'span', function(e) {
-                self.target.val(($(e.target).text()));
+                vmHeader.city = $(e.target).text();
+                self.target.val("切换");
                 self.container.hide();
             })
         },

@@ -47,7 +47,7 @@ $(function(){
                     title: false,
                     skin: 'layui-layer-demo', //样式类名
                     closeBtn: 1, //不显示关闭按钮
-                    area: ['819px', '667px'],
+                    area: ['819px', '740px'],
                     shadeClose: true, //开启遮罩关闭
                     content: ['addCar.html']
                 });
