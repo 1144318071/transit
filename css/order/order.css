@@ -145,6 +145,10 @@
 }
 .description ul li:first-child{
   font-size: 20px;
+  cursor: pointer;
+}
+.description ul li:first-child.active{
+  color: #f57619;
 }
 .description ul li{
   line-height: 25px;
@@ -269,4 +273,32 @@
 }
 .countItem:nth-child(2){
   margin-top: 78px;
+}
+/*渣土运输按钮*/
+.description button{
+  width: 22px;
+  height: 22px;
+  background-color: #f57619;
+  border-radius: 4px;
+  outline: none;
+  border: 0px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 22px;
+  text-align: center;
+}
+.description button:first-child{
+  margin-left: 18px;
+}
+/* 渣土运输*/
+.muckItem .itemDes{
+  padding-top: 30px;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+.muckItem .signDetail{
+  margin-top: 19px;
+}
+.muckItem .description ul li:nth-child(2){
+  margin-top: 20px;
 }

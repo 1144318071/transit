@@ -38,9 +38,12 @@ $('.upload').hover(function () {
 }, function () {
     $(this).find('.uploadimg').hide();
 });
+$('.payWay button').click(function(){
+   $(this).addClass('active').siblings().removeClass('active');
+});
 //下一步
 $('.btn-next').click(function(){
-    $('.titleLine').hide();
+    $('.formTitle').hide();
     $('.form').hide();
     $('.orderDetail').show();
 });
@@ -53,4 +56,50 @@ $(function(){
         });
     });
     $('#distpicker').distpicker('reset', true);
+    avalon.ready(function(){
+       window.vmPublishOrder = avalon.define({
+            $id : 'root',
+           onLoad:function(){
+
+           },
+           /*提示设置支付密码*/
+           payTip:function(){
+               top.layer.open({
+                   type: 2,
+                   title: false,
+                   skin: 'layui-layer-demo', //样式类名
+                   closeBtn: 1, //不显示关闭按钮
+                   area: ['1127px', '639px'],
+                   shadeClose: true, //开启遮罩关闭
+                   content: ['/views/order/payTip.html']
+               });
+           },
+           //订单支付失败
+           payFail:function(){
+               top.layer.open({
+                   type: 2,
+                   title: false,
+                   skin: 'layui-layer-demo', //样式类名
+                   closeBtn: 1, //不显示关闭按钮
+                   area: ['883px', '432px'],
+                   shadeClose: true, //开启遮罩关闭
+                   content: ['/views/order/payFailed.html']
+               });
+           },
+           //订单支付成功
+           paySuccess:function(){
+               top.layer.open({
+                   type: 2,
+                   title: false,
+                   skin: 'layui-layer-demo', //样式类名
+                   closeBtn: 1, //不显示关闭按钮
+                   area: ['883px', '432px'],
+                   shadeClose: true, //开启遮罩关闭
+                   content: ['/views/order/paySuccess.html']
+               });
+           }
+       });
+       vmPublishOrder.onLoad();
+       avalon.scan(document.body);
+    });
 })

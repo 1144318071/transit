@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../../css/header.css">
     <link rel="stylesheet" href="../../css/footer.css">
     <link rel="stylesheet" href="../../css/order/publishOrder.css">
-    <title>订单管理</title>
+    <title>运输管理</title>
 </head>
 
 <body>
@@ -87,7 +87,7 @@
                     <span>当前位置<span style='margin:0 8px;'>:</span></span>
                     <span class="layui-breadcrumb" lay-separator=">">
                         <a href="../../index.html">首页</a>
-                        <a href="order.html">订单管理</a>
+                        <a href="order.html">运输管理</a>
                         <a href='javascript:;'><cite>发布订单</cite></a>
                     </span>
                 </div>
@@ -114,7 +114,7 @@
                 </ul>
             </div>
             <div class='formContent'>
-                <div class='titleLine'>
+                <div class='titleLine formTitle'>
                     <span class='line'></span>
                     <span class='title fontw'>填写订单资料</span>
                 </div>
@@ -270,6 +270,7 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="itemGray"></div>
                     <div class="formItem">
                         <ul class="clearfix">
                             <li>货物属性<span class="ml4 mr10">:</span></li>
@@ -286,7 +287,7 @@
                         <ul class="clearfix">
                             <li>货物类型<span class="ml4 mr10">:</span></li>
                             <li>
-                                <input type="text" placeholder="如:水果，酒水等等" />
+                                <input type="text" class="longerInput" placeholder="如:水果，酒水等等" />
                             </li>
                         </ul>
                     </div>
@@ -326,19 +327,19 @@
                         </ul>
                     </div>
                     <div class="formItem">
-                        <ul class="clearfix">
-                            <li>货物图片<span class="ml4 mr10">:</span></li>
-                            <li>
-                                <div class="layui-upload upload pull-left">
-                                    <img id="logo" src="../../images/license.png" width="88px" height="118px" alt="">
-                                    <span class="uploadimg">
-                                        <button type="button" class="layui-btn" id="test2">上传图片</button>
-                                        <img class="img-responsive" src="../../images/upload.png" alt="">
-                                    </span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                    <ul class="clearfix">
+                        <li>货物图片<span class="ml4 mr10">:</span></li>
+                        <li>
+                            <div class="layui-upload upload pull-left">
+                                <img id="logo" src="../../images/addFood.png" width="86px" height="86px" alt="">
+                                <span class="uploadimg">
+                                    <button type="button" class="layui-btn" id="test2">上传图片</button>
+                                    <img class="img-responsive" src="../../images/upload.png" alt="">
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
                     <div class="formItem">
                         <ul class="clearfix">
                             <li>备注信息<span class="ml4 mr10">:</span></li>
@@ -347,13 +348,16 @@
                             </li>
                         </ul>
                     </div>
-                        <ul class="buttons clearfix">
-                            <li><button>重置</button></li>
-                            <li><button class="btn-next">下一步</button></li>
-                        </ul>
-                    </div>
+                    <ul class="buttons clearfix">
+                        <li><button>重置</button></li>
+                        <li><button class="btn-next">下一步</button></li>
+                    </ul>
                 </div>
                 <div class="orderDetail dis_none">
+                    <div class='titleLine detailTitle'>
+                        <span class='line'></span>
+                        <span class='title fontw'>支付订单</span>
+                    </div>
                     <div class='order-detail'>
                         <div class='orderTitle clearfix'>
                             <ul class='pull-left clearfix'>
@@ -394,33 +398,33 @@
                         <div class="title">运费计算</div>
                         <ul class="clearfix">
                             <li>运费金额<span class="ml4 mr10">:</span></li>
-                            <li>￥182.00元</li>
+                            <li>182.00元</li>
                         </ul>
                         <ul class="clearfix">
                             <li>保单金额<span class="ml4 mr10">:</span></li>
-                            <li>￥182.00元</li>
+                            <li>182.00元</li>
                         </ul>
                         <ul class="clearfix">
                             <li>共计金额<span class="ml4 mr10">:</span></li>
-                            <li>￥182.00元</li>
+                            <li>人民币<span class="font26 fontw">182.00</span>元</li>
                         </ul>
                         <ul  class="clearfix payWay">
                             <li>支付方式<span class="ml4 mr10">:</span></li>
                             <li>
                                 <button>余额支付</button>
-                                <button>支付宝</button>
-                                <button>微信支付</button>
-                                <button>银行卡支付</button>
+                                <button class="aliPay">支付宝</button>
+                                <button class="weChatPay">微信支付</button>
+                                <button class="bankCardPay">银行卡支付</button>
                             </li>
                         </ul>
                         <div class="bankCars">
 
                         </div>
                         <ul class="buttons  btn-pay clearfix">
-                            <li><button>去支付</button></li>
+                            <li><button>重置</button></li>
+                            <li class="ml85"><button ms-on-click-1="@payTip" ms-on-click-2="@payFail" ms-on-click-3="@paySuccess">去支付</button></li>
                         </ul>
                     </div>
-                </div>
                 </div>
             </div>
         </div>

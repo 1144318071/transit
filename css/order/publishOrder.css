@@ -54,8 +54,8 @@
 }
 .titleLine {
   font-size: 26px;
-  height: 82px;
-  line-height: 82px;
+  margin-top: 56px;
+  margin-bottom: 37px;
 }
 .titleLine .line {
   display: inline-block;
@@ -127,10 +127,13 @@ label{
   margin: 0px 0px 0px;
 }
 .formItem ul li select,.formItem ul li input[type='text']{
-  width: 120px;
+  width: 133px;
   height: 24px;
   border: solid 1px #999999;
   outline: none;
+}
+.formItem ul li input.longerInput{
+  width: 183px;
 }
 .formItem ul li:not(:first-child){
   margin-left: 35px;
@@ -188,8 +191,8 @@ footer{
   margin-top: 0px;
 }
 .order-detail {
-  border: 1px solid #999;
   margin-top: 27px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
   position: relative;
 }
 .order-detail .orderTitle {
@@ -215,6 +218,7 @@ footer{
 }
 .orderContent {
   padding: 23px 18px 30px 15px;
+  background-color:#fff;
 }
 .orderContent .orderDes {
   padding-left: 12px;
@@ -233,7 +237,10 @@ footer{
   margin-right: 8px;
 }
 .orderPrice{
-  margin-top: 40px;
+  background-color:#fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  margin-top: 27px;
+  padding:33px 0px 0px 43px;
 }
 .orderPrice .title{
   font-size: 22px;
@@ -252,16 +259,16 @@ footer{
 }
 .uploadimg {
   position: absolute;
-  left: 0px;
-  top: 0px;
+  left: 2px;
+  top: 1px;
   background-color: rgba(0, 0, 0, 0.2);
   display: inline-block;
-  width: 88px;
-  height: 118px;
+  width: 82px;
+  height: 82px;
   display: none;
 }
 .uploadimg img {
-  margin-left: 28px;
+  margin-left: 24px;
   margin-top: -76px;
 }
 
@@ -270,7 +277,7 @@ footer{
   background-color: transparent;
   margin-left: -2px;
   margin-top: 1px;
-  height: 116px;
+  height: 96px;
   line-height: 54px;
 }
 input[type=file] {
@@ -281,17 +288,50 @@ input[type=file] {
   opacity: 0;
 }
 .payWay button{
-  width: 130px;
-  height: 40px;
+  width: 116px;
+  height: 38px;
   border: 0px;
   border: 1px solid #f57619;
   outlinie: none;
   outline: none;
   color: #f57619;
 }
+.payWay button.active{
+  background-color:#f57619;
+  color: #fff;
+}
+.payWay button.aliPay.active,.payWay button.bankCardPay.active{
+  background-color:#1976f5;
+  color: #fff;
+}
+.payWay button.weChatPay.active{
+  background-color:#0bc10b;
+  color: #fff;
+}
+.payWay button.aliPay{
+  border: 1px solid #1976f5;
+  color: #1976f5;
+}
+.payWay button.weChatPay{
+  border: solid 1px #0bc10b;
+  color: #0bc10b;
+}
+.payWay button.bankCardPay{
+  border: solid 1px #1976f5;
+  color: #1976f5;
+}
 .payWay button:not(:first-child){
   margin-left: 30px;
 }
 .btn-pay{
   padding-left: 80px;
+}
+.itemGray{
+  width: 100%;
+  height: 27px;
+  background-color:#eaeaea;
+  margin-top: 20px;
+}
+.orderDetail .itemGray{
+  margin-top: 0px;
 }

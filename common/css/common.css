@@ -24,6 +24,7 @@
 /* 左边距 */
 .ml0{margin-left:0px;}
 .ml4{margin-left:4px;}
+.ml6{margin-left:6px;}
 .ml8{margin-left:8px;}
 .ml10{margin-left:10px;}
 .ml15{margin-left:15px;}
@@ -38,9 +39,11 @@
 .ml60{margin-left:60px;}
 .ml70{margin-left:70px;}
 .ml80{margin-left:80px;}
+.ml85{margin-left: 85px;}
 .ml90{margin-left:90px;}
 /* 右边距 */
 .mr4{margin-right:4px;}
+.mr6{margin-right:6px;}
 .mr8{margin-right:8px;}
 .mr10{margin-right:10px;}
 .mr20{margin-right:20px;}

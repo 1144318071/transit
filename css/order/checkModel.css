@@ -56,6 +56,7 @@
   line-height: 61px;
   text-align: center;
   font-size: 20px;
+  border-radius: 4px;
 }
 .cancelContent .buttons {
   margin-top: 103px;
@@ -98,6 +99,12 @@
 .inputCheck li:last-child {
   margin-left: 12px;
 }
+.eventDetail li{
+  float: left;
+}
+.eventDetail li:nth-child(2){
+  margin: 0 8px;
+}
 .otherReason,
 .eventDetail {
   margin-top: 30px;
@@ -107,8 +114,7 @@
   width: 616px;
   height: 198px;
 }
-.otherReason li:nth-child(2),
-.eventDetail li:nth-child(2) {
+.otherReason li:nth-child(2){
   margin-top: 17px;
 }
 .orderDes .eventDetail li {
@@ -178,6 +184,7 @@
 }
 .buttons {
   margin-top: 60px;
+  margin-left: 66px;
 }
 .buttons li {
   float: left;
@@ -211,9 +218,6 @@
   border: 0px;
   border: 1px solid #999;
 }
-.input li input.phoneNo {
-  width: 192px;
-}
 .contact {
   margin-top: 34px;
 }
@@ -238,4 +242,255 @@
   height: 39px;
   line-height: 39px;
   text-align: center;
+}
+/*渣土运输查看详情*/
+.muckDetail{
+
+}
+.muck_left{
+  width: 495px;
+  height: 468px;
+  background-color: #fffaf6;
+  margin: 37px 34px 0px 36px;
+}
+.muckDes{
+  padding: 56px 0px 0px 32px;
+  font-size: 36px;
+}
+.muckDes p label{
+  display: inline-block;
+  width: 48px;
+  height: 66px;
+  background-color: #ffffff;
+  border: solid 1px #f57619;
+  color: #f57619;
+  line-height: 66px;
+  text-align: center;
+  margin: 0 18px;
+}
+.muckDes p span{
+  margin: 0 12px;
+}
+.itemDetail{
+  margin-top: 31px;
+}
+.itemDetail label{
+  font-weight: normal;
+}
+.address li label:not(:first-child){
+  margin-left: 45px;
+}
+.itemDetail .longerInput{
+  width: 413px;
+  height: 29px;
+  outline: none;
+  border: 1px solid #999;
+}
+.itemDetail ul{
+  margin-top: 20px;
+}
+.itemMore ul li:nth-child(2){
+  width: 160px;
+}
+.itemDetail li textarea{
+  width: 413px;
+  height: 129px;
+  border: solid 1px #999999;
+}
+/*轮播焦点图*/
+/*焦点图*/
+.banner {
+  margin: 76px 34px 0px 36px;
+  width: 460px;
+  overflow: hidden
+}
+
+.large_box {
+  width: 460px;
+  height: 340px;
+  overflow: hidden
+}
+
+.large_box img {
+  display: block
+}
+
+.small_box {
+  width: 460px;
+  height: 73px;
+  overflow: hidden;
+  margin-top: 45px;
+}
+.small_list {
+  position: relative;
+  float: left;
+  width: 398px;
+  height: 73px;
+  overflow: hidden
+}
+.small_list ul {
+  height: 73px;
+  overflow: hidden
+}
+.small_list ul li {
+  position: relative;
+  float: left;
+  margin-right: 10px;
+  width: 110px
+}
+.small_list ul li img {
+  display: block
+}
+.small_list ul li .bun_bg {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 110px;
+  height: 73px;
+  border: 2px solid #f57619;
+}
+
+.small_list ul li.on .bun_bg {
+  display: block
+}
+.btn {
+  display: block;
+  width: 20px;
+  height: 73px;
+  background-color: #f57619;
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: pointer
+}
+.left_btn {
+  float: left;
+  margin-right: 10px;
+  background-image: url(../../images/left_btn.png)
+}
+.right_btn {
+  float: right;
+  background-image: url(../../images/right_btn.png)
+}
+/*未设置支付密码提示*/
+.payTips{
+  text-align: center;
+}
+.payTips img{
+  margin-top: 72px;
+}
+.payTips p{
+  margin-top: 62px;
+}
+.payTips button{
+  margin-top: 85px;
+  width: 249px;
+  height: 61px;
+  background-color: #f57619;
+  border-radius: 6px;
+  border: 0px;
+  outline: none;
+  color: #fff;
+}
+/*支付失败*/
+.payFail .failTip,.paySuccess .successTip{
+  text-align: center;
+  margin-top: 66px;
+  font-size: 26px;
+  font-weight: bold;
+  color: #000;
+}
+.allFailTips,.allSuccessTips{
+  margin-top: 54px;
+  margin-left: 141px;
+}
+.tipsTitle{
+  margin-bottom: 35px;
+}
+.payFail .buttons{
+  margin: 77px 0px 0px 129px;
+}
+.payFail .buttons li {
+  float: left;
+}
+.payFail .buttons li button{
+  width: 249px;
+  height: 61px;
+  background-color: #f57619;
+  border-radius: 6px;
+  border: 1px solid #f57619;
+  color: #fff;
+  outline: none;
+}
+.paySuccess .return{
+  margin-left: 129px;
+  width: 618px;
+  height: 61px;
+  background-color: #f57619;
+  border-radius: 6px;
+  border: 0px;
+  border: 1px solid #f57619;
+  color: #fff;
+  margin-top: 77px;
+}
+/*渣土运输报名详情*/
+.muckSignDetail .titleLine {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  font-size: 26px;
+  height: 84px;
+  line-height: 84px;
+  border-bottom: 1px solid #999;
+  padding-left: 30px;
+  background-color: #fff;
+  z-index: 10;
+  width: 100%;
+}
+.muckSignDetail .titleLine .line {
+  display: inline-block;
+  width: 6px;
+  height: 42px;
+  background-color: #f57619;
+  vertical-align: middle;
+}
+.muckSignDetail .titleLine .title {
+  margin-left: 19px;
+}
+.muckSignDetail td button{
+  width: 66px;
+  height: 26px;
+  background-color: #f57619;
+  border: 0px;
+  outline: none;
+  color:#fff;
+}
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  text-align: center;
+  padding: 19px;
+  border-top: 0px;
+  border-bottom: 1px solid #eaeaea;
+}
+.layui-laypage a,
+.layui-laypage span {
+  font-size: 16px;
+}
+.ordersList {
+  padding: 84px 28px 60px;
+}
+#demo2 {
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  bottom: 0px;
+  left: 0px;
+  z-index: 10;
+}
+.layui-laypage {
+  margin: 10px 158px;
 }
