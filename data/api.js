@@ -75,6 +75,8 @@ var API = {
     URL_GET_CARINFO : getApiHost + '/car/info',
     //筛选条件
     URL_GET_FILTERCONDITION : getApiHost + '/filter/condition',
+    //筛选搜索
+    URL_GET_FILTERSEARCH : getApiHost + '/filter/search',
     //----------------------------------------------首页-----------------------------------
     URL_GET_ENTERPRISELIST: getApiHost + '/enterprise/list',
     //新闻详情

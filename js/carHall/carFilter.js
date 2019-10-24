@@ -3,62 +3,72 @@ $('.statusList li').click(function(){
     $(this).addClass('hightLight').siblings().removeClass('hightLight');
     $('.statusContent .statusDetail').eq($(this).index()).show().siblings().hide();
 });
-// 车型用途
-$('.car_type li:not(:last-child)').click(function () {
-    $('.filterNew .filterDetail').hide();
+/*卡车用途筛选条件的选中*/
+$('.filterItem>li:not(:first-child)').click(function(){
     $(this).addClass('active').siblings().removeClass('active');
-    $('.newEnergy span').removeClass('active');
-    var text = $(this).text();
-    var html = "<li class='delItem'>" + text + "<span class = 'del'> x </span></li>";
-    $('.apply').html(html)
-});
-// 电动货车
-$('.tri').click(function () {
-    var node = $('.newEnergy');
-    var flag = node.is(':hidden');
-    // 隐藏
-    if(flag){
-        node.show();
-        $('.carLevel').css({'marginTop':'60px'})
-    }else{
-        node.hide();
-        $('.carLevel').css({'marginTop':'0px'})
+    var index = $(this).index();
+    if(index != 5){
+        var text = $(this).text();
+        var html = "<li class='delItem'>" + text + "<span class = 'del'> x </span></li>";
+        $('.apply').html(html);
     }
 });
-// 电动货车选中
-$('.newEnergy span').click(function(){
-    $('.carApply li:not(:last-child)').removeClass('active');
+$('.filterItem').delegate('li:not(:first-child)','click',function(){
     $(this).addClass('active').siblings().removeClass('active');
-    var node = $('.newEnergy');
-    var flag = node.is(':hidden');
-    // 隐藏
-    if(flag){
-        $('.carLevel').css({'marginTop':'60px'})
-    }else{
-        $('.carLevel').css({'marginTop':'0px'})
-    }
+});
+/*电动货车的交互效果*/
+$('.newEnergyTitle').hover(function(){
+    $(this).find('.icon_arrow').css({'background-position-y':'-30px'});
+    $(this).find('.newEnergyItem').show();
+},function(){
+    $(this).find('.icon_arrow').css({'background-position-y':'7px'});
+    $(this).find('.newEnergyItem').hide();
+});
+/*电动货车的子选项选中*/
+$('.newEnergyItem li').click(function(){
+    $(this).addClass('hightLight').siblings().removeClass('hightLight');
     var text = $(this).text();
+    console.log(text)
     var html = "<li class='delItem'>" + text + "<span class = 'del'> x </span></li>";
     $('.apply').html(html);
 });
-/*筛选条件的删除(卡车用途)*/
+/*卡车品牌*/
+$('.brandsItem li:not(:first-child)').click(function() {
+    $(this).addClass('active').siblings().removeClass('active');
+    if($(".allBrandsItem").is(":hidden")){
+        $('.allBrandsItem').show(200);
+    }else{
+        $('.allBrandsItem').hide(200);
+    }
+});
 $(".apply").delegate(".del", "click", function () {
     $(this).parent().remove();
     $('.carApply li:not(:last-child)').removeClass('active');
     $('.newEnergy span').removeClass('active');
 });
-/*筛选条件的删除(品牌)*/
-$(".brands").delegate(".del", "click", function () {
-    $(this).parent().remove();
-    $('.bandsDetail li').removeClass('active');
-    $('.carBrandsDetail span').removeClass('active');
-});
+function deleteItem(item){
+    $(item).delegate(".del", "click", function () {
+        $(this).parent().remove();
+    });
+}
+deleteItem('.carLevelItem');
+deleteItem('.allBrandsItemDetail');
+deleteItem('.priceItemFilter');
+deleteItem('.base_drive');
+deleteItem('.base_long');
+deleteItem('.container_long');
+deleteItem('.base_quality');
+deleteItem('.max_power');
+deleteItem('.engine_emission');
+deleteItem('.forward_gear');
+deleteItem('.base_endurance');
+deleteItem('.peak_power');
+deleteItem('.battery_endurance');
+deleteItem('.country');
+
 // 清除筛选条件
 $('.delAll').click(function(){
     $(this).siblings().remove(); 
-});
-$('.carLevel li').click(function(){
-    console.log('1231')
 });
 // 分页
 layui.use(['laypage', 'layer'], function () {
@@ -76,15 +86,48 @@ $(function(){
       window.vmCarFilter = avalon.define({
           $id : 'root',
           filterList:[],
-          base_tonnage:[],//卡车级别
-          group:[],//卡车品牌
-          price:[],//价格
+          brandsList:[],
+          filterBrandsList:[],
+          anotherList:[],
+          kind:'',
+          keyword:'',
+          /*筛选搜索*/
+          filterSearch:{
+              '_token_':'',
+              '_t':'',
+              '_m':'',
+              'sha1':'',
+              'base_tonnage':'',
+              'price':'',
+              'base_drive':'',
+              'base_endurance':'',
+              'base_long':'',
+              'container_long':'',
+              'base_quality':'',
+              'engine_max_power':'',
+              'gearbox_forward_gear':'',
+              'engine_peak_power':'',
+              'battery_endurance':'',
+              'engine_fuel':'',
+              'engine_emission':'',
+              'country':'',
+              'page':'',
+              'limit':'',
+              'status':'10'
+          },
+          /*搜索出来的结果*/
+          searchList:[],
+          ZSList:[],
+          SSList:[],
+          TSList:[],
           onLoad:function(){
               vmCarFilter.getFilterCondition('TRADITIONAL');
           },
           getFilterCondition:function(car_type,type){
               vmCarFilter.filterList = [];
+              vmCarFilter.anotherList = [];
               var token = localStorage.getItem('token');
+              vmCarFilter.filterSearch._token_ = token;
               var postData={
                   '_token_':token,
                   '_t':'',
@@ -92,20 +135,122 @@ $(function(){
               };
               postData._t = car_type;
               postData._m = type;
+              vmCarFilter.filterSearch._t = car_type;
+              console.log(vmCarFilter.filterSearch._t)
+              vmCarFilter.filterSearch._m = type;
               getAjax(API.URL_GET_FILTERCONDITION,'get',postData).then(function(res){
-                  vmCarFilter.base_tonnage = res.result[0];
-                  vmCarFilter.group = res.result[1];
-                  vmCarFilter.price = res.result[2];
-                  vmCarFilter.filterList = res.result;
+                  var result = res.result;
+                  for(var i in result){
+                      if(result[i].field == 'group'){
+                        vmCarFilter.brandsList = result[i].group;
+                      }
+                      if(result[i].field != 'base_tonnage' && result[i].field != 'group' && result[i].field != 'price'){
+                          vmCarFilter.anotherList.push(result[i])
+                      }else{
+                          vmCarFilter.filterList.push(result[i])
+                      }
+                  }
               });
+              vmCarFilter.getSearchResult();
           },
-          mixed:function(res){
-              $("#"+res).parent().show();
-              $("#"+res).parent().parent().siblings().find('.carBrandsDetail').hide();
+          /*卡车品牌*/
+          getBrandsList:function(el,item){
+              $('#'+item).addClass('active').siblings().removeClass('active');
+              if($(".allBrandsItem").is(":hidden")){
+                  $('.allBrandsItem').show(200);
+              }else{
+                  $('.allBrandsItem').hide(200);
+              }
+                for(var i in vmCarFilter.brandsList){
+                    if(vmCarFilter.brandsList[i].mixed == el){
+                        vmCarFilter.filterBrandsList = vmCarFilter.brandsList[i].list;
+                    }
+                }
           },
-          active:function (el) {
+          addStyle:function(el,kind,keyword){
               $('#'+el).addClass('active').siblings().removeClass('active');
-
+              var text = $('#'+el).text();
+              var html = "<li class='delItem'>" + text + "<span class = 'del'> x </span></li>";
+              $('.'+kind).html(html);
+              vmCarFilter.kind = kind;
+              vmCarFilter.keyword = keyword;
+              vmCarFilter.getSearchResult();
+          },
+          getSearchResult:function(){
+              switch (vmCarFilter.kind ) {
+                  case 'sha1':
+                      vmCarFilter.filterSearch.sha1 = vmCarFilter.keyword;
+                  break;
+                  case 'base_tonnage':
+                      vmCarFilter.filterSearch.base_tonnage = vmCarFilter.keyword;
+                  break;
+                  case 'price':
+                      vmCarFilter.filterSearch.price = vmCarFilter.keyword;
+                  break;
+                  case 'base_drive':
+                      vmCarFilter.filterSearch.base_drive = vmCarFilter.keyword;
+                  break;
+                  case 'base_endurance':
+                      vmCarFilter.filterSearch.base_endurance = vmCarFilter.keyword;
+                  break;
+                  case 'base_long':
+                      vmCarFilter.filterSearch.base_long = vmCarFilter.keyword;
+                  break;
+                  case 'container_long':
+                      vmCarFilter.filterSearch.container_long = vmCarFilter.keyword;
+                  break;
+                  case 'base_quality':
+                      vmCarFilter.filterSearch.base_quality = vmCarFilter.keyword;
+                  break;
+                  case 'engine_max_power':
+                      vmCarFilter.filterSearch.engine_max_power = vmCarFilter.keyword;
+                  break;
+                  case 'gearbox_forward_gear':
+                      vmCarFilter.filterSearch.gearbox_forward_gear = vmCarFilter.keyword;
+                  break;
+                  case 'engine_peak_power':
+                      vmCarFilter.filterSearch.engine_peak_power = vmCarFilter.keyword;
+                  break;
+                  case 'battery_endurance':
+                      vmCarFilter.filterSearch.battery_endurance = vmCarFilter.keyword;
+                  break;
+                  case 'engine_fuel':
+                      vmCarFilter.filterSearch.engine_fuel = vmCarFilter.keyword;
+                  break;
+                  case 'engine_emission':
+                      vmCarFilter.filterSearch.engine_emission = vmCarFilter.keyword;
+                  break;
+                  case 'country':
+                      vmCarFilter.filterSearch.country = vmCarFilter.keyword;
+                  break;
+                  default:
+                  break;
+              }
+              console.log('筛选条件',vmCarFilter.filterSearch);
+              getAjax(API.URL_GET_FILTERSEARCH,'get',vmCarFilter.filterSearch).then(function(res){
+                  vmCarFilter.searchList = res.result;
+                  var result = res.result;
+                  for(var i in result){
+                      if(result[i].image !=''){
+                          result[i].image = getApiHost + result[i].image;
+                      }
+                  }
+                  var status = vmCarFilter.filterSearch.status;
+                  switch (status) {
+                      case '10':
+                          vmCarFilter.ZSList = res.result;
+                          break;
+                      case '20':
+                          vmCarFilter.TSList = res.result;
+                          break;
+                      case '30':
+                          vmCarFilter.SSList = res.result;
+                          break;
+                      default:
+                          break;
+                  }
+                  console.log('筛选的结果',vmCarFilter.ZSList);
+              })
           }
       }) ;
       vmCarFilter.onLoad();

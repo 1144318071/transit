@@ -125,7 +125,6 @@ $(function(){
                     vmCarSeriesDetail.carDetail = res.result.list;
                     vmCarSeriesDetail.getStatusList();
                 });
-
             },
             getStatusList:function(){
                 vmCarSeriesDetail.filterData._token_ = vmCarSeriesDetail.data.token;
