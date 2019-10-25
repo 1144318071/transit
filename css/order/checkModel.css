@@ -123,9 +123,14 @@
 .uploadImg {
   margin-top: 30px;
 }
-.uploadImg > ul {
-  margin-top: 23px;
+.uploadTips{
+  margin-top: 21px;
+  margin-left: 86px;
+  font-size: 14px;
 }
+/*.uploadImg > ul {
+  margin-top: 23px;
+}*/
 .orderDes .uploadImg > ul,
 .orderDes .uploadImg > div {
   float: left;
@@ -209,15 +214,17 @@
   float: left;
   line-height: 30px;
 }
-.input li:nth-child(2) {
+.input li:nth-child(2),.uploadTitle span {
   margin: 0 8px;
 }
-.input li input {
+.input li input ,.input li select{
   width: 264px;
   height: 24px;
   border: 0px;
   border: 1px solid #999;
+  outline: none;
 }
+
 .contact {
   margin-top: 34px;
 }
@@ -493,4 +500,165 @@
 }
 .layui-laypage {
   margin: 10px 158px;
+}
+/*投诉上传成功*/
+.stateSuccess{
+  margin-top: 120px;
+  text-align: center;
+}
+.stateSuccess p:first-child{
+  margin-top: 58px;
+}
+/*确认收货并评价*/
+.titleLine .confirm{
+  font-size: 26px;
+  font-weight: normal;
+}
+.confirmReceipt{
+  margin-top: 45px;
+  margin-left: 56px;
+}
+.confirmReceipt .rate li{
+  float: left;
+}
+.confirmReceipt .rate li:nth-child(2){
+  margin: 0 15px;
+}
+.confirmReceipt>ul{
+  margin-top: 36px;
+}
+/*评价*/
+.confirmReceipt .rate .layui-rate li:nth-child(2){
+  margin: 0px 0px 0px 10px;
+}
+.confirmReceipt .rate .layui-rate li{
+  margin-left: 10px;
+}
+.confirmReceipt .rate .layui-rate li:first-child{
+   margin-left: 0px;
+}
+.confirmReceipt .rate li textarea{
+  width: 517px;
+  height: 199px;
+  background-color: #ffffff;
+  border: solid 1px #999999;
+  outline: none;
+}
+.confirmReceipt .buttons{
+  margin-left: 79px;
+}
+.confirmReceipt .buttons button{
+  border-radius: 4px;
+}
+/*投诉、申诉*/
+.complainSteps{
+  padding: 32px 0px 26px 64px;
+  border-bottom: 1px solid #999;
+}
+.complainSteps>ul,.complainSteps>div{
+  float: left;
+}
+.complainSteps>ul li:first-child{
+  width: 64px;
+  height: 64px;
+  background-color:#1986f5;
+  border-radius: 64px;
+}
+.complainSteps>ul li:last-child{
+  margin-top: 20px;
+}
+.complainSteps>ul{
+  text-align: center;
+}
+.stepLine{
+  width: 189px;
+  height: 9px;
+  background-color: #1986f5;
+  margin-top: 28px;
+}
+.complainContent{
+  padding: 27px 0px 0px 64px;
+}
+.complainContent ul:not(:first-child){
+  margin-top: 35px;
+}
+.complainContent ul li {
+  float: left;
+}
+.complainContent ul li:nth-child(2){
+  margin: 0 15px;
+}
+.complainContent ul li textarea{
+  width: 505px;
+  height: 168px;
+  background-color: #ffffff;
+  border: solid 1px #999999;
+  outline: none;
+}
+.complainContent ul li>div{
+  float: left;
+  width: 117px;
+  height: 89px;
+  background-color: #f57619;
+  border-radius: 6px;
+}
+.complainContent ul li>div:not(:first-child){
+  margin-left: 59px;
+}
+.orderComplain .buttons{
+  margin-top: 40px;
+  margin-left: 143px;
+}
+.orderStating .buttons button,.orderComplain .buttons button{
+  border-radius: 4px;
+}
+/*申诉完结*/
+.stateResult{
+  padding: 31px 0px 52px 54px;
+  border-bottom: 1px solid #999;
+}
+.stateResult .rTime{
+  margin-top: 16px;
+}
+.stateResult ul li{
+  float: left;
+}
+.stateResult .result{
+  margin-top: 26px;
+}
+.orderStating .buttons{
+  margin-top: 40px;
+  margin-left: 140px;
+}
+.addProve .buttons button{
+  border-radius: 4px;
+}
+.drawback .resultTitle{
+  font-size:26px;
+  font-weight: bold;
+}
+.stepOne{
+  position: relative;
+}
+.oneItem{
+  position:absolute;
+  bottom: -45px;
+  left: -20px;
+  width: 104px;
+}
+.refundAmount{
+  padding: 31px 0px 30px 62px;
+  border-bottom: 1px solid #999;
+}
+.refundAmount .amount{
+  margin: 30px 0px 16px 0px;
+}
+.refundOrder ul{
+  margin-top: 15px;
+}
+.refundOrder ul li{
+  float: left;
+}
+.refundOrder{
+  padding: 31px 0px 0px 62px;
 }

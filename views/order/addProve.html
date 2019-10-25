@@ -8,31 +8,19 @@
     <link rel="stylesheet" href="../../common/css/reset.css">
     <link rel="stylesheet" href="../../common/css/common.css">
     <link rel="stylesheet" href="../../css/order/checkModel.css">
-    <title>渣土运输投诉</title>
+    <title>补传凭证</title>
 </head>
 <body>
 <div ms-controller='root'>
     <div class='titleLine'>
         <span class='line'></span>
-        <span class='title'>投诉</span>
+        <span class='title'>补传凭证</span>
     </div>
-    <div class='orderState'>
+    <div class='orderState addProve'>
         <div class='chooseReason'>
-            <ul class='input clearfix'>
-                <li>&emsp;&emsp;标题</li>
-                <li>:</li>
-                <li>
-                    <select id="title">
-                        <option>司机已多天为进行渣土运输</option>
-                        <option>司机未按项目方指定路线进行运输</option>
-                        <option>司机未运输到指定渣土处理地</option>
-                        <option>其他</option>
-                    </select>
-                </li>
-            </ul>
-            <div class='uploadImg'>
-                <div class='uploadTitle'>上传凭证(0/6)</div>
-                <ul class='clearfix uploadContent'>
+            <div class='uploadImg clearfix'>
+                <div class='uploadTitle pull-left'>上传凭证<span>:</span></div>
+                <ul class='clearfix uploadContent pull-left'>
                     <li class="upload">
                         <img id="logo" src="../../images/cancel.png" width="135px" height="147px" alt="">
                         <span class="uploadimg">
@@ -45,14 +33,11 @@
                         <span class='del'>X</span>
                     </li>
                 </ul>
+                <div class="clearfix"></div>
             </div>
-            <ul class='input contact clearfix'>
-                <li>联系电话</li>
-                <li>:</li>
-                <li><input type="text" class='phoneNo'></li>
-            </ul>
+            <div class="uploadTips">上传凭证 0 / 6(仅支持png、jpg格式)</div>
             <ul class='eventDetail clearfix'>
-                <li>详情备注</li>
+                <li>事件详情</li>
                 <li>:</li>
                 <li>
                     <textarea></textarea>
@@ -60,14 +45,15 @@
             </ul>
         </div>
         <ul class='buttons clearfix'>
-            <li><button class='btn-orange' ms-on-click='@return'>取消</button></li>
-            <li><button class='btn-orange' ms-on-click="@stateSuccess">上传</button></li>
+            <li><button class='btn-orange' ms-on-click='@return'>返回</button></li>
+            <li><button class='btn-orange'>提交</button></li>
         </ul>
     </div>
 </div>
 <script src='../../plugins/jquery/jquery.min.js'></script>
 <script src='../../plugins/layui/dist/layui.js'></script>
 <script src='../../plugins/avalon/avalon.min.js'></script>
-<script src='../../js/order/muckOrderState.js'></script>
+<script src='../../js/order/orderState.js'></script>
 </body>
+
 </html>

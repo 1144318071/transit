@@ -86,12 +86,23 @@ $(function(){
                 'province':'',
                 'city':''
             },
+            loadingData:{
+              '_token_':'',
+              'series':'',
+              'group':'',
+              'type':'',
+              'status':'',
+              'base_drive':'',
+              'page':'1',
+              'limit':''
+            },
             ZSList:[],
             TSList:[],
             SSList:[],
             filterList:[],
             agentList:[],
             moreList:[],
+            loadingList:[],
             onLoad:function(){
                 vmCarSeriesDetail.getUrlJson();
             },
@@ -107,6 +118,9 @@ $(function(){
                 data.token = token;
                 vmCarSeriesDetail.data = data;
                 vmCarSeriesDetail.agentData._token_ = token;
+                vmCarSeriesDetail.loadingData._token_ = token;
+                vmCarSeriesDetail.loadingData.type = data.car_ty;
+                vmCarSeriesDetail.loadingData.series = data.series;
                 vmCarSeriesDetail.agentData.brands_id = data.id;
                 vmCarSeriesDetail.getSeriesDetail();
                 console.log('url传参传过来的数据',vmCarSeriesDetail.data)
@@ -131,13 +145,13 @@ $(function(){
                 vmCarSeriesDetail.filterData.series = vmCarSeriesDetail.carDetail.series;
                 vmCarSeriesDetail.filterData.group = vmCarSeriesDetail.carDetail.group;
                 vmCarSeriesDetail.filterData.type = vmCarSeriesDetail.data.car_ty;
+                console.log(vmCarSeriesDetail.filterData)
                 getAjax(API.URL_GET_CARFILTER,'get',vmCarSeriesDetail.filterData).then(function(res){
                     vmCarSeriesDetail.carList = res.result;
-                    console.log(res.result)
+                    console.log('请求的数据',res.result)
                     switch(vmCarSeriesDetail.filterData.status){
                         case '10':
                             vmCarSeriesDetail.ZSList = res.result;
-                            console.log('在售',vmCarSeriesDetail.ZSList)
                         break;
                         case '20':
                             vmCarSeriesDetail.TSList = res.result;
@@ -245,7 +259,69 @@ $(function(){
                     $('.moreData').before(loopItem)
                     console.log('加载更多',res.result[0]);
                 });
-            }
+            },
+            loadingMore:function(el,base,group){
+                var page = parseInt(vmCarSeriesDetail.page);
+                vmCarSeriesDetail.page = page;
+                vmCarSeriesDetail.page += 1;
+                vmCarSeriesDetail.loadingData.page = vmCarSeriesDetail.page;
+                vmCarSeriesDetail.loadingData.limit = 2;
+                vmCarSeriesDetail.loadingData.status = el;
+                vmCarSeriesDetail.loadingData.base_drive = base;
+                vmCarSeriesDetail.loadingData.group = group;
+
+                getAjax(API.URL_GET_LOADINGMORE,'get',vmCarSeriesDetail.loadingData).then(function(res){
+                    vmCarSeriesDetail.loadingList = res.result;
+                    var loadingList = res.result;
+                    switch (el) {
+                        case 10:
+                            for(var i in loadingList){
+                                loadingList[i].statusContent='在售';
+                            }
+                            break;
+                        case 20:
+                            for(var j in moreList){
+                                loadingList[j].statusContent='停售';
+                            }
+                            break;
+                        case 30:
+                            for(var k in moreList){
+                                loadingList[k].statusContent='即将上市';
+                            }
+                            break;
+                    }
+                    var loopItem='';
+                    $(loadingList).each(function(index,item){
+                        loopItem += "<tr>\n" +
+                            "    <td>\n" +
+                            "        <div class=\"selectDetail\">\n" +
+                            "            <span>"+item.manager_name+"</span>\n" +
+                            "            <span>"+item.type_name +"</span>\n" +
+                            "            <span><span>"+item.engine_max_power+"</span>马力</span>\n" +
+                            "            <span><span>"+item.base_drive+"</span></span>\n" +
+                            "            <span>(<i>"+item.car_number+"</i>)</span>\n" +
+                            "        </div>\n" +
+                            "        <div class=\"allStatus\">\n" +
+                            "            <button>"+item.statusContent+"</button>\n" +
+                            "            <button><span>"+item.base_long+"</span>米</button>\n" +
+                            "            <button>核载<span>"+item.base_load+"</span>吨</button>\n" +
+                            "        </div>\n" +
+                            "    </td>\n" +
+                            "    <td>\n" +
+                            "        <span>"+item.price+"</span>万\n" +
+                            "    </td>\n" +
+                            "    <td>\n" +
+                            "        <a href=\"./checkSeriesDetail.html?car_ty="+item.car_type+'&id='+item.id+"\">查看图片</a>\n" +
+                            "    </td>\n" +
+                            "    <td>\n" +
+                            "        <a href=\"./checkSeriesDetail.html?car_ty="+item.car_type+'&id='+item.id+"\">查看参数</a>\n" +
+                            "    </td>\n" +
+                            "</tr>";
+                    });
+                    $('#base_drive_'+base).before(loopItem)
+                    console.log('加载更多',res.result[0]);
+                });
+            },
         });
         vmCarSeriesDetail.onLoad();
         avalon.scan(document.body);

@@ -77,6 +77,8 @@ var API = {
     URL_GET_FILTERCONDITION : getApiHost + '/filter/condition',
     //筛选搜索
     URL_GET_FILTERSEARCH : getApiHost + '/filter/search',
+    //加载更多
+    URL_GET_LOADINGMORE : getApiHost + '/carFilterLoading',
     //----------------------------------------------首页-----------------------------------
     URL_GET_ENTERPRISELIST: getApiHost + '/enterprise/list',
     //新闻详情

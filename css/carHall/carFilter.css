@@ -275,7 +275,7 @@ label {
   left: 407px;
   cursor: pointer;
 }
-#demo2 {
+#demo2,#demo3,#demo4 {
   margin-top: 60px;
   margin-left: 250px;
 }
@@ -366,4 +366,7 @@ label {
 }
 i{
   font-style: normal;
+}
+.checkMoreItem{
+    position: relative;
 }

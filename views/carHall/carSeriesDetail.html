@@ -59,12 +59,12 @@
                         <ul class="layui-nav">
                             <li class="layui-nav-item" data-src='../../index.html'><a href="javascript:;">首页</a></li>
                             <li class="layui-nav-item layui-this" data-src='../../views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
-                            <li class="layui-nav-item" data-src='../../views/financial/financial.html'><a href="javascript:;">金融服务</a></li>
+                            <li class="layui-nav-item" data-src='../../views/financial/financial.html'><a href="javascript:;">金融中心</a></li>
                             <li class="layui-nav-item" data-src="javascript:;">
                                 <a href="javascript:;">运输管理</a>
                                 <dl class="layui-nav-child">
-                                    <dd><a href="../../views/order/order.html" style="color:#f57619!important">渣土运输</a></dd>
-                                    <dd><a href="../../views/order/order.html" style="color:#f57619!important">产业运输</a></dd>
+                                    <dd><a href="../../views/order/order.html?state=10" style="color:#f57619!important">渣土运输</a></dd>
+                                    <dd><a href="../../views/order/order.html?state=20" style="color:#f57619!important">产业运输</a></dd>
                                 </dl>
                             </li>
                             <li class="layui-nav-item" data-src='../../views/logistics/logistics.html'><a href="javascript:;">物流公司</a></li>
@@ -152,7 +152,48 @@
                     <!-- 车系详情 -->
                     <div class='row detailDes clearfix'>
                         <div class='col-md-6 col-sm-6 detailImg' data-src='carImg.html' ms-on-click='@getPage($event)'><img src="../../images/carSeiresDetail.png" alt="车系信息详情"></div>
+                        <!--传统车型信息-->
                         <div class='col-md-6 col-sm-6 detailDescription'>
+                            <div class='carPrice'><label ms-text="@carDetail.minPrice"></label>-<label ms-text="@carDetail.maxPrice"></label><span class='priceUnit'>万元</span><span>(<label ms-text="@carDetail.car_count"></label>款车型)</span></div>
+                            <div class="row detailMsg">
+                                <div class="col-md-3 col-sm-3">驱动形式<span>:</span></div>
+                                <div class="col-md-9 col-sm-9">
+                                    <span ms-text="@carDetail.base_drive">6X4</span>
+                                    <!--<span>8X8</span><span>6X6</span><span>4X2</span><span>6X2</span>-->
+                                </div>
+                            </div>
+                            <div class="row detailMsg">
+                                <div class="col-md-3 col-sm-3" style='letter-spacing: 5.5px'>发动机<span>:</span></div>
+                                <div class="col-md-9 col-sm-9" ms-text="@carDetail.engine_model"></div>
+                            </div>
+                            <div class="row detailMsg">
+                                <div class="col-md-3 col-sm-3">最大马力<span>:</span></div>
+                                <div class="col-md-9 col-sm-9" ms-text="@carDetail.engine_max_power"></div>
+                            </div>
+                            <div class="row detailMsg">
+                                <div class="col-md-3 col-sm-3">排放标准<span>:</span></div>
+                                <div class="col-md-9 col-sm-9" ms-text="@carDetail.engine_emission"></div>
+                            </div>
+                            <div class="row detailMsg">
+                                <div class="col-md-3 col-sm-3" style='letter-spacing: 5.5px'>变速箱<span>:</span></div>
+                                <div class="col-md-9 col-sm-9" ms-text="@carDetail.gearbox"></div>
+                            </div>
+                            <div class="row detailMsg">
+                                <div class="col-md-3 col-sm-3">前进档位<span>:</span></div>
+                                <div class="col-md-9 col-sm-9" ms-text="@carDetail.gearbox_forward_gear"></div>
+                            </div>
+                            <div class='row detailMsg agentPhone'>
+                                <div class='col-md-12 col-sm-12'>
+                                    <ul class='clearfix'>
+                                        <li>icon</li>
+                                        <li>厂商电话<span>:</span></li>
+                                        <li ms-text="@carDetail.tell">8959-65243656</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--新能源车型信息-->
+                        <div class='col-md-6 col-sm-6 detailDescription dis_none'>
                             <div class='carPrice'><label ms-text="@carDetail.minPrice"></label>-<label ms-text="@carDetail.maxPrice"></label><span class='priceUnit'>万元</span><span>(<label ms-text="@carDetail.car_count"></label>款车型)</span></div>
                             <div class="row detailMsg">
                                 <div class="col-md-3 col-sm-3">驱动形式<span>:</span></div>
@@ -253,10 +294,10 @@
                                                 <td><a  ms-attr="{ href : './checkSeriesDetail.html?car_ty=' + val.car_type + '&id=' + val.id }">查看图片</a></td>
                                                 <td><a  ms-attr="{ href : './checkSeriesDetail.html?car_ty=' + val.car_type + '&id=' + val.id }">查看参数</a></td>
                                             </tr>
-                                            <tr class="moreData" style="border-bottom: 0px;border-top:1px solid #e9e9e9;">
+                                            <tr class="moreData" ms-attr="{ id : 'base_drive_' + el[0].base_drive }" style="border-bottom: 0px;border-top:1px solid #e9e9e9;">
                                                 <td colspan="4">
                                                     <input class="dis_none" type="text" ms-duplex="@page" />
-                                                    <div class="loadMoreData" ms-on-click="@getMoreData(10)">点击查看更多</div>
+                                                    <div class="loadMoreData" ms-on-click="@loadingMore(10,el[0].base_drive,el[0].group)">点击查看更多</div>
                                                 </td>
                                             </tr>
                                         </tbody>

@@ -21,11 +21,18 @@
                 <ul class='input clearfix'>
                     <li>&emsp;&emsp;标题</li>
                     <li>:</li>
-                    <li><input type="text"></li>
+                    <li>
+                        <select id="title">
+                            <option>货物损坏/获取丢失</option>
+                            <option>货物未送达卸货目的地</option>
+                            <option>司机额外加收费用</option>
+                            <option>其他</option>
+                        </select>
+                    </li>
                 </ul>
-                <div class='uploadImg'>
-                    <div class='uploadTitle'>上传凭证(0/6)</div>
-                    <ul class='clearfix uploadContent'>
+                <div class='uploadImg clearfix'>
+                    <div class='uploadTitle pull-left'>上传凭证<span>:</span></div>
+                    <ul class='clearfix uploadContent pull-left'>
                         <li class="upload">
                             <img id="logo" src="../../images/cancel.png" width="135px" height="147px" alt="">
                             <span class="uploadimg">
@@ -38,12 +45,14 @@
                             <span class='del'>X</span>
                         </li>
                     </ul>
+                    <div class="clearfix"></div>
                 </div>
-                <ul class='input contact clearfix'>
+                <div class="uploadTips">上传凭证 0 / 6(仅支持png、jpg格式)</div>
+                <!--<ul class='input contact clearfix'>
                     <li>联系电话</li>
                     <li>:</li>
                     <li><input type="text" class='phoneNo'></li>
-                </ul>
+                </ul>-->
                 <ul class='eventDetail clearfix'>
                     <li>详情备注</li>
                     <li>:</li>
@@ -54,7 +63,7 @@
             </div>
             <ul class='buttons clearfix'>
                 <li><button class='btn-orange' ms-on-click='@return'>取消</button></li>
-                <li><button class='btn-orange'>上传</button></li>
+                <li><button class='btn-orange' ms-on-click="@stateSuccess">上传</button></li>
             </ul>
         </div>
     </div>

@@ -44,7 +44,7 @@ $(function(){
             getPage:function(el){
                 var src = el.currentTarget.dataset.src;
                 $('#test').attr('src',src);
-            }
+            },
         });
         vmHeader.onLoad();
         avalon.scan(document.body);

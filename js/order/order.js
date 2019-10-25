@@ -54,8 +54,9 @@ $(function(){
     avalon.ready(function(){
         window.vmOrderDriver = avalon.define({
             $id : 'root',
+            state:'',
             onLoad:function(){
-
+                vmOrderDriver.getUrl();
             },
             // 查看评价
             checkRate:function(){
@@ -88,7 +89,7 @@ $(function(){
                     title: false,
                     skin: 'layui-layer-demo', //样式类名
                     closeBtn: 1, //不显示关闭按钮
-                    area: ['969px', '848px'],
+                    area: ['973px', '750px'],
                     shadeClose: true, //开启遮罩关闭
                     content: ['/views/order/orderComplain.html']
                 });
@@ -100,7 +101,7 @@ $(function(){
                     title: false,
                     skin: 'layui-layer-demo', //样式类名
                     closeBtn: 1, //不显示关闭按钮
-                    area: ['969px', '848px'],
+                    area: ['1121px', '758px'],
                     shadeClose: true, //开启遮罩关闭
                     content: ['/views/order/orderState.html']
                 });
@@ -112,7 +113,7 @@ $(function(){
                     title: false,
                     skin: 'layui-layer-demo', //样式类名
                     closeBtn: 1, //不显示关闭按钮
-                    area: ['969px', '848px'],
+                    area: ['973px', '927px'],
                     shadeClose: true, //开启遮罩关闭
                     content: ['/views/order/orderStating.html']
                 });
@@ -126,7 +127,7 @@ $(function(){
                     closeBtn: 1, //不显示关闭按钮
                     area: ['1133px', '904px'],
                     shadeClose: true, //开启遮罩关闭
-                    content: ['/views/orderDriver/checkLine.html']
+                    content: ['/views/order/checkLine.html']
                 });
             },
             // 查看详情
@@ -187,6 +188,37 @@ $(function(){
                     shadeClose: true, //开启遮罩关闭
                     content: ['/views/order/muckOrderState.html']
                 });
+            },
+            confirmReceipt:function(){
+                top.layer.open({
+                    type: 2,
+                    title: false,
+                    skin: 'layui-layer-demo', //样式类名
+                    closeBtn: 1, //不显示关闭按钮
+                    area: ['940px', '560px'],
+                    shadeClose: true, //开启遮罩关闭
+                    content: ['/views/order/confirmReceipt.html']
+                });
+            },
+            //退款
+            drawback:function(){
+                top.layer.open({
+                    type: 2,
+                    title: false,
+                    skin: 'layui-layer-demo', //样式类名
+                    closeBtn: 1, //不显示关闭按钮
+                    area: ['973px', '844px'],
+                    shadeClose: true, //开启遮罩关闭
+                    content: ['/views/order/drawback.html']
+                });
+            },
+            getUrl:function(){
+                var url = window.location.href;
+                var urlJson = GetRequest(url);
+                if(urlJson.state == '10'){
+                    $('#tabType').hide();
+                    $('.order').css({'margin-top':'240px'});
+                }
             }
         });
         vmOrderDriver.onLoad();

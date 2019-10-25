@@ -80,6 +80,16 @@ layui.use(['laypage', 'layer'], function () {
         count: 1000,
         theme: '#f57619'
     });
+    laypage.render({
+        elem: 'demo3',
+        count: 1000,
+        theme: '#f57619'
+    });
+    laypage.render({
+        elem: 'demo4',
+        count: 1000,
+        theme: '#f57619'
+    });
 });
 $(function(){
    avalon.ready(function(){
@@ -120,9 +130,11 @@ $(function(){
           ZSList:[],
           SSList:[],
           TSList:[],
+          countData:[],
           onLoad:function(){
               vmCarFilter.getFilterCondition('TRADITIONAL');
           },
+          /*获取筛选条件*/
           getFilterCondition:function(car_type,type){
               vmCarFilter.filterList = [];
               vmCarFilter.anotherList = [];
@@ -151,7 +163,7 @@ $(function(){
                       }
                   }
               });
-              vmCarFilter.getSearchResult();
+              vmCarFilter.getSearchResult('10');
           },
           /*卡车品牌*/
           getBrandsList:function(el,item){
@@ -174,9 +186,10 @@ $(function(){
               $('.'+kind).html(html);
               vmCarFilter.kind = kind;
               vmCarFilter.keyword = keyword;
-              vmCarFilter.getSearchResult();
+              vmCarFilter.getSearchResult('10');
           },
-          getSearchResult:function(){
+          getSearchResult:function(status){
+              console.log(status)
               switch (vmCarFilter.kind ) {
                   case 'sha1':
                       vmCarFilter.filterSearch.sha1 = vmCarFilter.keyword;
@@ -226,10 +239,11 @@ $(function(){
                   default:
                   break;
               }
-              console.log('筛选条件',vmCarFilter.filterSearch);
+              vmCarFilter.filterSearch.status = status;
               getAjax(API.URL_GET_FILTERSEARCH,'get',vmCarFilter.filterSearch).then(function(res){
                   vmCarFilter.searchList = res.result;
                   var result = res.result;
+                  vmCarFilter.countData = res.result.count;
                   for(var i in result){
                       if(result[i].image !=''){
                           result[i].image = getApiHost + result[i].image;
@@ -249,8 +263,10 @@ $(function(){
                       default:
                           break;
                   }
-                  console.log('筛选的结果',vmCarFilter.ZSList);
               })
+          },
+          getMoreData:function(drive){
+            console.log(drive)
           }
       }) ;
       vmCarFilter.onLoad();

@@ -17,45 +17,47 @@
             <span class='line'></span>
             <span class='title'>投诉</span>
         </div>
-        <div class='orderDes'>
-            <div class='chooseReason'>
-                <ul class='input clearfix'>
-                    <li>&emsp;&emsp;标题</li>
-                    <li>:</li>
-                    <li><input type="text"></li>
+        <div class='orderComplain'>
+            <div class="complainSteps clearfix">
+                <ul>
+                    <li></li>
+                    <li>提交投诉</li>
                 </ul>
-                <div class='uploadImg clearfix'>
-                    <div class='uploadTitle'>上传凭证<span style='margin:0 8px;'>:</span></div>
-                    <ul class='clearfix uploadContent'>
-                        <li class="upload">
-                            <img id="logo" src="../../images/cancel.png" width="135px" height="147px" alt="">
-                            <span class="uploadimg">
-                                <button type="button" class="layui-btn" id="test1">上传图片</button>
-                                <img class="img-responsive" src="../../images/upload.png" alt="">
-                            </span>
-                        </li>
-                        <li class='delImg'>
-                            <img src="../../images/cancel.png" alt="">
-                            <span class='del'>X</span>
-                        </li>
-                    </ul>
-                </div>
-                <ul class='input contact clearfix'>
-                    <li>联系电话</li>
-                    <li>:</li>
-                    <li><input type="text" class='phoneNo'></li>
+                <div class="stepLine"></div>
+                <ul>
+                    <li></li>
+                    <li>处理中</li>
                 </ul>
-                <ul class='eventDetail clearfix'>
-                    <li>详情备注<span style='margin:0 8px;'>:</span></li>
+                <div class="stepLine"></div>
+                <ul>
+                    <li></li>
+                    <li>处理完成</li>
+                </ul>
+            </div>
+            <div class="complainContent">
+                <ul class="clearfix">
+                    <li>投诉编号</li>
+                    <li>:</li>
+                    <li>2015489451257</li>
+                </ul>
+                <ul class="clearfix">
+                    <li>投诉凭证</li>
+                    <li>:</li>
+                    <li class="clearfix">
+                        <div class="imageContent"></div>
+                        <div class="imageContent"></div>
+                    </li>
+                </ul>
+                <ul class="clearfix">
+                    <li>事件详情</li>
+                    <li>:</li>
                     <li>
                         <textarea></textarea>
                     </li>
                 </ul>
-                
             </div>
             <ul class='buttons clearfix'>
-                <li><button class='btn-orange' ms-on-click='@return'>取消</button></li>
-                <li><button class='btn-orange'>上传</button></li>
+                <li><button class='btn-orange' ms-on-click='@return'>取消投诉</button></li>
             </ul>
         </div>
     </div>
