@@ -26,19 +26,28 @@ $(function(){
             userInfo:{},
             city:'成都市',
             onLoad:function(){
-                // vmHeader.isLogin();
+                vmHeader.isLogin();
             },
             // 判断用户是否登录
             isLogin:function(){
                 var userInfo = JSON.parse(localStorage.getItem('userInfo'));
                 //已经登录
-                if(userInfo.mobile != ''){
+                if(userInfo != null){
                     vmHeader.userInfo = userInfo;
                     $('.userMsg').show();
                     $('.userLogin').hide();
                 }else{
                     $('.userMsg').hide();
                     $('.userLogin').show();
+                    $('.layui-nav-item .layui-nav-child').remove();
+                }
+            },
+            setDisable:function(){
+                var userInfo = JSON.parse(localStorage.getItem('userInfo'));
+                /*没有登录则为游客(不可以查看物流管理以及企业商家内容)*/
+                if(userInfo == null){
+                    alertMsg('请先登录',5);
+
                 }
             },
             getPage:function(el){

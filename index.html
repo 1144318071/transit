@@ -60,7 +60,7 @@
                             <li class="layui-nav-item  layui-this" data-src='./index.html'><a href="javascript:;">首页</a></li>
                             <li class="layui-nav-item" data-src='./views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
                             <li class="layui-nav-item" data-src='javascript:;'><a href="javascript:;">金融中心</a></li>
-                            <li class="layui-nav-item" data-src="javascript:;">
+                            <li class="layui-nav-item" data-src="javascript:;" ms-on-click="@setDisable">
                                 <a href="javascript:;">物流管理</a>
                                 <dl class="layui-nav-child">
                                     <dd><a href="./views/order/order.html?state=10" style="color:#f57619!important">渣土运输</a></dd>
@@ -69,6 +69,7 @@
                             </li>
                             <li class="layui-nav-item" data-src='./views/logistics/logistics.html'><a href="javascript:;">物流公司</a></li>
                             <li class="layui-nav-item" data-src='./views/cooperate/cooperate.html'><a href="javascript:;">我要合作</a></li>
+                            <!--<li class="layui-nav-item" data-src='./views/aboutUs/aboutUs.html'><a href="javascript:;">关于我们</a></li>-->
                             <li class="layui-nav-item  downLoad" data-src='javascript:;'>
                                 <a href="javascript:;">APP下载</a>
                                 <div class='downloadApp'>

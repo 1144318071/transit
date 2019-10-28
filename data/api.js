@@ -90,4 +90,28 @@ var API = {
     //----------------------------------------------我要合作-----------------------------------
     //商家合作 物流公司 区域代理 广告合作
     URL_POST_ABOUTTEAMWORK : getApiHost + '/about/teamwork',
+    //----------------------------------------------订单管理-----------------------------------
+    //提交订单
+    URL_POST_GOODSSHIP : getApiHost + '/goods/ship',
+    //查询订单
+    URL_GET_GOODSINFO : getApiHost + '/goods/info',
+    //修改订单
+    URL_POST_GOODSEDIT : getApiHost + '/goods/edit',
+    // 付款
+    URL_POST_GOODSPAY : getApiHost + '/goods/pay',
+    //删除订单
+    URL_POST_GOODSDEL : getApiHost + '/goods/del',
+    //取消订单
+    URL_POST_GOODSCLOSEORDER : getApiHost + '/goods/closeOrder',
+    //确认装货
+    URL_POST_GOODSCONFIRMLOADING : getApiHost + '/order/confirmLoading',
+    //确认收货
+    URL_POST_GOODSCONFIRMRECEIPT : getApiHost + '/order/confirmReceipt',
+    //投诉
+    URL_POST_GOODSCOMPLAINT : getApiHost +'/order/complaint',
+    //----------------------------------------------物流公司-----------------------------------
+    //公司主页
+    URL_GET_COMPANYINFO : getApiHost + '/companyInfo',
+    //公司人员
+    URL_GET_COMPANYMEMBER : getApiHost + '/companyMember'
 }

@@ -31,13 +31,14 @@
                     <div class='loginBox'>
                         <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
                             <ul class="layui-tab-title">
-                                <li class="layui-this" ms-on-click='@changeLoginWay'>个人登录</li>
-                                <li ms-on-click='@changeLoginWay'>企业登陆</li>
+                                <!--<li class="layui-this" ms-on-click='@changeLoginWay'>个人登录</li>-->
+                                <li class="layui-this" ms-on-click='@changeLoginWay'>物流公司</li>
+                                <li ms-on-click='@changeLoginWay'>合作商家</li>
 <!--                                <li ms-on-click='@changeLoginWay'>区域代理</li>-->
                             </ul>
                             <div class="layui-tab-content">
                                 <!-- 司机 -->
-                                <div class="layui-tab-item layui-show">
+                                <!--<div class="layui-tab-item layui-show">
                                     <div class='showPwd'>
                                         <div class="layui-form-item">
                                             <label class="layui-form-label">账号:</label>
@@ -68,13 +69,55 @@
                                             <label class="layui-form-label">验证码:</label>
                                             <div class="layui-input-block clearfix">
                                                 <input type="text" name="text"  placeholder="请输入验证码" ms-duplex='@postData.code' autocomplete="off" class="layui-input checkCode pull-left">
-                                                <button type="button" id="layui-btn-Code" class="layui-btn-Code pull-left" ms-on-click='@getCheckCode'>获取验证码</button>
+                                                <button type="button" class="layui-btn-Code pull-left" ms-on-click='@getCheckCode'>获取验证码</button>
                                             </div>
                                         </div>
                                         <button type="button" class="layui-btn layui-btn-primary" ms-on-click='@driverCodeLogin'>登<span class='ml60'>录</span></button>
                                         <div class='row font14 mt30'>
                                             <div class='col-sm-6 pl60'><a class='changePwdLogin' ms-on-click='@changePwdShow(".layui-tab-content .layui-tab-item:first-child .showPwd",".layui-tab-content .layui-tab-item:first-child .showCode")' href='javascript:;'>切换密码登录</a></div>
                                             <div class='col-sm-6 text-right pr34'><a href='javascript:;' ms-on-click='@forgetPwd("PERSONAL")'>忘记密码</a></div>
+                                        </div>
+                                    </div>
+                                </div>-->
+                                <!--物流公司-->
+                                <div class="layui-tab-item layui-show">
+                                    <div class='showPwd'>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">账号:</label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name="username" ms-duplex='@postData.username' lay-verify="title" autocomplete="off" placeholder="请输入账号" class="layui-input">
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">密码:</label>
+                                            <div class="layui-input-block">
+                                                <input type="password" name="password" ms-duplex='@postData.password' placeholder="请输入密码" autocomplete="off" class="layui-input">
+                                            </div>
+                                        </div>
+                                        <button type="button" class="layui-btn layui-btn-primary" ms-on-click='@logisticsPwdLogin'>登<span class='ml60'>录</span></button>
+                                        <div class='row font14 mt30'>
+                                            <div class='col-sm-6 pl60'><a class='changeCodeLogin'  ms-on-click='@changeCodeShow(".layui-tab-content .layui-tab-item:first-child .showPwd",".layui-tab-content .layui-tab-item:first-child .showCode")' href='javascript:;'>切换验证码登录</a></div>
+                                            <div class='col-sm-6 text-right pr34'><a href='javascript:;' ms-on-click='@forgetPwd("LOGISTICS")'>忘记密码</a></div>
+                                        </div>
+                                    </div>
+                                    <div class='showCode dis_none'>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">手机号:</label>
+                                            <div class="layui-input-block">
+                                                <input type="text" name="username" lay-verify="title" ms-duplex='@postData.username' autocomplete="off" placeholder="请输入手机号" class="layui-input">
+                                            </div>
+                                        </div>
+                                        <div class="layui-form-item">
+                                            <label class="layui-form-label">验证码:</label>
+                                            <div class="layui-input-block clearfix">
+                                                <input type="text" name="text"  placeholder="请输入验证码" ms-duplex='@postData.code' autocomplete="off" class="layui-input checkCode pull-left">
+                                                <button type="button" class="layui-btn-Code pull-left" ms-on-click='@getCheckCode'>获取验证码</button>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="layui-btn layui-btn-primary" ms-on-click='@logisticsCodeLogin'>登<span class='ml60'>录</span></button>
+                                        <div class='row font14 mt30'>
+                                            <div class='col-sm-6 pl60'><a class='changePwdLogin' ms-on-click='@changePwdShow(".layui-tab-content .layui-tab-item:first-child .showPwd",".layui-tab-content .layui-tab-item:first-child .showCode")' href='javascript:;'>切换密码登录</a></div>
+                                            <div class='col-sm-6 text-right pr34'><a href='javascript:;' ms-on-click='@forgetPwd("LOGISTICS")'>忘记密码</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -112,7 +155,7 @@
                                             <label class="layui-form-label">验证码:</label>
                                             <div class="layui-input-block clearfix">
                                                 <input type="text" name="text"  ms-duplex='@postData.code' placeholder="请输入验证码" autocomplete="off" class="layui-input checkCode pull-left">
-                                                <button type="button" id="layui-btn-Code" class="layui-btn-Code pull-left"
+                                                <button type="button" class="layui-btn-Code pull-left"
                                                     ms-on-click='@getCheckCode'>获取验证码</button>
                                             </div>
                                         </div>

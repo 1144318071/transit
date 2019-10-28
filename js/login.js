@@ -61,9 +61,9 @@ $(function(){
                             case 'LOGISTICS':
                                 location.href = '../views/login/completeInfo.html';
                             break;
-                            case 'PROXY':
+                           /* case 'PROXY':
                                 location.href = '../views/login/changePwd.html';
-                            break;
+                            break;*/
                             default:
                             break;
                         };
@@ -91,6 +91,17 @@ $(function(){
             // 合作商家验证码登录
             coCodeLogin:function(){
                 vmLogin.postData.t = 'MERCHANT';
+                vmLogin.postData.m = 'code';
+                vmLogin.signIn();
+            },
+            //物流公司登录
+            logisticsPwdLogin:function(){
+                vmLogin.postData.t = 'LOGISTICS';
+                vmLogin.postData.m = 'pwd';
+                vmLogin.signIn();
+            },
+            logisticsCodeLogin:function(){
+                vmLogin.postData.t = 'LOGISTICS';
                 vmLogin.postData.m = 'code';
                 vmLogin.signIn();
             },
@@ -123,7 +134,6 @@ $(function(){
                         $('.layui-btn-Code').text('获取验证码').removeAttr('disabled');
                         clearInterval(countDown);
                     }else{
-                       
                         $('.layui-btn-Code').attr('disabled',true);
                         $('.layui-btn-Code').css({'background':'#ff0000','cursor':'pointer'});
                         $('.layui-btn-Code').text('重新发送(' + count+')');

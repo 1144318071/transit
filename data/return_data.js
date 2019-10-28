@@ -51,7 +51,7 @@ function getAjax(url, type, data) {
                 withCredentials: true
             }
         }).done(function (res) {
-            if(res.code == 200){
+            if(res.code == 200 || res.code == 40040){
                 resolve(res);
             }else{
                 if(res.code == 77893 || res.code == 77894){
@@ -64,7 +64,6 @@ function getAjax(url, type, data) {
                 }else{
                     alertMsg(res.message,2)
                 }
-
             }
         }).fail(function (err) {
             reject(err);
@@ -99,7 +98,6 @@ function getCode(name){
     for(var i in Area.provinces.province){
         for(var j in Area.provinces.province[i].cities.city){
             if(Area.provinces.province[i].cities.city[j].ssqname == name){
-                // console.log(Area.provinces.province[i].cities.city[j])
                 return Area.provinces.province[i].cities.city[j].ssqid;
             }
         }
@@ -129,10 +127,9 @@ function getAreaName(code){
         for(var j in Area.provinces.province[i].cities.city){
             for(var k in Area.provinces.province[i].cities.city[j].areas.area){
                 if(Area.provinces.province[i].cities.city[j].areas.area[k].ssqid == code){
-                    return Area.provinces.province[i].cities.city[j].areas.area[k].ssqname;
+                    return Area.provinces.province[i].cities.city[j].areas.area[k].ssqname
                 }
             }
         }
     }
 }
-// console.log(getCityName('510100'))

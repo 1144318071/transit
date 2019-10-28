@@ -10,6 +10,9 @@ var Area = {
                         ssqid: "1",
                         ssqname: "",
                         ssqename: "",
+                        areas:{
+                            area:[]
+                        }
                     }
                     ]
                 }

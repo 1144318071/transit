@@ -28,8 +28,9 @@ $(function(){
         window.vmLogistics = avalon.define({
             $id : 'root',
             onLoad:function(){
-
+                vmLogistics.getCompanyInfo();
             },
+            companyInfo:{},
             // 查看所有订单记录
             checkOrders:function(){
                 layer.open({
@@ -52,6 +53,24 @@ $(function(){
                     area: ['1168px', '635px'],
                     shadeClose: true, //开启遮罩关闭
                     content: ['totalAmount.html']
+                });
+            },
+            getCompanyInfo:function () {
+                var token = localStorage.getItem('token');
+                getAjax(API.URL_GET_PERSONALINFO,'get',{'_token_': token}).then(function(res){
+                    if(res.result.company_logo !=''){
+                        var src = getApiHost + res.result.company_logo;
+                        $('#companyLogo').attr('src',src)
+                    }
+                    if(res.result.avatar !=''){
+                        var src  = getApiHost + res.result.avatar;
+                        $('#avatar').attr('src',src)
+                    }
+                    res.result.province = getProvinceName(res.result.province);
+                    res.result.city = getCityName(res.result.city);
+                    res.result.area = getAreaName(res.result.area);
+                    vmLogistics.companyInfo = res.result;
+                    console.log(res.result)
                 });
             }
         });

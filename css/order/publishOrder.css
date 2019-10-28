@@ -233,7 +233,7 @@ footer{
   font-size: 20px;
   font-weight: bold;
 }
-.orderContent .orderDes ul li:first-child span {
+.orderContent .orderDes ul li:first-child>span {
   margin-right: 8px;
 }
 .orderPrice{
@@ -334,4 +334,12 @@ input[type=file] {
 }
 .orderDetail .itemGray{
   margin-top: 0px;
+}
+.imgItem{
+  position: relative;
+}
+.imgTip{
+  position: absolute;
+  bottom: -18px;
+  left: 76px;
 }
