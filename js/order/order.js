@@ -45,18 +45,25 @@ $('.tabTitle li').click(function () {
 $('.tabType li').click(function(){
     $(this).addClass('active').siblings().removeClass('active');
 });
-$('.itemDetail').hover(function(){
-    $(this).find('.description ul li:first-child').addClass('active').siblings().removeClass('active');
-},function () {
-    $(this).find('.description ul li:first-child').removeClass('active');
-});
+
 $(function(){
     avalon.ready(function(){
-        window.vmOrderDriver = avalon.define({
+        window.vmOrder = avalon.define({
             $id : 'root',
             state:'',
+            postData:{
+                '_token_':'',
+                'keyword':'',
+                'page':'1',
+                'limit':'5',
+                'order_status':'',
+                'goods_status':''
+            },
+            orderList:[],
+            merchantInfo:{},
             onLoad:function(){
-                vmOrderDriver.getUrl();
+                vmOrder.getUrl();
+                vmOrder.getMerchantInfo();
             },
             // 查看评价
             checkRate:function(){
@@ -130,8 +137,8 @@ $(function(){
                     content: ['/views/order/checkLine.html']
                 });
             },
-            // 查看详情
-            checkDetail:function(){
+            // 货物运输查看详情
+            checkDetail:function(el){
                 top.layer.open({
                     type: 2,
                     title: false,
@@ -141,6 +148,7 @@ $(function(){
                     shadeClose: true, //开启遮罩关闭
                     content: ['/views/order/orderDetail.html']
                 });
+                localStorage.setItem('goods_checkId',el)
             },
             //渣土(查看详情)
             checkMuckDetail:function(){
@@ -178,6 +186,7 @@ $(function(){
                     content: ['/views/order/transportReport.html']
                 });
             },
+            //渣土运输订单申诉
             muckOrderState:function(){
                 top.layer.open({
                     type: 2,
@@ -189,6 +198,7 @@ $(function(){
                     content: ['/views/order/muckOrderState.html']
                 });
             },
+            //确认收货
             confirmReceipt:function(){
                 top.layer.open({
                     type: 2,
@@ -219,9 +229,78 @@ $(function(){
                     $('#tabType').hide();
                     $('.order').css({'margin-top':'240px'});
                 }
+
+            },
+            //获取商家信息
+            getMerchantInfo:function(){
+                var token = localStorage.getItem('token');
+                vmOrder.postData._token_ = token;
+                getAjax(API.URL_GET_PERSONALINFO,'get',{'_token_' : token}).then(function(res){
+                    if(res.result.company_logo !=''){
+                        var src = getApiHost + res.result.company_logo;
+                        $('#companyLogo').attr('src',src)
+                    }
+                    res.result.province = getProvinceName(res.result.province);
+                    res.result.city = getCityName(res.result.city);
+                    res.result.area = getAreaName(res.result.area);
+                    vmOrder.merchantInfo = res.result;
+                    console.log(vmOrder.merchantInfo)
+                });
+            },
+            //获取订单列表
+            getOrderList:function(elem,goods_status,order_status){
+                vmOrder.orderList = [];
+
+                vmOrder.postData.goods_status = goods_status;
+                vmOrder.postData.order_status = order_status;
+                getAjax(API.URL_GET_ORDERLIST,'get',vmOrder.postData).then(function(res){
+                    if(res.code == 200){
+                        vmOrder.getPageList(elem,res.count);
+                        var result = res.result;
+                        for(var i in result ){
+                            result[i].start_address.city = getCityName(result[i].start_address.city);
+                            result[i].start_address.area = getAreaName(result[i].start_address.area);
+                            result[i].end_address.city = getCityName(result[i].end_address.city);
+                            result[i].end_address.area = getAreaName(result[i].end_address.area);
+                            result[i].goods_images = getApiHost + result[i].goods_images;
+                        }
+                        console.log(res.result)
+                        vmOrder.orderList = res.result;
+                    }
+                });
+            },
+            //分页
+            getPageList:function(elem,count){
+                layui.use(['laypage', 'layer'], function () {
+                    var laypage = layui.laypage,
+                        layer = layui.layer;
+                    laypage.render({
+                        elem: elem,
+                        count: count,
+                        limit: '5',
+                        curr: vmOrder.postData.page,
+                        theme: '#f57619',
+                        jump: function(obj,first) {
+                            if(!first){
+                                vmOrder.postData.page = obj.curr;
+                                vmOrder.getOrderList('demo2','10','');
+                            }
+                        }
+                    });
+                });
+            },
+            getStatusOrder:function(el,good_status,order_status){
+                vmOrder.postData.page = '1';
+                vmOrder.getOrderList(el,good_status,order_status);
+            },
+            setActive:function(el){
+                $('#'+el).find('.description ul li:first-child').addClass('active').siblings().removeClass('active');
+            },
+            removeActive:function(el){
+                $('#'+el).find('.description ul li:first-child').removeClass('active');
             }
         });
-        vmOrderDriver.onLoad();
+        vmOrder.onLoad();
         avalon.scan(document.body);
     });
 });

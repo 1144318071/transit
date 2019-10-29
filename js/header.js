@@ -36,23 +36,51 @@ $(function(){
                     vmHeader.userInfo = userInfo;
                     $('.userMsg').show();
                     $('.userLogin').hide();
+                    if(vmHeader.userInfo.avatar !=''){
+                        var src  = getApiHost + vmHeader.userInfo.avatar;
+                        $('#avatar').attr('src',src)
+                    }
+                    var type = userInfo.type;
+                    switch (type) {
+                        case 'PERSONAL':
+                            $('.logistics').attr('data-src','javascript:;');
+                            $('.layui-nav-item .layui-nav-child').remove();
+                        break;
+                        case 'MERCHANT':
+                            $('.logistics').attr('data-src','javascript:;');
+                        break;
+                        case 'LOGISTICS':
+                            $('.layui-nav-item .layui-nav-child').remove();
+                        break;
+                        default:
+                        break;
+                    }
                 }else{
                     $('.userMsg').hide();
                     $('.userLogin').show();
                     $('.layui-nav-item .layui-nav-child').remove();
                 }
             },
-            setDisable:function(){
+            setDisable:function(type){
                 var userInfo = JSON.parse(localStorage.getItem('userInfo'));
                 /*没有登录则为游客(不可以查看物流管理以及企业商家内容)*/
                 if(userInfo == null){
                     alertMsg('请先登录',5);
-
+                }else{
+                    if(type == 'MERCHANT'){
+                        if(userInfo.type != "MERCHANT") {
+                            alertMsg('您无权限查看当前模块', 5);
+                        }
+                    }else if(type == 'LOGISTICS'){
+                        if(userInfo.type != "LOGISTICS") {
+                            alertMsg('您无权限查看当前模块', 5);
+                        }
+                    }
                 }
             },
             getPage:function(el){
                 var src = el.currentTarget.dataset.src;
-                $('#test').attr('src',src);
+                location.href = src;
             },
         });
         vmHeader.onLoad();

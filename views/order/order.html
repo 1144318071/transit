@@ -35,8 +35,8 @@
                             <div class='col-sm-2 col-sm-offset-6'>消息</div>
                             <div class='col-md-4 col-sm-4 userInfo text-left'>
                                 <ul class='clearfix'>
-                                    <li class="userMsg dis_none ml10">头像</li>
-                                    <li class="userMsg dis_none" ms-text="@userInfo.username" data-src="./views/personal/personal.html" ms-on-click="@getPage($event)"></li>
+                                    <li class="userMsg dis_none ml10"><img width="32px" height="32px" id="avatar"/></li>
+                                    <li class="userMsg dis_none" ms-text="@userInfo.username" data-src="../personal/personal.html" ms-on-click="@getPage($event)"></li>
                                     <li class="userLogin">您好,请<a href='../../login.html'>登录</a></li>
                                 </ul>
                             </div>
@@ -60,14 +60,14 @@
                             <li class="layui-nav-item" data-src='../../index.html'><a href="javascript:;">首页</a></li>
                             <li class="layui-nav-item" data-src='../../views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
                             <li class="layui-nav-item" data-src='../../views/financial/financial.html'><a href="javascript:;">金融中心</a></li>
-                            <li class="layui-nav-item layui-this" data-src='javascipt:;' ms-on-click="@setDisable">
+                            <li class="layui-nav-item merchant layui-this" data-src='javascipt:;' ms-on-click="@setDisable('MERCHANT')">
                                 <a href="javascript:;" data-src="javascript:;">运输管理</a>
                                 <dl class="layui-nav-child">
                                     <dd><a href="../order/order.html?state=10" style="color:#f57619!important">渣土运输</a></dd>
                                     <dd><a href="../order/order.html?state=20" style="color:#f57619!important">产业运输</a></dd>
                                 </dl>
                             </li>
-                            <li class="layui-nav-item" data-src='../../views/logistics/logistics.html'><a href="javascript:;">物流公司</a></li>
+                            <li class="layui-nav-item logistics"  data-src='../../views/logistics/logistics.html' ms-on-click="@setDisable('LOGISTICS')"><a href="javascript:;">物流公司</a></li>
                             <li class="layui-nav-item" data-src='../../views/cooperate/cooperate.html'><a href="javascript:;">我要合作</a></li>
                             <li class="layui-nav-item  downLoad" data-src='javascript:;'>
                                 <a href="javascript:;">APP下载</a>
@@ -88,68 +88,69 @@
             </div>
         </div>
     </div>
-    <div class='bannerImg'>
-        <img src="../../images/bannerOrder.png" alt="">
-    </div>
-    <!-- 公司信息 -->
-    <div class='content_box companyInfo'>
-        <div class='row  showMsg'>
-            <div class='col-md-3 col-sm-3 showImg'>
-                <!--<div class='img' style='width:188px;height:126px;background:red'></div>-->
-                 <img src="../../images/companyInfo.png" width='188px' height='126px' alt="">
-            </div>
-            <div class='col-md-9 col-sm-9'>
-                <div class='cName'>乐山市达美工贸有限公司</div>
-                <div class='cMsg'>
-                    <ul class='clearfix'>
-                        <li>入驻时间</li>
-                        <li>:</li>
-                        <li>2019-12-20</li>
-                    </ul>
-                    <ul class='clearfix'>
-                        <li>营业执照</li>
-                        <li>:</li>
-                        <li>42115412234113</li>
-                    </ul>
-                    <ul class='clearfix'>
-                        <li>公司地址</li>
-                        <li>:</li>
-                        <li>四川省成都市双流区物流大道会缘汽配城独栋17号</li>
-                    </ul>
+    <div ms-controller='root'>
+        <div class='bannerImg'>
+            <img src="../../images/bannerOrder.png" alt="">
+        </div>
+        <!-- 公司信息 -->
+        <div class='content_box companyInfo'>
+            <div class='row  showMsg'>
+                <div class='col-md-3 col-sm-3 showImg'>
+                    <!--<div class='img' style='width:188px;height:126px;background:red'></div>-->
+                     <img id="companyLogo" src="../../images/companyInfo.png" width='188px' height='126px' alt="">
+                </div>
+                <div class='col-md-9 col-sm-9'>
+                    <div class='cName'  ms-text="@merchantInfo.nickname"></div>
+                    <div class='cMsg'>
+                        <ul class='clearfix'>
+                            <li>入驻时间</li>
+                            <li>:</li>
+                            <li ms-text="@merchantInfo.create_time"></li>
+                        </ul>
+                        <ul class='clearfix'>
+                            <li>营业执照</li>
+                            <li>:</li>
+                            <li ms-text="@merchantInfo.business_license_number"></li>
+                        </ul>
+                        <ul class='clearfix'>
+                            <li>公司地址</li>
+                            <li>:</li>
+                            <li  ms-text="@merchantInfo.province + @merchantInfo.city + @merchantInfo.area + @merchantInfo.address"></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+            <div class='clearfix'></div>
         </div>
-        <div class='clearfix'></div>
-    </div>
-    <div class="content_box" id="tabType">
-        <ul class="tabType clearfix">
-            <li class="active">轻工业</li>
-            <li>重工业</li>
-            <li>农畜牧业</li>
-        </ul>
-    </div>
-    <div class="order" ms-controller='root'>
+        <div class="content_box" id="tabType">
+            <ul class="tabType clearfix">
+                <li class="active">轻工业</li>
+                <li>重工业</li>
+                <li>农畜牧业</li>
+            </ul>
+        </div>
+        <div class="order">
         <div class='content_box'>
             <div class="order clearfix">
                 <div class="pull-left">
                     <ul class="tabTitle clearfix">
-                        <li class="active">全部订单<span style="color:#333!important">|</span></li>
-                        <li>待支付<span style="color:#333!important">|</span></li>
-                        <li>待接单<span style="color:#333!important">|</span></li>
+                        <li class="active" ms-on-click="@getStatusOrder('demo1','','')">全部订单<span style="color:#333!important">|</span></li>
+                        <li ms-on-click="@getStatusOrder('demo2','10','')">待支付<span style="color:#333!important">|</span></li>
+                        <li ms-on-click="@getStatusOrder('demo3','20','')">待接单<span style="color:#333!important">|</span></li>
                         <li>运输中(3)<span style="color:#333!important">|</span></li>
                         <li>待签收<span style="color:#333!important">|</span></li>
                         <li>投诉/申诉<span style="color:#333!important">|</span></li>
                         <li>退款/赔付</li>
                     </ul>
                     <ul class="search clearfix">
-                        <li><input type="text" placeholder="请输入订单编号/目的地进行搜索" /></li>
+                        <li><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
                         <li><button class="btn-search">搜索</button></li>
                     </ul>
                     <div class="tabContent">
                         <!--全部订单-->
                         <div class="tabItem">
                             <!--待支付-->
-                            <div class="itemDetail"  ms-on-click="@checkDetail">
+                            <div class="itemDetail" >
                                 <ul class="itemTitle clearfix">
                                     <li class="pull-left">订单编号<span class="ml4 mr4">:</span>1451234564</li>
                                 </ul>
@@ -158,7 +159,7 @@
                                         <img src="../../images/fruit.png" class="pull-left" width="113px" height="99px" alt=""></li>
                                         <div class="description pull-left">
                                             <ul>
-                                                <li class="active">成都 武侯区 → 绵阳 游仙<img class="ml4" src="../../images/urgent.png" /></li>
+                                                <li  ms-on-click="@checkDetail" class="active">成都 武侯区 → 绵阳 游仙<img class="ml4" src="../../images/urgent.png" /></li>
                                                 <li>整车/1.2米/平板/7吨/50方</li>
                                                 <li>水果/一装一卸</li>
                                                 <li>代付金额<span class="ml4 mr4">:</span>12321元</li>
@@ -555,19 +556,19 @@
                         <!--待支付-->
                         <div class="tabItem dis_none">
                             <!--待支付-->
-                            <div class="itemDetail">
+                            <div class="itemDetail" ms-for="el in @orderList"  ms-attr="{ id : 'active_' + el.goods_id }" ms-on-mouseover="@setActive('active_' + el.goods_id)" ms-on-mouseout="@removeActive('active_' + el.goods_id)">
                                 <ul class="itemTitle clearfix">
-                                    <li class="pull-left">订单编号<span class="ml4 mr4">:</span>1451234564</li>
+                                    <li class="pull-left">订单编号<span class="ml4 mr4">:</span><span ms-text="el.goods_number"></span></li>
                                 </ul>
                                 <div class="itemDes clearfix">
                                     <div class="des_left pull-left clearfix">
-                                        <img src="../../images/fruit.png" class="pull-left" width="113px" height="99px" alt=""></li>
+                                        <img ms-attr="{ src : el.goods_images }"  class="pull-left" width="113px" height="99px" alt=""></li>
                                         <div class="description pull-left">
                                             <ul>
-                                                <li>成都 武侯区 → 绵阳 游仙<img class="ml4" src="../../images/urgent.png" /></li>
-                                                <li>整车/1.2米/平板/7吨/50方</li>
-                                                <li>水果/一装一卸</li>
-                                                <li>代付金额<span class="ml4 mr4">:</span>12321元</li>
+                                                <li  ms-on-click="@checkDetail(el.goods_id)"><span ms-text="el.start_address.city"></span><span class="ml8" ms-text="el.start_address.area"></span> → <span ms-text="el.end_address.city"></span><span class="ml8" ms-text="el.end_address.area"></span><img ms-if="el.expedited == 'yes'" class="ml4" src="../../images/urgent.png" /></li>
+                                                <li><span ms-text="el.car_length"></span>米/<span ms-text="el.car_model"></span>吨/<span ms-text="el.volume"></span>方</li>
+                                                <li><span ms-text="el.goods_type"></span>/<span ms-text="el._type"></span></li>
+                                                <li>待付金额<span class="ml4 mr4">:</span><span ms-text="el.money"></span>元</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -585,19 +586,19 @@
                         <!--待接单-->
                         <div class="tabItem dis_none">
                             <!--待接单(货物运输)-->
-                            <div class="itemDetail">
+                            <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type == '10'">
                                 <ul class="itemTitle clearfix">
-                                    <li class="pull-left">订单编号<span class="ml4 mr4">:</span>1451234564</li>
+                                    <li class="pull-left">订单编号<span class="ml4 mr4">:</span><span ms-text="el.goods_number"></span></li>
                                 </ul>
                                 <div class="itemDes clearfix">
                                     <div class="des_left pull-left clearfix">
-                                        <img src="../../images/fruit.png" class="pull-left" width="113px" height="99px" alt=""></li>
+                                        <img ms-attr="{ src : el.goods_images }" src="../../images/fruit.png" class="pull-left" width="113px" height="99px" alt=""></li>
                                         <div class="description pull-left">
                                             <ul>
-                                                <li>成都 武侯区 → 绵阳 游仙</li>
-                                                <li>整车/1.2米/平板/7吨/50方</li>
-                                                <li>水果/一装一卸</li>
-                                                <li>代付金额<span class="ml4 mr4">:</span>12321元</li>
+                                                <li><span ms-text="el.start_address.city"></span><span class="ml8" ms-text="el.start_address.area"></span> → <span ms-text="el.end_address.city"></span><span class="ml8" ms-text="el.end_address.area"></span><img ms-if="el.expedited == 'yes'" class="ml4" src="../../images/urgent.png" /></li>
+                                                <li><span ms-text="el.car_length"></span>米/<span ms-text="el.car_model"></span>吨/<span ms-text="el.volume"></span>方</li>
+                                                <li><span ms-text="el.goods_type"></span>/<span ms-text="el._type"></span></li>
+                                                <li>待付金额<span class="ml4 mr4">:</span><span ms-text="el.money"></span>元</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -888,8 +889,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
+    </div>
     </div>
     <script src="../../plugins/common/include.js"></script>
     <include src="../footer/footer.html"></include>
@@ -897,6 +898,7 @@
     <script src='../../plugins/layui/dist/layui.js'></script>
     <script src='../../plugins/avalon/avalon.min.js'></script>
     <script src="../../common/js/kuCity.js"></script>
+    <script src="../../data/data.js"></script>
     <script src="../../data/api.js"></script>
     <script src="../../data/return_data.js"></script>
     <script src='../../js/header.js'></script>

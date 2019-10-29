@@ -98,14 +98,10 @@ $(function(){
                 });
             },
             changeShow:function(el){
-                if(el === 173){
-                    $('.img_carSeries:first-child').find('.info_carSeries').show(500);
-                    $('.img_carSeries:last-child').find('.info_carSeries').hide(500);
-
-                }else{
-                    $('.img_carSeries:first-child').find('.info_carSeries').hide(500);
-                    $('.img_carSeries:last-child').find('.info_carSeries').show(500);
-                }
+                $('#'+el).find('.info_carSeries').show(500).siblings().find('.info_carSeries').hide(500);
+            },
+            hideShow:function(el){
+                $('#'+el).find('.info_carSeries').hide(500);
             },
             //获取banner图片
             getBanners:function(){

@@ -1,112 +1,36 @@
-(function($) {
-    var defaluts = {
-        large_elem: "large_elem",
-        small_elem: "small_elem",
-        left_btn: "left_btn",
-        right_btn: "right_btn",
-        state: "on",
-        speed: "normal",
-        vis: 3
-    };
-    $.fn.extend({
-        "thumbnailImg": function(options) {
-            var opts = $.extend({},
-                defaluts, options);
-            return this.each(function() {
-                var $this = $(this);
-                var t = 0;
-                $(opts.large_elem).find("ul li").eq(0).show();
-                $(opts.small_elem).find("ul li").eq(0).addClass(opts.state);
-                var l = $(opts.small_elem).find("ul li").length;
-                var l_mean;
-                if (l < opts.vis) {
-                    l_mean = 0
-                } else {
-                    l_mean = ((parseInt(l / opts.vis) - 1) * opts.vis) + (l % opts.vis)
-                }
-                var w = $(opts.small_elem).find("ul li").outerWidth(true);
-                $(opts.small_elem).find("ul").css("width", l * w + "px");
-                $(opts.small_elem).find("ul li").click(function() {
-                    $(this).addClass(opts.state).siblings().removeClass(opts.state);
-                    t = $(this).index();
-                    Img($(this).index())
-                });
-                $(opts.left_btn).click(function() {
-                    var i;
-                    $(opts.small_elem).find("ul li").each(function(index) {
-                        if ($(this).hasClass(opts.state)) {
-                            i = index
-                        }
-                    });
-                    i--;
-                    if (i < 0) {
-                        i = l - 1
-                    }
-                    t = i;
-                    Img(i)
-                });
-                $(opts.right_btn).click(function() {
-                    var i;
-                    $(opts.small_elem).find("ul li").each(function(index) {
-                        if ($(this).hasClass(opts.state)) {
-                            i = index
-                        }
-                    });
-                    i++;
-                    if (i > l - 1) {
-                        i = 0
-                    }
-                    t = i;
-                    Img(i)
-                });
-                function Img(i) {
-                    $(opts.large_elem).find("ul li").eq(i).fadeIn().siblings().hide();
-                    $(opts.small_elem).find("ul li").eq(i).addClass(opts.state).siblings().removeClass(opts.state);
-                    var ml = i * w;
-                    if (ml <= l_mean * w) {
-                        $(opts.small_elem).find("ul").stop().animate({
-                                marginLeft: -ml + "px"
-                            },
-                            opts.speed)
-                    } else {
-                        $(opts.small_elem).find("ul").stop().animate({
-                                marginLeft: -(l_mean * w) + "px"
-                            },
-                            opts.speed)
-                    }
-                }
-                var timing = setInterval(function() {
-                        t++;
-                        if (t > l - 1) {
-                            t = 0
-                        }
-                        Img(t)
-                    },
-                    3000);
-                $this.hover(function() {
-                        clearInterval(timing)
-                    },
-                    function() {
-                        timing = setInterval(function() {
-                                t++;
-                                if (t > l - 1) {
-                                    t = 0
-                                }
-                                Img(t)
-                            },
-                            3000)
-                    })
-            })
-        }
-    })
-})(jQuery);
-
 $(function(){
     avalon.ready(function(){
         window.vmOrderDetail = avalon.define({
             $id:'root',
+            postData:{
+                '_token_':'',
+                'order_id':''
+            },
+            goodsInfo:{},
             onLoad:function(){
-                console.log('查看详情');
+                vmOrderDetail.getGoodsDetail();
+            },
+            getGoodsDetail:function(){
+                vmOrderDetail.postData._token_  = localStorage.getItem('token');
+                vmOrderDetail.postData.order_id = localStorage.getItem('goods_checkId');
+                getAjax(API.URL_GET_GOODSINFO,'get',vmOrderDetail.postData).then(function(res){
+                    if(res.code == 200){
+                        var result = res.result;
+                        var imgArr = result.goods_images.split(',');
+                        for(var i in imgArr){
+                            imgArr[i] = getApiHost + imgArr[i];
+                        }
+                        result.goods_images = imgArr;
+                        result.start_address.province = getProvinceName(result.start_address.province);
+                        result.start_address.city = getCityName(result.start_address.city);
+                        result.start_address.area = getAreaName(result.start_address.area);
+                        result.end_address.province = getProvinceName(result.end_address.province);
+                        result.end_address.city = getCityName(result.end_address.city);
+                        result.end_address.area = getAreaName(result.end_address.area);
+                        vmOrderDetail.goodsInfo = result;
+                        console.log(result)
+                    }
+                });
             }
         });
         vmOrderDetail.onLoad();

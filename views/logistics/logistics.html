@@ -34,7 +34,7 @@
                             <div class='col-md-4 col-sm-4 userInfo text-left'>
                                 <ul class='clearfix'>
                                     <li class="userMsg dis_none ml10"><img width="32px" height="32px" id="avatar"/></li>
-                                    <li class="userMsg dis_none" ms-text="@userInfo.username" data-src="./views/personal/personal.html" ms-on-click="@getPage($event)"></li>
+                                    <li class="userMsg dis_none" ms-text="@userInfo.username" data-src="../personal/personal.html" ms-on-click="@getPage($event)"></li>
                                     <li class="userLogin">您好,请<a href='../../login.html'>登录</a></li>
                                 </ul>
                             </div>
@@ -58,14 +58,14 @@
                             <li class="layui-nav-item" data-src='../../index.html'><a href="javascript:;">首页</a></li>
                             <li class="layui-nav-item" data-src='../../views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
                             <li class="layui-nav-item" data-src='../../views/financial/financial.html'><a href="javascript:;">金融中心</a></li>
-                            <li class="layui-nav-item" data-src='javascipt:;' ms-on-click="@setDisable">
+                            <li class="layui-nav-item merchant" data-src='javascipt:;' ms-on-click="@setDisable('MERCHANT')">
                                 <a href="javascript:;">运输管理</a>
                                 <dl class="layui-nav-child">
                                     <dd><a href="../order/order.html?state=10" style="color:#f57619!important">渣土运输</a></dd>
                                     <dd><a href="../order/order.html?state=20" style="color:#f57619!important">产业运输</a></dd>
                                 </dl>
                             </li>
-                            <li class="layui-nav-item layui-this" data-src='../../views/logistics/logistics.html'><a href="javascript:;">物流公司</a></li>
+                            <li class="layui-nav-item layui-this logistics" data-src='../../views/logistics/logistics.html' ms-on-click="@setDisable('LOGISTICS')"><a href="javascript:;">物流公司</a></li>
                             <li class="layui-nav-item" data-src='../../views/cooperate/cooperate.html'><a href="javascript:;">我要合作</a></li>
                             <li class="layui-nav-item  downLoad" data-src='javascript:;'>
                                 <a href="javascript:;">APP下载</a>
@@ -97,7 +97,7 @@
                      <img src="../../images/companyInfo.png" id="companyLogo" width='188px' height='126px' alt="">
                 </div>
                 <div class='col-md-9 col-sm-9'>
-                    <div class='cName'>乐山市达美工贸有限公司</div>
+                    <div class='cName' ms-text="@companyInfo.nickname"></div>
                     <div class='cMsg'>
                         <ul class='clearfix'>
                             <li>入驻时间</li>
@@ -112,7 +112,7 @@
                         <ul class='clearfix'>
                             <li>公司地址</li>
                             <li>:</li>
-                            <li ms-text="@companyInfo.province + @companyInfo.city + @companyInfo.area + @companyInfo.address">四川省成都市双流区物流大道会缘汽配城独栋17号</li>
+                            <li ms-text="@companyInfo.province + @companyInfo.city + @companyInfo.area + @companyInfo.address"></li>
                         </ul>
                     </div>
                 </div>
@@ -169,8 +169,31 @@
             </div>
             <div class='itemContent clearfix'>
                 <div class="itemCon pull-left clearfix">
+                    <!--司机人员-->
                     <div class='item clearfix'>
-                        <div class='itemBox'>
+                        <div class='itemBox' ms-for="el in @memberList">
+                            <ul class='itemTitle clearfix'>
+                                <li ms-text="el.mobile">185 8541 5626</li>
+                                <li><img src="../../images/phone.png" alt=""></li>
+                            </ul>
+                            <div class='itemDetail clearfix'>
+                                <img  ms-attr="{ src : el.avatar }" src="../../images/driverLogo.png" width="122" height="136" alt="司机头像">
+                                <div class='itemDes'>
+                                    <div class='name' ms-text="el.actual_name">王某某</div>
+                                    <ul class='clearfix'>
+                                        <li>信用分</li>
+                                        <li>:</li>
+                                        <li class='core'><span ms-text="el.credit_score"></span>分</li>
+                                    </ul>
+                                    <ul class='clearfix mt20'>
+                                        <li>运货次数</li>
+                                        <li>:</li>
+                                        <li><span ms-text="el.orderNumber"></span>单</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                      <!--  <div class='itemBox'>
                             <ul class='itemTitle clearfix'>
                                 <li>185 8541 5626</li>
                                 <li><img src="../../images/phone.png" alt=""></li>
@@ -235,32 +258,11 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
-                        <div class='itemBox'>
-                            <ul class='itemTitle clearfix'>
-                                <li>185 8541 5626</li>
-                                <li><img src="../../images/phone.png" alt=""></li>
-                            </ul>
-                            <div class='itemDetail clearfix'>
-                                <img src="../../images/driverLogo.png" alt="司机头像">
-                                <div class='itemDes'>
-                                    <div class='name'>王某某</div>
-                                    <ul class='clearfix'>
-                                        <li>信用分</li>
-                                        <li>:</li>
-                                        <li class='core'>65分</li>
-                                    </ul>
-                                    <ul class='clearfix mt20'>
-                                        <li>运货次数</li>
-                                        <li>:</li>
-                                        <li>556单</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        </div>-->
                         <div id="demo2"></div>
                     </div>
                     <div class='item dis_none clearfix'></div>
+                    <!--租赁管理-->
                     <div class='item rentItem dis_none clearfix'>
                         <div class='itemBox'>
                             <ul class='itemTitle clearfix'>

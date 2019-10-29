@@ -6,7 +6,6 @@ $('.countItem').hover(function(){
 layui.use(['laypage', 'layer'], function () {
     var laypage = layui.laypage,
         layer = layui.layer;
-    //自定义样式
     laypage.render({
         elem: 'demo2',
         count: 1000,
@@ -29,8 +28,16 @@ $(function(){
             $id : 'root',
             onLoad:function(){
                 vmLogistics.getCompanyInfo();
+                vmLogistics.getMemberList();
+            },
+            postData:{
+                '_token_':'',
+                'keyword':'',
+                'page':'',
+                'limit':'5',
             },
             companyInfo:{},
+            memberList:[],
             // 查看所有订单记录
             checkOrders:function(){
                 layer.open({
@@ -57,24 +64,52 @@ $(function(){
             },
             getCompanyInfo:function () {
                 var token = localStorage.getItem('token');
+                vmLogistics.postData._token_ = token;
                 getAjax(API.URL_GET_PERSONALINFO,'get',{'_token_': token}).then(function(res){
                     if(res.result.company_logo !=''){
                         var src = getApiHost + res.result.company_logo;
                         $('#companyLogo').attr('src',src)
                     }
-                    if(res.result.avatar !=''){
-                        var src  = getApiHost + res.result.avatar;
-                        $('#avatar').attr('src',src)
-                    }
                     res.result.province = getProvinceName(res.result.province);
                     res.result.city = getCityName(res.result.city);
                     res.result.area = getAreaName(res.result.area);
                     vmLogistics.companyInfo = res.result;
-                    console.log(res.result)
                 });
-            }
+            },
+            getMemberList:function(){
+                getAjax(API.URL_GET_COMPANYMEMBER,'get',vmLogistics.postData).then(function(res){
+                    if(res.code == 200){
+                        for(var i in res.result){
+                            res.result[i].avatar = getApiHost + res.result[i].avatar;
+                        }
+                        vmLogistics.memberList = res.result;
+                        console.log('司机人员信息',res.result);
+                        vmLogistics.getPageList('demo2',res.count)
+                    }
+                })
+            },
+            getPageList:function(elem,count){
+                layui.use(['laypage', 'layer'], function () {
+                    var laypage = layui.laypage,
+                        layer = layui.layer;
+                    //自定义样式
+                    laypage.render({
+                        elem: elem,
+                        count: count,
+                        limit:'5',
+                        curr: vmLogistics.postData.page,
+                        theme: '#f57619',
+                        jump: function (obj,first) {
+                            if(!first){
+                                vmLogistics.postData.page = obj.curr;
+                            }
+                        }
+                    });
+                });
+            },
         });
         vmLogistics.onLoad();
         avalon.scan(document.body);
+
     });
 });
