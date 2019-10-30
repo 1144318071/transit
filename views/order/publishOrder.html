@@ -60,7 +60,7 @@
                             <li class="layui-nav-item" data-src='../../index.html'><a href="javascript:;">首页</a></li>
                             <li class="layui-nav-item" data-src='../../views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
                             <li class="layui-nav-item" data-src='../../views/financial/financial.html'><a href="javascript:;">金融中心</a></li>
-                            <li class="layui-nav-item merchant" data-src='javascript:;' ms-on-click="@setDisable('MERCHANT')">
+                            <li class="layui-nav-item merchant layui-this" data-src='javascript:;' ms-on-click="@setDisable('MERCHANT')">
                                 <a href="javascript:;" data-src="javascript:;">运输管理</a>
                                 <dl class="layui-nav-child">
                                     <dd><a href="../order/order.html?state=10" style="color:#f57619!important">渣土运输</a></dd>
@@ -360,81 +360,9 @@
                         </ul>
                     </div>
                     <ul class="buttons clearfix">
-                        <li><button>重置</button></li>
+                        <li><button ms-on-click="@resetData">重置</button></li>
                         <li><button class="btn-next" ms-on-click="@nextStep">下一步</button></li>
                     </ul>
-                </div>
-                <div class="orderDetail dis_none">
-                    <div class='titleLine detailTitle'>
-                        <span class='line'></span>
-                        <span class='title fontw'>支付订单</span>
-                    </div>
-                    <div class='order-detail'>
-                        <div class='orderTitle clearfix'>
-                            <ul class='pull-left clearfix'>
-                                <li>订单编号<span>:</span></li>
-                                <li ms-text="@orderInfo.goods_number">1451234564</li>
-                            </ul>
-                        </div>
-                        <div class='row orderContent'>
-                            <div class='col-md-2 col-sm-2'>
-                                <img src="../../images/fruit.png" alt="">
-                            </div>
-                            <div class='orderDes col-md-8 col-sm-8'>
-                                <ul>
-                                    <li>
-                                        <span ms-text="@orderInfo.start_address.city"></span>
-                                        <span ms-text="@orderInfo.start_address.area"></span>
-                                        <span>→</span>
-                                        <span ms-text="@orderInfo.end_address.city"></span>
-                                        <span ms-text="@orderInfo.end_address.area"></span>
-                                    </li>
-                                    <li>
-                                        <span><span ms-text="@orderInfo.car_length"></span>米/</span>
-                                        <span><span ms-text="@orderInfo.car_model"></span>/</span>
-                                        <span><span ms-text="@orderInfo.weight"></span>吨/</span>
-                                        <span><span ms-text="@orderInfo.volume"></span>方</span>
-                                    </li>
-                                    <li>
-                                        <span><span ms-text="@orderInfo.goods_type"></span>/</span>
-                                        <span ms-text="@orderInfo._type"></span>
-                                    </li>
-                                    <li>待付金额&nbsp;:&nbsp;<span ms-text="@orderInfo.money"></span>元</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="orderPrice">
-                        <div class="title">运费计算</div>
-                        <ul class="clearfix">
-                            <li>运费金额<span class="ml4 mr10">:</span></li>
-                            <li>182.00元</li>
-                        </ul>
-                        <ul class="clearfix">
-                            <li>保单金额<span class="ml4 mr10">:</span></li>
-                            <li><span ms-text="@orderInfo.safety_money"></span>元</li>
-                        </ul>
-                        <ul class="clearfix">
-                            <li>共计金额<span class="ml4 mr10">:</span></li>
-                            <li>人民币<span class="font26 fontw">182.00</span>元</li>
-                        </ul>
-                        <ul  class="clearfix payWay">
-                            <li>支付方式<span class="ml4 mr10">:</span></li>
-                            <li>
-                                <button>余额支付</button>
-                                <button class="aliPay">支付宝</button>
-                                <button class="weChatPay">微信支付</button>
-                                <button class="bankCardPay">银行卡支付</button>
-                            </li>
-                        </ul>
-                        <div class="bankCars">
-
-                        </div>
-                        <ul class="buttons  btn-pay clearfix">
-                            <li><button>重置</button></li>
-                            <li class="ml85"><button ms-on-click-1="@payTip" ms-on-click-2="@payFail" ms-on-click-3="@paySuccess">去支付</button></li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>

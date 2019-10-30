@@ -42,15 +42,7 @@ $('.upload').hover(function () {
 }, function () {
     $(this).find('.uploadimg').hide();
 });
-$('.payWay button').click(function(){
-    $(this).addClass('active').siblings().removeClass('active');
-});
-//下一步
-$('.btn-next').click(function(){
-     $('.formTitle').hide();
-    $('.form').hide();
-    $('.orderDetail').show();
-});
+
 function isShow(item_one,item_two){
     $(item_one).click(function () {
         var flag = $(item_two).is(':hidden');
@@ -128,50 +120,27 @@ $(function(){
                 'date':'',
                 'time':''
            },
-           getDetail:{
-                '_token_':'',
-                'order_id':''
-           },
-           orderInfo:{},
-           /*提示设置支付密码*/
-           payTip:function(){
-               top.layer.open({
-                   type: 2,
-                   title: false,
-                   skin: 'layui-layer-demo', //样式类名
-                   closeBtn: 1, //不显示关闭按钮
-                   area: ['1127px', '639px'],
-                   shadeClose: true, //开启遮罩关闭
-                   content: ['/views/order/payTip.html']
-               });
-           },
-           //订单支付失败
-           payFail:function(){
-               top.layer.open({
-                   type: 2,
-                   title: false,
-                   skin: 'layui-layer-demo', //样式类名
-                   closeBtn: 1, //不显示关闭按钮
-                   area: ['883px', '432px'],
-                   shadeClose: true, //开启遮罩关闭
-                   content: ['/views/order/payFailed.html']
-               });
-           },
-           //订单支付成功
-           paySuccess:function(){
-               top.layer.open({
-                   type: 2,
-                   title: false,
-                   skin: 'layui-layer-demo', //样式类名
-                   closeBtn: 1, //不显示关闭按钮
-                   area: ['883px', '432px'],
-                   shadeClose: true, //开启遮罩关闭
-                   content: ['/views/order/paySuccess.html']
-               });
+
+           resetData:function(){
+               $('#distpicker').distpicker('reset', true);
+               $('#distpicker_two').distpicker('reset',true);
+               $('#distpicker_three').distpicker('reset',true);
+               $('#distpicker_four').distpicker('reset',true);
+               $('input[type="text"]').val('');
+               $('textarea').val('');
+               var urgent = document.getElementsByName("urgent");
+               for(var i=0;i<urgent.length;i++){
+                   urgent[i].checked = false;
+               };
+               vmPublishOrder.postData.car_length = '';
+               vmPublishOrder.postData.car_model = '';
+               vmPublishOrder.postData.weight='';
+               vmPublishOrder.postData.volume='';
+               vmPublishOrder.date.date = '';
+               vmPublishOrder.date.time = '';
            },
            nextStep:function () {
                vmPublishOrder.postData._token_ = localStorage.getItem('token');
-               vmPublishOrder.getDetail._token_ = vmPublishOrder.postData._token_;
                var imgArr = document.getElementsByClassName('img_upload');
                var imgLength = imgArr.length;
                var imgs =[];
@@ -221,9 +190,11 @@ $(function(){
                    obj_one.area= $("#district1 option[value =" + vmPublishOrder.model.addressList_one.area + "]").attr('data-code');
                    obj_one.address = vmPublishOrder.model.addressList_one.address;
                    vmPublishOrder.postData.adList.push(obj_one);
+                   console.log(vmPublishOrder.model.addressList_three)
                    obj_three.province= $("#province1_three option[value =" + vmPublishOrder.model.addressList_three.province + "]").attr('data-code');
                    obj_three.city = $("#city1_three option[value =" + vmPublishOrder.model.addressList_three.city + "]").attr('data-code');
                    obj_three.area = $("#district1_three option[value =" + vmPublishOrder.model.addressList_three.area + "]").attr('data-code');
+                   console.log(vmPublishOrder.model.addressList_three)
                    obj_three.address = vmPublishOrder.model.addressList_three.address;
                    vmPublishOrder.postData.adList.push(obj_three);
                    if(vmPublishOrder.model.addressList_two.province != ''){
@@ -251,25 +222,8 @@ $(function(){
                    vmPublishOrder.postData.loading_end_time = vmPublishOrder.date.date +' '+vmPublishOrder.date.time.substr(11);
                     getAjax(API.URL_POST_GOODSSHIP,'post',vmPublishOrder.postData).then(function(res){
                         if(res.code == 200){
-                            vmPublishOrder.getDetail.order_id = res.result.goods_id;
                             alertMsg(res.message,1);
-                            getAjax(API.URL_GET_GOODSINFO,'get',vmPublishOrder.getDetail).then(function(res){
-                                if(res.code == 200){
-                                    var startC = res.result.start_address.city;
-                                    var startA = res.result.start_address.area;
-                                    var endC = res.result.end_address.city;
-                                    var endA = res.result.end_address.area;
-                                    res.result.start_address.city = getCityName(startC);
-                                    res.result.start_address.area = getAreaName(startA);
-                                    res.result.end_address.city = getCityName(endC);
-                                    res.result.end_address.area = getAreaName(endA);
-                                    vmPublishOrder.orderInfo = res.result;
-                                    console.log(res.result)
-                                    $('.formTitle').hide();
-                                    $('.form').hide();
-                                    $('.orderDetail').show();
-                                }
-                            });
+                            location.href='./payPublishOrder.html?goods_id='+res.result.goods_id;
                         }else{
                             alertMsg(res.message,2);
                         }

@@ -203,3 +203,12 @@ a:hover,a:link,a:visited{color:#333;text-decoration: none!important;}
 .rl{
     position: relative;
 }
+.cursor{
+    cursor: pointer;
+}
+input,textarea,select {
+    outline: none!important;
+    -moz-outline: none!important;
+    box-shadow: none!important;
+    -moz-box-shadow: none!important;
+}

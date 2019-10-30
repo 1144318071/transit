@@ -20,13 +20,15 @@
             </div>
             <ul class='buttons clearfix'>
                 <li><button class='btn-orange' ms-on-click='@return'>返回</button></li>
-                <li><button class='btn-orange'>确认取消货单</button></li>
+                <li><button class='btn-orange' ms-on-click="@cancelOrder">确认取消货单</button></li>
             </ul>
         </div>
     </div>
     <script src='../../plugins/jquery/jquery.min.js'></script>
     <script src='../../plugins/layui/dist/layui.js'></script>
     <script src='../../plugins/avalon/avalon.min.js'></script>
+    <script src="../../data/api.js"></script>
+    <script src="../../data/return_data.js"></script>
     <script src='../../js/order/orderCancel.js'></script>
 </body>
 

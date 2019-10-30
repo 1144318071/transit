@@ -20,6 +20,12 @@
             <div class="banner">
                 <div class="large_box">
                     <ul>
+                        <!--<li ms-for="el in @goodsInfo.goods_images">
+                            <img ms-attr="{ src : el }" src="../../images/img2.jpg" width="460" height="340">
+                        </li>-->
+                        <li>
+                            <img src="../../images/img1.jpg" width="460" height="340">
+                        </li>
                         <li>
                             <img src="../../images/img2.jpg" width="460" height="340">
                         </li>
@@ -36,6 +42,21 @@
                             <img src="../../images/img6.jpg" width="460" height="340">
                         </li>
                         <li>
+                            <img src="../../images/img1.jpg" width="460" height="340">
+                        </li>
+                        <li>
+                            <img src="../../images/img2.jpg" width="460" height="340">
+                        </li>
+                        <li>
+                            <img src="../../images/img3.jpg" width="460" height="340">
+                        </li>
+                        <li>
+                            <img src="../../images/img4.jpg" width="460" height="340">
+                        </li>
+                        <li>
+                            <img src="../../images/img5.jpg" width="460" height="340">
+                        </li>
+                        <li>
                             <img src="../../images/img6.jpg" width="460" height="340">
                         </li>
                     </ul>
@@ -44,8 +65,32 @@
                     <span class="btn left_btn"></span>
                     <div class="small_list">
                         <ul>
-                            <li class="on">
+                           <!-- <li ms-for="(index,el) in @goodsInfo.goods_images" ms-class="index == 0 ? 'on' :''" class="on">
+                                <img ms-attr="{ src : el }" src="../../images/img1.jpg" width="110" height="73">
+                                <div class="bun_bg"></div>
+                            </li>-->
+                            <li>
                                 <img src="../../images/img1.jpg" width="110" height="73">
+                                <div class="bun_bg"></div>
+                            </li>
+                            <li>
+                                <img src="../../images/img2.jpg" width="110" height="73">
+                                <div class="bun_bg"></div>
+                            </li>
+                            <li>
+                                <img src="../../images/img3.jpg" width="110" height="73">
+                                <div class="bun_bg"></div>
+                            </li>
+                            <li>
+                                <img src="../../images/img4.jpg" width="110" height="73">
+                                <div class="bun_bg"></div>
+                            </li>
+                            <li>
+                                <img src="../../images/img5.jpg" width="110" height="73">
+                                <div class="bun_bg"></div>
+                            </li>
+                            <li>
+                                <img src="../../images/img6.jpg" width="110" height="73">
                                 <div class="bun_bg"></div>
                             </li>
                             <li>
@@ -53,19 +98,23 @@
                                 <div class="bun_bg"></div>
                             </li>
                             <li>
-                                <img src="../../images/img1.jpg" width="110" height="73">
+                                <img src="../../images/img2.jpg" width="110" height="73">
                                 <div class="bun_bg"></div>
                             </li>
                             <li>
-                                <img src="../../images/img1.jpg" width="110" height="73">
+                                <img src="../../images/img3.jpg" width="110" height="73">
                                 <div class="bun_bg"></div>
                             </li>
                             <li>
-                                <img src="../../images/img1.jpg" width="110" height="73">
+                                <img src="../../images/img4.jpg" width="110" height="73">
                                 <div class="bun_bg"></div>
                             </li>
                             <li>
-                                <img src="../../images/img1.jpg" width="110" height="73">
+                                <img src="../../images/img5.jpg" width="110" height="73">
+                                <div class="bun_bg"></div>
+                            </li>
+                            <li>
+                                <img src="../../images/img6.jpg" width="110" height="73">
                                 <div class="bun_bg"></div>
                             </li>
                         </ul>
@@ -77,38 +126,38 @@
         <div class="order_right itemDetail pull-left">
             <ul class="clearfix address">
                 <li class="pull-left">装货地址<span class="ml6 mr6">:</span></li>
-                <li class="pull-left"><label>四川省</label><label>成都市</label><label>武侯区</label></li>
+                <li class="pull-left"><label ms-text="@goodsInfo.start_address.province"></label><label ms-text="@goodsInfo.start_address.city"></label><label ms-text="@goodsInfo.start_address.area"></label></li>
             </ul>
             <ul class="clearfix">
                 <li class="pull-left">详细地址<span class="ml6 mr6">:</span></li>
-                <li class="pull-left"><input type="text" class="longerInput" /></li>
+                <li class="pull-left"><input type="text" ms-duplex="@goodsInfo.start_address.address" class="longerInput" /></li>
             </ul>
             <ul class="clearfix address">
                 <li class="pull-left">卸货地址<span class="ml6 mr6">:</span></li>
-                <li class="pull-left"><label>四川省</label><label>成都市</label><label>武侯区</label></li>
+                <li class="pull-left"><label ms-text="@goodsInfo.end_address.province"></label><label ms-text="@goodsInfo.end_address.city"></label><label ms-text="@goodsInfo.end_address.area"></label></li>
             </ul>
             <ul class="clearfix">
                 <li class="pull-left">详细地址<span class="ml6 mr6">:</span></li>
-                <li class="pull-left"><input type="text" class="longerInput" /></li>
+                <li class="pull-left"><input type="text" ms-duplex="@goodsInfo.end_address.address" class="longerInput" /></li>
             </ul>
             <div class="itemMore clearfix">
                 <ul class="clearfix pull-left">
                     <li class="pull-left">所需车型<span class="ml6 mr6">:</span></li>
-                    <li class="pull-left">1.7米/平板</li>
+                    <li class="pull-left"><span ms-text="@goodsInfo.car_length"></span>米/<span ms-text="@goodsInfo.car_model"></span></li>
                 </ul>
                 <ul class="clearfix pull-left">
                     <li class="pull-left">货物重<span class="ml6 mr6">:</span></li>
-                    <li class="pull-left">2吨 3m³</li>
+                    <li class="pull-left"><span ms-text="@goodsInfo.weight"></span>吨 <span ms-text="@goodsInfo.volume"></span>m³</li>
                 </ul>
             </div>
             <div class="itemMore clearfix">
                 <ul class="clearfix pull-left">
                     <li class="pull-left">货物类型<span class="ml6 mr6">:</span></li>
-                    <li class="pull-left">水果</li>
+                    <li class="pull-left" ms-text="@goodsInfo.goods_type"></li>
                 </ul>
                 <ul class="clearfix pull-left">
                     <li class="pull-left">是否加急<span class="ml6 mr6">:</span></li>
-                    <li class="pull-left">否</li>
+                    <li class="pull-left" ms-text="@goodsInfo.expedited == 'yes'?'是':'否' ">否</li>
                 </ul>
             </div>
             <ul class="clearfix">
@@ -117,27 +166,27 @@
             </ul>
             <ul class="clearfix">
                 <li class="pull-left">装货时间<span class="ml6 mr6">:</span></li>
-                <li class="pull-left">2019-09-23 0:00 - 24:00</li>
+                <li class="pull-left" ms-text="@goodsInfo.loadingTime">2019-09-23 0:00 - 24:00</li>
             </ul>
             <ul class="clearfix">
                 <li class="pull-left">备注信息<span class="ml6 mr6">:</span></li>
                 <li class="pull-left">
-                    <textarea></textarea>
+                    <textarea ms-duplex="@goodsInfo.remark"></textarea>
                 </li>
             </ul>
             <div class="itemMore clearfix">
                 <ul class="clearfix pull-left">
                     <li class="pull-left">运费金额<span class="ml6 mr6">:</span></li>
-                    <li class="pull-left fontw">182.00元</li>
+                    <li class="pull-left fontw"><span ms-text="@goodsInfo.money"></span>元</li>
                 </ul>
                 <ul class="clearfix pull-left">
                     <li class="pull-left">保险金额<span class="ml6 mr6">:</span></li>
-                    <li class="pull-left fontw">182.00元</li>
+                    <li class="pull-left fontw"><span ms-text="@goodsInfo.safety_money"></span>元</li>
                 </ul>
             </div>
             <ul class="clearfix">
                 <li class="pull-left">共计金额<span class="ml6 mr6">:</span></li>
-                <li class="pull-left font22 fontw">182.00元</li>
+                <li class="pull-left font22 fontw"><span ms-text="@goodsInfo.all_money"></span>元</li>
             </ul>
         </div>
     </div>

@@ -134,12 +134,13 @@
             <div class="order clearfix">
                 <div class="pull-left">
                     <ul class="tabTitle clearfix">
-                        <li class="active" ms-on-click="@getStatusOrder('demo1','','')">全部订单<span style="color:#333!important">|</span></li>
+                        <li class="active" ms-on-click="@getStatusOrder('demo1','40','')">全部订单<span style="color:#333!important">|</span></li>
                         <li ms-on-click="@getStatusOrder('demo2','10','')">待支付<span style="color:#333!important">|</span></li>
                         <li ms-on-click="@getStatusOrder('demo3','20','')">待接单<span style="color:#333!important">|</span></li>
+                        <li>待装货<span style="color:#333!important">|</span></li>
                         <li>运输中(3)<span style="color:#333!important">|</span></li>
                         <li>待签收<span style="color:#333!important">|</span></li>
-                        <li>投诉/申诉<span style="color:#333!important">|</span></li>
+                        <li ms-on-click="@getStatusOrder('demo7','40','60')">投诉/申诉<span style="color:#333!important">|</span></li>
                         <li>退款/赔付</li>
                     </ul>
                     <ul class="search clearfix">
@@ -556,7 +557,7 @@
                         <!--待支付-->
                         <div class="tabItem dis_none">
                             <!--待支付-->
-                            <div class="itemDetail" ms-for="el in @orderList"  ms-attr="{ id : 'active_' + el.goods_id }" ms-on-mouseover="@setActive('active_' + el.goods_id)" ms-on-mouseout="@removeActive('active_' + el.goods_id)">
+                            <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type == '10'"  ms-attr="{ id : 'active_' + el.goods_id }" ms-on-mouseover="@setActive('active_' + el.goods_id)" ms-on-mouseout="@removeActive('active_' + el.goods_id)">
                                 <ul class="itemTitle clearfix">
                                     <li class="pull-left">订单编号<span class="ml4 mr4">:</span><span ms-text="el.goods_number"></span></li>
                                 </ul>
@@ -576,7 +577,7 @@
                                         <ul class="operateItem">
                                             <li><button>立即付款</button></li>
                                             <li class="color-999 mt10">修改货单</li>
-                                            <li class="color-orange mt10">删除货单 </li>
+                                            <li class="color-orange mt10" ms-on-click="@deleteOrder(el.goods_id,'demo2','10','')">删除货单 </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -586,7 +587,7 @@
                         <!--待接单-->
                         <div class="tabItem dis_none">
                             <!--待接单(货物运输)-->
-                            <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type == '10'">
+                            <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type == '10'"  ms-attr="{ id : 'active_' + el.goods_id }" ms-on-mouseover="@setActive('active_' + el.goods_id)" ms-on-mouseout="@removeActive('active_' + el.goods_id)">
                                 <ul class="itemTitle clearfix">
                                     <li class="pull-left">订单编号<span class="ml4 mr4">:</span><span ms-text="el.goods_number"></span></li>
                                 </ul>
@@ -604,7 +605,7 @@
                                     </div>
                                     <div class="des_right pull-right">
                                         <ul class="operateItem">
-                                            <li style="margin-top:23px"><button ms-on-click="@orderCancel">取消货单</button></li>
+                                            <li style="margin-top:23px"><button ms-on-click="@orderCancel(el.goods_id)">取消货单</button></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -642,6 +643,47 @@
                                 </div>
                             </div>
                             <div id="demo3"></div>
+                        </div>
+                        <!--待装货-->
+                        <div class="tabItem dis_none">
+                            <!--待装货状态-->
+                            <div class="itemDetail" >
+                                <ul class="itemTitle clearfix">
+                                    <li class="pull-left">订单编号<span class="ml4 mr4">:</span>1451234564</li>
+                                    <li class="phone pull-right"><img src="../../images/phoneIcon.png" />联系电话</li>
+                                </ul>
+                                <div class="itemDes clearfix">
+                                    <div class="des_left pull-left clearfix">
+                                        <img src="../../images/fruit.png" class="pull-left" width="113px" height="99px" alt=""></li>
+                                        <div class="description pull-left">
+                                            <ul>
+                                                <li>成都 武侯区 → 绵阳 游仙</li>
+                                                <li>整车/1.2米/平板/7吨/50方</li>
+                                                <li>水果/一装一卸</li>
+                                                <li>代付金额<span class="ml4 mr4">:</span>12321元</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="des_right pull-right">
+                                        <ul class="operateItem">
+                                            <li><button ms-on-click="@confirmLoad">确认装货</button></li>
+                                            <li class="color-999 mt10" ms-on-click="@cancelOrder">取消订单</li>
+                                            <li class="color-999 mt10" ms-on-click="@checkLine">查看运输</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="model">
+                                    <div class="qrCodeContent">
+                                        <ul class="code">
+                                            <!-- <li><img src="../../images/qrCode.png" width="62" height="62" /></li>-->
+                                            <li class="tri"></li>
+                                            <li><img src="../../images/qrCode.png" /></li>
+                                            <li>扫码拨号·刘师傅</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="demo4"></div>
                         </div>
                         <!--运输中-->
                         <div class="tabItem dis_none">
@@ -712,7 +754,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="demo4"></div>
+                            <div id="demo5"></div>
                         </div>
                         <!--待签收-->
                         <div class="tabItem dis_none">
@@ -753,25 +795,25 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="demo5"></div>
+                            <div id="demo6"></div>
                         </div>
                         <!--投诉/申诉-->
                         <div class="tabItem dis_none">
                             <!--货物运输完成(申诉中/取消申诉)-->
-                            <div class="itemDetail">
+                            <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type == '10'">
                                 <ul class="itemTitle clearfix">
-                                    <li class="pull-left">订单编号<span class="ml4 mr4">:</span>1451234564</li>
+                                    <li class="pull-left">订单编号<span class="ml4 mr4">:</span><span ms-text="el.order_number"></span></li>
                                     <li class="phone pull-right"><img src="../../images/phoneIcon.png" />联系电话</li>
                                 </ul>
                                 <div class="itemDes clearfix">
                                     <div class="des_left pull-left clearfix">
-                                        <img src="../../images/fruit.png" class="pull-left" width="113px" height="99px" alt=""></li>
+                                        <img ms-attr="{ src : el.goods_images }" class="pull-left" width="113px" height="99px" alt=""></li>
                                         <div class="description pull-left">
                                             <ul>
-                                                <li>成都 武侯区 → 绵阳 游仙</li>
-                                                <li>整车/1.2米/平板/7吨/50方</li>
-                                                <li>水果/一装一卸</li>
-                                                <li>代付金额<span class="ml4 mr4">:</span>12321元</li>
+                                                <li  ms-on-click="@checkDetail(el.goods_id)"><span ms-text="el.start_address.city"></span><span class="ml8" ms-text="el.start_address.area"></span> → <span ms-text="el.end_address.city"></span><span class="ml8" ms-text="el.end_address.area"></span><img ms-if="el.expedited == 'yes'" class="ml4" src="../../images/urgent.png" /></li>
+                                                <li><span ms-text="el.car_length"></span>米/<span ms-text="el.car_model"></span>吨/<span ms-text="el.volume"></span>方</li>
+                                                <li><span ms-text="el.goods_type"></span>/<span ms-text="el._type"></span></li>
+                                                <li>待付金额<span class="ml4 mr4">:</span><span ms-text="el.money"></span>元</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -829,7 +871,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="demo6"></div>
+                            <div id="demo7"></div>
                         </div>
                         <!--赔付/退款-->
                         <div class="tabItem dis_none">
@@ -868,7 +910,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="demo7"></div>
+                            <div id="demo8"></div>
                         </div>
                     </div>
                 </div>

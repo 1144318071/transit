@@ -27,6 +27,8 @@ $(function(){
                         result.end_address.province = getProvinceName(result.end_address.province);
                         result.end_address.city = getCityName(result.end_address.city);
                         result.end_address.area = getAreaName(result.end_address.area);
+                        var endTime = result.loading_end_time.substr(11);
+                        result.loadingTime = result.loading_start_time +" "+ endTime;
                         vmOrderDetail.goodsInfo = result;
                         console.log(result)
                     }

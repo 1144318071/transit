@@ -78,7 +78,7 @@ $(function(){
                 });
             },
             // 取消货单
-            orderCancel:function(){
+            orderCancel:function(el){
                 top.layer.open({
                     type: 2,
                     title: false,
@@ -87,6 +87,19 @@ $(function(){
                     area: ['876px', '625px'],
                     shadeClose: true, //开启遮罩关闭
                     content: ['/views/order/orderCancel.html']
+                });
+                localStorage.setItem('cancelId',el);
+            },
+            //取消货单
+            cancelOrder:function(){
+                top.layer.open({
+                    type: 2,
+                    title: false,
+                    skin: 'layui-layer-demo', //样式类名
+                    closeBtn: 1, //不显示关闭按钮
+                    area: ['876px', '625px'],
+                    shadeClose: true, //开启遮罩关闭
+                    content: ['/views/order/orderCancel_d.html']
                 });
             },
             // 投诉
@@ -210,6 +223,17 @@ $(function(){
                     content: ['/views/order/confirmReceipt.html']
                 });
             },
+            confirmLoad:function(){
+                top.layer.open({
+                    type: 2,
+                    title: false,
+                    skin: 'layui-layer-demo', //样式类名
+                    closeBtn: 1, //不显示关闭按钮
+                    area: ['876px', '625px'],
+                    shadeClose: true, //开启遮罩关闭
+                    content: ['/views/order/confirmLoad.html']
+                });
+            },
             //退款
             drawback:function(){
                 top.layer.open({
@@ -250,7 +274,6 @@ $(function(){
             //获取订单列表
             getOrderList:function(elem,goods_status,order_status){
                 vmOrder.orderList = [];
-
                 vmOrder.postData.goods_status = goods_status;
                 vmOrder.postData.order_status = order_status;
                 getAjax(API.URL_GET_ORDERLIST,'get',vmOrder.postData).then(function(res){
@@ -264,7 +287,6 @@ $(function(){
                             result[i].end_address.area = getAreaName(result[i].end_address.area);
                             result[i].goods_images = getApiHost + result[i].goods_images;
                         }
-                        console.log(res.result)
                         vmOrder.orderList = res.result;
                     }
                 });
@@ -289,9 +311,24 @@ $(function(){
                     });
                 });
             },
+            //根据订单状态请求数据
             getStatusOrder:function(el,good_status,order_status){
                 vmOrder.postData.page = '1';
                 vmOrder.getOrderList(el,good_status,order_status);
+            },
+            //删除货单
+            deleteOrder:function(el,demo,goods_status,order_status){
+                var postData={
+                    '_token_':vmOrder.postData._token_,
+                    'order_id':el
+                }
+                getAjax(API.URL_POST_GOODSDEL,'post',postData).then(function(res){
+                    if(res.code == 200){
+                        alertMsg(res.message,1);
+                        //删除之后重新请求数据
+                        vmOrder.getOrderList(demo,goods_status,order_status);
+                    }
+                });
             },
             setActive:function(el){
                 $('#'+el).find('.description ul li:first-child').addClass('active').siblings().removeClass('active');

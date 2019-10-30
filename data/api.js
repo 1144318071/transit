@@ -111,6 +111,8 @@ var API = {
     URL_POST_GOODSCOMPLAINT : getApiHost +'/order/complaint',
     //订单列表
     URL_GET_ORDERLIST : getApiHost + '/orderList',
+    //优惠券
+    URL_GET_COUPONLIST : getApiHost + '/coupon/list',
     //----------------------------------------------物流公司-----------------------------------
     //公司主页
     URL_GET_COMPANYINFO : getApiHost + '/companyInfo',

@@ -232,6 +232,10 @@ footer{
   margin-top: 0px;
   font-size: 20px;
   font-weight: bold;
+  cursor: pointer;
+}
+.orderContent .orderDes ul li:first-child.active{
+  color: #f57619;
 }
 .orderContent .orderDes ul li:first-child>span {
   margin-right: 8px;

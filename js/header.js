@@ -58,6 +58,7 @@ $(function(){
                 }else{
                     $('.userMsg').hide();
                     $('.userLogin').show();
+                    $('.logistics').attr('data-src','javascript:;');
                     $('.layui-nav-item .layui-nav-child').remove();
                 }
             },

@@ -48,6 +48,19 @@ $(function(){
             },
             return:function(){
                 parent.layer.close(parent.layer.index);
+            },
+            cancelOrder:function(){
+                var token = localStorage.getItem('token');
+                var cancelId = localStorage.getItem('cancelId');
+                var postData={
+                    '_token_': token,
+                    'order_id':cancelId
+                };
+                getAjax(API.URL_POST_GOODSCLOSEORDER,'post',postData).then(function (res) {
+                    if(res.code == 200){
+                        console.log(res)
+                    }
+                })
             }
         });
         vmOrderCancel.onLoad();
