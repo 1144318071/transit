@@ -9,13 +9,6 @@ $(function(){
                '_token_':'',
                'order_id':''
            },
-           payData:{
-              '_token_':'',
-               'type':'',
-               'coupon_id':'',
-               'goods_id':'',
-               'pay_password':''
-           },
            startAddress:{},
            endAddress:{},
            orderInfo:{},
@@ -43,8 +36,8 @@ $(function(){
            },
            //重置
            resetData:function(){
-               //vmPayOrder.payData.coupon_id='';
                $('.payWay li button').removeClass('active');
+               localStorage.setItem('payWay','');
            },
            /*提示设置支付密码*/
            payTip:function(){
@@ -95,14 +88,29 @@ $(function(){
                });
                 localStorage.setItem('orderAllMoney',all_money);
            },
+           payOrder:function(){
+               var way = localStorage.getItem('payWay');
+               if(way != null && way != ''){
+                   top.layer.open({
+                     type: 2,
+                     title: false,
+                     skin: 'layui-layer-demo', //样式类名
+                     closeBtn: 1, //不显示关闭按钮
+                     area: ['1127px', '639px'],
+                     shadeClose: true, //开启遮罩关闭
+                     content: ['/views/order/payOrder.html']
+                   });
+               }else{
+                   alertMsg('请选择支付方式',2);
+               }
+           },
            getUrl:function(){
                 var token = localStorage.getItem('token');
                 var src = window.location.href;
                 var url = GetRequest(src);
                 vmPayOrder.getDetail._token_ = token;
                 vmPayOrder.getDetail.order_id = url.goods_id;
-                vmPayOrder.payData._token_ = token;
-               vmPayOrder.payData.goods_id = url.goods_id;
+                localStorage.setItem('goods_id',url.goods_id);
                 vmPayOrder.getPayOrder();
            },
            getPayOrder:function(){
@@ -116,21 +124,23 @@ $(function(){
                        res.result.start_address.area = getAreaName(startA);
                        res.result.end_address.city = getCityName(endC);
                        res.result.end_address.area = getAreaName(endA);
-                       res.result.goods_images = getApiHost + res.result.goods_images;
+                       /*图片*/
+                       res.result.image = getApiHost + res.result.image;
                        vmPayOrder.orderInfo = res.result;
                        vmPayOrder.startAddress = res.result.start_address;
                        vmPayOrder.endAddress = res.result.end_address;
-                       console.log(vmPayOrder.orderInfo)
+                       //满减的减多少
+                       var less = localStorage.getItem('less');
+                       if(less !='' && less != null){
+                           var lessMoney = parseInt(less);
+                           vmPayOrder.orderInfo.less = lessMoney;
+                           vmPayOrder.orderInfo.disCountMoney = vmPayOrder.orderInfo.all_money - lessMoney;
+                       }
                    }
                });
            },
            payWay:function (way) {
-               vmPayOrder.payData.type = way;
-               var couponItem = localStorage.getItem('coupon_id');
-               if(couponItem !=''){
-                   vmPayOrder.payData.coupon_id = couponItem;
-                   console.log(vmPayOrder.payData)
-               }
+              localStorage.setItem('payWay',way);
            },
 
        });

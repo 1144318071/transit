@@ -124,6 +124,7 @@ $(function(){
             getUserInfo:function(){
                 getAjax(API.URL_GET_PERSONALINFO,'get',{'_token_':vmPersonal.token}).then(function(res){
                     console.log('个人信息',res);
+                    res.result.avatar = getApiHost + res.result.avatar;
                     vmPersonal.userInfo = res.result;
                     var userType = res.result.type;
                     switch(userType){

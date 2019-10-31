@@ -347,3 +347,20 @@ input[type=file] {
   bottom: -18px;
   left: 76px;
 }
+.delItem{
+  position: relative;
+}
+.del{
+  position: absolute;
+  top: 0px;
+  right: -7px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 20px;
+  background-color:#f51919;
+  color: #fff;
+  cursor: pointer;
+}

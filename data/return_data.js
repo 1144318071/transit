@@ -51,6 +51,7 @@ function getAjax(url, type, data) {
                 withCredentials: true
             }
         }).done(function (res) {
+            
             if(res.code == 200 || res.code == 40040){
                 resolve(res);
             }else{

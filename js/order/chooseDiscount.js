@@ -8,22 +8,34 @@ $(function(){
             },
             cancel:function(){
                 localStorage.setItem('coupon_id','');
+                localStorage.setItem('less','');
                 parent.layer.close(parent.layer.index);
+            },
+            selectCoupon:function(){
+                var id = localStorage.getItem('coupon_id');
+                if(id !="" && id !=null){
+                    $('#discount_'+id).find('.selected').show();
+                }
             },
             confirm:function(){
                 parent.layer.close(parent.layer.index);
+                /*localStorage.setItem('coupon_id',id);
+                localStorage.setItem('less',less);
+                var id = localStorage.getItem('coupon_id');
+                console.log(id)*/
             },
             //选择优惠券
-            chooseCoupon:function(el,id){
-                var flag = $('#'+el).find('.selected').is(':hidden');
+            chooseCoupon:function(el,id,less){
+                var flag = $('#discount_'+id).find('.selected').is(':hidden');
                 if(!flag){
-                    $('#'+el).find('.selected').hide();
+                    $('#discount_'+id).find('.selected').hide();
                 }else{
-                    $('#'+el).find('.selected').show();
+                    $('#discount_'+id).find('.selected').show();
                 }
-                $('#'+el).find('.selected').show();
-                $('#'+el).siblings().find('.selected').hide();
+               /* $('#'+el).find('.selected').show();
+                $('#'+el).siblings().find('.selected').hide();*/
                 localStorage.setItem('coupon_id',id);
+                localStorage.setItem('less',less);
             },
             getCouponList:function () {
                 var token = localStorage.getItem('token');
@@ -34,6 +46,7 @@ $(function(){
                             res.result[i].allMoney = allMoney
                         }
                         vmDiscount.couponList = res.result;
+                        vmDiscount.selectCoupon();
                     }
                 });
             }

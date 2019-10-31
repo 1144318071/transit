@@ -277,10 +277,10 @@ $(function(){
                 vmOrder.postData.goods_status = goods_status;
                 vmOrder.postData.order_status = order_status;
                 getAjax(API.URL_GET_ORDERLIST,'get',vmOrder.postData).then(function(res){
-                    if(res.code == 200){
-                        vmOrder.getPageList(elem,res.count);
+                    if(res.code == 200) {
+                        vmOrder.getPageList(elem, res.count);
                         var result = res.result;
-                        for(var i in result ){
+                        for (var i in result) {
                             result[i].start_address.city = getCityName(result[i].start_address.city);
                             result[i].start_address.area = getAreaName(result[i].start_address.area);
                             result[i].end_address.city = getCityName(result[i].end_address.city);

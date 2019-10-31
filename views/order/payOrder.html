@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <link rel="stylesheet" href="../../plugins/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../../plugins/layui/dist/css/layui.css">
+        <link rel="stylesheet" href="../../common/css/reset.css">
+        <link rel="stylesheet" href="../../common/css/common.css">
+        <link rel="stylesheet" href="../../css/order/checkModel.css">
+        <title>纵运支付收银台</title>
+    </head>
+    <body>
+        <div class="payMoney" ms-controller='root'>
+            <div class="payOrder">
+                <div class="payTitle">纵运支付收银台</div>
+                <div class="payContent">
+                    <div class="tipsTitle font26">请输入6位支付密码</div>
+                    <input type="password" id="pwd" ms-duplex="@postData.pay_password" ms-focus maxlength="6" />
+                    <form action="" method="post" name="payPassword" id="form_paypsw">
+                        <div id="payPassword_container" class="alieditContainer clearfix" data-busy="0">
+                            <div class="i-block" data-error="i_error">
+                                <div class="i-block six-password">
+                                    <input class="i-text sixDigitPassword" id="payPassword_rsainput" type="password" autocomplete="off" required="required" value="" name="payPassword_rsainput" data-role="sixDigitPassword" tabindex="" maxlength="6" minlength="6" aria-required="true">
+                                    <div tabindex="0" class="sixDigitPassword-box" style="width: 332px;">
+                                        <i style="width: 55px; border-color: transparent;" class=""><b style="visibility: hidden;"></b></i>
+                                        <i style="width: 55px;"><b style="visibility: hidden;"></b></i>
+                                        <i style="width: 55px;"><b style="visibility: hidden;"></b></i>
+                                        <i style="width: 55px;"><b style="visibility: hidden;"></b></i>
+                                        <i style="width: 55px;"><b style="visibility: hidden;"></b></i>
+                                        <i style="width: 55px;"><b style="visibility: hidden;"></b></i>
+                                        <span style="width: 55px; left: 0px; visibility: hidden;" id="cardwrap" data-role="cardwrap"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <p class="color-999 orderMoney font24">订单金额<span class="ml6 mr6">:</span><span class="color-orange">253元</span></p>
+                </div>
+                <ul class="buttons clearfix">
+                    <li><button ms-on-click="@cancel">取消</button></li>
+                    <li><button ms-on-click="@payMoney">确认支付</button></li>
+                </ul>
+            </div>
+        </div>
+        <script src='../../plugins/jquery/jquery.min.js'></script>
+        <script src="../../js/order/jquery-validate.js"></script>
+        <script src='../../plugins/layui/dist/layui.js'></script>
+        <script src='../../plugins/avalon/avalon.min.js'></script>
+        <script src="../../data/api.js"></script>
+        <script src="../../data/return_data.js"></script>
+        <script src="../../js/order/payOrder.js"></script>
+    </body>
+</html>

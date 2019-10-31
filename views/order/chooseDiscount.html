@@ -17,7 +17,7 @@
                 <span class='title'>选择抵用券</span>
             </div>
             <div class="discountDetail">
-                <div class="discountItem pull-left rl" ms-for="el in @couponList" ms-if="el.type=='10' && (el.allMoney>el.full) " ms-attr="{ id : 'discount_'+el.id }" ms-on-click="@chooseCoupon('discount_'+el.id,el.id)">
+                <div class="discountItem pull-left rl" ms-for="el in @couponList" ms-if="el.type=='10' && (el.allMoney>el.full) " ms-attr="{ id : 'discount_'+el.id }" ms-on-click="@chooseCoupon('discount_'+el.id,el.id,el.less)">
                     <ul>
                         <li class="price">¥<span ms-text="el.less">200</span></li>
                         <li class="font12 color-999">仅限使用一张</li>
@@ -30,9 +30,9 @@
                     <div class="clearfix"></div>
                     <div class="selected"><img src="../../images/discountSelected.png" alt=""></div>
                 </div>
-                <div class="discountItem pull-left rl" ms-for="el in @couponList" ms-if="el.type=='10' && (el.allMoney<el.full)" ms-class="el.allMoney < el.full ? 'color-999':''">
+                <div class="discountItem pull-left rl" ms-for="el in @couponList" ms-if="el.type=='10' && (el.allMoney<el.full)" ms-class="el.allMoney < el.full ? 'color-999':''"  ms-attr="{ id : 'discount_'+el.id }">
                     <ul>
-                        <li class="price">¥<span ms-text="el.less">200</span></li>
+                        <li class="price">¥<span ms-text="el.less"></span></li>
                         <li class="font12 color-999">仅限使用一张</li>
                     </ul>
                     <ul>

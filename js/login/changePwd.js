@@ -14,13 +14,15 @@ $(function () {
             },
             // 获取验证码
             getCheckCode:function(){
-                var mobile = vmChangePwd.postData.username;
-                if(mobile == ""){
+            	var phone = vmChangePwd.postData.username;
+                if(phone == ""){
                     alertMsg('手机号不能为空',2);
                 }else{
-                    let phoneReg = /^[1][3,4,5,7,8][0-9]{9}$/;
-                    if(phoneReg.test(mobile)){
-                        var token  = localStorage.getItem('token');
+                	if(!(/^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/.test(phone))){ 
+				       alertMsg("请输入正确格式的手机号",2);  
+				       $('.layui-btn-Code').attr('disabled',true);
+				    }else{
+				    	var token  = localStorage.getItem('token');
                         var getCode = {
                             '_token_': token,
                             'mobile': vmChangePwd.postData.username
@@ -40,9 +42,7 @@ $(function () {
                             }
                             count--;
                         },1000);
-                    }else{
-                        alertMsg('手机号格式错误,请重新输入',2);
-                    }
+				    }
                 }
             },
             // 修改密码

@@ -242,8 +242,8 @@ $(function(){
               vmCarFilter.filterSearch.status = status;
               getAjax(API.URL_GET_FILTERSEARCH,'get',vmCarFilter.filterSearch).then(function(res){
                   vmCarFilter.searchList = res.result;
-                  var result = res.result;
                   vmCarFilter.countData = res.result.count;
+                  var result = res.result;
                   for(var i in result){
                       if(result[i].image !=''){
                           result[i].image = getApiHost + result[i].image;

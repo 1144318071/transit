@@ -129,7 +129,7 @@
                     </div>
                     <div class='row orderContent'  ms-attr="{ id : 'active_' + @orderInfo.goods_id }" ms-on-mouseover="@setActive('active_' + @orderInfo.goods_id)" ms-on-mouseout="@removeActive('active_' + @orderInfo.goods_id)">
                         <div class='col-md-2 col-sm-2'>
-                            <img ms-attr="{ src : @orderInfo.goods_images }" width="134" height="139" alt="">
+                            <img ms-attr="{ src : @orderInfo.image }" width="134" height="139" alt="">
                         </div>
                         <div class='orderDes col-md-8 col-sm-8'>
                             <ul>
@@ -171,7 +171,8 @@
                     </ul>
                     <ul class="clearfix">
                         <li>共计金额<span class="ml4 mr10">:</span></li>
-                        <li style="margin-top:-10px">人民币<span class="font26 fontw" ms-text="@orderInfo.all_money"></span>元</li>
+                        <li ms-visible="@orderInfo.less =='' || @orderInfo.less == null" style="margin-top:-10px">人民币<span class="font26 fontw" ms-text="@orderInfo.all_money"></span>元</li>
+                        <li ms-visible="@orderInfo.less !='' && @orderInfo.less != null" style="margin-top:-10px">人民币<span class="font26 fontw" ms-text="@orderInfo.disCountMoney"></span>元</li>
                     </ul>
                     <ul  class="clearfix payWay">
                         <li>支付方式<span class="ml4 mr10">:</span></li>
@@ -187,7 +188,8 @@
                     </div>
                     <ul class="buttons  btn-pay clearfix">
                         <li><button ms-on-click="@resetData">重置</button></li>
-                        <li class="ml85"><button ms-on-click-1="@payTip" ms-on-click-2="@payFail" ms-on-click-3="@paySuccess">去支付</button></li>
+                        <!-- ms-on-click-1="@payTip" ms-on-click-2="@payFail" ms-on-click-3="@paySuccess"-->
+                        <li class="ml85"><button ms-on-click="@payOrder">去支付</button></li>
                     </ul>
                 </div>
             </div>
