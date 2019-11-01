@@ -29,6 +29,8 @@ var API = {
     URL_POST_UPDATEAVATAR : getApiHost + '/personal/update/avatar',
     //修改支付密码
     URL_POST_SETPAYMENT : getApiHost + '/personal/set/payment',
+    //意见反馈
+    URL_POST_FEEDBACK : getApiHost + '/question/feedback',
     //----------------------------------------------账户管理-----------------------------------
     //银行卡列表
     URL_GET_BANKLIST : getApiHost + '/bank/list',

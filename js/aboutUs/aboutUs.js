@@ -46,17 +46,27 @@ $('.del').click(function () {
 avalon.ready(function(){
     window.vmAboutUs = avalon.define({
         $id : 'root',
+        postData:{
+         '_token_':'',
+         'question_type':'',
+         'question_details':'',
+         'question_picture':''
+        },
         aboutUsContent:{},
         onLoad:function(){
             vmAboutUs.getAboutContent();
         },
         getAboutContent:function(){
             var token = localStorage.getItem('token');
+            vmAboutUs.postData._token_ = token;
             getAjax(API.URL_GET_ABOUTUS,'get',{'_token_':token}).then(function (res) {
                 vmAboutUs.aboutUsContent = res.result;
                 console.log(res.result)
             });
         },
+        feedback:function(){
+
+        }
     });
     vmAboutUs.onLoad();
     avalon.scan(document.body);

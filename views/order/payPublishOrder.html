@@ -16,199 +16,278 @@
 </head>
 
 <body>
-<div class='header fixHeader' ms-controller='header'>
-    <header>
-        <!-- 版心 -->
-        <div class='content_box'>
-            <!-- 顶部的引导导航条 -->
-            <div class='row topBar'>
-                <div class='col-md-6 col-sm-6'>
-                    <div class='row'>
-                        <div class='col-sm-5'>欢迎登陆纵运汽车服务平台</div>
-                        <div class='col-sm-7 citySelect'>成都市|
-                            <input class="address" value="切换">
+    <div class='header fixHeader' ms-controller='header'>
+        <header>
+            <!-- 版心 -->
+            <div class='content_box'>
+                <!-- 顶部的引导导航条 -->
+                <div class='row topBar'>
+                    <div class='col-md-6 col-sm-6'>
+                        <div class='row'>
+                            <div class='col-sm-5'>欢迎登陆纵运汽车服务平台</div>
+                            <div class='col-sm-7 citySelect'>成都市|
+                                <input class="address" value="切换">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class='col-md-6 col-sm-6'>
-                    <div class='row  text-right'>
-                        <div class='col-sm-2 col-sm-offset-6'>消息</div>
-                        <div class='col-md-4 col-sm-4 userInfo text-left'>
-                            <ul class='clearfix'>
-                                <li class="userMsg dis_none ml10"><img width="32px" height="32px" id="avatar"/></li>
-                                <li class="userMsg dis_none" ms-text="@userInfo.username" data-src="../personal/personal.html" ms-on-click="@getPage($event)"></li>
-                                <li class="userLogin">您好,请<a href='../../login.html'>登录</a></li>
-                            </ul>
+                    <div class='col-md-6 col-sm-6'>
+                        <div class='row  text-right'>
+                            <div class='col-sm-2 col-sm-offset-6'>消息</div>
+                            <div class='col-md-4 col-sm-4 userInfo text-left'>
+                                <ul class='clearfix'>
+                                    <li class="userMsg dis_none ml10"><img width="32px" height="32px" id="avatar"/></li>
+                                    <li class="userMsg dis_none" ms-text="@userInfo.username" data-src="../personal/personal.html" ms-on-click="@getPage($event)"></li>
+                                    <li class="userLogin">您好,请<a href='../../login.html'>登录</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
-    <!-- 导航条 -->
-    <div class='navBar  fixNavBar'>
-        <!-- 版心 -->
-        <div class='content_box'>
-            <div class="row">
-                <div class="col-md-3 col-sm-3 bg-fff">
-                    <div class='row'>
-                        <div class='col-sm-9 text-left'><img src="../../images/logo.png" width='202px' height='80px' alt="logo"></div>
+        </header>
+        <!-- 导航条 -->
+        <div class='navBar  fixNavBar'>
+            <!-- 版心 -->
+            <div class='content_box'>
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 bg-fff">
+                        <div class='row'>
+                            <div class='col-sm-9 text-left'><img src="../../images/logo.png" width='202px' height='80px' alt="logo"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-9 col-sm-9 pl0">
-                    <ul class="layui-nav">
-                        <li class="layui-nav-item" data-src='../../index.html'><a href="javascript:;">首页</a></li>
-                        <li class="layui-nav-item" data-src='../../views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
-                        <li class="layui-nav-item" data-src='../../views/financial/financial.html'><a href="javascript:;">金融中心</a></li>
-                        <li class="layui-nav-item merchant layui-this" data-src='javascript:;' ms-on-click="@setDisable('MERCHANT')">
-                            <a href="javascript:;" data-src="javascript:;">运输管理</a>
-                            <dl class="layui-nav-child">
-                                <dd><a href="../order/order.html?state=10" style="color:#f57619!important">渣土运输</a></dd>
-                                <dd><a href="../order/order.html?state=20" style="color:#f57619!important">产业运输</a></dd>
-                            </dl>
-                        </li>
+                    <div class="col-md-9 col-sm-9 pl0">
+                        <ul class="layui-nav">
+                            <li class="layui-nav-item" data-src='../../index.html'><a href="javascript:;">首页</a></li>
+                            <li class="layui-nav-item" data-src='../../views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
+                            <li class="layui-nav-item" data-src='../../views/financial/financial.html'><a href="javascript:;">金融中心</a></li>
+                            <li class="layui-nav-item merchant layui-this" data-src='javascript:;' ms-on-click="@setDisable('MERCHANT')">
+                                <a href="javascript:;" data-src="javascript:;">运输管理</a>
+                                <dl class="layui-nav-child">
+                                    <dd><a href="../order/order.html?state=10" style="color:#f57619!important">渣土运输</a></dd>
+                                    <dd><a href="../order/order.html?state=20" style="color:#f57619!important">产业运输</a></dd>
+                                </dl>
+                            </li>
 
-                        <li class="layui-nav-item logistics" data-src='../../views/logistics/logistics.html' ms-on-click="@setDisable('LOGISTICS')"><a href="javascript:;">物流公司</a></li>
-                        <li class="layui-nav-item" data-src='../../views/cooperate/cooperate.html'><a  href="javascript:;">我要合作</a></li>
-                        <li class="layui-nav-item" data-src='javascript:;'><a href="javascript:;">APP下载</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class='publishOrder bg-gray' ms-controller='root'>
-    <div class='content_box'>
-        <!-- 加盟广告 -->
-        <div class='ads'>
-            <img src="../../images/ads.png" width='100%' height='144px' alt="加盟广告">
-        </div>
-        <div class='row breadNav'>
-            <div class='col-md-12 col-sm-12 ml0'>
-                <span>当前位置<span style='margin:0 8px;'>:</span></span>
-                <span class="layui-breadcrumb" lay-separator=">">
-                        <a href="../../index.html">首页</a>
-                        <a href="order.html">运输管理</a>
-                        <a href='javascript:;'><cite>发布订单</cite></a>
-                    </span>
-            </div>
-        </div>
-        <div class='publishSteps clearfix'>
-            <ul>
-                <li><img src="../../images/step_one.png" alt="填写订单资料"></li>
-                <li>填写订单资料</li>
-            </ul>
-            <div class='stepLine'></div>
-            <ul>
-                <li><img src="../../images/step_two.png" alt="选择运输保单"></li>
-                <li>选择运输保单</li>
-            </ul>
-            <div class='stepLine'></div>
-            <ul>
-                <li><img src="../../images/step_three.png" alt="支付运费"></li>
-                <li>支付运费</li>
-            </ul>
-            <div class='stepLine'></div>
-            <ul>
-                <li><img src="../../images/step_three.png" alt="发布订单"></li>
-                <li>发布订单</li>
-            </ul>
-        </div>
-        <div class='formContent'>
-            <div class="orderDetail">
-                <div class='titleLine detailTitle'>
-                    <span class='line'></span>
-                    <span class='title fontw'>支付订单</span>
-                </div>
-                <div class='order-detail'>
-                    <div class='orderTitle clearfix'>
-                        <ul class='pull-left clearfix'>
-                            <li>订单编号<span>:</span></li>
-                            <li ms-text="@orderInfo.goods_number">1451234564</li>
+                            <li class="layui-nav-item logistics" data-src='../../views/logistics/logistics.html' ms-on-click="@setDisable('LOGISTICS')"><a href="javascript:;">物流公司</a></li>
+                            <li class="layui-nav-item" data-src='../../views/cooperate/cooperate.html'><a  href="javascript:;">我要合作</a></li>
+                            <li class="layui-nav-item" data-src='javascript:;'><a href="javascript:;">APP下载</a></li>
                         </ul>
                     </div>
-                    <div class='row orderContent'  ms-attr="{ id : 'active_' + @orderInfo.goods_id }" ms-on-mouseover="@setActive('active_' + @orderInfo.goods_id)" ms-on-mouseout="@removeActive('active_' + @orderInfo.goods_id)">
-                        <div class='col-md-2 col-sm-2'>
-                            <img ms-attr="{ src : @orderInfo.image }" width="134" height="139" alt="">
-                        </div>
-                        <div class='orderDes col-md-8 col-sm-8'>
-                            <ul>
-                                <li ms-on-click="@checkDetail(@orderInfo.goods_id)">
-                                    <span ms-text="@startAddress.city"></span>
-                                    <span ms-text="@startAddress.area"></span>
-                                    <span>→</span>
-                                    <span ms-text="@endAddress.city"></span>
-                                    <span ms-text="@endAddress.area"></span>
-                                </li>
-                                <li>
-                                    <span><span ms-text="@orderInfo.car_length"></span>米/</span>
-                                    <span><span ms-text="@orderInfo.car_model"></span>/</span>
-                                    <span><span ms-text="@orderInfo.weight"></span>吨/</span>
-                                    <span><span ms-text="@orderInfo.volume"></span>方</span>
-                                </li>
-                                <li>
-                                    <span><span ms-text="@orderInfo.goods_type"></span>/</span>
-                                    <span ms-text="@orderInfo._type"></span>
-                                </li>
-                                <li>待付金额&nbsp;:&nbsp;<span ms-text="@orderInfo.money"></span>元</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="orderPrice">
-                    <div class="title">运费计算</div>
-                    <ul class="clearfix">
-                        <li>运费金额<span class="ml4 mr10">:</span></li>
-                        <li><span ms-text="@orderInfo.money"></span>元</li>
-                    </ul>
-                    <ul class="clearfix">
-                        <li>保单金额<span class="ml4 mr10">:</span></li>
-                        <li><span ms-text="@orderInfo.safety_money"></span>元</li>
-                    </ul>
-                    <ul class="clearfix">
-                        <li>&emsp;抵用券<span class="ml4 mr10">:</span></li>
-                        <li class="discount color-orange cursor" ms-on-click="@chooseDiscount(@orderInfo.all_money)">使用抵用券&gt;&gt;</li>
-                    </ul>
-                    <ul class="clearfix">
-                        <li>共计金额<span class="ml4 mr10">:</span></li>
-                        <li ms-visible="@orderInfo.less =='' || @orderInfo.less == null" style="margin-top:-10px">人民币<span class="font26 fontw" ms-text="@orderInfo.all_money"></span>元</li>
-                        <li ms-visible="@orderInfo.less !='' && @orderInfo.less != null" style="margin-top:-10px">人民币<span class="font26 fontw" ms-text="@orderInfo.disCountMoney"></span>元</li>
-                    </ul>
-                    <ul  class="clearfix payWay">
-                        <li>支付方式<span class="ml4 mr10">:</span></li>
-                        <li>
-                            <button ms-on-click="@payWay('Balance')">余额支付</button>
-                            <button ms-on-click="@payWay('Alipay')" class="aliPay">支付宝</button>
-                            <button ms-on-click="@payWay('WeChat')" class="weChatPay">微信支付</button>
-                            <button ms-on-click="@payWay('UnionPay')" class="bankCardPay">银行卡支付</button>
-                        </li>
-                    </ul>
-                    <div class="bankCars">
-
-                    </div>
-                    <ul class="buttons  btn-pay clearfix">
-                        <li><button ms-on-click="@resetData">重置</button></li>
-                        <!-- ms-on-click-1="@payTip" ms-on-click-2="@payFail" ms-on-click-3="@paySuccess"-->
-                        <li class="ml85"><button ms-on-click="@payOrder">去支付</button></li>
-                    </ul>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<script src='../../plugins/common/include.js'></script>
-<include src='../../views/footer/footer.html'></include>
-<script src='../../plugins/jquery/jquery.min.js'></script>
-<script src='../../plugins/layui/dist/layui.js'></script>
-<script src='../../plugins/avalon/avalon.min.js'></script>
-<script src='../../plugins/distpicker/distpicker.data.js'></script>
-<script src='../../plugins/distpicker/distpicker.js'></script>
-<script src='../../plugins/distpicker/main.js'></script>
-<script src='../../common/js/kuCity.js'></script>
-<script src="../../data/data.js"></script>
-<script src='../../data/api.js'></script>
-<script src='../../data/return_data.js'></script>
-<script src='../../js/header.js'></script>
-<script src="../../js/order/payPublishOrder.js"></script>
+    <div ms-controller="root">
+        <div class='publishOrder bg-gray'>
+            <div class='content_box'>
+                <!-- 加盟广告 -->
+                <div class='ads'>
+                    <img src="../../images/ads.png" width='100%' height='144px' alt="加盟广告">
+                </div>
+                <div class='row breadNav'>
+                    <div class='col-md-12 col-sm-12 ml0'>
+                        <span>当前位置<span style='margin:0 8px;'>:</span></span>
+                        <span class="layui-breadcrumb" lay-separator=">">
+                                <a href="../../index.html">首页</a>
+                                <a href="order.html">运输管理</a>
+                                <a href='javascript:;'><cite>发布订单</cite></a>
+                            </span>
+                    </div>
+                </div>
+                <div class='publishSteps clearfix'>
+                    <ul>
+                        <li><img src="../../images/step_one.png" alt="填写订单资料"></li>
+                        <li>填写订单资料</li>
+                    </ul>
+                    <div class='stepLine'></div>
+                    <ul>
+                        <li><img src="../../images/step_two.png" alt="选择运输保单"></li>
+                        <li>选择运输保单</li>
+                    </ul>
+                    <div class='stepLine'></div>
+                    <ul>
+                        <li><img src="../../images/step_three.png" alt="支付运费"></li>
+                        <li>支付运费</li>
+                    </ul>
+                    <div class='stepLine'></div>
+                    <ul>
+                        <li><img src="../../images/step_three.png" alt="发布订单"></li>
+                        <li>发布订单</li>
+                    </ul>
+                </div>
+                <div class='formContent'>
+                    <div class="orderDetail">
+                        <div class='titleLine detailTitle'>
+                            <span class='line'></span>
+                            <span class='title fontw'>支付订单</span>
+                        </div>
+                        <div class='order-detail'>
+                            <div class='orderTitle clearfix'>
+                                <ul class='pull-left clearfix'>
+                                    <li>订单编号<span>:</span></li>
+                                    <li ms-text="@orderInfo.goods_number">1451234564</li>
+                                </ul>
+                            </div>
+                            <div class='row orderContent'  ms-attr="{ id : 'active_' + @orderInfo.goods_id }" ms-on-mouseover="@setActive('active_' + @orderInfo.goods_id)" ms-on-mouseout="@removeActive('active_' + @orderInfo.goods_id)">
+                                <div class='col-md-2 col-sm-2'>
+                                    <img ms-attr="{ src : @orderInfo.image }" width="134" height="139" alt="">
+                                </div>
+                                <div class='orderDes col-md-8 col-sm-8'>
+                                    <ul>
+                                        <li ms-on-click="@checkDetail(@orderInfo.goods_id)">
+                                            <span ms-text="@startAddress.city"></span>
+                                            <span ms-text="@startAddress.area"></span>
+                                            <span>→</span>
+                                            <span ms-text="@endAddress.city"></span>
+                                            <span ms-text="@endAddress.area"></span>
+                                        </li>
+                                        <li>
+                                            <span><span ms-text="@orderInfo.car_length"></span>米/</span>
+                                            <span><span ms-text="@orderInfo.car_model"></span>/</span>
+                                            <span><span ms-text="@orderInfo.weight"></span>吨/</span>
+                                            <span><span ms-text="@orderInfo.volume"></span>方</span>
+                                        </li>
+                                        <li>
+                                            <span><span ms-text="@orderInfo.goods_type"></span>/</span>
+                                            <span ms-text="@orderInfo._type"></span>
+                                        </li>
+                                        <li>待付金额&nbsp;:&nbsp;<span ms-text="@orderInfo.money"></span>元</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="orderPrice">
+                            <div class="title">运费计算</div>
+                            <ul class="clearfix">
+                                <li>运费金额<span class="ml4 mr10">:</span></li>
+                                <li><span ms-text="@orderInfo.money"></span>元</li>
+                            </ul>
+                            <ul class="clearfix">
+                                <li>保单金额<span class="ml4 mr10">:</span></li>
+                                <li><span ms-text="@orderInfo.safety_money"></span>元</li>
+                            </ul>
+                            <ul class="clearfix">
+                                <li>&emsp;抵用券<span class="ml4 mr10">:</span></li>
+                                <li class="discount color-orange cursor" ms-on-click="@chooseDiscount">使用抵用券&gt;&gt;</li>
+                            </ul>
+                            <ul class="clearfix">
+                                <li>共计金额<span class="ml4 mr10">:</span></li>
+                                <li style="margin-top:-10px">人民币<span class="font26 fontw" ms-text="@orderInfo.all_money"></span>元</li>
+                            </ul>
+                            <ul  class="clearfix payWay">
+                                <li>支付方式<span class="ml4 mr10">:</span></li>
+                                <li>
+                                    <button ms-on-click="@payWay('Balance')">余额支付</button>
+                                    <button ms-on-click="@payWay('Alipay')" class="aliPay">支付宝</button>
+                                    <button ms-on-click="@payWay('WeChat')" class="weChatPay">微信支付</button>
+                                    <button ms-on-click="@payWay('UnionPay')" class="bankCardPay">银行卡支付</button>
+                                </li>
+                            </ul>
+                            <div class="bankCars">
+
+                            </div>
+                            <ul class="buttons  btn-pay clearfix">
+                                <li><button ms-on-click="@resetData">重置</button></li>
+                                <!-- ms-on-click-1="@payTip" ms-on-click-2="@payFail" ms-on-click-3="@paySuccess"-->
+                                <li class="ml85"><button ms-on-click="@payOrder">去支付</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--选择优惠券-->
+        <div id="chooseDiscount" style="display: none">
+            <div class='discount'>
+                <div class='titleLine'>
+                    <span class='line'></span>
+                    <span class='title'>选择抵用券</span>
+                </div>
+                <div class="discountDetail">
+                    <div class="discountItem pull-left rl" ms-for="el in @couponList" ms-if="el.type=='10' && (el.allMoney>el.full) " ms-attr="{ id : 'discount_'+ el.id }" ms-on-click="@chooseCoupon('discount_'+el.id,el.id,el.less)">
+                        <ul>
+                            <li class="price">¥<span ms-text="el.less"></span></li>
+                            <li class="font12 color-999">仅限使用一张</li>
+                        </ul>
+                        <ul>
+                            <li class="font20 fontw">抵用券</li>
+                            <li class="font20">满<span ms-text="el.full"></span>减<span ms-text="el.less"></span></li>
+                            <li class="font12 color-999"><span ms-text="el.use_time"></span>至<span ms-text="el.expired_time"></span></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                        <div class="selected"><img src="../../images/discountSelected.png" alt=""></div>
+                    </div>
+                    <div class="discountItem pull-left rl" ms-for="el in @couponList" ms-if="el.type=='10' && (el.allMoney<el.full)" ms-class="el.allMoney < el.full ? 'color-999':''"  ms-attr="{ id : 'discount_'+el.id }">
+                        <ul>
+                            <li class="price">¥<span ms-text="el.less"></span></li>
+                            <li class="font12 color-999">仅限使用一张</li>
+                        </ul>
+                        <ul>
+                            <li class="font20 fontw">抵用券</li>
+                            <li class="font20">满<span ms-text="el.full"></span>减<span ms-text="el.less"></span></li>
+                            <li class="font12 color-999"><span ms-text="el.use_time"></span>至<span ms-text="el.expired_time"></span></li>
+                        </ul>
+                        <div class="clearfix"></div>
+                        <div class="selected"><img src="../../images/discountSelected.png" alt=""></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <ul class='buttons clearfix'>
+                        <li><button class='btn-orange' ms-on-click="@chooseCancel">取消</button></li>
+                        <li><button class='btn-orange' ms-on-click="@confirm">确定</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--支付弹窗-->
+        <div id="pay"  style="display: none">
+        <div class="payMoney">
+            <div class="payOrder">
+                <div class="payTitle">纵运支付收银台</div>
+                <div class="payContent">
+                    <div class="tipsTitle font26">请输入6位支付密码</div>
+                    <input type="password" id="pwd" ms-focus maxlength="6" />
+                    <form action="" method="post" name="payPassword" id="form_paypsw">
+                        <div id="payPassword_container" class="alieditContainer clearfix" data-busy="0">
+                            <div class="i-block" data-error="i_error">
+                                <div class="i-block six-password">
+                                    <input class="i-text sixDigitPassword" id="payPassword_rsainput" type="password" autocomplete="off" required="required" value="" ms-duplex="@payData.pay_password" name="payPassword_rsainput" data-role="sixDigitPassword" tabindex="" maxlength="6" minlength="6" aria-required="true">
+                                    <div tabindex="0" class="sixDigitPassword-box" style="width: 332px;">
+                                        <i style="width: 55px; border-color: transparent;" class=""><b style="visibility: hidden;"></b></i>
+                                        <i style="width: 55px;"><b style="visibility: hidden;"></b></i>
+                                        <i style="width: 55px;"><b style="visibility: hidden;"></b></i>
+                                        <i style="width: 55px;"><b style="visibility: hidden;"></b></i>
+                                        <i style="width: 55px;"><b style="visibility: hidden;"></b></i>
+                                        <i style="width: 55px;"><b style="visibility: hidden;"></b></i>
+                                        <span style="width: 55px; left: 0px; visibility: hidden;" id="cardwrap" data-role="cardwrap"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <p class="color-999 orderMoney font24">订单金额<span class="ml6 mr6">:</span><span class="color-orange"><span  ms-text="@orderInfo.all_money"></span>元</span></p>
+                </div>
+                <ul class="buttons clearfix">
+                    <li><button ms-on-click="@cancel">取消</button></li>
+                    <li><button ms-on-click="@payMoney">确认支付</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src='../../plugins/common/include.js'></script>
+    <include src='../../views/footer/footer.html'></include>
+    <script src='../../plugins/jquery/jquery.min.js'></script>
+    <script src='../../plugins/layui/dist/layui.js'></script>
+    <script src='../../plugins/avalon/avalon.min.js'></script>
+    <script src='../../plugins/distpicker/distpicker.data.js'></script>
+    <script src='../../plugins/distpicker/distpicker.js'></script>
+    <script src='../../plugins/distpicker/main.js'></script>
+    <script src='../../common/js/kuCity.js'></script>
+    <script src="../../data/data.js"></script>
+    <script src='../../data/api.js'></script>
+    <script src='../../data/return_data.js'></script>
+    <script src='../../js/header.js'></script>
+    <script src="../../js/order/jquery-validate.js"></script>
+    <script src="../../js/order/payPublishOrder.js"></script>
 </body>
 </html>

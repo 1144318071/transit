@@ -2,6 +2,10 @@ $('.personalList li').click(function () {
     $(this).addClass('active').siblings().removeClass('active');
     $('.personalContent .personalDetail').eq($(this).index()).show().siblings().hide();
 });
+$('.tabTitle li').click(function(){
+   $(this).addClass('active').siblings().removeClass('active');
+   $('.tabContent .tabItem').eq($(this).index()).show().siblings().hide();
+});
 layui.use(['laypage', 'layer'], function () {
     var laypage = layui.laypage,
         layer = layui.layer;
@@ -34,8 +38,10 @@ $(function(){
                 var token = localStorage.getItem('token');
                 vmPersonal.token = token;
                 vmPersonal.getUserInfo();
+
             },
             userInfo:{},
+            couponList:[],
             changePwd:function(){
                 var userType = JSON.parse(localStorage.getItem('userInfo')).type;
                 localStorage.setItem('_t', userType);
@@ -123,7 +129,6 @@ $(function(){
             //获取个人信息
             getUserInfo:function(){
                 getAjax(API.URL_GET_PERSONALINFO,'get',{'_token_':vmPersonal.token}).then(function(res){
-                    console.log('个人信息',res);
                     res.result.avatar = getApiHost + res.result.avatar;
                     vmPersonal.userInfo = res.result;
                     var userType = res.result.type;
@@ -149,7 +154,16 @@ $(function(){
                         break;
                     }
                 });
+                vmPersonal.getCouponList('10');
             },
+            //获取优惠券
+            getCouponList:function(status){
+                getAjax(API.URL_GET_COUPONLIST,'get',{'_token_':vmPersonal.token,'status':status}).then(function(res){
+                   if(res.code == 200){
+                       vmPersonal.couponList = res.result;
+                   }
+                });
+            }
         });
         vmPersonal.onLoad();
         avalon.scan(document.body);

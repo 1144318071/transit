@@ -116,15 +116,7 @@ payPassword.on('keyup',"input[name='payPassword_rsainput']",function(e){
 $(function(){
     avalon.ready(function () {
         window.vmPayMoney = avalon.define({
-            $id : 'root',
-            pwd:{
-                'pwd1':'',
-                'pwd2':'',
-                'pwd3':'',
-                'pwd4':'',
-                'pwd5':'',
-                'pwd6':''
-            },
+            $id : 'pay',
             postData:{
                 '_token_':'',
                 'type':'',
@@ -136,6 +128,7 @@ $(function(){
 
             },
             cancel:function(){
+                $('#pay').hide();
                 parent.layer.close(parent.layer.index);
             },
             payMoney:function () {
@@ -143,11 +136,8 @@ $(function(){
                 vmPayMoney.postData.type = localStorage.getItem('payWay');
                 vmPayMoney.postData.coupon_id = localStorage.getItem('coupon_id');
                 vmPayMoney.postData.goods_id = localStorage.getItem('goods_id');
-                vmPayMoney.postData.pay_password = vmPayMoney.pwd.pwd1 + vmPayMoney.pwd.pwd2 + vmPayMoney.pwd.pwd3 + vmPayMoney.pwd.pwd4 + vmPayMoney.pwd.pwd5 + vmPayMoney.pwd.pwd6;
-                console.log(vmPayMoney.postData);
                 getAjax(API.URL_POST_GOODSPAY,'post',vmPayMoney.postData).then(function(res){
                     if(res.code == 200){
-                        console.log(res);
                         alertMsg(res.message,1);
                     }
                 });

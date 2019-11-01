@@ -1,7 +1,7 @@
 $(function(){
     avalon.ready(function(){
         window.vmDiscount = avalon.define({
-            $id :'root',
+            $id :'discount',
             couponList:[],
             onLoad:function () {
                 vmDiscount.getCouponList();

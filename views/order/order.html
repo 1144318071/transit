@@ -143,13 +143,13 @@
                         <li ms-on-click="@getStatusOrder('demo7','40','60')">投诉/申诉<span style="color:#333!important">|</span></li>
                         <li ms-on-click="@getStatusOrder('demo8','40','70')">退款/赔付</li>
                     </ul>
-                    <ul class="search clearfix">
-                        <li><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
-                        <li><button class="btn-search">搜索</button></li>
-                    </ul>
                     <div class="tabContent">
                         <!--全部订单-->
                         <div class="tabItem">
+                            <ul class="search clearfix">
+                                <li><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
+                                <li><button class="btn-search" ms-on-click="@getSearchList('demo1','40','')">搜索</button></li>
+                            </ul>
                             <!--待支付-->
                             <div class="itemDetail" >
                                 <ul class="itemTitle clearfix">
@@ -556,6 +556,10 @@
                         </div>
                         <!--待支付-->
                         <div class="tabItem dis_none">
+                            <ul class="search clearfix">
+                                <li><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
+                                <li><button class="btn-search" ms-on-click="@getSearchList('demo2','10','')" >搜索</button></li>
+                            </ul>
                             <!--待支付-->
                             <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type == '10'"  ms-attr="{ id : 'active_' + el.goods_id }" ms-on-mouseover="@setActive('active_' + el.goods_id)" ms-on-mouseout="@removeActive('active_' + el.goods_id)">
                                 <ul class="itemTitle clearfix">
@@ -586,6 +590,10 @@
                         </div>
                         <!--待接单-->
                         <div class="tabItem dis_none">
+                            <ul class="search clearfix">
+                                <li><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
+                                <li><button class="btn-search" ms-on-click="@getSearchList('demo3','20','')" >搜索</button></li>
+                            </ul>
                             <!--待接单(货物运输)-->
                             <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type == '10'"  ms-attr="{ id : 'active_' + el.goods_id }" ms-on-mouseover="@setActive('active_' + el.goods_id)" ms-on-mouseout="@removeActive('active_' + el.goods_id)">
                                 <ul class="itemTitle clearfix">
@@ -646,6 +654,10 @@
                         </div>
                         <!--待装货-->
                         <div class="tabItem dis_none">
+                            <ul class="search clearfix">
+                                <li><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
+                                <li><button class="btn-search" ms-on-click="@getSearchList('demo4','40','10')">搜索</button></li>
+                            </ul>
                             <!--待装货状态-->
                             <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type == '10'"  ms-attr="{ id : 'active_' + el.goods_id }" ms-on-mouseover="@setActive('active_' + el.goods_id)" ms-on-mouseout="@removeActive('active_' + el.goods_id)">
                                 <ul class="itemTitle clearfix">
@@ -687,6 +699,10 @@
                         </div>
                         <!--运输中-->
                         <div class="tabItem dis_none">
+                            <ul class="search clearfix">
+                                <li><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
+                                <li><button class="btn-search">搜索</button></li>
+                            </ul>
                             <!--运输中(渣土运输)-->
                             <div class="itemDetail muckItem">
                                 <ul class="itemTitle clearfix">
@@ -758,6 +774,10 @@
                         </div>
                         <!--待签收-->
                         <div class="tabItem dis_none">
+                            <ul class="search clearfix">
+                                <li><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
+                                <li><button class="btn-search">搜索</button></li>
+                            </ul>
                             <!--待收货-->
                             <div class="itemDetail">
                                 <ul class="itemTitle clearfix">
@@ -799,6 +819,10 @@
                         </div>
                         <!--投诉/申诉-->
                         <div class="tabItem dis_none">
+                            <ul class="search clearfix">
+                                <li><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
+                                <li><button class="btn-search">搜索</button></li>
+                            </ul>
                             <!--货物运输完成(申诉中/取消申诉)-->
                             <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type == '10'">
                                 <ul class="itemTitle clearfix">
@@ -875,6 +899,10 @@
                         </div>
                         <!--赔付/退款-->
                         <div class="tabItem dis_none">
+                            <ul class="search clearfix">
+                                <li><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
+                                <li><button class="btn-search">搜索</button></li>
+                            </ul>
                             <!--退款中-->
                             <div class="itemDetail">
                                 <ul class="itemTitle clearfix">

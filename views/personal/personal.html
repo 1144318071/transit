@@ -96,6 +96,7 @@
                     <li class='active'>个人资料</li>
                     <li>车辆管理</li>
                     <li>消息</li>
+                    <li>卡券</li>
                     <li>账户</li>
                     <li>银行卡</li>
                     <li>代理商家</li>
@@ -156,7 +157,7 @@
                                 <ul class='clearfix'>
                                     <li>实名认证</li>
                                     <li>:</li>
-                                    <li></li>
+                                    <li><img class="idCard" src="../../images/idCard.png" /></li>
                                 </ul>
                             </div>
                         </div>
@@ -177,7 +178,10 @@
                                 <ul class='clearfix'>
                                     <li>营业执照</li>
                                     <li>:</li>
-                                    <li ms-text="@userInfo.business_license_number"></li>
+                                    <li>
+                                        <span ms-text="@userInfo.business_license_number"></span>
+                                        <img class="licenseLogo" src="../../images/yyzz.png" />
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -260,6 +264,79 @@
                                 </div>
                             </div>
                             <div class='col-md-2 col-sm-2 text-right'><button class='btn-del'>删除</button></div>
+                        </div>
+                    </div>
+                </div>
+                <!--卡券-->
+                <div class="personalDetail discountCard dis_none">
+                    <ul class="tabTitle clearfix">
+                        <li class="active" ms-on-click="@getCouponList('10')">未使用</li>
+                        <li ms-on-click="@getCouponList('20')">已使用</li>
+                        <li ms-on-click="@getCouponList('30')">已过期</li>
+                    </ul>
+                    <div class="tabContent">
+                        <!--未使用(10)-->
+                        <div class="tabItem">
+                            <div class="discountDetail clearfix">
+                                <div class="discountItem pull-left rl" ms-for="el in @couponList">
+                                    <ul>
+                                        <li class="price">¥<span ms-text="el.less"></span></li>
+                                        <li class="font12 color-999">仅限使用一张</li>
+                                    </ul>
+                                    <ul>
+                                        <li class="font20 fontw">抵用券</li>
+                                        <li class="font20">满<span ms-text="el.full">1000</span>减<span ms-text="el.less"></span></li>
+                                        <li class="font12 color-999"><span ms-text="el.use_time"></span>至<span ms-text="el.expired_time"></span></li>
+                                    </ul>
+                                </div>
+                                <!--<div class="discountItem pull-left rl">
+                                    <ul>
+                                        <li class="price">¥<span>200</span></li>
+                                        <li class="font12 color-999">仅限使用一张</li>
+                                    </ul>
+                                    <ul>
+                                        <li class="font20 fontw">抵用券</li>
+                                        <li class="font20">满<span>1000</span>减<span>500</span></li>
+                                        <li class="font12 color-999"><span>2019-12-12</span>至<span>2019-12-24</span></li>
+                                    </ul>
+                                </div>-->
+                            </div>
+                        </div>
+                        <!--已使用(20)-->
+                        <div class="tabItem dis_none">
+                            <div class="discountDetail clearfix">
+                                <div class="discountItem usedItem pull-left rl" ms-for="el in @couponList">
+                                    <ul>
+                                        <li class="price">¥<span ms-text="el.less"></span></li>
+                                        <li class="font12 color-999">仅限使用一张</li>
+                                    </ul>
+                                    <ul class="color-999">
+                                        <li class="font20 fontw">抵用券</li>
+                                        <li class="font20">满<span ms-text="el.full"></span>减<span ms-text="el.less"></span></li>
+                                        <li class="font12"><span ms-text="el.use_time"></span>至<span ms-text="el.expired_time"></span></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="statusIcon"></div>
+                            </div>
+                        </div>
+                        <!--已过期(30)-->
+                        <div class="tabItem dis_none">
+                            <div class="discountDetail clearfix">
+                                <div class="discountItem usedItem pull-left rl" ms-for="el in @couponList">
+                                    <ul>
+                                        <li class="price">¥<span ms-text="el.less"></span></li>
+                                        <li class="font12 color-999">仅限使用一张</li>
+                                    </ul>
+                                    <ul class="color-999">
+                                        <li class="font20 fontw">抵用券</li>
+                                        <li class="font20">满<span ms-text="el.full"></span>减<span ms-text="el.less"></span></li>
+                                        <li class="font12"><span ms-text="el.use_time"></span>至<span ms-text="el.expired_time"></span></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="statusIcon"></div>
+                            </div>
                         </div>
                     </div>
                 </div>

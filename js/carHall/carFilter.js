@@ -91,6 +91,15 @@ layui.use(['laypage', 'layer'], function () {
         theme: '#f57619'
     });
 });
+/*排序(价格以及时间)*/
+$('.sort li').click(function(){
+    var text = $(this).find('.up').text();
+    if(text == '↑'){
+        $(this).find('.up').text('↓');
+    }else{
+        $(this).find('.up').text('↑');
+    }
+});
 $(function(){
    avalon.ready(function(){
       window.vmCarFilter = avalon.define({
@@ -123,7 +132,8 @@ $(function(){
               'country':'',
               'page':'',
               'limit':'',
-              'status':'10'
+              'status':'10',
+              'order':'',//price desc 价格倒序  price asc价格升序 create_time desc 时间倒序 create_time asc时间升序
           },
           /*搜索出来的结果*/
           searchList:[],
@@ -148,7 +158,7 @@ $(function(){
               postData._t = car_type;
               postData._m = type;
               vmCarFilter.filterSearch._t = car_type;
-              console.log(vmCarFilter.filterSearch._t)
+              console.log(vmCarFilter.filterSearch._t);
               vmCarFilter.filterSearch._m = type;
               getAjax(API.URL_GET_FILTERCONDITION,'get',postData).then(function(res){
                   var result = res.result;
@@ -179,6 +189,7 @@ $(function(){
                     }
                 }
           },
+          //样式渲染
           addStyle:function(el,kind,keyword){
               $('#'+el).addClass('active').siblings().removeClass('active');
               var text = $('#'+el).text();
@@ -188,8 +199,8 @@ $(function(){
               vmCarFilter.keyword = keyword;
               vmCarFilter.getSearchResult('10');
           },
+          //在售 即将上市 停售
           getSearchResult:function(status){
-              console.log(status)
               switch (vmCarFilter.kind ) {
                   case 'sha1':
                       vmCarFilter.filterSearch.sha1 = vmCarFilter.keyword;
@@ -265,8 +276,15 @@ $(function(){
                   }
               })
           },
+          //搜索
+          getSearchData:function(){
+
+          },
           getMoreData:function(drive){
             console.log(drive)
+          },
+          getSortData:function (el) {
+              var text = $('#'+el).find('.up').text();
           }
       }) ;
       vmCarFilter.onLoad();

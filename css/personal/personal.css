@@ -454,3 +454,87 @@ footer {
 .btn-orange a:visited {
   color: #fff !important;
 }
+/*实名人证图片*/
+.idCard{
+  cursor: pointer;
+}
+/*公司营业执照*/
+.licenseLogo{
+  vertical-align: middle;
+  margin-top: -5px;
+  margin-left: 4px;
+}
+/*卡券*/
+.tabContent{
+  margin-top: 41px;
+  width: 830px;
+  height: 802px;
+  background-color: #fffaf6;
+}
+.discountCard .tabTitle li.active{
+  color: #000;
+  border-bottom: 4px solid #f57619;
+}
+.discountCard .tabTitle li{
+  float: left;
+  cursor: pointer;
+}
+.discountCard .tabTitle li:not(:first-child){
+  margin-left: 92px;
+}
+.discountCard .tabTitle{
+  height: 65px;
+  line-height: 65px;
+  background-color: #fffaf6;
+  padding-left: 78px;
+  font-size: 20px;
+}
+/*选择抵用券*/
+.discountDetail{
+  margin-left: 65px;
+}
+.discountItem{
+  width: 334px;
+  background-color: #ffffff;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+.discountItem>ul{
+  float: left;
+  height: 101px;
+}
+.discountItem ul:first-child{
+  width: 106px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border: 1px solid #eaeaea;
+  text-align: center;
+  padding-top: 10px;
+}
+.discountItem ul:nth-child(2){
+  width: 228px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border: 1px solid #eaeaea;
+  border-left: 0px;
+  padding-top: 19px;
+  padding-left: 35px;
+  line-height: 24px;
+}
+.discountItem>ul .price{
+  color: #f51919;
+  font-size: 15px;
+}
+.discountItem>ul .price span{
+  font-size: 44px;
+}
+.discountDetail .discountItem{
+  margin-top: 42px;
+  cursor: pointer;
+}
+.discountDetail .discountItem:nth-child(2n){
+  margin-left: 30px;
+}
+.usedItem>ul .price{
+  color: #999;
+}

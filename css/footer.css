@@ -24,3 +24,6 @@ footer .qrCode {
   margin-top: 45px;
   padding-left: 160px;
 }
+.footerBar a:hover,.footerBar a:link,.footerBar a:visited{
+  color: #fff;
+}

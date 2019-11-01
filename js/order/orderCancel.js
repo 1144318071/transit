@@ -58,7 +58,10 @@ $(function(){
                 };
                 getAjax(API.URL_POST_GOODSCLOSEORDER,'post',postData).then(function (res) {
                     if(res.code == 200){
-                        console.log(res)
+                        alertMsg(res.message,1);
+                        setTimeout(function(){
+                            parent.layer.close(parent.layer.index);
+                        },1000);
                     }
                 })
             }

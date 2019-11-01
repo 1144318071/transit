@@ -253,7 +253,6 @@ $(function(){
                     $('#tabType').hide();
                     $('.order').css({'margin-top':'240px'});
                 }
-
             },
             //获取商家信息
             getMerchantInfo:function(){
@@ -314,6 +313,7 @@ $(function(){
             //根据订单状态请求数据
             getStatusOrder:function(el,good_status,order_status){
                 vmOrder.postData.page = '1';
+                vmOrder.postData.keyword='';
                 vmOrder.getOrderList(el,good_status,order_status);
             },
             //删除货单
@@ -335,6 +335,11 @@ $(function(){
             },
             removeActive:function(el){
                 $('#'+el).find('.description ul li:first-child').removeClass('active');
+            },
+            //搜索
+            getSearchList:function (el,good_status,order_status) {
+                vmOrder.postData.page = '1';
+                vmOrder.getOrderList(el,good_status,order_status);
             }
         });
         vmOrder.onLoad();

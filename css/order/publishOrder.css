@@ -364,3 +364,223 @@ input[type=file] {
   color: #fff;
   cursor: pointer;
 }
+/*支付弹窗*/
+/*支付平台*/
+.payTitle{
+  width: 100%;
+  height: 84px;
+  line-height: 84px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  border-bottom: 1px solid #999;
+}
+.payContent{
+  margin-top: 82px;
+  margin-left: 301px;
+}
+.payMoney .buttons li:first-child{
+  margin-left: 239px;
+}
+.payMoney .buttons{
+  padding-left: 0px;
+}
+.payMoney .buttons button{
+  width: 249px;
+  height: 61px;
+  line-height: 61px;
+  text-align: center;
+  background-color: #f57619;
+  border-radius: 6px;
+  color: #fff;
+  border: 0px;
+  outline: none;
+}
+.payMoney .buttons li:nth-child(2){
+  margin-left: 121px;
+}
+.inputPwd li{
+  float: left;
+}
+.inputPwd li input{
+  width: 55px;
+  height: 55px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  border: solid 1px #eaeaea;
+  outline: none;
+  line-height: 55px;
+  text-align: center;
+  font-size: 30px;
+}
+.inputPwd li:not(:first-child){
+  margin-left: 40px;
+}
+.orderMoney{
+  margin-top: 32px;
+}
+#pwd{
+  opacity: 0;
+}
+.alieditContainer{
+  position: relative;
+}
+.sixDigitPassword {
+  position: absolute;
+  left: -122px;
+  top: 0;
+  width: 1000px;
+  height: 55px;
+  color: #fff;
+  font-size: 12px;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-user-select: initial;
+  z-index: 999;
+  opacity:0;
+  filter:alpha(opacity=0);
+}
+.sixDigitPassword-box {
+  cursor:text;
+  background: #fff;
+  outline: none;
+  position: relative;
+  height: 55px;
+  border: 1px solid #cccccc;
+  border-radius: 2px;
+}
+.sixDigitPassword-box i {
+  float: left;
+  display: block;
+  padding: 4px 0;
+  width: 55px;
+  height: 55px;
+  border-left: 1px solid #cccccc;
+}
+.sixDigitPassword-box .active {
+  background: url('../../images/password-blink.gif') no-repeat center center;
+}
+.sixDigitPassword-box b {
+  display: block;
+  width: 55px;
+  height: 55px;
+  overflow: hidden;
+  visibility:hidden;
+  background: url('../../images/passeord-dot.png') no-repeat;
+  margin-top: 22px;
+  margin-left: 23px;
+}
+.sixDigitPassword-box span {
+  position: absolute;
+  display: block;
+  left: 0px;
+  top: 0px;
+  height: 53px;
+  border: 1px solid rgba(82, 168, 236, .8);
+  border: 1px solid #00ffff\9;
+  border-radius: 2px;
+  visibility: hidden;
+  -webkit-box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.75), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+.ui-securitycore  .ui-form-item .ui-form-explain{
+  margin-top: 8px;
+}
+.i-block{
+  display:inline-block;
+}
+.six-password{
+  position: relative;
+  height:55px;
+  width:348px;
+  overflow: hidden;
+  vertical-align: middle;
+}
+/*选择抵用券*/
+.discount .titleLine {
+  font-size: 20px;
+  height: 82px;
+  line-height: 82px;
+  border-bottom: 1px solid #999;
+  padding-left: 30px;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.discount .titleLine .line {
+  display: inline-block;
+  width: 6px;
+  height: 42px;
+  background-color: #f57619;
+  vertical-align: middle;
+}
+.discount .titleLine .title {
+  margin-left: 25px;
+}
+.discountDetail{
+  margin-left: 94px;
+}
+.discountItem{
+  width: 338px;
+  background-color: #ffffff;
+}
+.discountItem>ul{
+  float: left;
+  height: 101px;
+}
+.discountItem ul:first-child{
+  width: 106px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border: 1px solid #eaeaea;
+  text-align: center;
+  padding-top: 10px;
+}
+.discountItem ul:nth-child(2){
+  width: 228px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border: 1px solid #eaeaea;
+  border-left: 0px;
+  padding-top: 19px;
+  padding-left: 35px;
+  line-height: 24px;
+}
+.discountItem>ul .price{
+  color: #f51919;
+  font-size: 15px;
+}
+.discountItem>ul .price span{
+  font-size: 44px;
+}
+.discountDetail .buttons{
+  margin-top: 146px;
+  margin-left: 88px;
+  padding-left: 0px;
+}
+.discountDetail .buttons button {
+  width: 249px;
+  height: 61px;
+  line-height: 61px;
+  text-align: center;
+  background-color: #f57619;
+  border-radius: 6px;
+}
+.discountDetail .buttons li:nth-child(2){
+  margin-left: 77px;
+}
+.discountDetail .discountItem{
+  margin-top: 42px;
+  cursor: pointer;
+}
+.discountDetail .discountItem:nth-child(2n){
+  margin-left: 132px;
+}
+.discountItem .selected{
+  position: absolute;
+  top: -1px;
+  right: 6px;
+  width: 20px;
+  height: 20px;
+  display: none;
+}

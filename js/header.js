@@ -8,6 +8,9 @@ $('.downLoad').hover(function(){
     $(this).removeClass('layui-this');
     $(this).find('.downloadApp').slideUp();
 });
+$('#avatar').click(function(){
+   window.location.href = '../personal/personal.html';
+});
 //导航跳转
  $('.layui-nav .layui-nav-item').on('click', function () {
     var src = $(this).attr('data-src');
