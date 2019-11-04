@@ -29,8 +29,8 @@ var API = {
     URL_POST_UPDATEAVATAR : getApiHost + '/personal/update/avatar',
     //修改支付密码
     URL_POST_SETPAYMENT : getApiHost + '/personal/set/payment',
-    //意见反馈
-    URL_POST_FEEDBACK : getApiHost + '/question/feedback',
+    //添加车辆
+    URL_POST_VEHICLEADD : getApiHost + '/vehicle/add',
     //----------------------------------------------账户管理-----------------------------------
     //银行卡列表
     URL_GET_BANKLIST : getApiHost + '/bank/list',
@@ -89,6 +89,8 @@ var API = {
     URL_GET_BANNERLIST: getApiHost + '/banner/list',
     //----------------------------------------------关于我们-----------------------------------
     URL_GET_ABOUTUS: getApiHost + '/about/us',
+    //意见反馈
+    URL_POST_FEEDBACK : getApiHost + '/question/feedback',
     //----------------------------------------------我要合作-----------------------------------
     //商家合作 物流公司 区域代理 广告合作
     URL_POST_ABOUTTEAMWORK : getApiHost + '/about/teamwork',
@@ -115,6 +117,8 @@ var API = {
     URL_GET_ORDERLIST : getApiHost + '/orderList',
     //优惠券
     URL_GET_COUPONLIST : getApiHost + '/coupon/list',
+    //接单后取消订单
+    URL_POST_CLOSEORDER : getApiHost + '/order/closeOrder',
     //----------------------------------------------物流公司-----------------------------------
     //公司主页
     URL_GET_COMPANYINFO : getApiHost + '/companyInfo',

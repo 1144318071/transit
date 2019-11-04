@@ -45,7 +45,6 @@ $('.tabTitle li').click(function () {
 $('.tabType li').click(function(){
     $(this).addClass('active').siblings().removeClass('active');
 });
-
 $(function(){
     avalon.ready(function(){
         window.vmOrder = avalon.define({
@@ -77,7 +76,7 @@ $(function(){
                     content: ['/views/orderDriver/orderRate.html']
                 });
             },
-            // 取消货单
+            // (待接单中的)取消货单
             orderCancel:function(el){
                 top.layer.open({
                     type: 2,
@@ -90,8 +89,8 @@ $(function(){
                 });
                 localStorage.setItem('cancelId',el);
             },
-            //取消货单
-            cancelOrder:function(){
+            //接单后取消订单
+            closeOrder:function(el){
                 top.layer.open({
                     type: 2,
                     title: false,
@@ -101,6 +100,7 @@ $(function(){
                     shadeClose: true, //开启遮罩关闭
                     content: ['/views/order/orderCancel_d.html']
                 });
+                localStorage.setItem('cancelId',el);
             },
             // 投诉
             orderComplain: function () {
@@ -139,7 +139,7 @@ $(function(){
                 });
             },
             // 查看路线
-            checkLine:function(){
+            checkLine:function(el){
                 top.layer.open({
                     type: 2,
                     title: false,
@@ -149,6 +149,7 @@ $(function(){
                     shadeClose: true, //开启遮罩关闭
                     content: ['/views/order/checkLine.html']
                 });
+                localStorage.setItem('checkLineId',el);
             },
             // 货物运输查看详情
             checkDetail:function(el){
@@ -223,7 +224,8 @@ $(function(){
                     content: ['/views/order/confirmReceipt.html']
                 });
             },
-            confirmLoad:function(){
+            //确认装货
+            confirmLoad:function(el){
                 top.layer.open({
                     type: 2,
                     title: false,
@@ -233,6 +235,7 @@ $(function(){
                     shadeClose: true, //开启遮罩关闭
                     content: ['/views/order/confirmLoad.html']
                 });
+                localStorage.setItem('loadId',el)
             },
             //退款
             drawback:function(){
@@ -267,7 +270,6 @@ $(function(){
                     res.result.city = getCityName(res.result.city);
                     res.result.area = getAreaName(res.result.area);
                     vmOrder.merchantInfo = res.result;
-                    console.log(vmOrder.merchantInfo)
                 });
             },
             //获取订单列表
@@ -277,7 +279,7 @@ $(function(){
                 vmOrder.postData.order_status = order_status;
                 getAjax(API.URL_GET_ORDERLIST,'get',vmOrder.postData).then(function(res){
                     if(res.code == 200) {
-                        vmOrder.getPageList(elem, res.count);
+                        vmOrder.getPageList(elem,res.count,goods_status,order_status);
                         var result = res.result;
                         for (var i in result) {
                             result[i].start_address.city = getCityName(result[i].start_address.city);
@@ -291,7 +293,7 @@ $(function(){
                 });
             },
             //分页
-            getPageList:function(elem,count){
+            getPageList:function(elem,count,goods_status,order_status){
                 layui.use(['laypage', 'layer'], function () {
                     var laypage = layui.laypage,
                         layer = layui.layer;
@@ -304,7 +306,7 @@ $(function(){
                         jump: function(obj,first) {
                             if(!first){
                                 vmOrder.postData.page = obj.curr;
-                                vmOrder.getOrderList('demo2','10','');
+                                vmOrder.getOrderList(elem,goods_status,order_status);
                             }
                         }
                     });
@@ -330,17 +332,18 @@ $(function(){
                     }
                 });
             },
+            //搜索
+            getSearchList:function (el,good_status,order_status) {
+                vmOrder.postData.page = '1';
+                vmOrder.getOrderList(el,good_status,order_status);
+            },
+            /*设置交互样式*/
             setActive:function(el){
                 $('#'+el).find('.description ul li:first-child').addClass('active').siblings().removeClass('active');
             },
             removeActive:function(el){
                 $('#'+el).find('.description ul li:first-child').removeClass('active');
             },
-            //搜索
-            getSearchList:function (el,good_status,order_status) {
-                vmOrder.postData.page = '1';
-                vmOrder.getOrderList(el,good_status,order_status);
-            }
         });
         vmOrder.onLoad();
         avalon.scan(document.body);

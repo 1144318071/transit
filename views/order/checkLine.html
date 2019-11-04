@@ -19,14 +19,23 @@
             <span class='line'></span>
             <span class='title'>查看路线</span>
         </div>
+        <ul class="routeLine">
+            <li>全程<span class="ml6 mr6">:</span>658公里</li>
+            <li>剩余路程<span class="ml6 mr6">:</span>300公里</li>
+            <li>预计还需<span class="ml6 mr6">:</span>72公里</li>
+        </ul>
         <div id="allmap"></div>
         <div id="r-result"></div>
     </div>
     <script src='../../plugins/jquery/jquery.min.js'></script>
     <script src='../../plugins/layui/dist/layui.js'></script>
     <script src='../../plugins/avalon/avalon.min.js'></script>
+    <script src="../../data/data.js"></script>
+    <script src="../../data/api.js"></script>
+    <script src="../../data/return_data.js"></script>
+    <script src="../../js/order/checkLine.js"></script>
     <script type="text/javascript">
-        var map = new BMap.Map("allmap");
+       /* var map = new BMap.Map("allmap");
         map.centerAndZoom(new BMap.Point(116.404, 39.915), 14);
         var driving = new BMap.DrivingRoute(map, {
             renderOptions: {
@@ -44,7 +53,7 @@
                 var end = new BMap.Point(116.486419, 39.877282);
                 driving.search(start, end);
             }
-        });
+        });*/
     </script>
 </body>
 </html>

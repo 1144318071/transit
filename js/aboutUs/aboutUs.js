@@ -3,12 +3,22 @@ $('.tabs li').click(function(){
     $('.tabContent .tabItem').eq($(this).index()).show().siblings().hide();
 });
 layui.use('upload', function () {
+    var token = localStorage.getItem('token');
     var $ = layui.jquery,
         upload = layui.upload;
+        $.ajaxSetup({
+            // 发送cookie
+            xhrFields: {
+                withCredentials: true
+            },
+        });
     //普通图片上传
     var uploadInst = upload.render({
         elem: '#test1',
-        url: '/upload/',
+        data: {
+            "_token_": token,
+        },
+        url: API.URL_POST_UPLOADFILE,
         before: function (obj) {
             //预读本地文件示例，不支持ie8
             obj.preview(function (index, file, result) {
@@ -16,9 +26,15 @@ layui.use('upload', function () {
             });
         },
         done: function (res) {
-            //如果上传失败
-            if (res.code > 0) {
-                return layer.msg('上传失败');
+            vmAboutUs.count = parseInt(vmAboutUs.count);
+            if(res.code == 200){
+                if(vmAboutUs.count < 6){
+                    var html = '<li class="delImg"><img src="'+getApiHost + res.result.crop+'" data-src="'+res.result.crop+'" class="imgs" width="131px" height="105px" alt=""> <span class="del">X</span></li>'
+                    $('.uploadContent').append(html);
+                    vmAboutUs.count += 1;
+                }else{
+                    alertMsg('最多可以上传6张图片!',2);
+                }
             }
             //上传成功
         },
@@ -39,13 +55,13 @@ $('.upload').hover(function () {
     $(this).find('.uploadimg').hide();
 });
 // 删除图片
-$('.del').click(function () {
+$('.uploadContent').delegate('.del','click',function() {
     $(this).parent().remove();
-});
-
+})
 avalon.ready(function(){
     window.vmAboutUs = avalon.define({
         $id : 'root',
+        count:'0',
         postData:{
          '_token_':'',
          'question_type':'',
@@ -65,7 +81,28 @@ avalon.ready(function(){
             });
         },
         feedback:function(){
-
+            $("input[type='radio']:checked").each(function(i,item){
+                vmAboutUs.postData.question_type = $(item).attr('data-id');
+            });
+            var imgArr=[];
+            $('.delImg img').each(function(i,val){
+                var src = $(val).attr('data-src');
+                imgArr.push(src);
+            });
+            vmAboutUs.postData.question_picture = imgArr.join(',');
+            if(vmAboutUs.postData.question_type==''){
+                alertMsg('请选择反馈类型!',2);
+            }else{
+                if(vmAboutUs.postData.question_picture==''){
+                    alertMsg('请上传截图!',2)
+                }else{
+                    getAjax(API.URL_POST_FEEDBACK,'post',vmAboutUs.postData).then(function(res){
+                        if(res.code == 200){
+                            alertMsg(res.message,1);
+                        }
+                    });
+                }
+            }
         }
     });
     vmAboutUs.onLoad();

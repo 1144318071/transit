@@ -302,3 +302,6 @@
 .muckItem .description ul li:nth-child(2){
   margin-top: 20px;
 }
+.operateItem li a:hover,.operateItem li a:link,.operateItem li a:visited{
+  color: #999;
+}

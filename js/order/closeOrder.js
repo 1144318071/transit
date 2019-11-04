@@ -38,10 +38,10 @@ $('.upload').hover(function () {
 $('.del').click(function () {
     $(this).parent().remove();
 });
-// 
+//
 $(function(){
     avalon.ready(function(){
-        window.vmOrderCancel = avalon.define({
+        window.vmCloseOrder = avalon.define({
             $id : 'root',
             onLoad:function(){
 
@@ -49,14 +49,14 @@ $(function(){
             return:function(){
                 parent.layer.close(parent.layer.index);
             },
-            cancelOrder:function(){
+            closeOrder:function(){
                 var token = localStorage.getItem('token');
                 var cancelId = localStorage.getItem('cancelId');
                 var postData={
                     '_token_': token,
                     'order_id':cancelId
                 };
-                getAjax(API.URL_POST_GOODSCLOSEORDER,'post',postData).then(function (res) {
+                getAjax(API.URL_POST_CLOSEORDER,'post',postData).then(function (res) {
                     if(res.code == 200){
                         alertMsg(res.message,1);
                         window.parent.location.reload();
@@ -67,7 +67,7 @@ $(function(){
                 })
             }
         });
-        vmOrderCancel.onLoad();
+        vmCloseOrder.onLoad();
         avalon.scan(document.body)
     });
 });

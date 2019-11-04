@@ -58,8 +58,8 @@
                             <li class="layui-nav-item merchant" data-src="javascript:;" ms-on-click="@setDisable('MERCHANT')">
                                 <a href="javascript:;">运输管理</a>
                                 <dl class="layui-nav-child">
-                                    <dd><a href="./views/order/order.html?state=10" style="color:#f57619!important">渣土运输</a></dd>
-                                    <dd><a href="./views/order/order.html?state=20" style="color:#f57619!important">产业运输</a></dd>
+                                    <dd><a href="../../views/order/order.html?state=10" style="color:#f57619!important">渣土运输</a></dd>
+                                    <dd><a href="../../views/order/order.html?state=20" style="color:#f57619!important">产业运输</a></dd>
                                 </dl>
                             </li>
                             <li class="layui-nav-item logistics" data-src='../../views/logistics/logistics.html' ms-on-click="@setDisable('LOGISTICS')"><a href="javascript:;">物流公司</a></li>
@@ -115,29 +115,24 @@
                     <div class='tabTitle'> 服务条款</div>
                 </div>
                <!--意见反馈-->
-                <div class='tabItem dis_none'>
+               <div class='tabItem dis_none'>
                     <div class='tabTitle'>意见反馈</div>
                     <div class='chooseReason'>
                         <div class='row'>
                             <div class="col-md-12 col-sm-12">
                                 <ul class='inputCheck clearfix'>
                                     <li>
-                                        <input id="color-input-one" class="checkInput" type="checkbox"
-                                            name="color-input-one" value="#f0544d" />
-                                        <label for="color-input-one"></label>
+                                        <input type="radio" id="radio-2-1" data-id="10" name="radio-2-set" class="regular-radio big-radio"><label for="radio-2-1"></label>
                                     </li>
                                     <li>功能异常<span>:</span>功能故障或不可用</li>
                                 </ul>
                             </div>
-                            
                         </div>
                         <div class='row'>
                             <div class='col-md-12 col-sm-12'>
                                 <ul class='inputCheck clearfix'>
                                     <li>
-                                        <input id="color-input-two" class="checkInput" type="checkbox"
-                                            name="color-input-two" />
-                                        <label for="color-input-two"></label>
+                                        <input type="radio" id="radio-2-2" data-id="20" name="radio-2-set" class="regular-radio big-radio"><label for="radio-2-2"></label>
                                     </li>
                                     <li>产品建议<span>:</span>用的不爽,我有建议</li>
                                 </ul>
@@ -147,9 +142,7 @@
                             <div class="col-md-12 col-sm-12">
                                 <ul class='inputCheck clearfix'>
                                     <li>
-                                        <input id="color-input-three" class="checkInput" type="checkbox"
-                                            name="color-input-three" value="#f0544d" />
-                                        <label for="color-input-three"></label>
+                                        <input type="radio" id="radio-2-3" data-id="30" name="radio-2-set" class="regular-radio big-radio"><label for="radio-2-3"></label>
                                     </li>
                                     <li>新增功能<span>:</span>功能不够用,我想新增</li>
                                 </ul>
@@ -160,9 +153,7 @@
                             <div class='col-md-12 col-sm-12'>
                                 <ul class='inputCheck clearfix'>
                                     <li>
-                                        <input id="color-input-four" class="checkInput" type="checkbox"
-                                            name="color-input-four" />
-                                        <label for="color-input-four"></label>
+                                        <input type="radio" id="radio-2-4" data-id="40" name="radio-2-set" class="regular-radio big-radio"><label for="radio-2-4"></label>
                                     </li>
                                     <li>安全问题<span>:</span>密码,隐私,欺诈等</li>
                                 </ul>
@@ -172,9 +163,7 @@
                             <div class="col-md-12 col-sm-12">
                                 <ul class='inputCheck clearfix'>
                                     <li>
-                                        <input id="color-input-five" class="checkInput" type="checkbox" name="color-input-five"
-                                            value="#f0544d" />
-                                        <label for="color-input-five"></label>
+                                        <input type="radio" id="radio-2-5" data-id="50" name="radio-2-set" class="regular-radio big-radio"><label for="radio-2-5"></label>
                                     </li>
                                     <li>软件异常<span>:</span>部分功能不能用，或有异常状态</li>
                                 </ul>
@@ -184,9 +173,7 @@
                             <div class="col-md-12 col-sm-12">
                                 <ul class='inputCheck clearfix'>
                                     <li>
-                                        <input id="color-input-six" class="checkInput" type="checkbox"
-                                            name="color-input-six" value="#f0544d" />
-                                        <label for="color-input-six"></label>
+                                        <input type="radio" id="radio-2-6" data-id="60" name="radio-2-set" class="regular-radio big-radio"><label for="radio-2-6"></label>
                                     </li>
                                     <li>其他问题</li>
                                 </ul>
@@ -199,21 +186,18 @@
                             </li>
                         </ul>
                         <div class='uploadImg'>
-                            <div class='uploadTitle color-999'>上传截图(0/6)</div>
+                            <div class='uploadTitle color-999'>上传截图(<span ms-text="@count"></span>/6)</div>
                             <ul class='clearfix uploadContent'>
                                 <li class="upload">
-                                    <img id="logo" src="../../images/cancel.png" width="135px" height="147px" alt="">
+                                    <img id="logo" src="../../images/addCar.png" width="131px" height="105px" alt="">
                                     <span class="uploadimg">
                                         <button type="button" class="layui-btn" id="test1">上传图片</button>
                                         <img class="img-responsive" src="../../images/upload.png" alt="">
                                     </span>
                                 </li>
-                                <li class='delImg'>
-                                    <img src="../../images/cancel.png" alt="">
-                                    <span class='del'>X</span>
-                                </li>
                             </ul>
                         </div>
+                        <button class="btn-submit" ms-on-click="@feedback">提交</button>
                     </div>
                 </div>
                <!--联系我们-->

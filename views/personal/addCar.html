@@ -20,8 +20,28 @@
                 <li>:</li>
                 <li>
                     <select ms-duplex="@postData.type">
-                        <option value="10">渣土运输</option>
                         <option value="20">货物运输</option>
+                        <option value="10">渣土运输</option>
+                    </select>
+                </li>
+            </ul>
+            <ul class='formItem clearfix'>
+                <li>选择车型</li>
+                <li>:</li>
+                <li>
+                    <select ms-duplex="@postData.car_type">
+                        <option value="不限">不限</option>
+                        <option value="平板">平板</option>
+                        <option value="高栏">高栏</option>
+                        <option value="厢式">厢式</option>
+                        <option value="集装箱">集装箱</option>
+                        <option value="自卸">自卸</option>
+                        <option value="冷藏">冷藏</option>
+                        <option value="保温">保温</option>
+                        <option value="高地板">高地板</option>
+                        <option value="棉被车">棉被车</option>
+                        <option value="爬梯车">爬梯车</option>
+                        <option value="飞翼车">飞翼车</option>
                     </select>
                 </li>
             </ul>
@@ -48,8 +68,8 @@
                     <input type="text" ms-duplex="@postData.volume" placeholder="大约可装m³" class='shortInput ml30'><label>方</label>
                 </li>
             </ul>
-            <ul class='formItem clearfix'>
-                <li>上传行驶证</li>
+            <ul class='formItem imgItem_logo clearfix'>
+                <li>上传行驶证<br><span>(<span ms-text="@drivingCount"></span>/2)</span></li>
                 <li>:</li>
                 <li class="upload">
                     <img id="logo" src="../../images/addCar.png" width="95px" height="76px" alt="">
@@ -58,10 +78,10 @@
                         <img class="img-responsive" src="../../images/upload.png" alt="">
                     </span>
                 </li>
-                <!-- <li><img src="../../images/addCar.png" alt=""></li> -->
+                <!-- <li class="driving_license"><img src="../../images/addCar.png" alt=""></li> -->
             </ul>
-            <ul class='formItem clearfix'>
-                <li>车辆图片</li>
+            <ul class='formItem carImgItem clearfix'>
+                <li>车辆图片<br><span>(<span ms-text="@carImgCount"></span>/4)</span></li>
                 <li>:</li>
                 <li class="upload">
                     <img id="carImg" src="../../images/addCar.png" width="95px" height="76px" alt="">
@@ -70,9 +90,9 @@
                         <img class="img-responsive" src="../../images/upload.png" alt="">
                     </span>
                 </li>
-                <div class='clearfix'></div>
-                <div class='tips font14 color-999'>上传图像，必须能清晰显示车辆牌照号码（图像规格：车头，两侧，车位）</div>
             </ul>
+            <div class='clearfix'></div>
+            <div class='tips font14 color-999'>上传图像，必须能清晰显示车辆牌照号码（图像规格：车头，两侧，车位）</div>
             <ul class='formItem clearfix'>
                 <li>手机号码</li>
                 <li>:</li>
@@ -82,7 +102,7 @@
             <ul class='formItem clearfix'>
                 <li>验证码</li>
                 <li>:</li>
-                <li><input type="text"  ms-on-click='@postData.code' class='shortInput'></li>
+                <li><input type="text"  ms-duplex='@postData.code' class='shortInput'></li>
             </ul>
         </div>
         <ul class='btns clearfix'>
