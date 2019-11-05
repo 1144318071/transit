@@ -22,13 +22,14 @@ $(function () {
             getCheckCode: function () {
                 let count = 60;
                 var token = localStorage.getItem('token');
-                vmAddBankCard.postData._token_ = token;
                 var getCode = {
                     '_token_': token ,
                     'mobile': vmAddBankCard.postData.mobile
                 };
                 getAjax(API.URL_POST_SENDCODE, 'post', getCode).then(function (res) {
-                    console.log(res)
+                    if(res.code == 200){
+                        alertMsg(res.message,1);
+                    }
                 });
                 const countDown = setInterval(() => {
                     if (count == 0) {
@@ -51,9 +52,14 @@ $(function () {
                 vmAddBankCard.postData.mobile = userInfo.mobile;
                 vmAddBankCard.postData.account_name = userInfo.actual_name;
             },
+            //添加银行卡
             addBankCard:function(){
+                vmAddBankCard.postData._token_ = localStorage.getItem('token');
+                console.log(vmAddBankCard.postData)
                 getAjax(API.URL_POST_BANKADD,'post',vmAddBankCard.postData).then(function(res){
-                    console.log(res);
+                    if(res.code == 200){
+                        console.log(res)
+                    }
                 });
             }
         });

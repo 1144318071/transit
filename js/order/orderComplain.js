@@ -40,16 +40,30 @@ $('.del').click(function () {
 });
 $(function () {
     avalon.ready(function () {
-        window.vmOrderCancel = avalon.define({
+        window.vmOrderComplain = avalon.define({
             $id: 'root',
+            stateDetail:{},
             onLoad: function () {
-
+                vmOrderComplain.getOrderDetail();
             },
             return: function () {
                 parent.layer.close(parent.layer.index);
+            },
+            getOrderDetail:function(){
+                var token = localStorage.getItem('token');
+                var order_id = localStorage.getItem('stateId');
+                var postData = {
+                    '_token_':token,
+                    'order_id':order_id
+                };
+                getAjax(API.URL_GET_COMPLAININFO,'get',postData).then(function(res){
+                    if(res.code == 200){
+                        vmOrderComplain.stateDetail = res.result;
+                    }
+                });
             }
         });
-        vmOrderCancel.onLoad();
+        vmOrderComplain.onLoad();
         avalon.scan(document.body)
     });
 });

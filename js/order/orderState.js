@@ -1,22 +1,34 @@
 layui.use('upload', function () {
+    var token = localStorage.getItem('token');
     var $ = layui.jquery,
         upload = layui.upload;
+    $.ajaxSetup({
+        // 发送cookie
+        xhrFields: {
+            withCredentials: true
+        },
+    });
     //普通图片上传
     var uploadInst = upload.render({
         elem: '#test1',
-        url: '/upload/',
-        before: function (obj) {
-            //预读本地文件示例，不支持ie8
-            obj.preview(function (index, file, result) {
-                $('#demo1').attr('src', result); //图片链接（base64）
-            });
+        data:{
+            '_token_':token
         },
+        url: API.URL_POST_UPLOADFILE,
         done: function (res) {
-            //如果上传失败
-            if (res.code > 0) {
-                return layer.msg('上传失败');
+            console.log(res)
+            vmOrderState.imgCount = parseInt(vmOrderState.imgCount);
+            if(vmOrderState.imgCount < 6){
+                //上传成功
+                if(res.code == 200){
+                    console.log(res);
+                    var html = '<li class="delImg"><img class="img_reason" src="'+getApiHost+res.result.crop+'" data-src="'+res.result.crop+'" alt=""><span class="del">X</span></li>';
+                    $('.uploadContent').append(html);
+                    vmOrderState.imgCount +=1;
+                }
+            }else{
+                alertMsg('最多可以上传6张图片',2);
             }
-            //上传成功
         },
         error: function () {
             //演示失败状态，并实现重传
@@ -35,13 +47,21 @@ $('.upload').hover(function () {
     $(this).find('.uploadimg').hide();
 });
 // 删除图片
-$('.del').click(function () {
+$('.uploadContent').delegate('.del','click',function () {
     $(this).parent().remove();
-});
+})
 $(function () {
     avalon.ready(function () {
-        window.vmOrderCancel = avalon.define({
+        window.vmOrderState = avalon.define({
             $id: 'root',
+            imgCount:'0',
+            postData:{
+                '_token_':'',
+                'order_id':'',
+                'reason':'货物损坏/获取丢失',
+                'certificate':'',
+                'remark':''
+            },
             onLoad: function () {
 
             },
@@ -49,18 +69,26 @@ $(function () {
                 parent.layer.close(parent.layer.index);
             },
             stateSuccess:function(){
-                top.layer.open({
-                    type: 2,
-                    title: false,
-                    skin: 'layui-layer-demo', //样式类名
-                    closeBtn: 1, //不显示关闭按钮
-                    area: ['876px', '513px'],
-                    shadeClose: true, //开启遮罩关闭
-                    content: ['/views/order/muckStateSuccess.html']
+                vmOrderState.postData._token_ = localStorage.getItem('token');
+                vmOrderState.postData.order_id = localStorage.getItem('stateId');
+                getAjax(API.URL_POST_GOODSCOMPLAINT,'post',vmOrderState.postData).then(function(res){
+                   if(res.code == 200){
+                       top.layer.open({
+                           type: 2,
+                           title: false,
+                           skin: 'layui-layer-demo', //样式类名
+                           closeBtn: 1, //不显示关闭按钮
+                           area: ['876px', '513px'],
+                           shadeClose: true, //开启遮罩关闭
+                           content: ['/views/order/muckStateSuccess.html']
+                       });
+                   }
                 });
-            }
+
+            },
+
         });
-        vmOrderCancel.onLoad();
+        vmOrderState.onLoad();
         avalon.scan(document.body)
     });
 });

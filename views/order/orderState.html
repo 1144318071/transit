@@ -14,7 +14,7 @@
     <div ms-controller='root'>
         <div class='titleLine'>
             <span class='line'></span>
-            <span class='title'>订单申诉</span>
+            <span class='title'>投诉</span>
         </div>
         <div class='orderState'>
             <div class='chooseReason'>
@@ -22,11 +22,11 @@
                     <li>&emsp;&emsp;标题</li>
                     <li>:</li>
                     <li>
-                        <select id="title">
-                            <option>货物损坏/获取丢失</option>
-                            <option>货物未送达卸货目的地</option>
-                            <option>司机额外加收费用</option>
-                            <option>其他</option>
+                        <select id="title" ms-duplex="@postData.reason">
+                            <option value="货物损坏/获取丢失">货物损坏/获取丢失</option>
+                            <option value="货物未送达卸货目的地">货物未送达卸货目的地</option>
+                            <option value="司机额外加收费用">司机额外加收费用</option>
+                            <option value="其他">其他</option>
                         </select>
                     </li>
                 </ul>
@@ -40,24 +40,16 @@
                                 <img class="img-responsive" src="../../images/upload.png" alt="">
                             </span>
                         </li>
-                        <li class='delImg'>
-                            <img src="../../images/cancel.png" alt="">
-                            <span class='del'>X</span>
-                        </li>
+                        <!--<li class="delImg"><img class="img_reason" src="../../images/cancel.png" alt=""><span class="del">X</span></li>-->
                     </ul>
                     <div class="clearfix"></div>
                 </div>
-                <div class="uploadTips">上传凭证 0 / 6(仅支持png、jpg格式)</div>
-                <!--<ul class='input contact clearfix'>
-                    <li>联系电话</li>
-                    <li>:</li>
-                    <li><input type="text" class='phoneNo'></li>
-                </ul>-->
+                <div class="uploadTips">上传凭证 <span ms-text="@imgCount"></span> / 6(仅支持png、jpg格式)</div>
                 <ul class='eventDetail clearfix'>
                     <li>详情备注</li>
                     <li>:</li>
                     <li>
-                        <textarea></textarea>
+                        <textarea ms-duplex="@postData.remark"></textarea>
                     </li>
                 </ul>
             </div>
@@ -70,7 +62,8 @@
     <script src='../../plugins/jquery/jquery.min.js'></script>
     <script src='../../plugins/layui/dist/layui.js'></script>
     <script src='../../plugins/avalon/avalon.min.js'></script>
+    <script src="../../data/api.js"></script>
+    <script src="../../data/return_data.js"></script>
     <script src='../../js/order/orderState.js'></script>
 </body>
-
 </html>

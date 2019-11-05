@@ -475,15 +475,18 @@
                         <li class='pull-right'><button class='btn-add' ms-on-click='@addBankCard'>添加银行卡</button></li>
                     </ul>
                     <div class='bankCard clearfix'>
-                        <ul class='cardShow'>
-                            <li><img src="../../images/cardBlue.png" alt=""></li>
-                            <li class='clearfix'><span class='pull-left' ms-on-click='@setDefault'>设为默认</span><span class='pull-right' ms-on-click='@unbind'>解绑</span></li>
+                        <ul class='cardShow' ms-for="el in @bankCardList">
+                            <li class="carDetail">
+                                <span class="bankName" ms-text="el.bank_name">中国建设银行</span><br>
+                                <span class="bankAccount" ms-text="el.card_number">6217003810043214355</span>
+                            </li>
+                            <li class='clearfix'><span class='pull-left' ms-on-click='@setDefault(el.card_id)'>设为默认</span><span class='pull-right' ms-on-click='@unbind(el.card_id)'>解绑</span></li>
                         </ul>
-                        <ul class='cardShow'>
+                       <!-- <ul class='cardShow'>
                             <li><img src="../../images/cardBlue.png" alt=""></li>
                             <li class='clearfix'><span class='pull-left'>设为默认</span><span class='pull-right'>解绑</span>
                             </li>
-                        </ul>
+                        </ul>-->
                     </div>
                 </div>
                 <!-- 代理商家 -->

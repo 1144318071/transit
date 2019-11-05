@@ -92,14 +92,14 @@ $(function(){
                 getAjax(API.URL_GET_BRANDINFO,'get',postData).then(function (res) {
                     res.result.info.logo = getApiHost + res.result.info.logo;
                     vmBrandDetail.brandInfo = res.result.info;
-                    vmBrandDetail.carDetail = res.result.data[0];
+                    vmBrandDetail.carDetail = res.result.data;
                     for(var i=0;i<res.result.car_type.length;i++){
                         if(res.result.car_type[i].appearance_pic !=''){
                             res.result.car_type[i].appearance_pic = getApiHost + res.result.car_type[i].appearance_pic;
                         }
                     }
                     vmBrandDetail.carType = res.result.car_type;
-                    var data = res.result.data[0];
+                    var data = res.result.data;
                     for(var j=0;j<data.length;j++){
                         if(data[j].image !=''){
                             data[j].image = getApiHost + data[j].image

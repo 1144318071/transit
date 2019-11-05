@@ -38,10 +38,11 @@ $(function(){
                 var token = localStorage.getItem('token');
                 vmPersonal.token = token;
                 vmPersonal.getUserInfo();
-
+                vmPersonal.getBankCardList();
             },
             userInfo:{},
             couponList:[],
+            bankCardList:[],
             changePwd:function(){
                 var userType = JSON.parse(localStorage.getItem('userInfo')).type;
                 localStorage.setItem('_t', userType);
@@ -103,7 +104,7 @@ $(function(){
                 });
             },
             // 设为默认
-            setDefault:function(){
+            setDefault:function(el){
                 layer.open({
                     type: 2,
                     title: false,
@@ -113,9 +114,10 @@ $(function(){
                     shadeClose: true, //开启遮罩关闭
                     content: ['setDefault.html']
                 });
+                localStorage.setItem('bankId',el);
             },
             //解绑
-            unbind:function(){
+            unbind:function(el){
                 layer.open({
                     type: 2,
                     title: false,
@@ -125,6 +127,7 @@ $(function(){
                     shadeClose: true, //开启遮罩关闭
                     content: ['bankCardUnbind.html']
                 });
+                localStorage.setItem('bankId',el);
             },
             //获取个人信息
             getUserInfo:function(){
@@ -134,18 +137,18 @@ $(function(){
                     var userType = res.result.type;
                     switch(userType){
                         case 'PERSONAL':
-                            /*$('.companyInfo').hide();*/
+                            $('.companyInfo').remove();
                             vmPersonal.userInfo.type = '个人';
                         break;
                         case 'MERCHANT':
                             vmPersonal.userInfo.type = '商家';
-                           /* $('.personalList li').eq(1).hide();
-                            $('.vehicleManagement').hide();*/
+                            $('.personalList li').eq(1).remove();
+                            $('.vehicleManagement').remove();
                         break;
                         case 'LOGISTICS':
                             vmPersonal.userInfo.type = '物流公司';
-                            /*$('.personalList li').eq(1).hide();
-                            $('.vehicleManagement').hide();*/
+                            $('.personalList li').eq(1).remove();
+                            $('.vehicleManagement').remove();
                         break;
                         case 'PROXY':
                             vmPersonal.userInfo.type = '代理';
@@ -161,6 +164,17 @@ $(function(){
                 getAjax(API.URL_GET_COUPONLIST,'get',{'_token_':vmPersonal.token,'status':status}).then(function(res){
                    if(res.code == 200){
                        vmPersonal.couponList = res.result;
+                   }
+                });
+            },
+            //获取银行卡列表
+            getBankCardList:function(){
+                getAjax(API.URL_GET_BANKLIST,'get',{'_token_':vmPersonal.token}).then(function(res){
+                   if(res.code == 200){
+                       for(var i in res.result){
+                           res.result[i].card_number = stringHidePart(res.result[i].card_number);
+                       }
+                       vmPersonal.bankCardList = res.result;
                    }
                 });
             }

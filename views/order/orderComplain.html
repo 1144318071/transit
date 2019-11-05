@@ -20,17 +20,17 @@
         <div class='orderComplain'>
             <div class="complainSteps clearfix">
                 <ul>
-                    <li></li>
+                    <li ms-class="@stateDetail.status == '10'||stateDetail.status == '20'||stateDetail.status == '30'?'active':''"><img src="../../images/s1.png" /></li>
                     <li>提交投诉</li>
                 </ul>
-                <div class="stepLine"></div>
+                <div class="stepLine" ms-class="@stateDetail.status == '20'||stateDetail.status == '30'?'active':''"></div>
                 <ul>
-                    <li></li>
+                    <li ms-class="@stateDetail.status == '20'||@stateDetail.status == '30'?'active':''"><img src="../../images/s2.png" /></li>
                     <li>处理中</li>
                 </ul>
-                <div class="stepLine"></div>
+                <div class="stepLine" ms-class="@stateDetail.status == '30'?'active':''"></div>
                 <ul>
-                    <li></li>
+                    <li ms-class="@stateDetail.status == '30'?'active':''"><img src="../../images/s3.png" /></li>
                     <li>处理完成</li>
                 </ul>
             </div>
@@ -38,7 +38,7 @@
                 <ul class="clearfix">
                     <li>投诉编号</li>
                     <li>:</li>
-                    <li>2015489451257</li>
+                    <li ms-text="@stateDetail.number">2015489451257</li>
                 </ul>
                 <ul class="clearfix">
                     <li>投诉凭证</li>
@@ -52,18 +52,20 @@
                     <li>事件详情</li>
                     <li>:</li>
                     <li>
-                        <textarea></textarea>
+                        <textarea ms-duplex="@stateDetail.remark"></textarea>
                     </li>
                 </ul>
             </div>
             <ul class='buttons clearfix'>
-                <li><button class='btn-orange' ms-on-click='@return'>取消投诉</button></li>
+                <li><button class='btn-orange' ms-if="@stateDetail.status=='10'" ms-on-click='@return'>取消投诉</button></li>
             </ul>
         </div>
     </div>
     <script src='../../plugins/jquery/jquery.min.js'></script>
     <script src='../../plugins/layui/dist/layui.js'></script>
     <script src='../../plugins/avalon/avalon.min.js'></script>
+    <script src="../../data/api.js"></script>
+    <script src="../../data/return_data.js"></script>
     <script src='../../js/order/orderComplain.js'></script>
 </body>
 

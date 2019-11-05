@@ -561,7 +561,7 @@
                                 <li><button class="btn-search" ms-on-click="@getSearchList('demo2','10','')" >搜索</button></li>
                             </ul>
                             <!--待支付-->
-                            <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type == '10'"  ms-attr="{ id : 'active_' + el.goods_id }" ms-on-mouseover="@setActive('active_' + el.goods_id)" ms-on-mouseout="@removeActive('active_' + el.goods_id)">
+                            <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type == '10'">
                                 <ul class="itemTitle clearfix">
                                     <li class="pull-left">订单编号<span class="ml4 mr4">:</span><span ms-text="el.goods_number"></span></li>
                                 </ul>
@@ -595,13 +595,13 @@
                                 <li><button class="btn-search" ms-on-click="@getSearchList('demo3','20','')" >搜索</button></li>
                             </ul>
                             <!--待接单(货物运输)-->
-                            <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type == '10'"  ms-attr="{ id : 'active_' + el.goods_id }" ms-on-mouseover="@setActive('active_' + el.goods_id)" ms-on-mouseout="@removeActive('active_' + el.goods_id)">
+                            <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type == '10'">
                                 <ul class="itemTitle clearfix">
                                     <li class="pull-left">订单编号<span class="ml4 mr4">:</span><span ms-text="el.goods_number"></span></li>
                                 </ul>
                                 <div class="itemDes clearfix">
                                     <div class="des_left pull-left clearfix">
-                                        <img ms-attr="{ src : el.goods_images }" src="../../images/fruit.png" class="pull-left" width="113px" height="99px" alt=""></li>
+                                        <img ms-attr="{ src : el.goods_images }"  class="pull-left" width="113px" height="99px" alt=""></li>
                                         <div class="description pull-left">
                                             <ul>
                                                 <li ms-on-click="@checkDetail(el.goods_id)"><span ms-text="el.start_address.city"></span><span class="ml8" ms-text="el.start_address.area"></span> → <span ms-text="el.end_address.city"></span><span class="ml8" ms-text="el.end_address.area"></span><img ms-if="el.expedited == 'yes'" class="ml4" src="../../images/urgent.png" /></li>
@@ -659,7 +659,7 @@
                                 <li><button class="btn-search" ms-on-click="@getSearchList('demo4','40','10')">搜索</button></li>
                             </ul>
                             <!--待装货状态-->
-                            <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type == '10'"  ms-attr="{ id : 'active_' + el.order_id }" ms-on-mouseover="@setActive('active_' + el.order_number)" ms-on-mouseout="@removeActive('active_' + el.order_number)">
+                            <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type == '10'">
                                 <ul class="itemTitle clearfix">
                                     <li class="pull-left">订单编号<span class="ml4 mr4">:</span><span ms-text="el.order_number"></span></li>
                                     <li class="phone pull-right"><img src="../../images/phoneIcon.png" />联系电话</li>
@@ -669,7 +669,7 @@
                                         <img  ms-attr="{ src : el.goods_images }" class="pull-left" width="113px" height="99px" alt=""></li>
                                         <div class="description pull-left">
                                             <ul>
-                                                <li><span ms-text="el.start_address.city"></span><span class="ml8" ms-text="el.start_address.area"></span> → <span ms-text="el.end_address.city"></span><span class="ml8" ms-text="el.end_address.area"></span><img ms-if="el.expedited == 'yes'" class="ml4" src="../../images/urgent.png" /></li>
+                                                <li ms-on-click="@checkDetail(el.goods_id)"><span ms-text="el.start_address.city"></span><span class="ml8" ms-text="el.start_address.area"></span> → <span ms-text="el.end_address.city"></span><span class="ml8" ms-text="el.end_address.area"></span><img ms-if="el.expedited == 'yes'" class="ml4" src="../../images/urgent.png" /></li>
                                                 <li><span ms-text="el.car_length"></span>米/<span ms-text="el.car_model"></span>吨/<span ms-text="el.volume"></span>方</li>
                                                 <li><span ms-text="el.goods_type"></span>/<span ms-text="el._type"></span></li>
                                                 <li>待付金额<span class="ml4 mr4">:</span><span ms-text="el.money"></span>元</li>
@@ -687,7 +687,6 @@
                                 <div class="model">
                                     <div class="qrCodeContent">
                                         <ul class="code">
-                                            <!-- <li><img src="../../images/qrCode.png" width="62" height="62" /></li>-->
                                             <li class="tri"></li>
                                             <li><img src="../../images/qrCode.png" /></li>
                                             <li>扫码拨号·刘师傅</li>
@@ -736,7 +735,7 @@
                                 </div>
                             </div>
                             <!--运输中(已装货)-->
-                            <div class="itemDetail" ms-for="el in @orderList" ms-attr="{ id : 'active_'+el.goods_id }"  ms-on-mouseover="@setActive('active_' + el.goods_id)" ms-on-mouseout="@removeActive('active_' + el.goods_id)" >
+                            <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type == '10'">
                                 <ul class="itemTitle clearfix">
                                     <li class="pull-left">订单编号<span class="ml4 mr4">:</span><span ms-text="el.order_number"></span></li>
                                     <li class="phone pull-right"><img src="../../images/phoneIcon.png" />联系电话</li>
@@ -746,7 +745,7 @@
                                         <img ms-attr="{ src : el.goods_images }" src="../../images/fruit.png" class="pull-left" width="113px" height="99px" alt=""></li>
                                         <div class="description pull-left">
                                             <ul>
-                                                <li><span ms-text="el.start_address.city"></span><span class="ml8" ms-text="el.start_address.area"></span> → <span ms-text="el.end_address.city"></span><span class="ml8" ms-text="el.end_address.area"></span><img ms-if="el.expedited == 'yes'" class="ml4" src="../../images/urgent.png" /></li>
+                                                <li ms-on-click="@checkDetail(el.goods_id)"><span ms-text="el.start_address.city"></span><span class="ml8" ms-text="el.start_address.area"></span> → <span ms-text="el.end_address.city"></span><span class="ml8" ms-text="el.end_address.area"></span><img ms-if="el.expedited == 'yes'" class="ml4" src="../../images/urgent.png" /></li>
                                                 <li><span ms-text="el.car_length"></span>米/<span ms-text="el.car_model"></span>吨/<span ms-text="el.volume"></span>方</li>
                                                 <li><span ms-text="el.goods_type"></span>/<span ms-text="el._type"></span></li>
                                                 <li>待付金额<span class="ml4 mr4">:</span><span ms-text="el.money"></span>元</li>
@@ -762,7 +761,6 @@
                                 <div class="model">
                                     <div class="qrCodeContent">
                                         <ul class="code">
-                                            <!-- <li><img src="../../images/qrCode.png" width="62" height="62" /></li>-->
                                             <li class="tri"></li>
                                             <li><img src="../../images/qrCode.png" /></li>
                                             <li>扫码拨号·刘师傅</li>
@@ -779,35 +777,34 @@
                                 <li><button class="btn-search" ms-on-click="@getSearchList('demo6','40','40')">搜索</button></li>
                             </ul>
                             <!--待收货-->
-                            <div class="itemDetail">
+                            <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type == '10'">
                                 <ul class="itemTitle clearfix">
-                                    <li class="pull-left">订单编号<span class="ml4 mr4">:</span>1451234564</li>
+                                    <li class="pull-left">订单编号<span class="ml4 mr4">:</span><span ms-text="el.order_number"></span></li>
                                     <li class="phone pull-right"><img src="../../images/phoneIcon.png" />联系电话</li>
                                 </ul>
                                 <div class="itemDes clearfix">
                                     <div class="des_left pull-left clearfix">
-                                        <img src="../../images/fruit.png" class="pull-left" width="113px" height="99px" alt=""></li>
+                                        <img ms-attr="{ src : el.goods_images }" src="../../images/fruit.png" class="pull-left" width="113px" height="99px" alt=""></li>
                                         <div class="description pull-left">
                                             <ul>
-                                                <li>成都 武侯区 → 绵阳 游仙</li>
-                                                <li>整车/1.2米/平板/7吨/50方</li>
-                                                <li>水果/一装一卸</li>
-                                                <li>代付金额<span class="ml4 mr4">:</span>12321元</li>
+                                                <li ms-on-click="@checkDetail(el.goods_id)"><span ms-text="el.start_address.city"></span><span class="ml8" ms-text="el.start_address.area"></span> → <span ms-text="el.end_address.city"></span><span class="ml8" ms-text="el.end_address.area"></span><img ms-if="el.expedited == 'yes'" class="ml4" src="../../images/urgent.png" /></li>
+                                                <li><span ms-text="el.car_length"></span>米/<span ms-text="el.car_model"></span>吨/<span ms-text="el.volume"></span>方</li>
+                                                <li><span ms-text="el.goods_type"></span>/<span ms-text="el._type"></span></li>
+                                                <li>待付金额<span class="ml4 mr4">:</span><span ms-text="el.money"></span>元</li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="des_right pull-right">
                                         <ul class="operateItem">
-                                            <li><button ms-on-click="@confirmReceipt">确认收货</button></li>
-                                            <li class="color-999 mt10" ms-on-click="@checkLine">查看运输</li>
-                                            <li class="color-999 mt10" ms-on-click="@orderState">投&emsp;&emsp;诉</li>
+                                            <li><button ms-on-click="@confirmReceipt(el.order_id)">确认收货</button></li>
+                                            <li class="color-999 mt10" ms-on-click="@checkLine(el.goods_id)">查看运输</li>
+                                            <li class="color-999 mt10" ms-on-click="@orderState(el.order_id)">投&emsp;&emsp;诉</li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="model">
                                     <div class="qrCodeContent">
                                         <ul class="code">
-                                            <!-- <li><img src="../../images/qrCode.png" width="62" height="62" /></li>-->
                                             <li class="tri"></li>
                                             <li><img src="../../images/qrCode.png" /></li>
                                             <li>扫码拨号·刘师傅</li>
@@ -824,7 +821,7 @@
                                 <li><button class="btn-search" ms-on-click="@getSearchList('demo7','40','60')">搜索</button></li>
                             </ul>
                             <!--货物运输完成(申诉中/取消申诉)-->
-                            <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type == '10'">
+                          <!--  <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type == '10'">
                                 <ul class="itemTitle clearfix">
                                     <li class="pull-left">订单编号<span class="ml4 mr4">:</span><span ms-text="el.order_number"></span></li>
                                     <li class="phone pull-right"><img src="../../images/phoneIcon.png" />联系电话</li>
@@ -851,43 +848,45 @@
                                 <div class="model">
                                     <div class="qrCodeContent">
                                         <ul class="code">
-                                            <!-- <li><img src="../../images/qrCode.png" width="62" height="62" /></li>-->
+                                            &lt;!&ndash; <li><img src="../../images/qrCode.png" width="62" height="62" /></li>&ndash;&gt;
                                             <li class="tri"></li>
                                             <li><img src="../../images/qrCode.png" /></li>
                                             <li>扫码拨号·刘师傅</li>
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
+                            </div>-->
                             <!--货物运输完成(投诉中/取消投诉)-->
-                            <div class="itemDetail">
+                            <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type == '10'">
                                 <ul class="itemTitle clearfix">
-                                    <li class="pull-left">订单编号<span class="ml4 mr4">:</span>1451234564</li>
+                                    <li class="pull-left">订单编号<span class="ml4 mr4">:</span><span ms-text="el.order_number"></span></li>
                                     <li class="phone pull-right"><img src="../../images/phoneIcon.png" />联系电话</li>
                                 </ul>
                                 <div class="itemDes clearfix">
                                     <div class="des_left pull-left clearfix">
-                                        <img src="../../images/fruit.png" class="pull-left" width="113px" height="99px" alt=""></li>
+                                        <img ms-attr="{ src : el.goods_images }"  class="pull-left" width="113px" height="99px" alt=""></li>
                                         <div class="description pull-left">
                                             <ul>
-                                                <li>成都 武侯区 → 绵阳 游仙</li>
-                                                <li>整车/1.2米/平板/7吨/50方</li>
-                                                <li>水果/一装一卸</li>
-                                                <li>代付金额<span class="ml4 mr4">:</span>12321元</li>
+                                                <li ms-on-click="@checkDetail(el.goods_id)"><span ms-text="el.start_address.city"></span><span class="ml8" ms-text="el.start_address.area"></span> → <span ms-text="el.end_address.city"></span><span class="ml8" ms-text="el.end_address.area"></span><img ms-if="el.expedited == 'yes'" class="ml4" src="../../images/urgent.png" /></li>
+                                                <li><span ms-text="el.car_length"></span>米/<span ms-text="el.car_model"></span>吨/<span ms-text="el.volume"></span>方</li>
+                                                <li><span ms-text="el.goods_type"></span>/<span ms-text="el._type"></span></li>
+                                                <li>待付金额<span class="ml4 mr4">:</span><span ms-text="el.money"></span>元</li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="des_right pull-right">
                                         <ul class="operateItem">
-                                            <li class="color-999 mt40 mr24" ms-on-click="@orderComplain">投&nbsp;&nbsp;诉&nbsp;&nbsp;中</li>
-                                            <li class="color-999 mt20 mr24">取消投诉</li>
+                                            <li class="color-999 mt40 mr24" ms-if="el.status == '10'" ms-on-click="@orderComplain(el.order_id)">投&nbsp;&nbsp;诉&nbsp;&nbsp;中</li>
+                                            <li class="color-999 mt40 mr24" ms-if="el.status == '20'" ms-on-click="@orderComplain(el.order_id)">处&nbsp;&nbsp;理&nbsp;&nbsp;中</li>
+                                            <li class="color-999 mt40 mr24" ms-if="el.status == '30'" ms-on-click="@orderComplain(el.order_id)">处理完成</li>
+                                            <li class="color-999 mt40 mr24" ms-if="el.status == '40'">已取消投诉</li>
+                                            <li class="color-999 mt20 mr24" ms-if="el.status == '10'" ms-on-click="@orderComplain(el.order_id)">取消投诉</li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="model">
                                     <div class="qrCodeContent">
                                         <ul class="code">
-                                            <!-- <li><img src="../../images/qrCode.png" width="62" height="62" /></li>-->
                                             <li class="tri"></li>
                                             <li><img src="../../images/qrCode.png" /></li>
                                             <li>扫码拨号·刘师傅</li>
@@ -904,33 +903,34 @@
                                 <li><button class="btn-search" ms-on-click="@getSearchList('demo8','40','70')">搜索</button></li>
                             </ul>
                             <!--退款中-->
-                            <div class="itemDetail">
+                            <div class="itemDetail" ms-for="el in @orderList">
                                 <ul class="itemTitle clearfix">
-                                    <li class="pull-left">订单编号<span class="ml4 mr4">:</span>1451234564</li>
+                                    <li class="pull-left">订单编号<span class="ml4 mr4">:</span><span ms-text="el.order_number"></span></li>
                                     <li class="phone pull-right"><img src="../../images/phoneIcon.png" />联系电话</li>
                                 </ul>
                                 <div class="itemDes clearfix">
                                     <div class="des_left pull-left clearfix">
-                                        <img src="../../images/fruit.png" class="pull-left" width="113px" height="99px" alt=""></li>
+                                        <img ms-attr="{ src : el.goods_images }" src="../../images/fruit.png" class="pull-left" width="113px" height="99px" alt=""></li>
                                         <div class="description pull-left">
                                             <ul>
-                                                <li>成都 武侯区 → 绵阳 游仙</li>
-                                                <li>整车/1.2米/平板/7吨/50方</li>
-                                                <li>水果/一装一卸</li>
-                                                <li>代付金额<span class="ml4 mr4">:</span>12321元</li>
+                                                <li ms-on-click="@checkDetail(el.goods_id)"><span ms-text="el.start_address.city"></span><span class="ml8" ms-text="el.start_address.area"></span> → <span ms-text="el.end_address.city"></span><span class="ml8" ms-text="el.end_address.area"></span><img ms-if="el.expedited == 'yes'" class="ml4" src="../../images/urgent.png" /></li>
+                                                <li><span ms-text="el.car_length"></span>米/<span ms-text="el.car_model"></span>吨/<span ms-text="el.volume"></span>方</li>
+                                                <li><span ms-text="el.goods_type"></span>/<span ms-text="el._type"></span></li>
+                                                <li>待付金额<span class="ml4 mr4">:</span><span ms-text="el.money"></span>元</li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="des_right pull-right">
                                         <ul class="operateItem">
-                                            <li class="color-999 mt50 mr24" ms-on-click="@drawback">退款中</li>
+                                            <li class="color-999 mt50 mr24" ms-if="el.status=='10'" ms-on-click="@drawback">发起退款/赔付</li>
+                                            <li class="color-999 mt50 mr24" ms-if="el.status=='20'" ms-on-click="@drawback">退款中</li>
+                                            <li class="color-999 mt50 mr24" ms-if="el.status=='30'" ms-on-click="@drawback">处理完成</li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="model">
                                     <div class="qrCodeContent">
                                         <ul class="code">
-                                            <!-- <li><img src="../../images/qrCode.png" width="62" height="62" /></li>-->
                                             <li class="tri"></li>
                                             <li><img src="../../images/qrCode.png" /></li>
                                             <li>扫码拨号·刘师傅</li>

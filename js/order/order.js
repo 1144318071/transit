@@ -59,9 +59,17 @@ $(function(){
                 'goods_status':''
             },
             orderList:[],
+            DZFList:[],//待支付
+            DJDList:[],//待接单
+            DZHList:[],//待装货
+            YSZList:[],//运输中
+            DQSList:[],//待签收
+            TSList:[],//投诉
+            TKList:[],//退款/赔付
             merchantInfo:{},
             onLoad:function(){
                 vmOrder.getUrl();
+                vmOrder.getStatusOrder('demo1','40','');
                 vmOrder.getMerchantInfo();
             },
             // 查看评价
@@ -103,7 +111,7 @@ $(function(){
                 localStorage.setItem('cancelId',el);
             },
             // 投诉
-            orderComplain: function () {
+            orderComplain: function (el) {
                 top.layer.open({
                     type: 2,
                     title: false,
@@ -113,9 +121,10 @@ $(function(){
                     shadeClose: true, //开启遮罩关闭
                     content: ['/views/order/orderComplain.html']
                 });
+                localStorage.setItem('stateId',el)
             },
-            // 申诉
-            orderState:function(){
+            // 投诉
+            orderState:function(el){
                 top.layer.open({
                     type: 2,
                     title: false,
@@ -125,6 +134,7 @@ $(function(){
                     shadeClose: true, //开启遮罩关闭
                     content: ['/views/order/orderState.html']
                 });
+                localStorage.setItem('stateId',el)
             },
             // 申述中
             orderStating:function(){
@@ -213,7 +223,7 @@ $(function(){
                 });
             },
             //确认收货
-            confirmReceipt:function(){
+            confirmReceipt:function(el){
                 top.layer.open({
                     type: 2,
                     title: false,
@@ -223,6 +233,7 @@ $(function(){
                     shadeClose: true, //开启遮罩关闭
                     content: ['/views/order/confirmReceipt.html']
                 });
+                localStorage.setItem('confirmId',el)
             },
             //确认装货
             confirmLoad:function(el){
@@ -288,7 +299,43 @@ $(function(){
                             result[i].end_address.area = getAreaName(result[i].end_address.area);
                             result[i].goods_images = getApiHost + result[i].goods_images;
                         }
-                        vmOrder.orderList = res.result;
+                        if(goods_status != '40'){
+                            if(goods_status == '10'){
+                                vmOrder.DZFList = res.result;
+                                console.log('待支付',res.result)
+                            }else{
+                                vmOrder.DJDList = res.result;
+                                console.log('待接单',res.result)
+                            }
+                        }else{
+                            switch (order_status) {
+                                case '':
+                                    vmOrder.orderList = res.result;
+                                    console.log('全部',res.result)
+                                case '10':
+                                    vmOrder.DZHList = res.result;
+                                    console.log('待装货',res.result)
+                                break;
+                                case '20':
+                                    vmOrder.YSZList = res.result;
+                                    console.log('运输中',res.result)
+                                break;
+                                case '40':
+                                    vmOrder.DQSList = res.result;
+                                    console.log('待签收',res.result)
+                                break;
+                                case '60':
+                                    vmOrder.TSList = res.result;
+                                    console.log('投诉',res.result)
+                                break;
+                                case '70':
+                                    vmOrder.TKList = res.result;
+                                    console.log('退款',res.result)
+                                break;
+                                default:
+                                break;
+                            }
+                        }
                     }
                 });
             },

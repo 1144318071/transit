@@ -36,6 +36,8 @@ var API = {
     URL_GET_BANKLIST : getApiHost + '/bank/list',
     //添加银行卡
     URL_POST_BANKADD : getApiHost + '/bank/add',
+    //查询银行卡信息
+    URL_GET_BANKINFO : getApiHost + '/getBankInfo',
     //设置默认
     URL_POST_BANKDEFAULT : getApiHost + '/bank/default',
     //银行卡解绑
@@ -119,6 +121,8 @@ var API = {
     URL_GET_COUPONLIST : getApiHost + '/coupon/list',
     //接单后取消订单
     URL_POST_CLOSEORDER : getApiHost + '/order/closeOrder',
+    //投诉详情
+    URL_GET_COMPLAININFO : getApiHost + '/complaintInfo',
     //----------------------------------------------物流公司-----------------------------------
     //公司主页
     URL_GET_COMPANYINFO : getApiHost + '/companyInfo',

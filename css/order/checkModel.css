@@ -561,8 +561,13 @@
 .complainSteps>ul li:first-child{
   width: 64px;
   height: 64px;
-  background-color:#1986f5;
+  background-color:#eaeaea;
   border-radius: 64px;
+  line-height: 64px;
+  text-align: center;
+}
+.complainSteps>ul li:first-child.active{
+  background-color:#1986f5;
 }
 .complainSteps>ul li:last-child{
   margin-top: 20px;
@@ -573,8 +578,11 @@
 .stepLine{
   width: 189px;
   height: 9px;
-  background-color: #1986f5;
+  background-color:#eaeaea;
   margin-top: 28px;
+}
+.stepLine.active{
+  background-color: #1986f5;
 }
 .complainContent{
   padding: 27px 0px 0px 64px;
@@ -903,5 +911,11 @@ margin-top: 66px;
 }
 
 /*
-
 */
+#test10>span{
+  opacity: 0;
+}
+.orderState .buttons{
+  margin-top: 96px;
+  margin-left: 67px;
+}

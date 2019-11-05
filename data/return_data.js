@@ -134,3 +134,31 @@ function getAreaName(code){
         }
     }
 }
+//隐藏银行卡号码
+function stringHidePart(strObj){
+    var strLength = strObj.length;
+    var star = '';
+    var strRel = '';
+    if(strLength>6){
+        var hideSec = strObj.substring(3);    //星号部分
+        for(var i=5;i<hideSec.length;i++){
+            star+= "*";
+        }
+    };
+    strRel = strObj.substring(0,4) + star + strObj.substr(strObj.length-3);
+    return strRel;
+};
+//手机号隐藏
+function stringHidePhone(strObj){
+    var strLength = strObj.length;
+    var star = '';
+    var strRel = '';
+    if(strLength>3){
+        var hideSec = strObj.substring(3);
+        for(var i=4;i<hideSec.length;i++){
+            star+= "*";
+        }
+    };
+    strRel = strObj.substring(0,3) + star + strObj.substr(strObj.length-4);
+    return strRel;
+};
