@@ -11,15 +11,6 @@ $(function(){
             onLoad:function(){
 
             },
-            getPage: function (el) {
-                var src = el.currentTarget.dataset.src;
-                // if (src == 'views/home.html'){
-                   
-                // }else{
-                    window.parent.parent.document.getElementById('test').src = src;
-                    // parent.test.location.reload();
-                // }
-            }
         });
         vmCarImg.onLoad();
         avalon.scan(document.body);

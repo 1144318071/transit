@@ -47,6 +47,8 @@ $(function(){
                         }
                         vmDiscount.couponList = res.result;
                         vmDiscount.selectCoupon();
+                    }else{
+                        alertMsg(res.message,2);
                     }
                 });
             }

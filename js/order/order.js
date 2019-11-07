@@ -235,14 +235,18 @@ $(function(){
                 var token = localStorage.getItem('token');
                 vmOrder.postData._token_ = token;
                 getAjax(API.URL_GET_PERSONALINFO,'get',{'_token_' : token}).then(function(res){
-                    if(res.result.company_logo !=''){
-                        var src = getApiHost + res.result.company_logo;
-                        $('#companyLogo').attr('src',src)
+                    if(res.code == 200){
+                        if(res.result.company_logo !=''){
+                            var src = getApiHost + res.result.company_logo;
+                            $('#companyLogo').attr('src',src)
+                        }
+                        res.result.province = getProvinceName(res.result.province);
+                        res.result.city = getCityName(res.result.city);
+                        res.result.area = getAreaName(res.result.area);
+                        vmOrder.merchantInfo = res.result;
+                    }else{
+                        alertMsg(res.message,2);
                     }
-                    res.result.province = getProvinceName(res.result.province);
-                    res.result.city = getCityName(res.result.city);
-                    res.result.area = getAreaName(res.result.area);
-                    vmOrder.merchantInfo = res.result;
                 });
             },
             //获取订单列表
@@ -303,6 +307,8 @@ $(function(){
                                 break;
                             }
                         }
+                    }else{
+                        alertMsg(res.message,2);
                     }
                 });
             },
@@ -345,6 +351,8 @@ $(function(){
                         alertMsg(res.message,1);
                         //删除之后重新请求数据
                         vmOrder.getOrderList(demo,goods_status,order_status);
+                    }else{
+                        alertMsg(res.message,2);
                     }
                 });
             },

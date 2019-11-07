@@ -22,6 +22,8 @@ $(function () {
                 getAjax(API.URL_POST_SENDCODE, 'post', getCode).then(function (res) {
                     if(res.code == 200){
                         alertMsg(res.message,1);
+                    }else{
+                        alertMsg(res.message,2);
                     }
                 });
                 let count = 60;
@@ -52,6 +54,8 @@ $(function () {
                        vmUnbind.userInfo = res.result;
                        vmUnbind.mobile = res.result.mobile;
                        vmUnbind.getCardInfo();
+                   }else{
+                       alertMsg(res.message,2);
                    }
                 });
             },
@@ -68,6 +72,8 @@ $(function () {
                         res.result.mobile = stringHidePhone(vmUnbind.mobile);
                         vmUnbind.cardInfo = res.result;
                         console.log(res.result)
+                    }else{
+                        alertMsg(res.message,2);
                     }
                 });
             },
@@ -83,6 +89,8 @@ $(function () {
                             window.parent.location.reload();
                             parent.layer.close(parent.layer.index);
                         },1000);
+                    }else{
+                        alertMsg(res.message,2);
                     }
                 })
             },

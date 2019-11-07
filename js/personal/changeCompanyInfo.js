@@ -111,6 +111,8 @@ $(function(){
                         $("#city1").trigger("change");
                         $(" #district1 option[data-code ='" + result.area + "']").attr("selected", "selected");
                         $("#district1").trigger("change");
+                    }else{
+                        alertMsg(res.message,2);
                     }
                 });
             },
@@ -152,7 +154,11 @@ $(function(){
                         'mobile': vmChangeInfo.postData.mobile
                     };
                     getAjax(API.URL_POST_SENDCODE, 'post', getCode).then(function (res) {
-                        alertMsg(res.message,1)
+                        if(res.code == 200){
+                            alertMsg(res.message,1)
+                        }else{
+                            alertMsg(res.message,2);
+                        }
                     });
                     let count = 60;
                     const countDown = setInterval(()=>{
@@ -173,7 +179,11 @@ $(function(){
                 var token = localStorage.getItem('token');
                 vmChangeInfo.postData._token_ = token;
                 getAjax(API.URL_POST_VERIFYCOMPANY,'post',vmChangeInfo.postData).then(function(res){
-                    console.log(res);
+                    if(res.code == 200){
+                        alertMsg(res.message,1);
+                    }else{
+                        alertMsg(res.message,2);
+                    }
                 });
             }
         });

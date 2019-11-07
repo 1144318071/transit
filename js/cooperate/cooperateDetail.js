@@ -91,7 +91,11 @@ $(function(){
                 vmCooperate.postData.type = item;
                 console.log(vmCooperate.postData)
                 getAjax(API.URL_POST_ABOUTTEAMWORK,'post',vmCooperate.postData).then(function (res) {
-                    alertMsg(res.message,1);
+                    if(res.code == 200){
+                        alertMsg(res.message,1);
+                    }else{
+                        alertMsg(res.message,2);
+                    }
                 })
             }
         });

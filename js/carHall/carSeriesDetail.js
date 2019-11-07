@@ -33,20 +33,23 @@ function setCity(id) {
 function getAgentList(res) {
     vmCarSeriesDetail.agentData.city = res;
     getAjax(API.URL_GET_QUALITYAGENT,'get',vmCarSeriesDetail.agentData).then(function(res){
-        vmCarSeriesDetail.agentList = res.result;
-        for(var i=0;i<res.result.length;i++){
-            var provinceCode = res.result[i].province;
-            var cityCode = res.result[i].city;
-            var areaCode = res.result[i].area;
-            var p = getProvinceName(provinceCode)
-            var c= getCityName(cityCode);
-            /*var a = getAreaName(areaCode);*/
-            res.result[i].province = p;
-            res.result[i].city = c;
-           /* res.result[i].area = a;*/
-            res.result[i].shop_logo = getApiHost + res.result[i].shop_logo;
+        if(res.code == 200){
+            for(var i=0;i<res.result.length;i++){
+                var provinceCode = res.result[i].province;
+                var cityCode = res.result[i].city;
+                var areaCode = res.result[i].area;
+                var p = getProvinceName(provinceCode)
+                var c= getCityName(cityCode);
+                var a = getAreaName(areaCode);
+                res.result[i].province = p;
+                res.result[i].city = c;
+                 res.result[i].area = a;
+                res.result[i].shop_logo = getApiHost + res.result[i].shop_logo;
+            }
+            vmCarSeriesDetail.agentList = res.result;
+        }else{
+            alertMsg(res.message,2);
         }
-        console.log(vmCarSeriesDetail.agentList);
     });
 }
 document.getElementById('province').innerHTML = getProvince();
@@ -133,11 +136,15 @@ $(function(){
                     'type':vmCarSeriesDetail.data.car_ty
                 }
                 getAjax(API.URL_GET_CARSERIESDETAIL,'get',postData).then(function(res){
-                    vmCarSeriesDetail.newsList = res.result.news;
-                    vmCarSeriesDetail.ZSList = res.result.carList;
-                    vmCarSeriesDetail.relatedCars = res.result.relatedCars;
-                    vmCarSeriesDetail.carDetail = res.result.list;
-                    vmCarSeriesDetail.getStatusList();
+                    if(res.code == 200){
+                        vmCarSeriesDetail.newsList = res.result.news;
+                        vmCarSeriesDetail.ZSList = res.result.carList;
+                        vmCarSeriesDetail.relatedCars = res.result.relatedCars;
+                        vmCarSeriesDetail.carDetail = res.result.list;
+                        vmCarSeriesDetail.getStatusList();
+                    }else{
+                        alertMsg(res.message,2);
+                    }
                 });
             },
             getStatusList:function(){
@@ -147,20 +154,23 @@ $(function(){
                 vmCarSeriesDetail.filterData.type = vmCarSeriesDetail.data.car_ty;
                 console.log(vmCarSeriesDetail.filterData)
                 getAjax(API.URL_GET_CARFILTER,'get',vmCarSeriesDetail.filterData).then(function(res){
-                    vmCarSeriesDetail.carList = res.result;
-                    console.log('请求的数据',res.result)
-                    switch(vmCarSeriesDetail.filterData.status){
-                        case '10':
-                            vmCarSeriesDetail.ZSList = res.result;
-                        break;
-                        case '20':
-                            vmCarSeriesDetail.TSList = res.result;
-                        break;
-                        case '30':
-                            vmCarSeriesDetail.SSList = res.result;
-                        break;
-                        default:
-                        break;
+                    if(res.code == 200){
+                        vmCarSeriesDetail.carList = res.result;
+                        switch(vmCarSeriesDetail.filterData.status){
+                            case '10':
+                                vmCarSeriesDetail.ZSList = res.result;
+                                break;
+                            case '20':
+                                vmCarSeriesDetail.TSList = res.result;
+                                break;
+                            case '30':
+                                vmCarSeriesDetail.SSList = res.result;
+                                break;
+                            default:
+                                break;
+                        }
+                    }else{
+                        alertMsg(res.message,2);
                     }
                 });
             },
@@ -209,55 +219,59 @@ $(function(){
                 vmCarSeriesDetail.filterData.limit = 2;
                 vmCarSeriesDetail.filterData.status = el;
                 getAjax(API.URL_GET_CARFILTER,'get',vmCarSeriesDetail.filterData).then(function(res){
-                    vmCarSeriesDetail.moreList = res.result[0];
-                    var moreList = res.result[0];
-                    switch (el) {
-                        case 10:
-                            for(var i in moreList){
-                                moreList[i].statusContent='在售';
-                            }
-                        break;
-                        case 20:
-                            for(var j in moreList){
-                                moreList[j].statusContent='停售';
-                            }
-                        break;
-                        case 30:
-                            for(var k in moreList){
-                                moreList[k].statusContent='即将上市';
-                            }
-                        break;
+                    if(res.code == 200){
+
+                        vmCarSeriesDetail.moreList = res.result[0];
+                        var moreList = res.result[0];
+                        switch (el) {
+                            case 10:
+                                for(var i in moreList){
+                                    moreList[i].statusContent='在售';
+                                }
+                            break;
+                            case 20:
+                                for(var j in moreList){
+                                    moreList[j].statusContent='停售';
+                                }
+                            break;
+                            case 30:
+                                for(var k in moreList){
+                                    moreList[k].statusContent='即将上市';
+                                }
+                            break;
+                        }
+                        var loopItem='';
+                        $(moreList).each(function(index,item){
+                            loopItem += "<tr>\n" +
+                                "    <td>\n" +
+                                "        <div class=\"selectDetail\">\n" +
+                                "            <span>"+item.manager_name+"</span>\n" +
+                                "            <span>"+item.type_name +"</span>\n" +
+                                "            <span><span>"+item.engine_max_power+"</span>马力</span>\n" +
+                                "            <span><span>"+item.base_drive+"</span></span>\n" +
+                                "            <span>(<i>"+item.car_number+"</i>)</span>\n" +
+                                "        </div>\n" +
+                                "        <div class=\"allStatus\">\n" +
+                                "            <button>"+item.statusContent+"</button>\n" +
+                                "            <button><span>"+item.base_long+"</span>米</button>\n" +
+                                "            <button>核载<span>"+item.base_load+"</span>吨</button>\n" +
+                                "        </div>\n" +
+                                "    </td>\n" +
+                                "    <td>\n" +
+                                "        <span>"+item.price+"</span>万\n" +
+                                "    </td>\n" +
+                                "    <td>\n" +
+                                "        <a href=\"./checkSeriesDetail.html?car_ty="+item.car_type+'&id='+item.id+"\">查看图片</a>\n" +
+                                "    </td>\n" +
+                                "    <td>\n" +
+                                "        <a href=\"./checkSeriesDetail.html?car_ty="+item.car_type+'&id='+item.id+"\">查看参数</a>\n" +
+                                "    </td>\n" +
+                                "</tr>";
+                        });
+                        $('.moreData').before(loopItem)
+                    }else{
+                        alertMsg(res.message,2);
                     }
-                    var loopItem='';
-                    $(moreList).each(function(index,item){
-                        loopItem += "<tr>\n" +
-                            "    <td>\n" +
-                            "        <div class=\"selectDetail\">\n" +
-                            "            <span>"+item.manager_name+"</span>\n" +
-                            "            <span>"+item.type_name +"</span>\n" +
-                            "            <span><span>"+item.engine_max_power+"</span>马力</span>\n" +
-                            "            <span><span>"+item.base_drive+"</span></span>\n" +
-                            "            <span>(<i>"+item.car_number+"</i>)</span>\n" +
-                            "        </div>\n" +
-                            "        <div class=\"allStatus\">\n" +
-                            "            <button>"+item.statusContent+"</button>\n" +
-                            "            <button><span>"+item.base_long+"</span>米</button>\n" +
-                            "            <button>核载<span>"+item.base_load+"</span>吨</button>\n" +
-                            "        </div>\n" +
-                            "    </td>\n" +
-                            "    <td>\n" +
-                            "        <span>"+item.price+"</span>万\n" +
-                            "    </td>\n" +
-                            "    <td>\n" +
-                            "        <a href=\"./checkSeriesDetail.html?car_ty="+item.car_type+'&id='+item.id+"\">查看图片</a>\n" +
-                            "    </td>\n" +
-                            "    <td>\n" +
-                            "        <a href=\"./checkSeriesDetail.html?car_ty="+item.car_type+'&id='+item.id+"\">查看参数</a>\n" +
-                            "    </td>\n" +
-                            "</tr>";
-                    });
-                    $('.moreData').before(loopItem)
-                    console.log('加载更多',res.result[0]);
                 });
             },
             loadingMore:function(el,base,group){
@@ -269,57 +283,60 @@ $(function(){
                 vmCarSeriesDetail.loadingData.status = el;
                 vmCarSeriesDetail.loadingData.base_drive = base;
                 vmCarSeriesDetail.loadingData.group = group;
-
                 getAjax(API.URL_GET_LOADINGMORE,'get',vmCarSeriesDetail.loadingData).then(function(res){
-                    vmCarSeriesDetail.loadingList = res.result;
-                    var loadingList = res.result;
-                    switch (el) {
-                        case 10:
-                            for(var i in loadingList){
-                                loadingList[i].statusContent='在售';
-                            }
-                            break;
-                        case 20:
-                            for(var j in moreList){
-                                loadingList[j].statusContent='停售';
-                            }
-                            break;
-                        case 30:
-                            for(var k in moreList){
-                                loadingList[k].statusContent='即将上市';
-                            }
-                            break;
+                    if(res.code == 200){
+
+                        vmCarSeriesDetail.loadingList = res.result;
+                        var loadingList = res.result;
+                        switch (el) {
+                            case 10:
+                                for(var i in loadingList){
+                                    loadingList[i].statusContent='在售';
+                                }
+                                break;
+                            case 20:
+                                for(var j in moreList){
+                                    loadingList[j].statusContent='停售';
+                                }
+                                break;
+                            case 30:
+                                for(var k in moreList){
+                                    loadingList[k].statusContent='即将上市';
+                                }
+                                break;
+                        }
+                        var loopItem='';
+                        $(loadingList).each(function(index,item){
+                            loopItem += "<tr>\n" +
+                                "    <td>\n" +
+                                "        <div class=\"selectDetail\">\n" +
+                                "            <span>"+item.manager_name+"</span>\n" +
+                                "            <span>"+item.type_name +"</span>\n" +
+                                "            <span><span>"+item.engine_max_power+"</span>马力</span>\n" +
+                                "            <span><span>"+item.base_drive+"</span></span>\n" +
+                                "            <span>(<i>"+item.car_number+"</i>)</span>\n" +
+                                "        </div>\n" +
+                                "        <div class=\"allStatus\">\n" +
+                                "            <button>"+item.statusContent+"</button>\n" +
+                                "            <button><span>"+item.base_long+"</span>米</button>\n" +
+                                "            <button>核载<span>"+item.base_load+"</span>吨</button>\n" +
+                                "        </div>\n" +
+                                "    </td>\n" +
+                                "    <td>\n" +
+                                "        <span>"+item.price+"</span>万\n" +
+                                "    </td>\n" +
+                                "    <td>\n" +
+                                "        <a href=\"./checkSeriesDetail.html?car_ty="+item.car_type+'&id='+item.id+"\">查看图片</a>\n" +
+                                "    </td>\n" +
+                                "    <td>\n" +
+                                "        <a href=\"./checkSeriesDetail.html?car_ty="+item.car_type+'&id='+item.id+"\">查看参数</a>\n" +
+                                "    </td>\n" +
+                                "</tr>";
+                        });
+                        $('#base_drive_'+base).before(loopItem)
+                    }else{
+                        alertMsg(res.message,2);
                     }
-                    var loopItem='';
-                    $(loadingList).each(function(index,item){
-                        loopItem += "<tr>\n" +
-                            "    <td>\n" +
-                            "        <div class=\"selectDetail\">\n" +
-                            "            <span>"+item.manager_name+"</span>\n" +
-                            "            <span>"+item.type_name +"</span>\n" +
-                            "            <span><span>"+item.engine_max_power+"</span>马力</span>\n" +
-                            "            <span><span>"+item.base_drive+"</span></span>\n" +
-                            "            <span>(<i>"+item.car_number+"</i>)</span>\n" +
-                            "        </div>\n" +
-                            "        <div class=\"allStatus\">\n" +
-                            "            <button>"+item.statusContent+"</button>\n" +
-                            "            <button><span>"+item.base_long+"</span>米</button>\n" +
-                            "            <button>核载<span>"+item.base_load+"</span>吨</button>\n" +
-                            "        </div>\n" +
-                            "    </td>\n" +
-                            "    <td>\n" +
-                            "        <span>"+item.price+"</span>万\n" +
-                            "    </td>\n" +
-                            "    <td>\n" +
-                            "        <a href=\"./checkSeriesDetail.html?car_ty="+item.car_type+'&id='+item.id+"\">查看图片</a>\n" +
-                            "    </td>\n" +
-                            "    <td>\n" +
-                            "        <a href=\"./checkSeriesDetail.html?car_ty="+item.car_type+'&id='+item.id+"\">查看参数</a>\n" +
-                            "    </td>\n" +
-                            "</tr>";
-                    });
-                    $('#base_drive_'+base).before(loopItem)
-                    console.log('加载更多',res.result[0]);
                 });
             },
         });

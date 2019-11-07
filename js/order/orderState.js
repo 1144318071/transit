@@ -22,7 +22,7 @@ layui.use('upload', function () {
                 //上传成功
                 if(res.code == 200){
                     console.log(res);
-                    var html = '<li class="delImg"><img class="img_reason" src="'+getApiHost+res.result.crop+'" data-src="'+res.result.crop+'" alt=""><span class="del">X</span></li>';
+                    var html = '<li class="delImg"><img class="img_reason" src="'+getApiHost+res.result.crop+'" data-src="'+res.result.crop+'" width="135px" height="147px" alt=""><span class="del">X</span></li>';
                     $('.uploadContent').append(html);
                     vmOrderState.imgCount +=1;
                 }
@@ -71,6 +71,20 @@ $(function () {
             stateSuccess:function(){
                 vmOrderState.postData._token_ = localStorage.getItem('token');
                 vmOrderState.postData.order_id = localStorage.getItem('stateId');
+                var imgs = document.getElementsByClassName('img_reason');
+                var len = imgs.length;
+                var imgsArr = [];
+                if(len == 0){
+                    alertMsg('请上传图片',2);
+                    return false;
+                }else{
+                    for(var i in imgs){
+                        var src = $(imgs[i]).attr('data-src');
+                        imgsArr.push(src);
+                    }
+                };
+                vmOrderState.postData.certificate = imgsArr.join(',');
+                console.log(vmOrderState.postData)
                 getAjax(API.URL_POST_GOODSCOMPLAINT,'post',vmOrderState.postData).then(function(res){
                    if(res.code == 200){
                        top.layer.open({
@@ -82,6 +96,8 @@ $(function () {
                            shadeClose: true, //开启遮罩关闭
                            content: ['/views/order/muckStateSuccess.html']
                        });
+                   }else{
+                       alertMsg(res.message,2);
                    }
                 });
 

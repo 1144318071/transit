@@ -59,6 +59,8 @@ $(function () {
                 getAjax(API.URL_GET_COMPLAININFO,'get',postData).then(function(res){
                     if(res.code == 200){
                         vmOrderComplain.stateDetail = res.result;
+                    }else{
+                        alertMsg(res.message,2);
                     }
                 });
             }

@@ -17,6 +17,8 @@ $(function(){
                    if(res.code == 200){
                        res.result.card_number = stringHidePart(res.result.card_number)
                        vmSetDefault.cardInfo = res.result;
+                   }else{
+                       alertMsg(res.message,2);
                    }
                 });
             }

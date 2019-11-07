@@ -32,21 +32,26 @@
  }
  function getAgentList(res) {
      vmBrandDetail.agentData.city = res;
+     vmBrandDetail.agentList = [];
      getAjax(API.URL_GET_QUALITYAGENT,'get',vmBrandDetail.agentData).then(function(res){
-         vmBrandDetail.agentList = res.result;
-         for(var i=0;i<res.result.length;i++){
-             var provinceCode = res.result[i].province;
-             var cityCode = res.result[i].city;
-             var areaCode = res.result[i].area;
-             var p = getProvinceName(provinceCode)
-             var c= getCityName(cityCode);
-             /*var a = getAreaName(areaCode);*/
-             res.result[i].province = p;
-             res.result[i].city = c;
-             /*res.result[i].area = a;*/
-             res.result[i].shop_logo = getApiHost + res.result[i].shop_logo;
+         if(res.code == 200){
+             vmBrandDetail.agentList = res.result;
+             for(var i=0;i<res.result.length;i++){
+                 var provinceCode = res.result[i].province;
+                 var cityCode = res.result[i].city;
+                 var areaCode = res.result[i].area;
+                 var p = getProvinceName(provinceCode)
+                 var c= getCityName(cityCode);
+                 var a = getAreaName(areaCode);
+                 res.result[i].province = p;
+                 res.result[i].city = c;
+                 res.result[i].area = a;
+                 res.result[i].shop_logo = getApiHost + res.result[i].shop_logo;
+             }
+         }else{
+             alertMsg(res.message,2)
          }
-         console.log(vmBrandDetail.agentList);
+
      });
  }
  document.getElementById('province').innerHTML = getProvince();
@@ -90,24 +95,27 @@ $(function(){
                     'brands_id':vmBrandDetail.queryData.id
                 }
                 getAjax(API.URL_GET_BRANDINFO,'get',postData).then(function (res) {
-                    res.result.info.logo = getApiHost + res.result.info.logo;
-                    vmBrandDetail.brandInfo = res.result.info;
-                    vmBrandDetail.carDetail = res.result.data;
-                    for(var i=0;i<res.result.car_type.length;i++){
-                        if(res.result.car_type[i].appearance_pic !=''){
-                            res.result.car_type[i].appearance_pic = getApiHost + res.result.car_type[i].appearance_pic;
+                    if(res.code == 200){
+                        res.result.info.logo = getApiHost + res.result.info.logo;
+                        vmBrandDetail.brandInfo = res.result.info;
+                        vmBrandDetail.carDetail = res.result.data;
+                        for(var i=0;i<res.result.car_type.length;i++){
+                            if(res.result.car_type[i].appearance_pic !=''){
+                                res.result.car_type[i].appearance_pic = getApiHost + res.result.car_type[i].appearance_pic;
+                            }
                         }
-                    }
-                    vmBrandDetail.carType = res.result.car_type;
-                    var data = res.result.data;
-                    for(var j=0;j<data.length;j++){
-                        if(data[j].image !=''){
-                            data[j].image = getApiHost + data[j].image
+                        vmBrandDetail.carType = res.result.car_type;
+                        var data = res.result.data;
+                        for(var j=0;j<data.length;j++){
+                            if(data[j].image !=''){
+                                data[j].image = getApiHost + data[j].image
+                            }
                         }
+                    }else{
+                        alertMsg(res.message,2);
                     }
-                    console.log(vmBrandDetail.carDetail)
                 });
-                vmBrandDetail.getAgentList();
+                //vmBrandDetail.getAgentList();
             },
             showEnergy:function(){
                 $('.energyType').show();

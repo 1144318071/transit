@@ -16,6 +16,8 @@ $(function(){
                   setTimeout(function(){
                       parent.layer.close(parent.layer.index);
                   },1000)
+              }else{
+                  alertMsg(res.message,2);
               }
            });
        }

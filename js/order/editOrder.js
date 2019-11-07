@@ -60,18 +60,31 @@ function changeCount(item){
 }
 changeCount('.loadAddress');
 changeCount('.unloadAddress');
-function deleteItem(item_one,item_two){
+function deleteItem(item_one,item_two,item_three){
     $(item_one).delegate('.delAddress','click',function () {
         var one_hidden = $(item_two).is(':hidden');
-        var two_hidden = $(item_two).is(':hidden');
+        var two_hidden = $(item_three).is(':hidden');
         if(!one_hidden && !two_hidden){
             $(this).closest('.form-inline').hide();
             $(this).closest('.form-inline').siblings().find('.addressAdd').text('+');
         }
+        if(item_one == '.loadAddress'){
+           if(!one_hidden){
+               vmPublishOrder.model.addressList_one.id='';
+           }else if(!two_hidden){
+               vmPublishOrder.model.addressList_two.id='';
+           }
+        }else if(item_one == '.unloadAddress'){
+            if(one_hidden){
+                vmPublishOrder.model.addressList_three.id='';
+            }else if(!two_hidden){
+                vmPublishOrder.model.addressList_four.id='';
+            }
+        }
     });
 }
-deleteItem('.loadAddress','.loadAddress .addressItem_one');
-deleteItem('.unloadAddress','.loadAddress .addressItem_three');
+deleteItem('.loadAddress','.loadAddress .addressItem_one','.loadAddress .addressItem_two');
+deleteItem('.unloadAddress','.unloadAddress .addressItem_three','.unloadAddress .addressItem_four');
 $(function(){
     $('.demo').ySelect();
     layui.use('laydate', function() {
@@ -141,140 +154,151 @@ $(function(){
             goodsInfo:{},
             start:[],
             end:[],
+            goods_id:'',
             //获取get传参的数据
             getOrderDetail:function(){
                 var src = window.location.href;
                 var params = GetRequest(src).goods_id;
+                vmPublishOrder.goods_id = params;
                 var token = localStorage.getItem('token');
-                if(params != undefined){
-                    var postData = {
-                        '_token_':token,
-                        'order_id':params
-                    };
-                    getAjax(API.URL_GET_GOODSINFO,'get',postData).then(function(res){
-                        if(res.code == 200){
-                            console.log(res.result);
-                            var model = res.result.car_model.split(',');
-                            var len = res.result.car_length.split(',');
-                            //遍历全部option
-                            console.log(model)
-                            for(var i in model){
-                                $(".fs-options .fs-option").each(function(i,val){
-                                    var text = $(val).attr('data-value');
-                                    if(text == model[i]){
-                                        $(val).addClass('selected');
-                                    }
-                                })
-                            }
-                            /*数据渲染*/
-                            /*时间的处理*/
-                            var start_time = res.result.loading_start_time;
-                            var end_time = res.result.loading_end_time;
-                            vmPublishOrder.date.date = start_time.substr(0,10);
-                            vmPublishOrder.date.time = start_time.substr(11)+' - '+end_time.substr(11);
-                            /*货物重量*/
-                            vmPublishOrder.postData.weight = res.result.weight;
-                            vmPublishOrder.postData.volume = res.result.volume;
-                            /*货物类型*/
-                            vmPublishOrder.postData.goods_type = res.result.goods_type;
-                            /*没有任何操作的时候,其值与获取的值是一样的*/
-                            vmPublishOrder.postData.loading_start_time = res.result.loading_start_time;
-                            vmPublishOrder.postData.loading_end_time = res.result.loading_end_time;
-                            vmPublishOrder.postData.goods_images = res.result.goods_images;
-                            vmPublishOrder.postData.remark = res.result.remark;
-                            let detailAddress = res.result.line;
-                            let start = [];
-                            let end=[];
-                            vmPublishOrder.start = start;
-                            vmPublishOrder.end = end;
-                            for(let i in detailAddress){
-                                if(detailAddress[i].start == '1'){
-                                    start.push(detailAddress[i])
-                                }else{
-                                    end.push(detailAddress[i]);
+                var postData = {
+                    '_token_':token,
+                    'order_id':params
+                };
+                getAjax(API.URL_GET_GOODSINFO,'get',postData).then(function(res){
+                    if(res.code == 200){
+                        console.log(res.result);
+                        var model = res.result.car_model.split(',');
+                        var len = res.result.car_length.split(',');
+                        var selected = model +',' +  len;
+                        var selectedArr = selected.split(',');
+                        $('.fs-dropdown').removeClass('hidden');
+                        $('.fs-options .fs-option').each(function(i,val){
+                            var txt = $(val).attr('data-value');
+                            for(var i in selectedArr){
+                                if(selectedArr[i] == txt){
+                                    $(val).addClass('selected')
                                 }
                             }
-                            console.log(start)
-                            let start_len = start.length;
-                            let end_len = start.length;
-                            /*装货地址*/
-                            switch(start_len){
-                                case 1:
-                                    $(" #province1 option[data-code ='" + start[0].province + "']").attr("selected", "selected");
-                                    $("#province1").trigger("change");
-                                    $(" #city1 option[data-code ='" + start[0].city + "']").attr("selected", "selected");
-                                    $("#city1").trigger("change");
-                                    $(" #district1 option[data-code ='" + start[0].area + "']").attr("selected", "selected");
-                                    $("#district1").trigger("change");
-                                    vmPublishOrder.model.addressList_one.address=start[0].address;
-                                break;
-                                case 2:
-                                    $('.addressItem_two').show();
-                                    $(" #province1 option[data-code ='" + start[0].province + "']").attr("selected", "selected");
-                                    $("#province1").trigger("change");
-                                    $(" #city1 option[data-code ='" + start[0].city + "']").attr("selected", "selected");
-                                    $("#city1").trigger("change");
-                                    $(" #district1 option[data-code ='" + start[0].area + "']").attr("selected", "selected");
-                                    $("#district1").trigger("change");
-                                    vmPublishOrder.model.addressList_one.address=start[0].address;
-                                    $(" #province1_two option[data-code ='" + start[1].province + "']").attr("selected", "selected");
-                                    $("#province1_two").trigger("change");
-                                    $(" #city1_two option[data-code ='" + start[1].city + "']").attr("selected", "selected");
-                                    $("#city1_two").trigger("change");
-                                    $(" #district1 option[data-code ='" + start[1].area + "']").attr("selected", "selected");
-                                    $("#district1_two").trigger("change");
-                                    vmPublishOrder.model.addressList_two.address=start[1].address;
-                                break;
-                                default:
-                                break;
-                            }
-                            /*卸货地址*/
-                            switch(end_len){
-                                case 1:
-                                    $(" #province1_three option[data-code ='" + end[0].province + "']").attr("selected", "selected");
-                                    $("#province1_three").trigger("change");
-                                    $(" #city_three1 option[data-code ='" + end[0].city + "']").attr("selected", "selected");
-                                    $("#city1_three").trigger("change");
-                                    $(" #district1_three option[data-code ='" + end[0].area + "']").attr("selected", "selected");
-                                    $("#district1_three").trigger("change");
-                                    vmPublishOrder.model.addressList_three.address=end[0].address;
-                                break;
-                                case 2:
-                                    $('.addressItem_four').show();
-                                    $(" #province1_three option[data-code ='" + end[0].province + "']").attr("selected", "selected");
-                                    $("#province1_three").trigger("change");
-                                    $(" #city_three1 option[data-code ='" + end[0].city + "']").attr("selected", "selected");
-                                    $("#city1_three").trigger("change");
-                                    $(" #district1_three option[data-code ='" + end[0].area + "']").attr("selected", "selected");
-                                    $("#district1_three").trigger("change");
-                                    vmPublishOrder.model.addressList_three.address=end[0].address;
-                                    $(" #province1_four option[data-code ='" + end[0].province + "']").attr("selected", "selected");
-                                    $("#province1_four").trigger("change");
-                                    $(" #city1_four option[data-code ='" + end[0].city + "']").attr("selected", "selected");
-                                    $("#city1_four").trigger("change");
-                                    $(" #district1_four option[data-code ='" + end[0].area + "']").attr("selected", "selected");
-                                    $("#district1_four").trigger("change");
-                                    vmPublishOrder.model.addressList_four.address=end[0].address;
-                                break;
-                                default:
-                                break;
-                            }
-                            /*是否加急*/
-                            let urgent = document.getElementsByName("urgent");
-                            if(vmPublishOrder.postData.expedited == 'yes'){
-                                urgent[0].checked = true;
+                        });
+                        /*数据渲染*/
+                        /*时间的处理*/
+                        var start_time = res.result.loading_start_time;
+                        var end_time = res.result.loading_end_time;
+                        vmPublishOrder.date.date = start_time.substr(0,10);
+                        vmPublishOrder.date.time = start_time.substr(11)+' - '+end_time.substr(11);
+                        /*货物重量*/
+                        vmPublishOrder.postData.weight = res.result.weight;
+                        vmPublishOrder.postData.volume = res.result.volume;
+                        /*货物类型*/
+                        vmPublishOrder.postData.goods_type = res.result.goods_type;
+                        /*没有任何操作的时候,其值与获取的值是一样的*/
+                        vmPublishOrder.postData.loading_start_time = res.result.loading_start_time;
+                        vmPublishOrder.postData.loading_end_time = res.result.loading_end_time;
+                        vmPublishOrder.postData.goods_images = res.result.goods_images;
+                        vmPublishOrder.postData.remark = res.result.remark;
+                        let detailAddress = res.result.line;
+                        console.log(detailAddress)
+                        let start = [];
+                        let end=[];
+                        vmPublishOrder.start = start;
+                        vmPublishOrder.end = end;
+                        for(let i in detailAddress){
+                            if(detailAddress[i].start == '1'){
+                                start.push(detailAddress[i])
                             }else{
-                                urgent[1].checked = true;
-                            };
-                            /*图片处理(字符串转成数组)*/
-                            var imgs = res.result.goods_images.split(',');
-                            for(var i in imgs){
-                                var html = '<li class="delItem"><img src="'+ getApiHost + imgs[i] +'" data-src="' + imgs[i] +'" class="img_upload"  width="86px" height="86px" alt=""><span class="del">X</span></li>';
-                                $('.imgItem').append(html);
+                                end.push(detailAddress[i]);
                             }
                         }
-                    });
-                }
+                        let start_len = start.length;
+                        let end_len = start.length;
+                        /*装货地址*/
+                        switch(start_len){
+                            case 1:
+                                $(" #province1 option[data-code ='" + start[0].province + "']").attr("selected", "selected");
+                                $("#province1").trigger("change");
+                                $(" #city1 option[data-code ='" + start[0].city + "']").attr("selected", "selected");
+                                $("#city1").trigger("change");
+                                $(" #district1 option[data-code ='" + start[0].area + "']").attr("selected", "selected");
+                                $("#district1").trigger("change");
+                                vmPublishOrder.model.addressList_one.address=start[0].address;
+                                vmPublishOrder.model.addressList_one.id = start[0].id;
+                            break;
+                            case 2:
+                                $('.addressItem_two').show();
+                                $('.loadAddress .addressAdd').html('<img src="../../images/delete_icon.svg" class="delAddress" />');
+                                $(" #province1 option[data-code ='" + start[0].province + "']").attr("selected", "selected");
+                                $("#province1").trigger("change");
+                                $(" #city1 option[data-code ='" + start[0].city + "']").attr("selected", "selected");
+                                $("#city1").trigger("change");
+                                $(" #district1 option[data-code ='" + start[0].area + "']").attr("selected", "selected");
+                                $("#district1").trigger("change");
+                                vmPublishOrder.model.addressList_one.address=start[0].address;
+                                vmPublishOrder.model.addressList_one.id = start[0].id;
+                                $(" #province1_two option[data-code ='" + start[1].province + "']").attr("selected", "selected");
+                                $("#province1_two").trigger("change");
+                                $(" #city1_two option[data-code ='" + start[1].city + "']").attr("selected", "selected");
+                                $("#city1_two").trigger("change");
+                                $(" #district1 option[data-code ='" + start[1].area + "']").attr("selected", "selected");
+                                $("#district1_two").trigger("change");
+                                vmPublishOrder.model.addressList_two.address=start[1].address;
+                                vmPublishOrder.model.addressList_two.id = start[1].id;
+                            break;
+                            default:
+                            break;
+                        }
+                        /*卸货地址*/
+                        switch(end_len){
+                            case 1:
+                                $(" #province1_three option[data-code ='" + end[0].province + "']").attr("selected", "selected");
+                                $("#province1_three").trigger("change");
+                                $(" #city_three1 option[data-code ='" + end[0].city + "']").attr("selected", "selected");
+                                $("#city1_three").trigger("change");
+                                $(" #district1_three option[data-code ='" + end[0].area + "']").attr("selected", "selected");
+                                $("#district1_three").trigger("change");
+                                vmPublishOrder.model.addressList_three.address=end[0].address;
+                                vmPublishOrder.model.addressList_three.id = end[0].id;
+                            break;
+                            case 2:
+                                $('.addressItem_four').show();
+                                $('.unloadAddress .addressAdd').html('<img src="../../images/delete_icon.svg" class="delAddress" />');
+                                $(" #province1_three option[data-code ='" + end[0].province + "']").attr("selected", "selected");
+                                $("#province1_three").trigger("change");
+                                $(" #city_three1 option[data-code ='" + end[0].city + "']").attr("selected", "selected");
+                                $("#city1_three").trigger("change");
+                                $(" #district1_three option[data-code ='" + end[0].area + "']").attr("selected", "selected");
+                                $("#district1_three").trigger("change");
+                                vmPublishOrder.model.addressList_three.address=end[0].address;
+                                vmPublishOrder.model.addressList_three.id = end[0].id;
+                                $(" #province1_four option[data-code ='" + end[0].province + "']").attr("selected", "selected");
+                                $("#province1_four").trigger("change");
+                                $(" #city1_four option[data-code ='" + end[0].city + "']").attr("selected", "selected");
+                                $("#city1_four").trigger("change");
+                                $(" #district1_four option[data-code ='" + end[0].area + "']").attr("selected", "selected");
+                                $("#district1_four").trigger("change");
+                                vmPublishOrder.model.addressList_four.address=end[0].address;
+                                vmPublishOrder.model.addressList_three.id = end[1].id;
+                            break;
+                            default:
+                            break;
+                        }
+                        /*是否加急*/
+                        let urgent = document.getElementsByName("urgent");
+                        if(vmPublishOrder.postData.expedited == 'yes'){
+                            urgent[0].checked = true;
+                        }else{
+                            urgent[1].checked = true;
+                        };
+                        /*图片处理(字符串转成数组)*/
+                        var imgs = res.result.goods_images.split(',');
+                        for(var i in imgs){
+                            var html = '<li class="delItem"><img src="'+ getApiHost + imgs[i] +'" data-src="' + imgs[i] +'" class="img_upload"  width="86px" height="86px" alt=""><span class="del">X</span></li>';
+                            $('.imgItem').append(html);
+                        }
+                    }else{
+                        alertMsg(res.message,2);
+                    }
+                });
             },
             /*重置*/
             resetData:function(){
@@ -301,6 +325,7 @@ $(function(){
             nextStep:function () {
                 vmPublishOrder.postData._token_ = localStorage.getItem('token');
                 var car_model = $("#m1").ySelectedValues(",").split(',');
+                console.log(car_model)
                 var len = car_model.length;
                 if(len == 0){
                     alertMsg('请选择车型',2);
@@ -366,32 +391,99 @@ $(function(){
                 var three_hidden = $('.addressItem_three').is(':hidden');
                 var four_hidden = $('.addressItem_four').is(':hidden');
                 if(!one_hidden){
-                    obj_one.province = $("#province1 option[value =" + vmPublishOrder.model.addressList_one.province + "]").attr('data-code');
-                    obj_one.city = $("#city1 option[value =" + vmPublishOrder.model.addressList_one.city + "]").attr('data-code');
-                    obj_one.area= $("#district1 option[value =" + vmPublishOrder.model.addressList_one.area + "]").attr('data-code');
+                    var p1,c1,a1;
+                    $('#province1 option').each(function(i,val){
+                       if($(val).attr('selected') == 'selected'){
+                           p1 = $(val).attr('data-code')
+                       }
+                    });
+                    $('#city1 option').each(function(i,val){
+                        if($(val).attr('selected') == 'selected'){
+                            c1 = $(val).attr('data-code')
+                        }
+                    });
+                    $('#district1 option').each(function(i,val){
+                        if($(val).attr('selected') == 'selected'){
+                            a1 = $(val).attr('data-code')
+                        }
+                    });
+                    obj_one.province = p1;
+                    obj_one.city = c1;
+                    obj_one.area = a1;
                     obj_one.address = vmPublishOrder.model.addressList_one.address;
+                    obj_one.id = vmPublishOrder.model.addressList_one.id;
                     vmPublishOrder.postData.adList.push(obj_one);
-                    console.log(vmPublishOrder.postData.adList)
                 }
                 if(!two_hidden){
-                    obj_two.province = $("#province1_two option[value =" + vmPublishOrder.model.addressList_two.province + "]").attr('data-code');
-                    obj_two.city = $("#city1_two option[value =" + vmPublishOrder.model.addressList_two.city + "]").attr('data-code');
-                    obj_two.area = $("#district1_two option[value =" + vmPublishOrder.model.addressList_two.area + "]").attr('data-code');
+                    var p2,c2,a2;
+                    $('#province1_two option').each(function(i,val){
+                        if($(val).attr('selected') == 'selected'){
+                            p2 = $(val).attr('data-code');
+                        }
+                    });
+                    $('#city1_two option').each(function(i,val){
+                        if($(val).attr('selected') == 'selected'){
+                            c2 = $(val).attr('data-code');
+                        }
+                    });
+                    $('#district1_two option').each(function(i,val){
+                        if($(val).attr('selected') == 'selected'){
+                            a2 = $(val).attr('data-code');
+                        }
+                    });
+                    obj_two.province = p2;
+                    obj_two.city = c2;
+                    obj_two.area = a2;
                     obj_two.address = vmPublishOrder.model.addressList_two.address;
+                    obj_two.id = vmPublishOrder.model.addressList_two.id;
                     vmPublishOrder.postData.adList.push(obj_two);
                 }
                 if(!three_hidden){
-                    obj_three.province= $("#province1_three option[value =" + vmPublishOrder.model.addressList_three.province + "]").attr('data-code');
-                    obj_three.city = $("#city1_three option[value =" + vmPublishOrder.model.addressList_three.city + "]").attr('data-code');
-                    obj_three.area = $("#district1_three option[value =" + vmPublishOrder.model.addressList_three.area + "]").attr('data-code');
+                    var p3,c3,a3;
+                    $('#province1_three option').each(function(i,val){
+                        if($(val).attr('selected') == 'selected'){
+                            p3 = $(val).attr('data-code');
+                        }
+                    });
+                    $('#city1_three option').each(function(i,val){
+                        if($(val).attr('selected') == 'selected'){
+                            c3 = $(val).attr('data-code');
+                        }
+                    });
+                    $('#district1_three option').each(function(i,val){
+                        if($(val).attr('selected') == 'selected'){
+                            a3 = $(val).attr('data-code');
+                        }
+                    });
+                    obj_three.province = p3;
+                    obj_three.city = c3;
+                    obj_three.area = a3;
                     obj_three.address = vmPublishOrder.model.addressList_three.address;
+                    obj_three.id = vmPublishOrder.model.addressList_three.id;
                     vmPublishOrder.postData.adList.push(obj_three);
                 }
                 if(!four_hidden){
-                    obj_four.province = $("#province1_four option[value =" + vmPublishOrder.model.addressList_four.province + "]").attr('data-code');
-                    obj_four.city = $("#city1_four option[value =" + vmPublishOrder.model.addressList_four.city + "]").attr('data-code');
-                    obj_four.area = $("#district1_four option[value =" + vmPublishOrder.model.addressList_four.area + "]").attr('data-code');
+                    var p4,c4,a4;
+                    $('#province1_four option').each(function(i,val){
+                        if($(val).attr('selected') == 'selected'){
+                            p4 = $(val).attr('data-code');
+                        }
+                    });
+                    $('#city1_four option').each(function(i,val){
+                        if($(val).attr('selected') == 'selected'){
+                            c4 = $(val).attr('data-code');
+                        }
+                    });
+                    $('#district1_four option').each(function(i,val){
+                        if($(val).attr('selected') == 'selected'){
+                            a4 = $(val).attr('data-code');
+                        }
+                    });
+                    obj_four.province = p4;
+                    obj_four.city = c4;
+                    obj_four.area = a4;
                     obj_four.address = vmPublishOrder.model.addressList_four.address;
+                    obj_four.id = vmPublishOrder.model.addressList_four.id;
                     vmPublishOrder.postData.adList.push(obj_four);
                 }
                 //是否加急的选择

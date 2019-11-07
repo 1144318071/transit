@@ -38,24 +38,30 @@ $(function(){
           },
           getCarInfo : function(){
              getAjax(API.URL_GET_CARINFO,'get',vmCheckSeriesDetail.postData).then(function(res){
-                console.log(vmCheckSeriesDetail.postData.type);
-                if(res.result.image != ''){
-                    res.result.image = getApiHost + res.result.image;
-                }
-                vmCheckSeriesDetail.carInfo = res.result;
-                console.log('车型详情',res.result);
+                 if(res.code == 200){
+                     console.log(vmCheckSeriesDetail.postData.type);
+                     if(res.result.image != ''){
+                         res.result.image = getApiHost + res.result.image;
+                     }
+                     vmCheckSeriesDetail.carInfo = res.result;
+                 }else{
+                     alertMsg(res.message,2);
+                 }
              });
           },
           //热销车型
           getHorCar:function(){
                 getAjax(API.URL_GET_HOTCAR,'get',{'_token_':vmCheckSeriesDetail.postData._token_}).then(function(res){
-                    for(var i in res.result){
-                        if(res.result[i].appearance_pic !=''){
-                            res.result[i].appearance_pic = getApiHost +  res.result[i].appearance_pic;
+                    if(res.code == 200){
+                        for(var i in res.result){
+                            if(res.result[i].appearance_pic !=''){
+                                res.result[i].appearance_pic = getApiHost +  res.result[i].appearance_pic;
+                            }
                         }
+                        vmCheckSeriesDetail.hotCarList = res.result;
+                    }else{
+                        alertMsg(res.message,2);
                     }
-                    vmCheckSeriesDetail.hotCarList = res.result;
-                    console.log('热销车型',res.result);
                 });
           }
       });

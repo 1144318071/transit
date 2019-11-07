@@ -145,7 +145,11 @@ $(function(){
                 var token = localStorage.getItem('token');
                 vmchangeComInfo.postData._token_ = token;
                 getAjax(API.URL_POST_VERIFYCOMPANY,'post',vmchangeComInfo.postData).then(function(res){
-                    console.log(res);
+                    if(res.code == 200){
+                        alertMsg(res.message,1);
+                    }else{
+                        alertMsg(res.message,2);
+                    }
                 });
             }
         });

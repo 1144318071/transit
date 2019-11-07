@@ -66,14 +66,18 @@ $(function(){
                 var token = localStorage.getItem('token');
                 vmLogistics.postData._token_ = token;
                 getAjax(API.URL_GET_PERSONALINFO,'get',{'_token_': token}).then(function(res){
-                    if(res.result.company_logo !=''){
-                        var src = getApiHost + res.result.company_logo;
-                        $('#companyLogo').attr('src',src)
+                    if(res.code == 200){
+                        if(res.result.company_logo !=''){
+                            var src = getApiHost + res.result.company_logo;
+                            $('#companyLogo').attr('src',src)
+                        }
+                        res.result.province = getProvinceName(res.result.province);
+                        res.result.city = getCityName(res.result.city);
+                        res.result.area = getAreaName(res.result.area);
+                        vmLogistics.companyInfo = res.result;
+                    }else{
+                        alertMsg(res.message,2);
                     }
-                    res.result.province = getProvinceName(res.result.province);
-                    res.result.city = getCityName(res.result.city);
-                    res.result.area = getAreaName(res.result.area);
-                    vmLogistics.companyInfo = res.result;
                 });
             },
             getMemberList:function(){
@@ -83,8 +87,9 @@ $(function(){
                             res.result[i].avatar = getApiHost + res.result[i].avatar;
                         }
                         vmLogistics.memberList = res.result;
-                        console.log('司机人员信息',res.result);
                         vmLogistics.getPageList('demo2',res.count)
+                    }else{
+                        alertMsg(res.message,2);
                     }
                 })
             },

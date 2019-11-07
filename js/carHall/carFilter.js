@@ -161,19 +161,23 @@ $(function(){
               console.log(vmCarFilter.filterSearch._t);
               vmCarFilter.filterSearch._m = type;
               getAjax(API.URL_GET_FILTERCONDITION,'get',postData).then(function(res){
-                  var result = res.result;
-                  for(var i in result){
-                      if(result[i].field == 'group'){
-                        vmCarFilter.brandsList = result[i].group;
+                  if(res.code == 200){
+                      var result = res.result;
+                      for(var i in result){
+                          if(result[i].field == 'group'){
+                              vmCarFilter.brandsList = result[i].group;
+                          }
+                          if(result[i].field != 'base_tonnage' && result[i].field != 'group' && result[i].field != 'price'){
+                              vmCarFilter.anotherList.push(result[i])
+                          }else{
+                              vmCarFilter.filterList.push(result[i])
+                          }
                       }
-                      if(result[i].field != 'base_tonnage' && result[i].field != 'group' && result[i].field != 'price'){
-                          vmCarFilter.anotherList.push(result[i])
-                      }else{
-                          vmCarFilter.filterList.push(result[i])
-                      }
+                      vmCarFilter.getSearchResult('10');
+                  }else{
+                      alertMsg(res.message,2);
                   }
               });
-              vmCarFilter.getSearchResult('10');
           },
           /*卡车品牌*/
           getBrandsList:function(el,item){
@@ -252,27 +256,32 @@ $(function(){
               }
               vmCarFilter.filterSearch.status = status;
               getAjax(API.URL_GET_FILTERSEARCH,'get',vmCarFilter.filterSearch).then(function(res){
-                  vmCarFilter.searchList = res.result;
-                  vmCarFilter.countData = res.result.count;
-                  var result = res.result;
-                  for(var i in result){
-                      if(result[i].image !=''){
-                          result[i].image = getApiHost + result[i].image;
+                  if(res.code == 200){
+
+                      vmCarFilter.searchList = res.result;
+                      vmCarFilter.countData = res.result.count;
+                      var result = res.result;
+                      for(var i in result){
+                          if(result[i].image !=''){
+                              result[i].image = getApiHost + result[i].image;
+                          }
                       }
-                  }
-                  var status = vmCarFilter.filterSearch.status;
-                  switch (status) {
-                      case '10':
-                          vmCarFilter.ZSList = res.result;
-                          break;
-                      case '20':
-                          vmCarFilter.TSList = res.result;
-                          break;
-                      case '30':
-                          vmCarFilter.SSList = res.result;
-                          break;
-                      default:
-                          break;
+                      var status = vmCarFilter.filterSearch.status;
+                      switch (status) {
+                          case '10':
+                              vmCarFilter.ZSList = res.result;
+                              break;
+                          case '20':
+                              vmCarFilter.TSList = res.result;
+                              break;
+                          case '30':
+                              vmCarFilter.SSList = res.result;
+                              break;
+                          default:
+                              break;
+                      }
+                  }else{
+                      alertMsg(res.message,2);
                   }
               })
           },

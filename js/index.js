@@ -44,30 +44,39 @@ $(function(){
             getNewsList:function(){
                 vmIndex.newsData._token_ = localStorage.getItem('token');
                 getAjax(API.URL_GET_NEWS, 'get', vmIndex.newsData).then(function (res) {
-                    // for(var i=0;i<res.result.length;i++){
-                    //     res.result[i].images = getApiHost + res.result[i].images;
-                    // }
-                    vmIndex.newsList = res.result;
-                    // console.log(vmIndex.newsList);
+
+                    if(res.code == 200){
+                        /*图片加域名*/
+                        // for(var i=0;i<res.result.length;i++){
+                        //     res.result[i].images = getApiHost + res.result[i].images;
+                        // }
+                        vmIndex.newsList = res.result;
+                    }else{
+                        alertMsg(res.message,2);
+                    }
                 });
             },
             //分类的新闻列表
             getTypeList:function(type){
                 vmIndex.newsData.limit = '9';
                 getAjax(API.URL_GET_NEWS,'get',vmIndex.newsData).then(function(res){
-                   switch (type) {
-                       case '10':
-                           vmIndex.ZCFGList = res.result;
-                           break;
-                       case '20':
-                           vmIndex.HQDGList = res.result;
-                           break;
-                       case '30':
-                           vmIndex.HYZXList = res.result;
-                           break;
-                       default:
-                           break;
-                   }
+                    if(res.code == 200){
+                        switch (type) {
+                            case '10':
+                                vmIndex.ZCFGList = res.result;
+                                break;
+                            case '20':
+                                vmIndex.HQDGList = res.result;
+                                break;
+                            case '30':
+                                vmIndex.HYZXList = res.result;
+                                break;
+                            default:
+                                break;
+                        }
+                    }else{
+                        alertMsg(res.message,2);
+                    }
                 });
             },
             getZCFGList:function(){
@@ -90,11 +99,14 @@ $(function(){
                     'listRows':'12'
                 }
                 getAjax(API.URL_GET_ENTERPRISELIST,'get',enterData).then(function(res){
-                    for(var i in res.result){
-                        res.result[i].logo = getApiHost + res.result[i].logo;
+                    if(res.code == 200){
+                        for(var i in res.result){
+                            res.result[i].logo = getApiHost + res.result[i].logo;
+                        }
+                        vmIndex.enterpriseList = res.result;
+                    }else{
+                        alertMsg(res.message,2);
                     }
-                    vmIndex.enterpriseList = res.result;
-                    // console.log('合作企业',vmIndex.enterpriseList);
                 });
             },
             changeShow:function(el){
@@ -107,11 +119,15 @@ $(function(){
             getBanners:function(){
                 var token = localStorage.getItem('token');
                 getAjax(API.URL_GET_BANNERLIST,'get',{'_token_':token,'list':'5'}).then(function(res){
-                    for(var i=0;i<res.result.length;i++){
-                        res.result[i].banner_img = getApiHost + res.result[i].banner_img;
+                    if(res.code == 200){
+                        for(var i=0;i<res.result.length;i++){
+                            res.result[i].banner_img = getApiHost + res.result[i].banner_img;
+                        }
+                        vmIndex.bannerImg = res.result;
+                    }else{
+                        alertMsg(res.message,2);
                     }
-                    vmIndex.bannerImg = res.result;
-                    console.log(vmIndex.bannerImg)
+
                 })
             }
         });

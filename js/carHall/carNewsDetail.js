@@ -29,8 +29,11 @@ $(function(){
                 var token = localStorage.getItem('token');
                 vmNewsDetail.postData._token_ = token;
                 getAjax(API.URL_GET_NEWSINFO,'get',vmNewsDetail.postData).then(function(res){
-                    vmNewsDetail.newsDetail = res.result;
-                    // console.log('新闻详情',vmNewsDetail.newsDetail);
+                    if(res.code == 200){
+                        vmNewsDetail.newsDetail = res.result;
+                    }else{
+                        alertMsg(res.message,2);
+                    }
                 });
             },
             //获取相关新闻
@@ -43,8 +46,11 @@ $(function(){
                     'news_type': vmNewsDetail.queryData.news_type
                 };
                 getAjax(API.URL_GET_NEWS,'get',data).then(function(res){
-                    // console.log('相关新闻',res);
-                    vmNewsDetail.relativeNewsList = res.result;
+                    if(res.code == 200){
+                        vmNewsDetail.relativeNewsList = res.result;
+                    }else{
+                        alertMsg(res.message,2);
+                    }
                 });
             },
             //热门新闻
@@ -56,8 +62,11 @@ $(function(){
                     'type':'20'
                 }
                 getAjax(API.URL_GET_HOTNEWS,'get',data).then(function(res){
-                    vmNewsDetail.hotNewsList = res.result;
-                    console.log('热门新闻',res.result)
+                    if(res.code == 200){
+                        vmNewsDetail.hotNewsList = res.result;
+                    }else{
+                        alertMsg(res.message,2);
+                    }
                 });
             }
         });

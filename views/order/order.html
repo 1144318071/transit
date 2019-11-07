@@ -25,7 +25,7 @@
                     <div class='col-md-6 col-sm-6'>
                         <div class='row'>
                             <div class='col-sm-5'>欢迎登陆纵运汽车服务平台</div>
-                            <div class='col-sm-7 citySelect'>成都市|
+                            <div class='col-sm-7 citySelect'><span ms-text="@city"></span>|
                                 <input class="address" value="切换">
                             </div>
                         </div>
@@ -162,7 +162,7 @@
                                         <div class="description pull-left">
                                             <ul>
                                                 <li ms-on-click="@checkDetail(el.goods_id)"><span ms-text="el.start_address.city"></span><span class="ml8" ms-text="el.start_address.area"></span> → <span ms-text="el.end_address.city"></span><span class="ml8" ms-text="el.end_address.area"></span><img ms-if="el.expedited == '10'" class="ml4" src="../../images/urgent.png" /></li>
-                                                <li><span ms-text="el.car_length"></span>米/<span ms-text="el.car_model"></span>吨/<span ms-text="el.volume"></span>方</li>
+                                                <li><span ms-text="el.car_length"></span>/<span ms-text="el.car_model"></span>/<span ms-text="el.weight"></span>吨/<span ms-text="el.volume"></span>方</li>
                                                 <li><span ms-text="el.goods_type"></span>/<span ms-text="el._type"></span></li>
                                                 <li>待付金额<span class="ml4 mr4">:</span><span ms-text="el.money"></span>元</li>
                                             </ul>
@@ -307,7 +307,7 @@
                                         <div class="description pull-left">
                                             <ul>
                                                 <li ms-on-click="@checkDetail(el.goods_id)"><span ms-text="el.start_address.city"></span><span class="ml8" ms-text="el.start_address.area"></span> → <span ms-text="el.end_address.city"></span><span class="ml8" ms-text="el.end_address.area"></span><img ms-if="el.expedited == '10'" class="ml4" src="../../images/urgent.png" /></li>
-                                                <li><span ms-text="el.car_length"></span>米/<span ms-text="el.car_model"></span>吨/<span ms-text="el.volume"></span>方</li>
+                                                <li><span ms-text="el.car_length"></span>/<span ms-text="el.car_model"></span>/<span ms-text="el.weight"></span>吨/<span ms-text="el.volume"></span>方</li>
                                                 <li><span ms-text="el.goods_type"></span>/<span ms-text="el._type"></span></li>
                                                 <li>待付金额<span class="ml4 mr4">:</span><span ms-text="el.money"></span>元</li>
                                             </ul>
@@ -341,7 +341,7 @@
                                         <div class="description pull-left">
                                             <ul>
                                                 <li ms-on-click="@checkDetail(el.goods_id)"><span ms-text="el.start_address.city"></span><span class="ml8" ms-text="el.start_address.area"></span> → <span ms-text="el.end_address.city"></span><span class="ml8" ms-text="el.end_address.area"></span><img ms-if="el.expedited == '10'" class="ml4" src="../../images/urgent.png" /></li>
-                                                <li><span ms-text="el.car_length"></span>米/<span ms-text="el.car_model"></span>吨/<span ms-text="el.volume"></span>方</li>
+                                                <li><span ms-text="el.car_length"></span>/<span ms-text="el.car_model"></span>/<span ms-text="el.weight"></span>/<span ms-text="el.volume"></span>方</li>
                                                 <li><span ms-text="el.goods_type"></span>/<span ms-text="el._type"></span></li>
                                                 <li>待付金额<span class="ml4 mr4">:</span><span ms-text="el.money"></span>元</li>
                                             </ul>
@@ -406,7 +406,7 @@
                                         <div class="description pull-left">
                                             <ul>
                                                 <li ms-on-click="@checkDetail(el.goods_id)"><span ms-text="el.start_address.city"></span><span class="ml8" ms-text="el.start_address.area"></span> → <span ms-text="el.end_address.city"></span><span class="ml8" ms-text="el.end_address.area"></span><img ms-if="el.expedited == '10'" class="ml4" src="../../images/urgent.png" /></li>
-                                                <li><span ms-text="el.car_length"></span>米/<span ms-text="el.car_model"></span>吨/<span ms-text="el.volume"></span>方</li>
+                                                <li><span ms-text="el.car_length"></span>/<span ms-text="el.car_model"></span>/<span ms-text="el.weight"></span>吨/<span ms-text="el.volume"></span>方</li>
                                                 <li><span ms-text="el.goods_type"></span>/<span ms-text="el._type"></span></li>
                                                 <li>待付金额<span class="ml4 mr4">:</span><span ms-text="el.money"></span>元</li>
                                             </ul>
@@ -482,7 +482,7 @@
                                         <div class="description pull-left">
                                             <ul>
                                                 <li ms-on-click="@checkDetail(el.goods_id)"><span ms-text="el.start_address.city"></span><span class="ml8" ms-text="el.start_address.area"></span> → <span ms-text="el.end_address.city"></span><span class="ml8" ms-text="el.end_address.area"></span><img ms-if="el.expedited == '10'" class="ml4" src="../../images/urgent.png" /></li>
-                                                <li><span ms-text="el.car_length"></span>米/<span ms-text="el.car_model"></span>吨/<span ms-text="el.volume"></span>方</li>
+                                                <li><span ms-text="el.car_length"></span>/<span ms-text="el.car_model"></span>/<span ms-text="el.weight"></span>吨/<span ms-text="el.volume"></span>方</li>
                                                 <li><span ms-text="el.goods_type"></span>/<span ms-text="el._type"></span></li>
                                                 <li>待付金额<span class="ml4 mr4">:</span><span ms-text="el.money"></span>元</li>
                                             </ul>
@@ -524,7 +524,7 @@
                                         <div class="description pull-left">
                                             <ul>
                                                 <li ms-on-click="@checkDetail(el.goods_id)"><span ms-text="el.start_address.city"></span><span class="ml8" ms-text="el.start_address.area"></span> → <span ms-text="el.end_address.city"></span><span class="ml8" ms-text="el.end_address.area"></span><img ms-if="el.expedited == '10'" class="ml4" src="../../images/urgent.png" /></li>
-                                                <li><span ms-text="el.car_length"></span>米/<span ms-text="el.car_model"></span>吨/<span ms-text="el.volume"></span>方</li>
+                                                <li><span ms-text="el.car_length"></span>/<span ms-text="el.car_model"></span>/<span ms-text="el.weight"></span>吨/<span ms-text="el.volume"></span>方</li>
                                                 <li><span ms-text="el.goods_type"></span>/<span ms-text="el._type"></span></li>
                                                 <li>待付金额<span class="ml4 mr4">:</span><span ms-text="el.money"></span>元</li>
                                             </ul>
@@ -604,7 +604,7 @@
                                         <div class="description pull-left">
                                             <ul>
                                                 <li ms-on-click="@checkDetail(el.goods_id)"><span ms-text="el.start_address.city"></span><span class="ml8" ms-text="el.start_address.area"></span> → <span ms-text="el.end_address.city"></span><span class="ml8" ms-text="el.end_address.area"></span><img ms-if="el.expedited == 'yes'" class="ml4" src="../../images/urgent.png" /></li>
-                                                <li><span ms-text="el.car_length"></span>米/<span ms-text="el.car_model"></span>吨/<span ms-text="el.volume"></span>方</li>
+                                                <li><span ms-text="el.car_length"></span>/<span ms-text="el.car_model"></span>/<span ms-text="el.weight"></span>吨/<span ms-text="el.volume"></span>方</li>
                                                 <li><span ms-text="el.goods_type"></span>/<span ms-text="el._type"></span></li>
                                                 <li>待付金额<span class="ml4 mr4">:</span><span ms-text="el.money"></span>元</li>
                                             </ul>
@@ -650,7 +650,7 @@
                                         <div class="description pull-left">
                                             <ul>
                                                 <li ms-on-click="@checkDetail(el.goods_id)"><span ms-text="el.start_address.city"></span><span class="ml8" ms-text="el.start_address.area"></span> → <span ms-text="el.end_address.city"></span><span class="ml8" ms-text="el.end_address.area"></span><img ms-if="el.expedited == '10'" class="ml4" src="../../images/urgent.png" /></li>
-                                                <li><span ms-text="el.car_length"></span>米/<span ms-text="el.car_model"></span>吨/<span ms-text="el.volume"></span>方</li>
+                                                <li><span ms-text="el.car_length"></span>/<span ms-text="el.car_model"></span>/<span ms-text="el.weight"></span>吨/<span ms-text="el.volume"></span>方</li>
                                                 <li><span ms-text="el.goods_type"></span>/<span ms-text="el._type"></span></li>
                                                 <li>待付金额<span class="ml4 mr4">:</span><span ms-text="el.money"></span>元</li>
                                             </ul>

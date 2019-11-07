@@ -33,12 +33,14 @@ header .row .col-md-6:nth-child(2) {
 }
 .layui-tab-title {
   height: 70px;
-  padding-left: 94px;
+  /*padding-left: 94px;*/
+  padding-left:48px;
 }
 .layui-tab-title li {
   line-height: 70px;
   font-size: 20px;
-  margin-right: 56px;
+  /*margin-right: 56px;*/
+  margin-right: 12px;
 }
 .layui-badge-rim,
 .layui-colla-content,

@@ -83,13 +83,16 @@ $(function(){
             getNewsList:function(){
                 vmCarHall.newsData._token_ = vmCarHall.token;
                 getAjax(API.URL_GET_NEWS, 'get', vmCarHall.newsData).then(function (res) {
-                    // for(var i=0;i<res.result.length;i++){
-                    //     res.result[i].images = getApiHost + res.result[i].images;
-                    // }
-                    vmCarHall.newsList = res.result;
+                    if(res.code == 200){
+                        // for(var i=0;i<res.result.length;i++){
+                        //     res.result[i].images = getApiHost + res.result[i].images;
+                        // }
+                        vmCarHall.newsList = res.result;
+                        vmCarHall.getHotCar();
+                    }else{
+                        alertMsg(res.message,2);
+                    }
                 });
-                vmCarHall.getHotCar();
-
             },
             getPage:function(el){
                 var src = el.currentTarget.dataset.src;
@@ -98,41 +101,55 @@ $(function(){
             //获取热门品牌
             getPopularBrands:function(){
                 getAjax(API.URL_GET_POPULARBRANDS,'get', {'_token_':vmCarHall.newsData._token_}).then(function (res) {
-                    // console.log('热门品牌',res.result);
-                    for(var i=0;i<res.result.length;i++){
-                        res.result[i].logo = getApiHost + res.result[i].logo;
+                    if(res.code == 200){
+                        // console.log('热门品牌',res.result);
+                        for(var i=0;i<res.result.length;i++){
+                            res.result[i].logo = getApiHost + res.result[i].logo;
+                        }
+                        vmCarHall.brandsList = res.result;
+                    }else{
+                        alertMsg(res.message,2);
                     }
-                    vmCarHall.brandsList = res.result;
                 });
             },
             //热门车型数据
             getHotCar:function(){
                 getAjax(API.URL_GET_HOTCAR,'get',{'_token_':vmCarHall.token}).then(function(res){
-                    for(var i=0;i<res.result.length;i++){
-                        if(!res.result[i].appearance_pic==''){
-                            res.result[i].appearance_pic = getApiHost + res.result[i].appearance_pic;
-                            // vmCarHall.hotCarList.push(res.result[i])
+                    if(res.code == 200){
+                        for(var i=0;i<res.result.length;i++){
+                            if(!res.result[i].appearance_pic==''){
+                                res.result[i].appearance_pic = getApiHost + res.result[i].appearance_pic;
+                                // vmCarHall.hotCarList.push(res.result[i])
+                            }
                         }
+                        vmCarHall.hotCarList = res.result;
+                    }else{
+                        alertMsg(res.message,2);
                     }
-                    vmCarHall.hotCarList = res.result;
-
                 });
             },
             //关注度排行
             getAttention:function(){
                 getAjax(API.URL_GET_ATTENTION,'get',{'_token_':vmCarHall.token}).then(function(res){
+                    if(res.code == 200){
                         vmCarHall.attentionList = res.result;
-                        console.log('关注度排行',res)
+                    }else{
+                        alertMsg(res.message,2);
+                    }
                 });
                 vmCarHall.getQualityAgent();
             },
             //优质经销商
             getQualityAgent:function(){
                 getAjax(API.URL_GET_QUALITYAGENT,'get',{'_token_':vmCarHall.token}).then(function(res){
-                    for(var j=0;j<res.result.length;j++){
-                      res.result[j].shop_logo = getApiHost + res.result[j].shop_logo;
+                    if(res.code == 200){
+                        for(var j=0;j<res.result.length;j++){
+                            res.result[j].shop_logo = getApiHost + res.result[j].shop_logo;
+                        }
+                        vmCarHall.agentList = res.result;
+                    }else{
+                        alertMsg(res.message,2);
                     }
-                    vmCarHall.agentList = res.result;
                 });
             },
             getCityCarList:function(){
@@ -140,14 +157,17 @@ $(function(){
                 var cityCode = getCode(vmCarHall.city);
                 vmCarHall.cityCarType.city = cityCode;
                 getAjax(API.URL_GET_CITYCAR,'get',vmCarHall.cityCarType).then(function(res){
-                    vmCarHall.carTypeList = res.result.list;
-                    vmCarHall.carTypeNews = res.result.news;
-                    if(res.result.list == ''){
-                        alertMsg('暂无数据',2);
+                    if(res.code == 200){
+                        vmCarHall.carTypeList = res.result.list;
+                        vmCarHall.carTypeNews = res.result.news;
+                        if(res.result.list == ''){
+                            alertMsg('暂无数据',2);
+                        }
+                        console.log(vmCarHall.carTypeList);
+                        console.log(vmCarHall.carTypeNews);
+                    }else{
+                        alertMsg(res.message,2);
                     }
-                    console.log('获取到的数据',res)
-                    console.log(vmCarHall.carTypeList);
-                    console.log(vmCarHall.carTypeNews);
                 });
             },
             //10：载货车 20：牵引车  30：自卸车 40：新能源  50：轻卡  60：挂车

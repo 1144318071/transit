@@ -36,6 +36,8 @@ $(function(){
                             driving.search(start, end);
                         }
                     });
+                }else{
+                    alertMsg(res.message,2);
                 }
             });
           },

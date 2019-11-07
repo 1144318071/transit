@@ -139,6 +139,12 @@ $(function(){
                 getAjax(API.URL_POST_GOODSPAY,'post',vmPayMoney.postData).then(function(res){
                     if(res.code == 200){
                         alertMsg(res.message,1);
+                        setTimeout(function(){
+                            parent.layer.close(parent.layer.index);
+                            window.parent.location.reload();
+                        },1000);
+                    }else{
+                        alertMsg(res.message,2);
                     }
                 });
             }

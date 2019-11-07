@@ -24,7 +24,11 @@ $(function () {
 	                    'mobile': vmChangePayCode.username
 	                };
 	                getAjax(API.URL_POST_SENDCODE, 'post', getCode).then(function (res) {
-	                    alertMsg(res.message,1);
+	                	if(res.code == 200){
+							alertMsg(res.message,1);
+						}else{
+							alertMsg(res.message,2);
+						}
 	                });
 	                let count = 60;
 	                const countDown = setInterval(()=>{
@@ -46,7 +50,11 @@ $(function () {
                 vmChangePayCode.postData._token_ = localStorage.getItem('token');
                 vmChangePayCode.postData._t = localStorage.getItem('_t');
                 getAjax(API.URL_POST_SETPAYMENT,'post',vmChangePayCode.postData).then(function(res){
-                    alertMsg(res.message,1);
+                	if(res.code == 200){
+						alertMsg(res.message,1);
+					}else{
+						alertMsg(res.message,2);
+					}
                 });
             }
         });

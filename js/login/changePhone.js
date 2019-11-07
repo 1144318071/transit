@@ -22,9 +22,13 @@ $(function(){
                 vmChangePhone.stepOne._token_ = token;
                 vmChangePhone.stepTwo._token_ = token;
                 getAjax(API.URL_POST_CHANGEPHONEONE, 'post', vmChangePhone.stepOne).then(function (res) {
-                    $('.pwdMsg').hide();
-                    $('.codeMsg').show();
-                    vmChangePhone.stepTwo.verify_code = res.result.verify_code;
+                    if(res.code == 200){
+                        $('.pwdMsg').hide();
+                        $('.codeMsg').show();
+                        vmChangePhone.stepTwo.verify_code = res.result.verify_code;
+                    }else{
+                        alertMsg(res.message,2);
+                    }
                 });
             },
             // 获取验证码(加上倒计时功能)
@@ -40,8 +44,11 @@ $(function(){
 	                    'mobile': vmChangePhone.stepTwo.username
 	                };
 	                getAjax(API.URL_POST_SENDCODE, 'post', getCode).then(function (res) {
-	                    alertMsg(res.message,1)
-	                    console.log(res);
+	                    if(res.code == 200){
+	                        alertMsg(res.message,1)
+                        }else{
+                            alertMsg(res.message,2);
+                        }
 	                });
 	                let count = 60;
 	                const countDown = setInterval(()=>{

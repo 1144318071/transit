@@ -7,6 +7,7 @@ function alertMsg(msg, icon) {
         icon: icon
     });
 }
+//获取当前时间
 function getNowFormatDate() {
     var date = new Date();
     var seperator = "-";
@@ -21,6 +22,7 @@ function getNowFormatDate() {
     var currentdate = date.getFullYear() + seperator + month + seperator + strDate;
     return currentdate;
 }
+/*获取token*/
 function getToken(){
     $.ajax({
         url: API.URL_POST_SETTOKEN,
@@ -51,20 +53,18 @@ function getAjax(url, type, data) {
                 withCredentials: true
             }
         }).done(function (res) {
-            
-            if(res.code == 200 || res.code == 40040){
-                resolve(res);
+            /*token问题*/
+            if(res.code ==43961 || res.code ==43962 ||res.code == 43963|| res.code ==43964|| res.code ==43965|| res.code ==43966|| res.code ==43967|| res.code ==43968){
+                localStorage.clear();
+                getToken();
+                /*登录失效,需要重新登录*/
+            }else if(res.code == 77893 || res.code == 77894){
+                alertMsg(res.message, 2);
+                setTimeout(function(){
+                    location.href = '../../login.html';
+                },2000);
             }else{
-                if(res.code == 77893 || res.code == 77894){
-                    alertMsg(res.message, 1);
-                    setTimeout(function(){
-                        location.href = '../../login.html';
-                    },2000);
-                }else if(res.code ==43961 || res.code ==43962 ||res.code == 43963|| res.code ==43964|| res.code ==43965|| res.code ==43966|| res.code ==43967|| res.code ==43968){
-                    getToken();
-                }else{
-                    alertMsg(res.message,2)
-                }
+                resolve(res);
             }
         }).fail(function (err) {
             reject(err);
@@ -102,11 +102,8 @@ function getCode(name){
                 return Area.provinces.province[i].cities.city[j].ssqid;
             }
         }
-
     }
 }
-//510100
-// console.log(getCode('成都市'));
 function getCityName(code){
     for(var k in Area.provinces.province){
         for(var l in Area.provinces.province[k].cities.city){

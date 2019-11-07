@@ -132,29 +132,33 @@ $(function(){
             //获取个人信息
             getUserInfo:function(){
                 getAjax(API.URL_GET_PERSONALINFO,'get',{'_token_':vmPersonal.token}).then(function(res){
-                    res.result.avatar = getApiHost + res.result.avatar;
-                    vmPersonal.userInfo = res.result;
-                    var userType = res.result.type;
-                    switch(userType){
-                        case 'PERSONAL':
-                            $('.companyInfo').remove();
-                            vmPersonal.userInfo.type = '个人';
-                        break;
-                        case 'MERCHANT':
-                            vmPersonal.userInfo.type = '商家';
-                            $('.personalList li').eq(1).remove();
-                            $('.vehicleManagement').remove();
-                        break;
-                        case 'LOGISTICS':
-                            vmPersonal.userInfo.type = '物流公司';
-                            $('.personalList li').eq(1).remove();
-                            $('.vehicleManagement').remove();
-                        break;
-                        case 'PROXY':
-                            vmPersonal.userInfo.type = '代理';
-                            /*$('.personalList li').eq(1).hide();
-                            $('.vehicleManagement').hide();*/
-                        break;
+                    if(res.code == 200){
+                        res.result.avatar = getApiHost + res.result.avatar;
+                        vmPersonal.userInfo = res.result;
+                        var userType = res.result.type;
+                        switch(userType){
+                            case 'PERSONAL':
+                                $('.companyInfo').remove();
+                                vmPersonal.userInfo.type = '个人';
+                                break;
+                            case 'MERCHANT':
+                                vmPersonal.userInfo.type = '商家';
+                                $('.personalList li').eq(1).remove();
+                                $('.vehicleManagement').remove();
+                                break;
+                            case 'LOGISTICS':
+                                vmPersonal.userInfo.type = '物流公司';
+                                $('.personalList li').eq(1).remove();
+                                $('.vehicleManagement').remove();
+                                break;
+                            case 'PROXY':
+                                vmPersonal.userInfo.type = '代理';
+                                /*$('.personalList li').eq(1).hide();
+                                $('.vehicleManagement').hide();*/
+                                break;
+                        }
+                    }else{
+                        alertMsg(res.message,2);
                     }
                 });
                 vmPersonal.getCouponList('10');
@@ -164,6 +168,8 @@ $(function(){
                 getAjax(API.URL_GET_COUPONLIST,'get',{'_token_':vmPersonal.token,'status':status}).then(function(res){
                    if(res.code == 200){
                        vmPersonal.couponList = res.result;
+                   }else{
+                       alertMsg(res.message,2);
                    }
                 });
             },
@@ -175,6 +181,8 @@ $(function(){
                            res.result[i].card_number = stringHidePart(res.result[i].card_number);
                        }
                        vmPersonal.bankCardList = res.result;
+                   }else{
+                       alertMsg(res.message,2);
                    }
                 });
             }

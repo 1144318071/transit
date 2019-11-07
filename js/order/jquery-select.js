@@ -2,7 +2,7 @@
     $.fn.ySelect = function(options) {
         var defaultOptions={
             placeholder: '请进行选择',
-            numDisplayed: 4,
+            numDisplayed: 2,
             overflowText: '{n} selected',
             searchText: '搜索',
             showSearch: false

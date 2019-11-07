@@ -25,8 +25,11 @@ $(function () {
 	                    'mobile': vmForgetPwd.postData.username
 	                };
 	                getAjax(API.URL_POST_SENDCODE, 'post', getCode).then(function (res) {
-	                    alertMsg(res.message,1)
-	                    console.log(res);
+	                	if(res.code == 200){
+							alertMsg(res.message,1)
+						}else{
+							alertMsg(res.message,2);
+						}
 	                });
 	                let count = 60;
 	                const countDown = setInterval(()=>{
@@ -47,7 +50,11 @@ $(function () {
                 vmForgetPwd.postData._token_ = localStorage.getItem('token');
                 vmForgetPwd.postData._t = localStorage.getItem('_t');
                 getAjax(API.URL_POST_CHANGEPWD,'post',vmForgetPwd.postData).then(function(res){
-                    alertMsg(res.message,1);
+                	if(res.code ==200){
+						alertMsg(res.message,1);
+					}else{
+						alertMsg(res.message,2);
+					}
                 });
             }
         });

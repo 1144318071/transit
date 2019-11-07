@@ -35,7 +35,11 @@ $(function(){
                 vmAllBrands._token_ = token;
                 vmAllBrands.typeData._token_ = token;
                 getAjax(API.URL_GET_KEYWORD,'get',{'_token_':token}).then(function (res) {
-                    vmAllBrands.keyWordList = res.result;
+                    if(res.code == 200){
+                        vmAllBrands.keyWordList = res.result;
+                    }else{
+                        alertMsg(res.message,2);
+                    }
                 });
             },
             //品牌筛选
@@ -51,66 +55,71 @@ $(function(){
             getKeyWordList:function(el){
                 $("#brands").html('');
                 getAjax(API.URL_GET_BRANDSSEARCH,'get',{'_token_':vmAllBrands._token_,'keyword':el}).then(function (res) {
-                    for(var i=0;i<res.result.data.length;i++){
-                        res.result.data[i][0].logo = getApiHost + res.result.data[i][0].logo;
-                    }
-                    vmAllBrands.brandSearchList = res.result.data;
-                    var result = res.result.data;
-                    var loopItem='';
-                    $(result).each(function(index,el){
-                        $(el).each(function(i,item){
-                            loopItem +=
-                                "<li>\n" +
-                                "<a href='./carSeriesDetail.html?car_ty="+item.car_ty+"&id="+item.manager_id+"&series="+item.series+"'>"+item.series+"</a>\n" +
-                                "</li>\n" ;
+                    if(res.code == 200) {
+                        for (var i = 0; i < res.result.data.length; i++) {
+                            res.result.data[i][0].logo = getApiHost + res.result.data[i][0].logo;
+                        }
+                        vmAllBrands.brandSearchList = res.result.data;
+                        var result = res.result.data;
+                        var loopItem = '';
+                        $(result).each(function (index, el) {
+                            $(el).each(function (i, item) {
+                                loopItem +=
+                                    "<li>\n" +
+                                    "<a href='./carSeriesDetail.html?car_ty=" + item.car_ty + "&id=" + item.manager_id + "&series=" + item.series + "'>" + item.series + "</a>\n" +
+                                    "</li>\n";
+                            });
+                            htmlContent = "<div class='row groupItems'>\n" +
+                                "                            <div class='col-md-3 col-sm-3'>\n" +
+                                "                                <ul>\n" +
+                                "                                    <li><a href=\"./brandsDetail.html?id=" + el[0]['manager_id'] + "\"><img src=\"" + el[0]['logo'] + "\" width=\"192\" height=\"120\" /></a></li>\n" +
+                                "                                    <li><a href=\"./brandsDetail.html?id=" + el[0]['manager_id'] + "\">" + el[0]['nick_name'] + "</a></li>\n" +
+                                "                                </ul>\n" +
+                                "                            </div>\n" +
+                                "                            <div class='col-md-9 col-sm-9'>\n" +
+                                "                                <ul>\n" +
+                                "\n" + loopItem +
+                                "                                </ul>\n" +
+                                "                            </div>\n" +
+                                "                        </div>";
+                            $("#brands").append(htmlContent);
                         });
-                        htmlContent = "<div class='row groupItems'>\n" +
-                            "                            <div class='col-md-3 col-sm-3'>\n" +
-                            "                                <ul>\n" +
-                            "                                    <li><a href=\"./brandsDetail.html?id="+el[0]['manager_id']+"\"><img src=\""+el[0]['logo']+"\" width=\"192\" height=\"120\" /></a></li>\n" +
-                            "                                    <li><a href=\"./brandsDetail.html?id="+el[0]['manager_id']+"\">"+el[0]['nick_name']+"</a></li>\n" +
-                            "                                </ul>\n" +
-                            "                            </div>\n" +
-                            "                            <div class='col-md-9 col-sm-9'>\n" +
-                            "                                <ul>\n" +
-                            "\n" +loopItem+
-                            "                                </ul>\n" +
-                            "                            </div>\n" +
-                            "                        </div>";
-                        $("#brands").append(htmlContent);
-                    });
+                    }else{
+                        alertMsg(res.message,2);
+                    }
                 });
             },
             //类型筛选
             getTypeList:function () {
                 $("#test").html('');
                 getAjax(API.URL_GET_TYPESEARCH,'get',vmAllBrands.typeData).then(function(res){
-                    vmAllBrands.typeList = res.result;
-                    console.log(vmAllBrands.typeList);
-                    let seriesList = vmAllBrands.typeList;
-                    var str = '';
-                    $.each(seriesList,function (index,elt) {
-                        str = '';
-                        $.each(elt,function (el,item) {
-                            str +=
-                                "<li>\n" +
-                                "<a href='./carSeriesDetail.html?car_ty="+item.car_ty+"&id="+item.manager_id+"&series="+item.series+"'>"+item.series+"</a>\n" +
-                                "</li>\n" ;
-                           /* str += "\n" +
-                                "<li>"+item.series+"</li>\n" + "";*/
+                    if(res.code == 200){
+                        vmAllBrands.typeList = res.result;
+                        console.log(vmAllBrands.typeList);
+                        let seriesList = vmAllBrands.typeList;
+                        var str = '';
+                        $.each(seriesList,function (index,elt) {
+                            str = '';
+                            $.each(elt,function (el,item) {
+                                str +=
+                                    "<li>\n" +
+                                    "<a href='./carSeriesDetail.html?car_ty="+item.car_ty+"&id="+item.manager_id+"&series="+item.series+"'>"+item.series+"</a>\n" +
+                                    "</li>\n" ;
+                            });
+                            info = "<div class=\"groupItem\">\n" +
+                                "<ul class='barTitle clearfix'>\n" +
+                                "<li class='titleLine'></li>\n" +
+                                "<li>"+elt[0]['type_name']+"</li>\n" +
+                                "</ul>\n" +
+                                "<div class='groupDetail'>" +
+                                "<ul class='clearfix'>\n"+str+"</ul>" +
+                                "</div>\n" +
+                                "</div>";
+                            $("#test").append(info);
                         });
-                        info = "<div class=\"groupItem\">\n" +
-                            "<ul class='barTitle clearfix'>\n" +
-                            "<li class='titleLine'></li>\n" +
-                            "<li>"+elt[0]['type_name']+"</li>\n" +
-                            "</ul>\n" +
-                            "<div class='groupDetail'>" +
-                            "<ul class='clearfix'>\n"+str+"</ul>" +
-                            "</div>\n" +
-                            "</div>";
-                        $("#test").append(info);
-                    });
-
+                    }else{
+                        alertMsg(res.message,2);
+                    }
                 });
             },
             carType:function(type,carType){

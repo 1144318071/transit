@@ -130,7 +130,11 @@ layui.use('upload', function () {
 	                    'mobile': vmCompleteInfo.postData.mobile
 	                };
 	                getAjax(API.URL_POST_SENDCODE, 'post', getCode).then(function (res) {
-	                    alertMsg(res.message,1)
+	                    if(res.code == 200){
+                            alertMsg(res.message,1)
+                        }else{
+                            alertMsg(res.message,2);
+                        }
 	                });
 	                let count = 60;
 	                const countDown = setInterval(()=>{
@@ -151,7 +155,11 @@ layui.use('upload', function () {
                 var token = localStorage.getItem('token');
                 vmCompleteInfo.postData._token_ = token;
                 getAjax(API.URL_POST_VERIFYCOMPANY,'post',vmCompleteInfo.postData).then(function(res){
-                    console.log(res);
+                    if(res.code == 200){
+                        alertMsg(res.message,1);
+                    }else{
+                        alertMsg(res.message,2)
+                    }
                 });
             }
         });

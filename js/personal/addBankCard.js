@@ -29,6 +29,8 @@ $(function () {
                 getAjax(API.URL_POST_SENDCODE, 'post', getCode).then(function (res) {
                     if(res.code == 200){
                         alertMsg(res.message,1);
+                    }else{
+                        alertMsg(res.message,2);
                     }
                 });
                 const countDown = setInterval(() => {
@@ -58,7 +60,9 @@ $(function () {
                 console.log(vmAddBankCard.postData)
                 getAjax(API.URL_POST_BANKADD,'post',vmAddBankCard.postData).then(function(res){
                     if(res.code == 200){
-                        console.log(res)
+                        alertMsg(res.message,1);
+                    }else{
+                        alertMsg(res.message,2);
                     }
                 });
             }

@@ -270,6 +270,8 @@ $(function(){
                        vmPayOrder.startAddress = res.result.start_address;
                        vmPayOrder.endAddress = res.result.end_address;
                        vmPayOrder.getCouponList();
+                   }else{
+                        alertMsg(res.message,2);
                    }
                });
            },
@@ -292,6 +294,8 @@ $(function(){
                        setTimeout(function(){
                            parent.layer.close(parent.layer.index);
                        },1000)
+                   }else{
+                       alertMsg(res.message,2);
                    }
                });
            },
@@ -336,7 +340,6 @@ $(function(){
                var token = localStorage.getItem('token');
                getAjax(API.URL_GET_COUPONLIST,'get',{'_token_':token,'status':'10'}).then(function(res){
                    if(res.code == 200){
-                       console.log(vmPayOrder.orderInfo);
                        for(var i in res.result){
                            if(res.result[i].type == '10'){
                                res.result[i].allMoney = vmPayOrder.orderInfo.all_money;
@@ -344,6 +347,8 @@ $(function(){
                            }
                        }
                        vmPayOrder.selectCoupon();
+                   }else{
+                       alertMsg(res.message,2);
                    }
                });
            },

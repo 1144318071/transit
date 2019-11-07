@@ -115,7 +115,11 @@ $(function(){
                     'mobile': vmAddCar.phoneNum
                 };
                 getAjax(API.URL_POST_SENDCODE, 'post', getCode).then(function (res) {
-                    alertMsg(res.message,1);
+                    if(res.code == 200){
+                        alertMsg(res.message,1);
+                    }else{
+                        alertMsg(res.message,2);
+                    }
                 });
                 let count = 60;
                 const countDown = setInterval(() => {
@@ -163,6 +167,8 @@ $(function(){
                            getAjax(API.URL_POST_VEHICLEADD,'post',vmAddCar.postData).then(function(res){
                               if(res.code == 200){
                                   alertMsg(res.message,1);
+                              }else{
+                                  alertMsg(res.message,2);
                               }
                            });
                        }
