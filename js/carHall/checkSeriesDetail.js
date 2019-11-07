@@ -39,7 +39,6 @@ $(function(){
           getCarInfo : function(){
              getAjax(API.URL_GET_CARINFO,'get',vmCheckSeriesDetail.postData).then(function(res){
                  if(res.code == 200){
-                     console.log(vmCheckSeriesDetail.postData.type);
                      if(res.result.image != ''){
                          res.result.image = getApiHost + res.result.image;
                      }
