@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <link rel="stylesheet" href="../../plugins/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/font-awesome/4.6.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../plugins/layui/dist/css/layui.css">
     <link rel="stylesheet" type="text/css" href="../../common/css/kuCity.css"/>
     <link rel="stylesheet" href="../../common/css/reset.css">
@@ -120,12 +121,11 @@
                     <span class='title fontw'>填写订单资料</span>
                 </div>
                 <div class='form'>
-                    <div class="addressItem">
+                    <div class="addressItem loadAddress">
                         <form class="form-inline addressItem_one">
                             <div id='distpicker'  data-toggle="distpicker">
                                 <div class="form-group"><span>装货地址</span><span class="ml4 mr10">:</span></div>
                                 <div class="form-group">
-                                    <!-- data-duplex-changed='getPcode' -->
                                     <select class="form-control" ms-duplex="@model.addressList_one.province"  id="province1"></select>
                                     <span>省/直辖市</span>
                                 </div>
@@ -147,10 +147,9 @@
                             </div>
                         </form>
                         <form class="form-inline addressItem_two dis_none">
-                            <div id='distpicker_two' data-toggle="distpicker">
+                            <div id="distpicker_two" data-toggle="distpicker">
                                 <div class="form-group"><span>装货地址</span><span class="ml4 mr10">:</span></div>
                                 <div class="form-group">
-                                    <!-- data-duplex-changed='getPcode' -->
                                     <select class="form-control"  ms-duplex="@model.addressList_two.province"  id="province1_two"></select>
                                     <span>省/直辖市</span>
                                 </div>
@@ -162,6 +161,11 @@
                                     <select class="form-control" ms-duplex="@model.addressList_two.area" id="district1_two"></select>
                                     <span>区县</span>
                                 </div>
+                                <div class="form-group">
+                                    <span class="addressAdd">
+                                        <img src="../../images/delete_icon.svg" class="delAddress" />
+                                    </span>
+                                </div>
                             </div>
                             <ul class="address_detail clearfix">
                                 <li>详细地址<span class="ml4 mr10">:</span></li>
@@ -169,8 +173,8 @@
                             </ul>
                         </form>
                     </div>
-                    <div class="addressItem addressItem_three">
-                        <form class="form-inline">
+                    <div class="addressItem unloadAddress">
+                        <form class="form-inline addressItem_three">
                             <div id='distpicker_three' data-toggle="distpicker">
                                 <div class="form-group"><span>卸货地址</span><span class="ml4 mr10">:</span></div>
                                 <div class="form-group">
@@ -211,6 +215,11 @@
                                     <select class="form-control" ms-duplex="@model.addressList_four.area" id="district1_four"></select>
                                     <span>区县</span>
                                 </div>
+                                <div class="form-group">
+                                    <span class="addressAdd">
+                                        <img src="../../images/delete_icon.svg" class="delAddress" />
+                                    </span>
+                                </div>
                             </div>
                             <ul class="address_detail clearfix">
                                 <li>详细地址<span class="ml4 mr10">:</span></li>
@@ -221,9 +230,8 @@
                     <div class="formItem">
                         <ul class="clearfix">
                             <li>所需车型<span class="ml4 mr10">:</span></li>
-                            <li>
-                                <select ms-duplex="@postData.car_model">
-                                    <option value="不限">不限</option>
+                            <li class="clearfix">
+                                <select id='m1' class="demo" multiple="multiple">
                                     <option value="平板">平板</option>
                                     <option value="高栏">高栏</option>
                                     <option value="厢式">厢式</option>
@@ -236,30 +244,29 @@
                                     <option value="爬梯车">爬梯车</option>
                                     <option value="飞翼车">飞翼车</option>
                                 </select>
-                                <label>类型</label>
+                                <label class="pull-right">类型</label>
                             </li>
-                            <li>
-                                <select ms-duplex="@postData.car_length">
-                                    <option value="不限">不限</option>
-                                    <option value="1.8米">1.8米</option>
-                                    <option value="2.7米">2.7米</option>
-                                    <option value="3.8米">3.8米</option>
-                                    <option value="4.2米">4.2米</option>
-                                    <option value="5.0米">5.0米</option>
-                                    <option value="6.2米">6.2米</option>
-                                    <option value="6.8米">6.8米</option>
-                                    <option value="7.7米">7.7米</option>
-                                    <option value="8.2米">8.2米</option>
-                                    <option value="8.7米">8.7米</option>
-                                    <option value="9.6米">9.6米</option>
-                                    <option value="11.7米">11.7米</option>
-                                    <option value="12.5米">12.5米</option>
-                                    <option value="13.0米">13.0米</option>
-                                    <option value="15.0米">15.0米</option>
-                                    <option value="16.0米">16.0米</option>
-                                    <option value="17.5米">17.5米</option>
+                            <li class="clearfix">
+                                <select id='m2' class="demo" multiple="multiple">
+                                        <option value="1.8m">1.8米</option>
+                                        <option value="2.7m">2.7米</option>
+                                        <option value="3.8m">3.8米</option>
+                                        <option value="4.2m">4.2米</option>
+                                        <option value="5.0m">5.0米</option>
+                                        <option value="6.2m">6.2米</option>
+                                        <option value="6.8m">6.8米</option>
+                                        <option value="7.7m">7.7米</option>
+                                        <option value="8.2m">8.2米</option>
+                                        <option value="8.7m">8.7米</option>
+                                        <option value="9.6m">9.6米</option>
+                                        <option value="11.7m">11.7米</option>
+                                        <option value="12.5m">12.5米</option>
+                                        <option value="13.0m">13.0米</option>
+                                        <option value="15.0m">15.0米</option>
+                                        <option value="16.0m">16.0米</option>
+                                        <option value="17.5m">17.5米</option>
                                 </select>
-                                <label>车长</label>
+                                <label class="pull-right" >车长</label>
                             </li>
                         </ul>
                     </div>
@@ -379,6 +386,7 @@
     <script src='../../data/api.js'></script>
     <script src='../../data/return_data.js'></script>
     <script src='../../js/header.js'></script>
+    <script src="../../js/order/jquery-select.js"></script>
     <script src="../../js/order/publishOrder.js"></script>
 </body>
 </html>

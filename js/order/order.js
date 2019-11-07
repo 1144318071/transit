@@ -1,43 +1,3 @@
-layui.use(['laypage', 'layer'], function () {
-    var laypage = layui.laypage,
-    layer = layui.layer;
-    //自定义样式
-    laypage.render({
-        elem: 'demo1',
-        count: 1000,
-        theme: '#f57619'
-    });
-    laypage.render({
-        elem: 'demo2',
-        count: 1000,
-        theme: '#f57619'
-    });
-    laypage.render({
-        elem: 'demo3',
-        count: 1000,
-        theme: '#f57619'
-    });
-    laypage.render({
-        elem: 'demo4',
-        count: 1000,
-        theme: '#f57619'
-    });
-    laypage.render({
-        elem: 'demo5',
-        count: 1000,
-        theme: '#f57619'
-    });
-    laypage.render({
-        elem: 'demo6',
-        count: 1000,
-        theme: '#f57619'
-    });
-    laypage.render({
-        elem: 'demo7',
-        count: 1000,
-        theme: '#f57619'
-    });
-});
 $('.tabTitle li').click(function () {
     $(this).addClass('active').siblings().removeClass('active');
     $('.tabContent .tabItem').eq($(this).index()).show().siblings().hide();
@@ -58,6 +18,8 @@ $(function(){
                 'order_status':'',
                 'goods_status':''
             },
+            orderList_one:[],
+            orderList_two:[],
             orderList:[],
             DZFList:[],//待支付
             DJDList:[],//待接单
@@ -69,7 +31,7 @@ $(function(){
             merchantInfo:{},
             onLoad:function(){
                 vmOrder.getUrl();
-                vmOrder.getStatusOrder('demo1','40','');
+                vmOrder.getStatusOrder('demo1','','');
                 vmOrder.getMerchantInfo();
             },
             // 查看评价
@@ -285,6 +247,7 @@ $(function(){
             },
             //获取订单列表
             getOrderList:function(elem,goods_status,order_status){
+                vmOrder.postData._token_ = localStorage.getItem('token');
                 vmOrder.orderList = [];
                 vmOrder.postData.goods_status = goods_status;
                 vmOrder.postData.order_status = order_status;
@@ -298,39 +261,43 @@ $(function(){
                             result[i].end_address.city = getCityName(result[i].end_address.city);
                             result[i].end_address.area = getAreaName(result[i].end_address.area);
                             result[i].goods_images = getApiHost + result[i].goods_images;
+                            if(res.result[i].goods_status == '40'){
+                                res.result[i].name = res.result[i].name.substr(0,1)+'师傅';
+                                res.result[i].tell = getApiHost + res.result[i].tell;
+                            }
                         }
                         if(goods_status != '40'){
                             if(goods_status == '10'){
+                                /*待支付列表*/
                                 vmOrder.DZFList = res.result;
-                                console.log('待支付',res.result)
-                            }else{
+                            }else if(goods_status == '20'){
+                                /*待接单列表*/
                                 vmOrder.DJDList = res.result;
-                                console.log('待接单',res.result)
+                            }else{
+                                /*全部订单列表*/
+                                vmOrder.orderList = res.result;
                             }
                         }else{
                             switch (order_status) {
-                                case '':
-                                    vmOrder.orderList = res.result;
-                                    console.log('全部',res.result)
                                 case '10':
+                                    /*待装货列表*/
                                     vmOrder.DZHList = res.result;
-                                    console.log('待装货',res.result)
                                 break;
                                 case '20':
+                                    /*运输中列表*/
                                     vmOrder.YSZList = res.result;
-                                    console.log('运输中',res.result)
                                 break;
                                 case '40':
+                                    /*待签收*/
                                     vmOrder.DQSList = res.result;
-                                    console.log('待签收',res.result)
                                 break;
                                 case '60':
+                                    /*投诉列表*/
                                     vmOrder.TSList = res.result;
-                                    console.log('投诉',res.result)
                                 break;
                                 case '70':
+                                    /*退款赔付列表*/
                                     vmOrder.TKList = res.result;
-                                    console.log('退款',res.result)
                                 break;
                                 default:
                                 break;
@@ -341,23 +308,25 @@ $(function(){
             },
             //分页
             getPageList:function(elem,count,goods_status,order_status){
-                layui.use(['laypage', 'layer'], function () {
-                    var laypage = layui.laypage,
-                        layer = layui.layer;
-                    laypage.render({
-                        elem: elem,
-                        count: count,
-                        limit: '5',
-                        curr: vmOrder.postData.page,
-                        theme: '#f57619',
-                        jump: function(obj,first) {
-                            if(!first){
-                                vmOrder.postData.page = obj.curr;
-                                vmOrder.getOrderList(elem,goods_status,order_status);
+                if(count > 5){
+                    layui.use(['laypage', 'layer'], function () {
+                        var laypage = layui.laypage,
+                            layer = layui.layer;
+                        laypage.render({
+                            elem: elem,
+                            count: count,
+                            limit: '5',
+                            curr: vmOrder.postData.page,
+                            theme: '#f57619',
+                            jump: function(obj,first) {
+                                if(!first){
+                                    vmOrder.postData.page = obj.curr;
+                                    vmOrder.getOrderList(elem,goods_status,order_status);
+                                }
                             }
-                        }
+                        });
                     });
-                });
+                }
             },
             //根据订单状态请求数据
             getStatusOrder:function(el,good_status,order_status){
@@ -391,6 +360,13 @@ $(function(){
             removeActive:function(el){
                 $('#'+el).find('.description ul li:first-child').removeClass('active');
             },
+            //显示电话号码
+            showModel:function (el) {
+                $('#'+el).find('.model').show();
+            },
+            hideModel:function(el){
+                $('#'+el).find('.model').hide();
+            }
         });
         vmOrder.onLoad();
         avalon.scan(document.body);
