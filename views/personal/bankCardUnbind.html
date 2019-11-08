@@ -34,11 +34,11 @@
             <ul class='formItem clearfix'>
                 <li>验证码</li>
                 <li>:</li>
-                <li><input type="text" class='shortInput'></li>
+                <li><input type="text" ms-duplex="@postData.code" class='shortInput'></li>
             </ul>
         </div>
         <ul class='btns clearfix'>
-            <li><button>确认解绑</button></li>
+            <li><button ms-on-click="@unbind">确认解绑</button></li>
             <li><button ms-on-click='@cancel'>取&emsp;消</button></li>
         </ul>
     </div>

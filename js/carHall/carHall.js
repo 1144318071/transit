@@ -20,6 +20,7 @@ var map = new BMap.Map("allmap");
 var point = new BMap.Point(116.404, 39.915);
 map.centerAndZoom(point,14);
 //浏览器定位
+/*
 var geolocation = new BMap.Geolocation();
 geolocation.getCurrentPosition(function(r){
     if(this.getStatus() == BMAP_STATUS_SUCCESS){
@@ -45,6 +46,7 @@ geolocation.getCurrentPosition(function(r){
         console.log('获取当前定位失败');
     }
 },{enableHighAccuracy: true});
+*/
 
 $(function(){
     avalon.ready(function(){

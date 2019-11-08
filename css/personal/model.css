@@ -62,8 +62,10 @@ label{
   margin-left: 34px;
 }
 .btns {
-  padding-left: 132px;
-  margin-top: 50px;
+/*  padding-left: 132px;
+  margin-top: 50px;*/
+  padding-left: 140px;
+  margin-top: 30px;
 }
 .btns li {
   float: left;
@@ -142,4 +144,53 @@ label{
 }
 .unbind .formItem {
   margin-top: 36px;
+}
+/*解绑车辆*/
+.unbindInput li:first-child input{
+  width: 418px;
+  height: 40px;
+  background-color: #ffffff;
+  border: solid 1px #eaeaea;
+  padding-left: 8px;
+}
+.unbindInput li:nth-child(2) input{
+  width: 273px;
+  height: 40px;
+  background-color: #ffffff;
+  border: solid 1px #eaeaea;
+  padding-left: 8px;
+}
+.unbindInput li button{
+  width: 132px;
+  height: 40px;
+  background-color: #f57619;
+  border: 0px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  outline: none;
+  margin-left: 14px;
+}
+.unbindInput li button.disabled{
+  background-color: #999999;
+  border: solid 1px #eaeaea;
+}
+.unbind-btn{
+  width: 400px;
+  height: 35px;
+  background-color: #f57619;
+  border: 0px;
+  outline: none;
+  line-height: 36px;
+  text-align: center;
+  color: #fff;
+  margin-top: 56px;
+  margin-left: 16px;
+}
+.unbindCheck .carUnbind{
+  width:420px ;
+  margin: 0 auto;
+}
+.unbindInput{
+  margin-top: 60px;
 }

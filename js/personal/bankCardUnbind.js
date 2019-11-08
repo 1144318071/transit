@@ -7,6 +7,12 @@ $(function () {
                 'token':'',
                 'bankId':''
             },
+            postData:{
+                '_token_':'',
+                'card_id':'',
+                'code':'',
+                'type':'pc'
+            },
             userInfo:{},
             cardInfo:{},
             onLoad: function () {
@@ -78,17 +84,15 @@ $(function () {
                 });
             },
             unbind:function(){
-                var postData = {
-                    '_token_':vmUnbind.base.token,
-                    'card_id':vmUnbind.base.bankId
-                };
-                getAjax(API.URL_POST_BANKUNTIED,'post',postData).then(function(res){
+                vmUnbind.postData._token_ = vmUnbind.base.token;
+                vmUnbind.postData.card_id = vmUnbind.base.bankId;
+                getAjax(API.URL_POST_BANKUNTIED,'post',vmUnbind.postData).then(function(res){
                     if(res.code == 200){
                         alertMsg(res.message,1);
-                        setTimeout(function(){
+                        /*setTimeout(function(){
                             window.parent.location.reload();
                             parent.layer.close(parent.layer.index);
-                        },1000);
+                        },1000);*/
                     }else{
                         alertMsg(res.message,2);
                     }

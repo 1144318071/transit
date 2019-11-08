@@ -29,8 +29,6 @@ var API = {
     URL_POST_UPDATEAVATAR : getApiHost + '/personal/update/avatar',
     //修改支付密码
     URL_POST_SETPAYMENT : getApiHost + '/personal/set/payment',
-    //添加车辆
-    URL_POST_VEHICLEADD : getApiHost + '/vehicle/add',
     //----------------------------------------------账户管理-----------------------------------
     //银行卡列表
     URL_GET_BANKLIST : getApiHost + '/bank/list',
@@ -48,6 +46,15 @@ var API = {
     URL_POST_BALANCEWITHDRAW : getApiHost + '/balance/withdraw',
     //明细
     URL_POST_BALANCEREFUNDDETAILS : getApiHost + '/balance/fundDetails',
+    //----------------------------------------------车辆管理-----------------------------------
+    //添加车辆
+    URL_POST_VEHICLEADD : getApiHost + '/vehicle/add',
+    //车辆列表
+    URL_GET_VEHICLELIST : getApiHost + '/vehicle/list',
+    //车辆解绑
+    URL_POST_VEHICLEUNTIED : getApiHost + '/vehicle/untied',
+    //设置在线车辆
+    URL_POST_VEHICLESET : getApiHost + '/vehicle/set',
     //----------------------------------------------汽车大厅-----------------------------------
     // 最新新闻
     URL_GET_NEWS: getApiHost + '/news',
@@ -83,6 +90,8 @@ var API = {
     URL_GET_FILTERSEARCH : getApiHost + '/filter/search',
     //加载更多
     URL_GET_LOADINGMORE : getApiHost + '/carFilterLoading',
+    //车系图片
+    URL_GET_CARIMGS : getApiHost + '/series/images',
     //----------------------------------------------首页-----------------------------------
     URL_GET_ENTERPRISELIST: getApiHost + '/enterprise/list',
     //新闻详情

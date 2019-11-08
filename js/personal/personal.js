@@ -26,7 +26,11 @@ layui.use('laydate', function () {
     var laydate = layui.laydate;
     //执行一个laydate实例
     laydate.render({
-        elem: '#test1' //指定元素
+        elem: '#test16'
+        ,type: 'datetime'
+        ,value:'2019-10-22至2019-11-22'
+        ,range: '至'
+        ,format: 'yyyy-M-d'
     });
 });
 $(function(){
@@ -34,6 +38,7 @@ $(function(){
         window.vmPersonal = avalon.define({
             $id : 'root',
             token:'',
+            dateRange:'2019-10-22至2019-11-22',
             onLoad:function(){
                 var token = localStorage.getItem('token');
                 vmPersonal.token = token;
@@ -43,11 +48,13 @@ $(function(){
             userInfo:{},
             couponList:[],
             bankCardList:[],
+            carList:[],
             changePwd:function(){
                 var userType = JSON.parse(localStorage.getItem('userInfo')).type;
                 localStorage.setItem('_t', userType);
                 location.href = '../../views/login/changePwd.html';
             },
+            //添加车辆
             addCar:function(){
                 layer.open({
                     type: 2,
@@ -58,15 +65,6 @@ $(function(){
                     shadeClose: true, //开启遮罩关闭
                     content: ['addCar.html']
                 });
-                /*layer.open({
-                    type: 2,
-                    title: false,
-                    skin: 'layui-layer-demo', //样式类名
-                    closeBtn: 1, //不显示关闭按钮
-                    area: ['759px', '470px'],
-                    shadeClose: true, //开启遮罩关闭
-                    content: ['carChecking.html']
-                });*/
             },
             // 充值
             recharge:function(){
@@ -92,6 +90,7 @@ $(function(){
                     content: ['extract.html']
                 });
             },
+            //添加银行卡
             addBankCard:function(){
                 layer.open({
                     type: 2,
@@ -103,7 +102,7 @@ $(function(){
                     content: ['addBankCard.html']
                 });
             },
-            // 设为默认
+            // 银行卡设为默认
             setDefault:function(el){
                 layer.open({
                     type: 2,
@@ -116,7 +115,7 @@ $(function(){
                 });
                 localStorage.setItem('bankId',el);
             },
-            //解绑
+            //银行卡解绑
             unbind:function(el){
                 layer.open({
                     type: 2,
@@ -163,7 +162,7 @@ $(function(){
                 });
                 vmPersonal.getCouponList('10');
             },
-            //获取优惠券
+            //获取优惠券列表
             getCouponList:function(status){
                 getAjax(API.URL_GET_COUPONLIST,'get',{'_token_':vmPersonal.token,'status':status}).then(function(res){
                    if(res.code == 200){
@@ -185,7 +184,50 @@ $(function(){
                        alertMsg(res.message,2);
                    }
                 });
-            }
+                vmPersonal.getCarList();
+            },
+            //获取车辆列表
+            getCarList:function(){
+                getAjax(API.URL_GET_VEHICLELIST,'get',{'_token_':vmPersonal.token}).then(function(res){
+                   if(res.code == 200){
+                        var vehicle =[];
+                        for(var i=0;i<res.result.length;i++){
+                            if(res.result[i].vehicle_picture !=''){
+                                res.result[i].vehicle_picture =  res.result[i].vehicle_picture.split(',');
+                                for(var j in res.result[i].vehicle_picture){
+                                    res.result[i].vehicle_picture[j] = getApiHost + res.result[i].vehicle_picture[j];
+                                }
+                            }
+                        }
+                        vmPersonal.carList = res.result;
+                   }else{
+                       alertMsg(res.message,2);
+                   }
+                });
+            },
+            //车辆设置解绑
+            unbindCar:function(el){
+                localStorage.setItem('unbindId',el);
+                layer.open({
+                    type: 2,
+                    title: false,
+                    skin: 'layui-layer-demo', //样式类名
+                    closeBtn: 1, //不显示关闭按钮
+                    area: ['759px', '435px'],
+                    shadeClose: true, //开启遮罩关闭
+                    content: ['unbindCar.html']
+                });
+            },
+            //车辆设置在线
+            setOnline:function(el){
+                getAjax(API.URL_POST_VEHICLESET,'post',{'_token_':vmPersonal.token,'car_id':el}).then(function(res){
+                   if(res.code == 200){
+                        alertMsg(res.message,1);
+                   }else{
+                       alertMsg(res.message);
+                   }
+                });
+            },
         });
         vmPersonal.onLoad();
         avalon.scan(document.body);

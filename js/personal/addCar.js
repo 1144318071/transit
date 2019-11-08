@@ -146,35 +146,48 @@ $(function(){
                 var vehicle_picture = document.getElementsByClassName('uploadCarImgs');
                 var img1Arr = [];
                 var img2Arr = [];
-                for(var i in driving_license){
+                for(var i =0;i<driving_license.length;i++){
                     var src = $(driving_license[i]).attr('data-src');
                     img1Arr.push(src);
                 }
                 vmAddCar.postData.driving_license = img1Arr.join(',');
-                for(var i in vehicle_picture){
+                var len = vehicle_picture.length;
+                for(var i =0 ; i<vehicle_picture.length;i++){
                     var src = $(vehicle_picture[i]).attr('data-src');
                     img2Arr.push(src);
                 }
                 vmAddCar.postData.vehicle_picture = img2Arr.join(',');
-                $('.formItem li input[type=text]').each(function(i,item){
+               /* $('.formItem li input[type=text]').each(function(i,item){
                    if($(item).val() == ''){
                         alertMsg('所填信息不能为空',2);
+                        return false;
                    }else{
                        if(vmAddCar.postData.driving_license == '' || vmAddCar.postData.vehicle_picture == ''){
                            alertMsg('请上传相关图片!',2);
-                       }else{
-                           console.log(vmAddCar.postData)
-                           getAjax(API.URL_POST_VEHICLEADD,'post',vmAddCar.postData).then(function(res){
-                              if(res.code == 200){
-                                  alertMsg(res.message,1);
-                              }else{
-                                  alertMsg(res.message,2);
-                              }
-                           });
+                           return false;
                        }
                    }
+                });*/
+                console.log(vmAddCar.postData)
+                getAjax(API.URL_POST_VEHICLEADD,'post',vmAddCar.postData).then(function(res){
+                    if(res.code == 200){
+                        layer.open({
+                            type: 2,
+                            title: false,
+                            skin: 'layui-layer-demo', //样式类名
+                            closeBtn: 1, //不显示关闭按钮
+                            area: ['780px', '470px'],
+                            shadeClose: true, //开启遮罩关闭
+                            content: ['carChecking.html']
+                        });
+                        setTimeout(function(){
+                           parent.layer.close(parent.layer.index)
+                        },1000);
+                    }else{
+                        alertMsg(res.message,2);
+                    }
                 });
-            }
+            },
         });
         vmAddCar.onLoad();
         avalon.scan(document.body);

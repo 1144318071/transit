@@ -1,6 +1,10 @@
 .personal {
   margin-top: 190px;
 }
+label{
+  font-weight: normal;
+  margin-bottom: 0px;
+}
 .avatar {
   width: 320px;
   background-color: #fffaf6;
@@ -142,9 +146,25 @@ footer {
   height: 241px;
   background-color: #ffffff;
   border: solid 1px #ff7100;
-  text-align: center;
-  padding: 41px 24px 38px 19px;
+  padding: 28px 22px 38px;
   position: relative;
+  cursor: pointer;
+}
+/*车辆在线等状态*/
+.btn-carStatus{
+  width: 45px;
+  height: 22px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  line-height: 22px;
+  text-align: center;
+  border: 0px;
+  color: #f57619;
+  border: 1px solid #f57619;
+  position: absolute;
+  top: 223px;
+  right: 11px;
+  z-index: 2;
 }
 .vehicleDetail img {
   width: 212px;
@@ -152,6 +172,18 @@ footer {
 }
 .vehicleDetail:nth-child(2n) {
   margin-left: 95px;
+}
+.vehicleDetail:nth-child(3){
+  margin-top: 130px;
+}
+.vehicleDetail:nth-child(4){
+  margin-top: 110px;
+}
+.vehicleDetail:nth-child(5){
+  margin-top: 110px;
+}
+.vehicleDetail:nth-child(6){
+  margin-top: 110px;
 }
 .vehicleContent {
   height: 802px;
@@ -163,8 +195,8 @@ footer {
   height: 89px;
   background-color: #f57619;
   color: #fff;
-  padding-top: 18px;
-  text-align: center;
+  padding-top: 10px;
+
   position: absolute;
   bottom: -64px;
   left: -18px;
@@ -173,8 +205,12 @@ footer {
   font-weight: bold;
   font-size: 18px;
 }
+.vehicleDes li:not(:last-child){
+  padding-left: 33px;
+}
 .vehicleDes li:nth-child(2) {
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .angel-left {
   width: 0px;
@@ -197,12 +233,25 @@ footer {
   right: -18px;
 }
 .unbind {
-  height: 34px;
+  height: 37px;
   background-color: #ffffff;
   border: solid 1px #ff7100;
-  line-height: 34px;
+  line-height: 33px;
   color: #f57619;
   cursor: pointer;
+  padding-top: 2px;
+}
+.unbind span{
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+}
+.unbind span.active{
+  background-color:#f57619;
+  color: #fff;
+}
+.unbind span:first-child{
+  border-right: 1px solid #f57619;
 }
 .withdraw {
   background-color: #fffaf6;
@@ -448,6 +497,17 @@ footer {
   font-weight: bold;
 }
 .calendar {
+  cursor: pointer;
+  position: relative;
+}
+.calendar img{
+  position: absolute;
+  top: 8px;
+  right: -36px;
+}
+.calendar+div{
+  width: 40px;
+  opacity: 0;
   cursor: pointer;
 }
 .btn-orange a:hover,

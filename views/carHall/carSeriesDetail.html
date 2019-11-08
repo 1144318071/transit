@@ -152,7 +152,7 @@
                 <div class='col-md-9 col-sm-9'>
                     <!-- 车系详情 -->
                     <div class='row detailDes clearfix'>
-                        <div class='col-md-6 col-sm-6 detailImg' data-src='carImg.html' ms-on-click='@getPage($event)'><img src="../../images/carSeiresDetail.png" alt="车系信息详情"></div>
+                        <div class='col-md-6 col-sm-6 detailImg'><a ms-attr="{ href : './carImg.html?series='+@data.series+'&type='+@data.car_ty}"><img src="../../images/carSeiresDetail.png" alt="车系信息详情" /></a></div>
                         <!--传统车型信息-->
                         <div class='col-md-6 col-sm-6 detailDescription'>
                             <div class='carPrice'><label ms-text="@carDetail.minPrice"></label>-<label ms-text="@carDetail.maxPrice"></label><span class='priceUnit'>万元</span><span>(<label ms-text="@carDetail.car_count"></label>款车型)</span></div>
