@@ -147,8 +147,12 @@ $(function(){
                     if(res.code == 200){
                         for(var j=0;j<res.result.length;j++){
                             res.result[j].shop_logo = getApiHost + res.result[j].shop_logo;
+                            res.result[j].province = getProvinceName(res.result[j].province);
+                            res.result[j].city = getCityName(res.result[j].city);
+                            res.result[j].area = getAreaName(res.result[j].area)
                         }
                         vmCarHall.agentList = res.result;
+                        console.log('优质经销商',res.result)
                     }else{
                         alertMsg(res.message,2);
                     }
@@ -197,6 +201,13 @@ $(function(){
                 vmCarHall.cityCarType.car_type = '60';
                 vmCarHall.getCityCarList();
             },
+            /*交互效果*/
+            setActive:function(el){
+                $('#'+el).find('.showInfo').show().siblings().find('.showInfo').hide();
+            },
+            removeActive:function(el){
+                $('#'+el).find('.showInfo').hide();
+            }
         });
         vmCarHall.onLoad();
         avalon.scan(document.body);

@@ -273,9 +273,9 @@
 .agent_detail ul {
   line-height: 30px;
 }
-.agent_detail ul:first-child li:last-child {
+/*.agent_detail ul:first-child li:last-child {
   margin-top: 12px;
-}
+}*/
 .agent_detail ul li button {
   width: 52px;
   height: 20px;

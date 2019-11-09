@@ -56,6 +56,7 @@
 .mr80{margin-right:80px;}
 .mr90{margin-right:90px;}
 /* 上边距 */
+.mt6{margin-top: 6px;}
 .mt8{margin-top: 8px;}
 .mt10{margin-top:10px;}
 .mt13{margin-top: 13px;}
@@ -80,6 +81,7 @@
 /* 下边距 */
 .mb10{margin-bottom:10px;}
 .mb20{margin-bottom:20px;}
+.mb25{margin-bottom: 25px;}
 .mb40{margin-bottom:40px;}
 /* 内边距 */
 .pl10{padding-left:10px;}

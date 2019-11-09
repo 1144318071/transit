@@ -220,7 +220,6 @@ $(function(){
                 vmCarSeriesDetail.filterData.status = el;
                 getAjax(API.URL_GET_CARFILTER,'get',vmCarSeriesDetail.filterData).then(function(res){
                     if(res.code == 200){
-
                         vmCarSeriesDetail.moreList = res.result[0];
                         var moreList = res.result[0];
                         switch (el) {
@@ -268,7 +267,7 @@ $(function(){
                                 "    </td>\n" +
                                 "</tr>";
                         });
-                        $('.moreData').before(loopItem)
+                        $('.moreData').before(loopItem);
                     }else{
                         alertMsg(res.message,2);
                     }

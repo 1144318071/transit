@@ -28,7 +28,6 @@ $('.newEnergyTitle').hover(function(){
 $('.newEnergyItem li').click(function(){
     $(this).addClass('hightLight').siblings().removeClass('hightLight');
     var text = $(this).text();
-    console.log(text)
     var html = "<li class='delItem'>" + text + "<span class = 'del'> x </span></li>";
     $('.apply').html(html);
 });
@@ -65,31 +64,9 @@ deleteItem('.base_endurance');
 deleteItem('.peak_power');
 deleteItem('.battery_endurance');
 deleteItem('.country');
-
 // 清除筛选条件
 $('.delAll').click(function(){
     $(this).siblings().remove(); 
-});
-// 分页
-layui.use(['laypage', 'layer'], function () {
-    var laypage = layui.laypage,
-        layer = layui.layer;
-    //自定义样式
-    laypage.render({
-        elem: 'demo2',
-        count: 1000,
-        theme: '#f57619'
-    });
-    laypage.render({
-        elem: 'demo3',
-        count: 1000,
-        theme: '#f57619'
-    });
-    laypage.render({
-        elem: 'demo4',
-        count: 1000,
-        theme: '#f57619'
-    });
 });
 /*排序(价格以及时间)*/
 $('.sort li').click(function(){
@@ -130,10 +107,15 @@ $(function(){
               'engine_fuel':'',
               'engine_emission':'',
               'country':'',
-              'page':'',
-              'limit':'',
+              'page':'1',
+              'limit':'5',
               'status':'10',
               'order':'',//price desc 价格倒序  price asc价格升序 create_time desc 时间倒序 create_time asc时间升序
+          },
+          /*最大价格和最小价格*/
+          price:{
+              'minPrice':'',
+              'maxPrice':''
           },
           /*搜索出来的结果*/
           searchList:[],
@@ -141,8 +123,77 @@ $(function(){
           SSList:[],
           TSList:[],
           countData:[],
+          filterType:'',
           onLoad:function(){
-              vmCarFilter.getFilterCondition('TRADITIONAL');
+              vmCarFilter.getParams();
+          },
+          getParams:function(){
+              var src = window.location.href;
+              var params = GetRequest(src);
+              var filterType = params.filterType;
+              console.log(filterType)
+              if(filterType != undefined){
+                  switch(filterType){
+                      /*轻卡*/
+                      case '10':
+                          var html = "<li class='delItem'>轻卡<span class = 'del'> x </span></li>";
+                          $('.carLevelItem').html(html);
+                          vmCarFilter.kind = 'base_tonnage';
+                          vmCarFilter.keyword = '20';
+                          vmCarFilter.getFilterCondition('TRADITIONAL');
+                          $('.carLevel li:nth-child(4)').addClass('active');
+                          break;
+                      /*重卡*/
+                      case '20':
+                          var html = "<li class='delItem'>重卡<span class = 'del'> x </span></li>";
+                          $('.carLevelItem').html(html);
+                          vmCarFilter.kind = 'base_tonnage';
+                          vmCarFilter.keyword = '40';
+                          vmCarFilter.getFilterCondition('TRADITIONAL');
+                          $('.carLevel li:nth-child(6)').addClass('active');
+                          break;
+                      /*牵引车*/
+                      case '30':
+                          vmCarFilter.getFilterCondition('TRADITIONAL','20');
+                          $('.carApply>li:nth-child(3) ').addClass('active').siblings().removeClass('active');
+                          var html = "<li class='delItem'>牵引车<span class = 'del'> x </span></li>";
+                          $('.apply').html(html);
+                      break;
+                      /*载货车*/
+                      case '40':
+                          vmCarFilter.getFilterCondition('TRADITIONAL','10');
+                          $('.carApply>li:nth-child(4) ').addClass('active').siblings().removeClass('active');
+                          var html = "<li class='delItem'>载货车<span class = 'del'> x </span></li>";
+                          $('.apply').html(html);
+                      break;
+                      /*自卸车*/
+                      case '50':
+                          vmCarFilter.getFilterCondition('TRADITIONAL','30');
+                          $('.carApply>li:nth-child(5) ').addClass('active').siblings().removeClass('active');
+                          var html = "<li class='delItem'>自卸车<span class = 'del'> x </span></li>";
+                          $('.apply').html(html);
+                      break;
+                      /*新能源*/
+                      case '60':
+                          /*点击新能源的时候默认加载电动载货车的数据*/
+                          vmCarFilter.getFilterCondition('ENERGY','10');
+                          $('.carApply>li').removeClass('active');
+                          $('.newEnergyTitle').find('.icon_arrow').css({'background-position-y':'-30px'});
+                          $('.newEnergyItem li:first-child').addClass('hightLight').siblings().removeClass('hightLight');
+                          var html = "<li class='delItem'>电动载货车<span class = 'del'> x </span></li>";
+                          $('.apply').html(html);
+                          $('.newEnergyTitle').find('.newEnergyItem').show();
+                      break;
+                      /*二手车*/
+                      case '60':
+                          vmCarFilter.getFilterCondition('TRADITIONAL');
+                      break;
+                      default:
+                      break;
+                  }
+              }else{
+                  vmCarFilter.getFilterCondition('TRADITIONAL');
+              }
           },
           /*获取筛选条件*/
           getFilterCondition:function(car_type,type){
@@ -173,7 +224,7 @@ $(function(){
                               vmCarFilter.filterList.push(result[i])
                           }
                       }
-                      vmCarFilter.getSearchResult('10');
+                      vmCarFilter.getSearchResult('10')
                   }else{
                       alertMsg(res.message,2);
                   }
@@ -253,48 +304,86 @@ $(function(){
                   break;
                   default:
                   break;
+              };
+              var min = vmCarFilter.price.minPrice;
+              var max = vmCarFilter.price.maxPrice;
+              if(min != '' && max != ''){
+                  $('.priceItem>li:not(:first-child)').removeClass('active');
+                  vmCarFilter.filterSearch.price='80';
+                  vmCarFilter.filterSearch.min=min;
+                  vmCarFilter.filterSearch.max=max;
               }
               vmCarFilter.filterSearch.status = status;
               getAjax(API.URL_GET_FILTERSEARCH,'get',vmCarFilter.filterSearch).then(function(res){
                   if(res.code == 200){
-
-                      vmCarFilter.searchList = res.result;
                       vmCarFilter.countData = res.result.count;
-                      var result = res.result;
-                      for(var i in result){
-                          if(result[i].image !=''){
-                              result[i].image = getApiHost + result[i].image;
-                          }
+                      for(var i = 0;i<res.result.list.length;i++){
+                          res.result.list[i].image = getApiHost + res.result.list[i].image;
                       }
+                      vmCarFilter.searchList = res.result.list;
+                      var pageDemo;
                       var status = vmCarFilter.filterSearch.status;
                       switch (status) {
                           case '10':
                               vmCarFilter.ZSList = res.result;
-                              break;
+                              pageDemo='demo2';
+                          break;
                           case '20':
                               vmCarFilter.TSList = res.result;
-                              break;
+                              pageDemo='demo4';
+                          break;
                           case '30':
                               vmCarFilter.SSList = res.result;
-                              break;
+                              pageDemo='demo3';
+                          break;
                           default:
-                              break;
+                          break;
                       }
+                      vmCarFilter.getPageList(pageDemo,res.count);
                   }else{
                       alertMsg(res.message,2);
                   }
               })
           },
           //搜索
-          getSearchData:function(){
-
-          },
-          getMoreData:function(drive){
-            console.log(drive)
-          },
+          getSearchData:function(){},
+          /*获取排序的数据*/
           getSortData:function (el) {
               var text = $('#'+el).find('.up').text();
-          }
+          },
+          getPrice:function () {
+              var min = vmCarFilter.price.minPrice;
+              var max = vmCarFilter.price.maxPrice;
+              if(min != '' && max != ''){
+                  $('.priceItem>li:not(:first-child)').removeClass('active');
+                  vmCarFilter.filterSearch.price='80';
+                  vmCarFilter.filterSearch.min=min;
+                  vmCarFilter.filterSearch.max=max;
+                  setTimeout(function(){
+                      vmCarFilter.getSearchResult(vmCarFilter.filterSearch.status);
+                  },1000);
+              }
+          },
+          /*分页*/
+          getPageList:function(elem,count){
+              layui.use(['laypage', 'layer'], function () {
+                  var laypage = layui.laypage,
+                      layer = layui.layer;
+                  laypage.render({
+                      elem: elem,
+                      count: count,
+                      limit: '5',
+                      curr: vmCarFilter.filterSearch.page,
+                      theme: '#f57619',
+                      jump: function(obj,first) {
+                          if(!first){
+                              vmCarFilter.filterSearch.page = obj.curr;
+                              vmCarFilter.getSearchResult(vmCarFilter.filterSearch.status);
+                          }
+                      }
+                  });
+              });
+          },
       }) ;
       vmCarFilter.onLoad();
       avalon.scan(document.body);

@@ -97,31 +97,31 @@
             <!-- 轻卡等分类系列 -->
             <div class='kinds clearfix'>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/qk.png" width='94px' height='60px' alt="轻卡"></a></li>
+                    <li><a href="./carFilter.html?filterType=10"><img src="../../images/qk.png" width='94px' height='60px' alt="轻卡"></a></li>
                     <li>轻卡</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/zk.png" width='94px' height='60px' alt="重卡"></a></li>
+                    <li><a href="./carFilter.html?filterType=20"><img src="../../images/zk.png" width='94px' height='60px' alt="重卡"></a></li>
                     <li>重卡</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/qy.png" width='94px' height='60px' alt="牵引车"></a></li>
+                    <li><a href="./carFilter.html?filterType=30"><img src="../../images/qy.png" width='94px' height='60px' alt="牵引车"></a></li>
                     <li>牵引车</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/zh.png" width='94px' height='60px' alt="载货车"></a></li>
+                    <li><a href="./carFilter.html?filterType=40"><img src="../../images/zh.png" width='94px' height='60px' alt="载货车"></a></li>
                     <li>载货车</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/zx.png" width='94px' height='60px' alt="自卸车"></a></li>
+                    <li><a href="./carFilter.html?filterType=50"><img src="../../images/zx.png" width='94px' height='60px' alt="自卸车"></a></li>
                     <li>自卸车</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/xny.png" width='94px' height='60px' alt="新能源"></a></li>
+                    <li><a href="./carFilter.html?filterType=60"><img src="../../images/xny.png" width='94px' height='60px' alt="新能源"></a></li>
                     <li>新能源</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/carAdd.png" width='94px' height='60px' alt="二手车"></a></li>
+                    <li><a href="./carFilter.html?filterType=70"><img src="../../images/carAdd.png" width='94px' height='60px' alt="二手车"></a></li>
                     <li>二手车</li>
                 </ul>
             </div>
@@ -156,7 +156,7 @@
                     </div>
                     <!-- 最新新闻 显示8条数据 从第4条开始显示-->
                     <div class='col-md-5 col-sm-5 latestNews pr0'>
-                        <div class="news_title font26" ms-for="(index,el) in @newsList" ms-if="index == 3">最新新闻<span class='ml4 mr4'>:</span><span ms-text="el.title"></span></div>
+                        <div class="news_title font26" ms-for="(index,el) in @newsList" ms-if="index == 3">最新新闻<span class='ml4 mr4'>:</span><a  ms-attr="{href:'./carNewsDetail.html?id='+el.id+'&type='+el.type +'&news_type='+el.news_type}" ms-text="el.title"></a></div>
                         <div class='news_list font16'>
                             <ul class='clearfix' ms-for="(index,el) in @newsList" ms-if="index > 3 && index < 13">
                                 <li><span class='circle-orange'></span></li>
@@ -178,19 +178,19 @@
                         </div>
                     </div>
                 </div>
-                <!-- 热门车系 -->
+                <!-- 热门车型 -->
                 <div class='row hotCarSeries'>
                     <div class='col-md-9 col-sm-9'>
                         <div class='row'>
-                            <div class='col-sm-6 news_title font26 mb10'>热门车型</div>
+                            <div class='col-sm-6 news_title font26 mb25'>热门车型</div>
                             <div class='col-sm-6 text-right color-999 font20 more' data-src='./carFilter.html' ms-on-click='@getPage($event)' >查看更多&gt;&gt;</div>
                         </div>
                         <div class='row'>
                             <div class='col-sm-6'>
-                                <ul class='img_carSeries' data-src='./views/carHall/carSeriesDetail.html' ms-on-click='@getPage($event)' ms-for="(index,el) in @hotCarList" ms-if="index == 0">
+                                <ul class='img_carSeries' ms-for="(index,el) in @hotCarList" ms-if="index == 0" ms-attr="{ id : 'active_' + el.id }" ms-mouseover="@setActive('active_' + el.id)" ms-mouseout="@removeActive('active_' + el.id)">
                                     <li ms-visible="el.appearance_pic != ''"><img ms-attr="{ src : el.appearance_pic }" width='410px'></li>
                                     <li ms-visible="el.appearance_pic == ''"><img src="../../images/carstyle.jpg" width='410px'></li>
-                                    <li class='info_carSeries'>
+                                    <li class='showInfo info_carSeries dis_none'>
                                         <div class='carName' ms-text="el.type_name"></div>
                                         <div class='carIntroduce' ms-text="el.engine_brand + el.engine_max_power + el.base_drive"></div>
                                     </li>
@@ -198,11 +198,11 @@
                             </div>
                             <div class='col-sm-6'>
                                 <div class='row clearfix'>
-                                    <div class='col-sm-6 pull-left' ms-for="(index,el) in @hotCarList" ms-if="index == 1 || index == 2">
+                                    <div class='col-sm-6 pull-left' ms-for="(index,el) in @hotCarList" ms-if="index == 1 || index == 2" ms-attr="{ id : 'active_' + el.id }" ms-mouseover="@setActive('active_' + el.id)" ms-mouseout="@removeActive('active_' + el.id)">
                                         <ul class='img_carSeries_small'>
                                             <li ms-visible="el.appearance_pic != ''"><img ms-attr="{ src : el.appearance_pic }" width='203px' height='155px'></li>
                                             <li ms-visible="el.appearance_pic == ''"><img src="../../images/carstyle.jpg" width='203px' height='155px'></li>
-                                            <li class='info_carSeries_small dis_none'>
+                                            <li class='showInfo info_carSeries_small dis_none'>
                                                 <div class='carName' ms-text="el.type_name"></div>
                                                 <div class='carIntroduce'  ms-text="el.engine_brand + el.engine_max_power + el.base_drive"></div>
                                             </li>
@@ -210,11 +210,11 @@
                                     </div>
                                 </div>
                             <div class='row clearfix  mt10'>
-                                <div class='col-sm-6 pull-left' ms-for="(index,el) in @hotCarList" ms-if="index == 3 || index == 4">
+                                <div class='col-sm-6 pull-left' ms-for="(index,el) in @hotCarList" ms-if="index == 3 || index == 4" ms-attr="{ id : 'active_' + el.id }" ms-mouseover="@setActive('active_' + el.id)" ms-mouseout="@removeActive('active_' + el.id)">
                                     <ul class='img_carSeries_small'>
                                         <li ms-visible="el.appearance_pic != ''"><img ms-attr="{ src : el.appearance_pic }" width='203px' height='155px'></li>
                                         <li ms-visible="el.appearance_pic == ''"><img src="../../images/carstyle.jpg" width='203px' height='155px'></li>
-                                        <li class='info_carSeries_small dis_none'>
+                                        <li class='showInfo info_carSeries_small dis_none'>
                                             <div class='carName' ms-text="el.type_name"></div>
                                             <div class='carIntroduce'  ms-text="el.engine_brand + el.engine_max_power + el.base_drive"></div>
                                         </li>
@@ -226,7 +226,7 @@
                         
                     </div>
                     <div class='col-md-3 col-sm-3'>
-                        <div class="news_title font26 mb10">关注度排行榜</div>
+                        <div class="news_title font26 mb25">关注度排行榜</div>
                         <div class='rankList'>
                             <ul class='clearfix' ms-for="(index,el) in @attentionList" ms-if="index < 3">
                                 <li><a ms-attr="{ href : './carSeriesDetail.html?car_ty='+el.car_ty + '&id=' + el.manager_id+'&series='+el.series }"><span class='radius_circle' ms-text="index + 1"></span><span ms-text="el.series" ms-attr="{ title : el.series }"></span></a></li>
@@ -400,7 +400,7 @@
                         <div class='agent_content clearfix'>
                             <div class='agent_detail fl' ms-for="(index,el) in @agentList">
                                 <ul class='pull-left font16'>
-                                    <li ms-text="el.shop_name">四川信智益汽车销售服务有限公司</li>
+                                    <li ms-text="el.shop_name"></li>
                                     <li>
                                         <button>4S店</button>
                                         <button><span ms-text="el.year"></span>年</button>
@@ -416,11 +416,11 @@
                                 </ul>
                                 <ul class='clearfix'>
                                     <li class='pull-left'>地&emsp;&emsp;址&nbsp;:&nbsp;</li>
-                                    <li class='pull-left' ms-text="el.address"></li>
+                                    <li class='pull-left' ms-text="el.province + el.city + el.area + el.address"></li>
                                 </ul>
                                 <ul class='clearfix'>
                                     <li class='pull-left'>经销商电话&nbsp;:&nbsp;</li>
-                                    <li class='pull-left font20' ms-text="el.hot_line"></li>
+                                    <li class='pull-left font32 fontw' ms-text="el.hot_line"></li>
                                 </ul>
                             </div>
                         </div>

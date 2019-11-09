@@ -196,16 +196,10 @@
                     <ul ms-for="(index,el) in @carType" ms-if="index < 4">
                         <li ms-visible="el.appearance_pic != ''"><img ms-attr="{ src : el.appearance_pic }" class="mt20" width="273px" height="221px" alt=""></li>
                         <li ms-visible="el.appearance_pic == ''"><img src="../../images/hottype.png" width="273px" height="221px" alt=""></li>
-                        <li class="font20" ms-text="el.type_name"></li>
+                        <li class="font20 mt6" ms-text="el.type_name"></li>
                         <li ms-text="el.engine_brand + el.engine_max_power + el.base_drive"></li>
-                        <li class='font26 fontw' ms-text="el.price">25.66~45万</li>
+                        <li class='font26 fontw' ms-text="el.price +'万元'"></li>
                     </ul>
-                   <!-- <ul>
-                        <li><img src="../../images/hottype.png" alt=""></li>
-                        <li class="font20">奔驰 &nbsp;Actros</li>
-                        <li>455P马力匹配法士特8档</li>
-                        <li class='font26 fontw'>25.66~45万</li>
-                    </ul>-->
                </div>
             </div>
             <!-- 全部车系信息 -->
