@@ -1,7 +1,7 @@
 // app下载
 $('.downLoad').hover(function(){
     $(this).addClass('layui-this');
-    $(this).siblings().removeClass('layui-this');
+    /*$(this).siblings().removeClass('layui-this');*/
     $(this).find('.downloadApp').slideDown();
 
 },function(){

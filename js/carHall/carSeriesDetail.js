@@ -30,8 +30,10 @@ function setCity(id) {
         getAgentList();
     }
 }
+/*获取优质经销商列表*/
 function getAgentList(res) {
     vmCarSeriesDetail.agentData.city = res;
+    vmCarSeriesDetail.agentList = [];
     getAjax(API.URL_GET_QUALITYAGENT,'get',vmCarSeriesDetail.agentData).then(function(res){
         if(res.code == 200){
             for(var i=0;i<res.result.length;i++){
@@ -106,6 +108,7 @@ $(function(){
             agentList:[],
             moreList:[],
             loadingList:[],
+            car_ty:'',
             onLoad:function(){
                 vmCarSeriesDetail.getUrlJson();
             },
@@ -117,6 +120,7 @@ $(function(){
             getUrlJson:function(){
                 var url = location.href;
                 var data = GetRequest(url);
+                vmCarSeriesDetail.car_ty = data.car_ty;
                 var token = localStorage.getItem('token');
                 data.token = token;
                 vmCarSeriesDetail.data = data;
@@ -126,7 +130,6 @@ $(function(){
                 vmCarSeriesDetail.loadingData.series = data.series;
                 vmCarSeriesDetail.agentData.brands_id = data.id;
                 vmCarSeriesDetail.getSeriesDetail();
-                console.log('url传参传过来的数据',vmCarSeriesDetail.data)
             },
             getSeriesDetail:function(){
                 var postData={
@@ -273,6 +276,7 @@ $(function(){
                     }
                 });
             },
+            /*点击加载更多*/
             loadingMore:function(el,base,group){
                 var page = parseInt(vmCarSeriesDetail.page);
                 vmCarSeriesDetail.page = page;
@@ -340,6 +344,8 @@ $(function(){
             },
         });
         vmCarSeriesDetail.onLoad();
+        $('#province>a:first-child').addClass('active');
+        setCity(1);
         avalon.scan(document.body);
 
     });

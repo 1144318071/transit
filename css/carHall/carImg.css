@@ -4,7 +4,8 @@
 .tab-title ul {
   position: absolute;
   width: 140px;
-  height: 488px;
+  /*height: 488px;*/
+  height: 370px;
   background-color: #e9e9e9;
   left: -1px;
   padding-top: 31px;

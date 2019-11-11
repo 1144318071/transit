@@ -133,6 +133,10 @@
 .typeDetail ul:last-child li {
   cursor: pointer;
 }
+.layui-tab{
+  margin: 0px;
+  margin-bottom: 21px;
+}
 .layui-tab-brief > .layui-tab-title .layui-this {
   color: #333;
   font-weight: bold;

@@ -1,22 +1,31 @@
-layui.use('upload', function () {
-    var $ = layui.jquery,
-        upload = layui.upload;
-    //普通图片上传
-    var uploadInst = upload.render({
-        elem: '#test1',
-        url: '/upload/',
-        before: function (obj) {
-            //预读本地文件示例，不支持ie8
-            obj.preview(function (index, file, result) {
-                $('#demo1').attr('src', result); //图片链接（base64）
-            });
+/*layui.use('upload', function () {
+    var token = localStorage.getItem('token');
+    $ = layui.$;
+    upload = layui.upload;
+    $.ajaxSetup({
+        // 发送cookie
+        xhrFields: {
+            withCredentials: true
+        },
+    });
+    upload.render({
+        elem: '#test2',
+        url: API.URL_POST_UPLOADFILE,
+        data: {
+            "_token_": token,
         },
         done: function (res) {
-            //如果上传失败
-            if (res.code > 0) {
-                return layer.msg('上传失败');
+            if(res.code === 200){
+                alertMsg(res.message,1);
+                var html = '<li class="delItem ml10"><img src="'+ getApiHost + res.result.crop +'" data-src="' + res.result.crop +'" class="img_upload"  width="117px" height="89px" alt=""><span class="del">X</span></li>';
+                $('.imgItem').append(html);
+                var imgLength = document.getElementsByClassName('img_upload').length;
+                if(imgLength == 6){
+                    $('#test2').attr('disabled',true);
+                }
+            }else{
+                alertMsg(res.message,2);
             }
-            //上传成功
         },
         error: function () {
             //演示失败状态，并实现重传
@@ -27,7 +36,7 @@ layui.use('upload', function () {
             });
         }
     });
-});
+});*/
 // 上传图片
 $('.upload').hover(function () {
     $(this).find('.uploadimg').show();
@@ -38,10 +47,19 @@ $('.upload').hover(function () {
 $('.del').click(function () {
     $(this).parent().remove();
 });
+$('.imgItem').delegate('.del','click',function(){
+    $(this).parent().remove();
+});
+
 $(function () {
     avalon.ready(function () {
         window.vmOrderComplain = avalon.define({
             $id: 'root',
+            postData:{
+                '_token_':'',
+                'order_id':'',
+            },
+            certificate:[],
             stateDetail:{},
             onLoad: function () {
                 vmOrderComplain.getOrderDetail();
@@ -52,6 +70,8 @@ $(function () {
             getOrderDetail:function(){
                 var token = localStorage.getItem('token');
                 var order_id = localStorage.getItem('stateId');
+                vmOrderComplain.postData._token_ = token;
+                vmOrderComplain.postData.order_id = order_id;
                 var postData = {
                     '_token_':token,
                     'order_id':order_id
@@ -59,6 +79,24 @@ $(function () {
                 getAjax(API.URL_GET_COMPLAININFO,'get',postData).then(function(res){
                     if(res.code == 200){
                         vmOrderComplain.stateDetail = res.result;
+                        var certificate = res.result.certificate.split(',');
+                        for(var i=0;i<certificate.length;i++){
+                            var src = getApiHost + certificate[i];
+                            vmOrderComplain.certificate.push(src);
+                        }
+                    }else{
+                        alertMsg(res.message,2);
+                    }
+                });
+            },
+            /*取消投诉*/
+            cancelComplain:function(){
+                getAjax(API.URL_POST_CLOSECOMPLAIN,'post',vmOrderComplain.postData).then(function(res){
+                    if(res.code == 200){
+                        alertMsg(res.message,1);
+                        setTimeout(function(){
+                            parent.layer.close(parent.layer.index);
+                        },1000);
                     }else{
                         alertMsg(res.message,2);
                     }

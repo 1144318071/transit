@@ -40,13 +40,10 @@
                     <li>:</li>
                     <li ms-text="@stateDetail.number">2015489451257</li>
                 </ul>
-                <ul class="clearfix">
+                <ul class="clearfix imgItem">
                     <li>投诉凭证</li>
                     <li>:</li>
-                    <li class="clearfix">
-                        <div class="imageContent"></div>
-                        <div class="imageContent"></div>
-                    </li>
+                    <li ms-for="el in @certificate" class="delItem ml10"><img ms-attr="{ src : el }" class="img_upload"  width="117px" height="89px" alt=""><span class="del">X</span></li>
                 </ul>
                 <ul class="clearfix">
                     <li>事件详情</li>
@@ -57,7 +54,7 @@
                 </ul>
             </div>
             <ul class='buttons clearfix'>
-                <li><button class='btn-orange' ms-if="@stateDetail.status=='10'" ms-on-click='@return'>取消投诉</button></li>
+                <li><button class='btn-orange' ms-if="@stateDetail.status=='10'" ms-on-click='@cancelComplain'>取消投诉</button></li>
             </ul>
         </div>
     </div>

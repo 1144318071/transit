@@ -97,31 +97,31 @@
             <!-- 轻卡等分类系列 -->
             <div class='kinds clearfix'>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/qk.png" width='94px' height='60px' alt="轻卡"></a></li>
+                    <li><a href="./carFilter.html?filterType=10"><img src="../../images/qk.png" width='94px' height='60px' alt="轻卡"></a></li>
                     <li>轻卡</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/zk.png" width='94px' height='60px' alt="重卡"></a></li>
+                    <li><a href="./carFilter.html?filterType=20"><img src="../../images/zk.png" width='94px' height='60px' alt="重卡"></a></li>
                     <li>重卡</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/qy.png" width='94px' height='60px' alt="牵引车"></a></li>
+                    <li><a href="./carFilter.html?filterType=30"><img src="../../images/qy.png" width='94px' height='60px' alt="牵引车"></a></li>
                     <li>牵引车</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/zh.png" width='94px' height='60px' alt="载货车"></a></li>
+                    <li><a href="./carFilter.html?filterType=40"><img src="../../images/zh.png" width='94px' height='60px' alt="载货车"></a></li>
                     <li>载货车</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/zx.png" width='94px' height='60px' alt="自卸车"></a></li>
+                    <li><a href="./carFilter.html?filterType=50"><img src="../../images/zx.png" width='94px' height='60px' alt="自卸车"></a></li>
                     <li>自卸车</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/xny.png" width='94px' height='60px' alt="新能源"></a></li>
+                    <li><a href="./carFilter.html?filterType=60"><img src="../../images/xny.png" width='94px' height='60px' alt="新能源"></a></li>
                     <li>新能源</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/carAdd.png" width='94px' height='60px' alt="二手车"></a></li>
+                    <li><a href="./carFilter.html?filterType=70"><img src="../../images/carAdd.png" width='94px' height='60px' alt="二手车"></a></li>
                     <li>二手车</li>
                 </ul>
             </div>
@@ -152,7 +152,7 @@
             <!-- 图片展示 -->
             <div class='row'>
                 <div class='col-md-12 col-sm-12'>
-                    <div class="tab">
+                    <div class="tab clearfix">
                         <div class="tab-title">
                             <ul>
                                 <li class="selected">外观</li>
@@ -160,7 +160,7 @@
                                 <li>底盘</li>
                             </ul>
                         </div>
-                         <div class="tab-content">
+                         <div class="tab-content clearfix">
                             <div class='tab-detail clearfix' style="display:block">
                                 <div class='tabSubTitle'>外观<span>(<span ms-text="@appearance_img"></span>张)</span></div>
                                 <!--无查看大图的原始样式-->
@@ -178,9 +178,6 @@
                             </div>
                             <div class='tab-detail clearfix'>
                                 <div class='tabSubTitle'>内饰<span>(<span ms-text="@interior_img"></span>张)</span></div>
-                                <!--<div class='carImgs'>
-                                    <img ms-for="el in @interior_pic" ms-attr="{ src : el }" src="../../images/carImg.png" width="324" height="260" alt="">
-                                </div>-->
                                 <div class="interior_container gallery_container clearfix">
                                     <div class="col-sm-3" ms-for="el in @interior_pic" ms-attr="{ src : el }">
                                         <a class="lightbox" ms-attr="{ href : el }">
@@ -191,9 +188,6 @@
                             </div>
                             <div class='tab-detail clearfix'>
                                <div class='tabSubTitle'>底盘<span>(<span ms-text="@chassis_img"></span>张)</span></div>
-                              <!-- <div class='carImgs'>
-                                   <img ms-for="el in @chassis_pic" ms-attr="{ src : el }" src="../../images/carImg.png" width="324" height="260" alt="">
-                               </div>-->
                                 <div class="chassis_container gallery_container clearfix">
                                     <div class="col-sm-3" ms-for="el in @chassis_pic" ms-attr="{ src : el }">
                                         <a class="lightbox" ms-attr="{ href : el }">

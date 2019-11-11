@@ -96,31 +96,31 @@
             <!-- 轻卡等分类系列 -->
             <div class='kinds clearfix'>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/qk.png" width='94px' height='60px' alt="轻卡"></a></li>
+                    <li><a href="./carFilter.html?filterType=10"><img src="../../images/qk.png" width='94px' height='60px' alt="轻卡"></a></li>
                     <li>轻卡</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/zk.png" width='94px' height='60px' alt="重卡"></a></li>
+                    <li><a href="./carFilter.html?filterType=20"><img src="../../images/zk.png" width='94px' height='60px' alt="重卡"></a></li>
                     <li>重卡</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/qy.png" width='94px' height='60px' alt="牵引车"></a></li>
+                    <li><a href="./carFilter.html?filterType=30"><img src="../../images/qy.png" width='94px' height='60px' alt="牵引车"></a></li>
                     <li>牵引车</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/zh.png" width='94px' height='60px' alt="载货车"></a></li>
+                    <li><a href="./carFilter.html?filterType=40"><img src="../../images/zh.png" width='94px' height='60px' alt="载货车"></a></li>
                     <li>载货车</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/zx.png" width='94px' height='60px' alt="自卸车"></a></li>
+                    <li><a href="./carFilter.html?filterType=50"><img src="../../images/zx.png" width='94px' height='60px' alt="自卸车"></a></li>
                     <li>自卸车</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/xny.png" width='94px' height='60px' alt="新能源"></a></li>
+                    <li><a href="./carFilter.html?filterType=60"><img src="../../images/xny.png" width='94px' height='60px' alt="新能源"></a></li>
                     <li>新能源</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/carAdd.png" width='94px' height='60px' alt="二手车"></a></li>
+                    <li><a href="./carFilter.html?filterType=70"><img src="../../images/carAdd.png" width='94px' height='60px' alt="二手车"></a></li>
                     <li>二手车</li>
                 </ul>
             </div>
@@ -154,7 +154,7 @@
                     <div class='row detailDes clearfix'>
                         <div class='col-md-6 col-sm-6 detailImg'><a ms-attr="{ href : './carImg.html?series='+@data.series+'&type='+@data.car_ty}"><img src="../../images/carSeiresDetail.png" alt="车系信息详情" /></a></div>
                         <!--传统车型信息-->
-                        <div class='col-md-6 col-sm-6 detailDescription'>
+                        <div class='col-md-6 col-sm-6 detailDescription' ms-visible="@car_ty == 'TRADITIONAL'">
                             <div class='carPrice'><label ms-text="@carDetail.minPrice"></label>-<label ms-text="@carDetail.maxPrice"></label><span class='priceUnit'>万元</span><span>(<label ms-text="@carDetail.car_count"></label>款车型)</span></div>
                             <div class="row detailMsg">
                                 <div class="col-md-3 col-sm-3">驱动形式<span>:</span></div>
@@ -186,7 +186,7 @@
                             <div class='row detailMsg agentPhone'>
                                 <div class='col-md-12 col-sm-12'>
                                     <ul class='clearfix'>
-                                        <li>icon</li>
+                                        <!--<li>icon</li>-->
                                         <li>厂商电话<span>:</span></li>
                                         <li ms-text="@carDetail.tell">8959-65243656</li>
                                     </ul>
@@ -194,41 +194,38 @@
                             </div>
                         </div>
                         <!--新能源车型信息-->
-                        <div class='col-md-6 col-sm-6 detailDescription dis_none'>
+                        <div class='col-md-6 col-sm-6 detailDescription' ms-visible="@car_ty == 'ENERGY'">
                             <div class='carPrice'><label ms-text="@carDetail.minPrice"></label>-<label ms-text="@carDetail.maxPrice"></label><span class='priceUnit'>万元</span><span>(<label ms-text="@carDetail.car_count"></label>款车型)</span></div>
                             <div class="row detailMsg">
-                                <div class="col-md-3 col-sm-3">驱动形式<span>:</span></div>
-                                <div class="col-md-9 col-sm-9">
-                                    <span ms-text="@carDetail.base_drive">6X4</span>
-                                    <!--<span>8X8</span><span>6X6</span><span>4X2</span><span>6X2</span>-->
-                                </div>
+                                <div class="col-md-3 col-sm-3" style='letter-spacing: 5.5px'>总质量<span>:</span></div>
+                                <div class="col-md-9 col-sm-9" ms-text="@carDetail.base_quality"></div>
                             </div>
                             <div class="row detailMsg">
-                                <div class="col-md-3 col-sm-3" style='letter-spacing: 5.5px'>发动机<span>:</span></div>
-                                <div class="col-md-9 col-sm-9" ms-text="@carDetail.engine_model"></div>
+                                <div class="col-md-3 col-sm-3">轴&emsp;&emsp;距<span>:</span></div>
+                                <div class="col-md-9 col-sm-9" ms-text="@carDetail.base_wheel"></div>
                             </div>
                             <div class="row detailMsg">
-                                <div class="col-md-3 col-sm-3">最大马力<span>:</span></div>
-                                <div class="col-md-9 col-sm-9" ms-text="@carDetail.engine_max_power"></div>
+                                <div class="col-md-3 col-sm-3">货箱长度<span>:</span></div>
+                                <div class="col-md-9 col-sm-9" ms-text="@carDetail.container_long"></div>
                             </div>
                             <div class="row detailMsg">
-                                <div class="col-md-3 col-sm-3">排放标准<span>:</span></div>
-                                <div class="col-md-9 col-sm-9" ms-text="@carDetail.engine_emission"></div>
+                                <div class="col-md-3 col-sm-3">峰值功率<span>:</span></div>
+                                <div class="col-md-9 col-sm-9" ms-text="@carDetail.engine_peak_power"></div>
                             </div>
                             <div class="row detailMsg">
-                                <div class="col-md-3 col-sm-3" style='letter-spacing: 5.5px'>变速箱<span>:</span></div>
-                                <div class="col-md-9 col-sm-9" ms-text="@carDetail.gearbox"></div>
+                                <div class="col-md-3 col-sm-3">最大扭矩<span>:</span></div>
+                                <div class="col-md-9 col-sm-9" ms-text="@carDetail.engine_peak_torque"></div>
                             </div>
                             <div class="row detailMsg">
-                                <div class="col-md-3 col-sm-3">前进档位<span>:</span></div>
-                                <div class="col-md-9 col-sm-9" ms-text="@carDetail.gearbox_forward_gear"></div>
+                                <div class="col-md-3 col-sm-3">厂标续航<span>:</span></div>
+                                <div class="col-md-9 col-sm-9" ms-text="@carDetail.battery_endurance"></div>
                             </div>
                             <div class='row detailMsg agentPhone'>
                                 <div class='col-md-12 col-sm-12'>
                                     <ul class='clearfix'>
-                                        <li>icon</li>
+                                        <!--<li>icon</li>-->
                                         <li>厂商电话<span>:</span></li>
-                                        <li ms-text="@carDetail.tell">8959-65243656</li>
+                                        <li ms-text="@carDetail.tell"></li>
                                     </ul>
                                 </div>
                             </div>
@@ -406,7 +403,7 @@
                                                     <button><i ms-text="el.year"></i>年</button>
                                                 </li>
                                             </ul>
-                                            <ul class='pull-left logo'>
+                                            <ul class='pull-right logo'>
                                                 <li><img ms-attr="{ src : el.shop_logo }" width='96px' height='59px' alt=""></li>
                                             </ul>
                                             <div class='clearfix'></div>
@@ -420,7 +417,7 @@
                                             </ul>
                                             <ul class='clearfix'>
                                                 <li class='pull-left'>经销商电话&nbsp;:&nbsp;</li>
-                                                <li class='pull-left font20' ms-text="el.hot_line"></li>
+                                                <li class='pull-left font32 fontw' ms-text="el.hot_line"></li>
                                             </ul>
                                         </div>
                                     </div>

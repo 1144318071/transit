@@ -111,6 +111,7 @@ $(function(){
               'limit':'5',
               'status':'10',
               'order':'',//price desc 价格倒序  price asc价格升序 create_time desc 时间倒序 create_time asc时间升序
+              'series':'',
           },
           /*最大价格和最小价格*/
           price:{
@@ -131,7 +132,6 @@ $(function(){
               var src = window.location.href;
               var params = GetRequest(src);
               var filterType = params.filterType;
-              console.log(filterType)
               if(filterType != undefined){
                   switch(filterType){
                       /*轻卡*/
@@ -238,11 +238,11 @@ $(function(){
               }else{
                   $('.allBrandsItem').hide(200);
               }
-                for(var i in vmCarFilter.brandsList){
+              for(var i in vmCarFilter.brandsList){
                     if(vmCarFilter.brandsList[i].mixed == el){
                         vmCarFilter.filterBrandsList = vmCarFilter.brandsList[i].list;
                     }
-                }
+              }
           },
           //样式渲染
           addStyle:function(el,kind,keyword){
@@ -345,11 +345,10 @@ $(function(){
                   }
               })
           },
-          //搜索
-          getSearchData:function(){},
-          /*获取排序的数据*/
-          getSortData:function (el) {
-              var text = $('#'+el).find('.up').text();
+          //输入车系名称进行搜索
+          getSearchData:function(){
+              console.log(vmCarFilter.filterSearch.series)
+              vmCarFilter.getSearchResult(vmCarFilter.filterSearch.status);
           },
           getPrice:function () {
               var min = vmCarFilter.price.minPrice;
@@ -366,23 +365,41 @@ $(function(){
           },
           /*分页*/
           getPageList:function(elem,count){
-              layui.use(['laypage', 'layer'], function () {
-                  var laypage = layui.laypage,
-                      layer = layui.layer;
-                  laypage.render({
-                      elem: elem,
-                      count: count,
-                      limit: '5',
-                      curr: vmCarFilter.filterSearch.page,
-                      theme: '#f57619',
-                      jump: function(obj,first) {
-                          if(!first){
-                              vmCarFilter.filterSearch.page = obj.curr;
-                              vmCarFilter.getSearchResult(vmCarFilter.filterSearch.status);
+              if(count >=1 ){
+                  layui.use(['laypage', 'layer'], function () {
+                      var laypage = layui.laypage,
+                          layer = layui.layer;
+                      laypage.render({
+                          elem: elem,
+                          count: count,
+                          limit: '5',
+                          curr: vmCarFilter.filterSearch.page,
+                          theme: '#f57619',
+                          jump: function(obj,first) {
+                              if(!first){
+                                  vmCarFilter.filterSearch.page = obj.curr;
+                                  vmCarFilter.getSearchResult(vmCarFilter.filterSearch.status);
+                              }
                           }
-                      }
+                      });
                   });
-              });
+              };
+          },
+          /*获取(最新、价格)排序的数据*/
+          //price desc 价格倒序  price asc价格升序 create_time desc 时间倒序 create_time asc时间升序
+          getSortData:function () {
+              var create_time = $('#newest').find('.up').text();
+              var price = $('#priceSort').find('.up').text();
+              if(create_time == '↑' && price == '↑'){
+                  vmCarFilter.filterSearch.order = 'create_time asc,price asc';
+              }else if(create_time == '↑' && price == '↓'){
+                  vmCarFilter.filterSearch.order = 'create_time asc,price desc';
+              }else if(create_time == '↓' && price == '↑'){
+                  vmCarFilter.filterSearch.order = 'create_time desc,price asc';
+              }else if(create_time == '↓' && price == '↓'){
+                  vmCarFilter.filterSearch.order = 'create_time desc,price desc';
+              }
+              vmCarFilter.getSearchResult(vmCarFilter.filterSearch.status);
           },
       }) ;
       vmCarFilter.onLoad();

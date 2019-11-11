@@ -97,31 +97,31 @@
             <!-- 轻卡等分类系列 -->
             <div class='kinds clearfix'>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/qk.png" width='94px' height='60px' alt="轻卡"></a></li>
+                    <li><a href="./carFilter.html?filterType=10"><img src="../../images/qk.png" width='94px' height='60px' alt="轻卡"></a></li>
                     <li>轻卡</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/zk.png" width='94px' height='60px' alt="重卡"></a></li>
+                    <li><a href="./carFilter.html?filterType=20"><img src="../../images/zk.png" width='94px' height='60px' alt="重卡"></a></li>
                     <li>重卡</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/qy.png" width='94px' height='60px' alt="牵引车"></a></li>
+                    <li><a href="./carFilter.html?filterType=30"><img src="../../images/qy.png" width='94px' height='60px' alt="牵引车"></a></li>
                     <li>牵引车</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/zh.png" width='94px' height='60px' alt="载货车"></a></li>
+                    <li><a href="./carFilter.html?filterType=40"><img src="../../images/zh.png" width='94px' height='60px' alt="载货车"></a></li>
                     <li>载货车</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/zx.png" width='94px' height='60px' alt="自卸车"></a></li>
+                    <li><a href="./carFilter.html?filterType=50"><img src="../../images/zx.png" width='94px' height='60px' alt="自卸车"></a></li>
                     <li>自卸车</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/xny.png" width='94px' height='60px' alt="新能源"></a></li>
+                    <li><a href="./carFilter.html?filterType=60"><img src="../../images/xny.png" width='94px' height='60px' alt="新能源"></a></li>
                     <li>新能源</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/carAdd.png" width='94px' height='60px' alt="二手车"></a></li>
+                    <li><a href="./carFilter.html?filterType=70"><img src="../../images/carAdd.png" width='94px' height='60px' alt="二手车"></a></li>
                     <li>二手车</li>
                 </ul>
             </div>
@@ -206,7 +206,7 @@
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>轴距:</li>
-                                                <li class='pull-left'><span ms-text="@carInfo.base_wheel"></span>mm</li>
+                                                <li class='pull-left' ms-text="@carInfo.base_wheel + 'mm'"></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -214,13 +214,13 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>车身长度:</li>
-                                                <li class='pull-left'><span ms-text="@carInfo.base_long"></span>米</li>
+                                                <li class='pull-left' ms-text="@carInfo.base_long + '米'"></li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>车身高度:</li>
-                                                <li class='pull-left'><span ms-text="@carInfo.base_height"></span>米</li>
+                                                <li class='pull-left' ms-text="@carInfo.base_height + '米'"></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -228,13 +228,13 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>车身宽度:</li>
-                                                <li class='pull-left'><span ms-text="@carInfo.base_width"></span>米</li>
+                                                <li class='pull-left' ms-text="@carInfo.base_width + '米'"></li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>额定载重:</li>
-                                                <li class='pull-left'><span ms-text="@carInfo.base_load"></span>吨</li>
+                                                <li class='pull-left' ms-text="@carInfo.base_load + '吨'"></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -242,7 +242,7 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>总质量:</li>
-                                                <li class='pull-left'><span ms-text="@carInfo.base_quality"></span>吨</li>
+                                                <li class='pull-left' ms-text="@carInfo.base_quality + '吨'"></li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
@@ -259,13 +259,13 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>整车质量:</li>
-                                                <li class='pull-left'><span ms-text="@carInfo.base_weight"></span>吨</li>
+                                                <li class='pull-left' ms-text="@carInfo.base_weight +'吨'"></li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>厂标续航:</li>
-                                                <li class='pull-left'><span ms-text="@carInfo.base_endurance"></span>km</li>
+                                                <li class='pull-left' ms-text="@carInfo.base_endurance + 'km'"></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -282,13 +282,13 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>电机品牌:</li>
-                                                <li class='pull-left' ms-text="@carInfo.engine_brand">福田康明斯 F3.8NS6B190</li>
+                                                <li class='pull-left' ms-text="@carInfo.engine_brand"></li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>电机型号:</li>
-                                                <li class='pull-left' ms-text="@carInfo.engine_model">福田康明斯</li>
+                                                <li class='pull-left' ms-text="@carInfo.engine_model"></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -296,13 +296,13 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>电机形式:</li>
-                                                <li class='pull-left' ms-text="@carInfo.engine_form">富康 F3.8</li>
+                                                <li class='pull-left' ms-text="@carInfo.engine_form"></li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>最大马力:</li>
-                                                <li class='pull-left' ms-text="@carInfo.engine_max_power">4马力</li>
+                                                <li class='pull-left' ms-text="@carInfo.engine_max_power + '马力'"></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -310,13 +310,13 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>额定功率:</li>
-                                                <li class='pull-left'><span  ms-text="@carInfo.engine_rated_power"></span>kW</li>
+                                                <li class='pull-left' ms-text="@carInfo.engine_rated_power + 'kW'"></li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>峰值功率:</li>
-                                                <li class='pull-left'><span  ms-text="@carInfo.engine_peak_power"></span>kW</li>
+                                                <li class='pull-left' ms-text="@carInfo.engine_peak_power + 'kW'"></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -324,31 +324,30 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>额定扭矩:</li>
-                                                <li class='pull-left'><span  ms-text="@carInfo.engine_rated_torque"></span>n.m</li>
+                                                <li class='pull-left' ms-text="@carInfo.engine_rated_torque + 'n.m'"></li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>峰值扭矩:</li>
-                                                <li class='pull-left'><span  ms-text="@carInfo.engine_peak_torque"></span>n.m</li>
+                                                <li class='pull-left' ms-text="@carInfo.engine_peak_torque +'n.m'"></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class='titleLine'>货箱参数</div>
                                     <div class='row tabMsg'>
-
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>货箱类型:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.container_model !='' && @carInfo.container_model == 10">箱式</li>
-                                                <li class='pull-left' ms-visible="@carInfo.container_model !='' && carInfo.container_model == 20">仓栏式</li>
-                                                <li class='pull-left' ms-visible="@carInfo.container_model !='' && carInfo.container_model == 30">栏板式</li>
+                                                <li class='pull-left' ms-visible="@carInfo.container_model == 10">箱式</li>
+                                                <li class='pull-left' ms-visible="carInfo.container_model == 20">仓栏式</li>
+                                                <li class='pull-left' ms-visible="carInfo.container_model == 30">栏板式</li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
-                                            <ul class='clearfix pull-left' ms-visible="carInfo.container_long !='' || @carInfo.container_long !='0.00' ">
+                                            <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>货箱长度:</li>
-                                                <li class='pull-left'><span ms-text="@carInfo.container_long"></span>米</li>
+                                                <li class='pull-left' ms-text="@carInfo.container_long + '米'"></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -356,13 +355,13 @@
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>货箱宽度:</li>
-                                                <li class='pull-left'><span ms-text="@carInfo.container_width"></span>米</li>
+                                                <li class='pull-left' ms-text="@carInfo.container_width+'米'"></li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>货箱高度:</li>
-                                                <li class='pull-left'><span ms-text="@carInfo.container_height"></span>米</li>
+                                                <li class='pull-left' ms-text="@carInfo.container_height+'米'"><span></span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -370,13 +369,13 @@
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>货箱容积:</li>
-                                                <li class='pull-left'><span ms-text="@carInfo.container_volume"></span>m³</li>
+                                                <li class='pull-left' ms-text="@carInfo.container_volume + 'm³'"></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class='titleLine'>驾驶室参数</div>
                                     <div class='row tabMsg'>
-                                        <div class='col-md-6 col-sm-6 clearfix'>
+                                        <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>驾驶室:</li>
                                                 <li class='pull-left' ms-text="@carInfo.cab_"></li>
@@ -401,7 +400,7 @@
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>准乘人数:</li>
-                                                <li class='pull-left' ms-text="@carInfo.cab_people"></li>
+                                                <li class='pull-left' ms-text="@carInfo.cab_people+'人'"></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -945,7 +944,7 @@
                                     </div>
                                     <div class='titleLine'>货箱参数</div>
                                     <div class='row tabMsg'>
-                                        <div class='col-md-6 col-sm-6 clearfix'  ms-if="@carInfo.container_model !=''">
+                                        <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>货箱类型&nbsp;:</li>
                                                 <li class='pull-left' ms-visible="@carInfo.container_model == 10">箱式</li>
@@ -953,7 +952,7 @@
                                                 <li class='pull-left' ms-visible="@carInfo.container_model == 30">栏板式</li>
                                             </ul>
                                         </div>
-                                        <div class='col-md-6 col-sm-6'  ms-if="@carInfo.container_long !=''">
+                                        <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>货箱长度&nbsp;:</li>
                                                 <li class='pull-left'><span ms-text="@carInfo.container_long"></span>米</li>
@@ -961,13 +960,13 @@
                                         </div>
                                     </div>
                                     <div class='row tabMsg'>
-                                        <div class='col-md-6 col-sm-6'  ms-if="@carInfo.container_width !=''">
+                                        <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>货箱宽度&nbsp;:</li>
                                                 <li class='pull-left'><span ms-text="@carInfo.container_width"></span>米</li>
                                             </ul>
                                         </div>
-                                        <div class='col-md-6 col-sm-6'  ms-if="@carInfo.container_height !=''">
+                                        <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>货箱高度&nbsp;:</li>
                                                 <li class='pull-left'><span ms-text="@carInfo.container_height"></span>米</li>
@@ -984,21 +983,21 @@
                                     </div>
                                     <div class='titleLine'>驾驶室参数</div>
                                     <div class='row tabMsg'>
-                                        <div class='col-md-6 col-sm-6 clearfix'   ms-if="@carInfo.cab_ !=''">
+                                        <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>驾驶室&nbsp;:</li>
                                                 <li class='pull-left' ms-text="@carInfo.cab_"></li>
                                             </ul>
                                         </div>
-                                        <div class='col-md-6 col-sm-6'  ms-if="@carInfo.cab_hang !=''">
+                                        <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>驾驶室悬挂&nbsp;:</li>
-                                                <li class='pull-left' ms-text="@carInfo.cab_hang"></li>
+                                                <li class='pull-left'></li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class='row tabMsg'>
-                                        <div class='col-md-6 col-sm-6 clearfix'  ms-if="@carInfo.cab_seat !=''">
+                                        <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>座位排数&nbsp;:</li>
                                                 <li class='pull-left' ms-visible="@carInfo.cab_seat == 10">单排</li>
@@ -1006,7 +1005,7 @@
                                                 <li class='pull-left' ms-visible="@carInfo.cab_seat == 30">排半</li>
                                             </ul>
                                         </div>
-                                        <div class='col-md-6 col-sm-6'  ms-if="@carInfo.cab_people !=''">
+                                        <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>准乘人数&nbsp;:</li>
                                                 <li class='pull-left'><span ms-text="@carInfo.cab_people"></span>人</li>
@@ -1014,13 +1013,13 @@
                                         </div>
                                     </div>
                                     <div class='row tabMsg'>
-                                        <div class='col-md-6 col-sm-6 clearfix' ms-if="@carInfo.cab_main_seat !=''">
+                                        <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>主驾座椅形式&nbsp;:</li>
                                                 <li class='pull-left' ms-text="@carInfo.cab_main_seat">厢式8</li>
                                             </ul>
                                         </div>
-                                        <div class='col-md-6 col-sm-6' ms-if="@carInfo.cab_main_seat !=''">
+                                        <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>天窗&nbsp;:</li>
                                                 <li class='pull-left' ms-visible="@carInfo.cab_skylight == 1">手动</li>
@@ -1318,7 +1317,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class='titleLine'>其他配置</div>
+                                    <!--<div class='titleLine'>其他配置</div>
                                     <div class='row tabMsg'>
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
@@ -1332,83 +1331,40 @@
                                                 <li class='pull-left'>2.44米</li>
                                             </ul>
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </div>
                             <!--查看图片-->
                             <div class='tabDetail dis_none'>
                                 <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
                                     <ul class="layui-tab-title">
-                                        <li class="layui-this">外观133张</li>
-                                        <li>内饰123张</li>
-                                        <li>底盘67张</li>
-                                        <li>上装67张</li>
-                                        <li>其他67张</li>
+                                        <li class="layui-this">外观<span ms-text="@appearance_count"></span>张</li>
+                                        <li>内饰<span ms-text="@interior_count"></span>张</li>
+                                        <li>底盘<span ms-text="@chassis_count"></span>张</li>
+                                        <li>上装<span ms-text="@tops_count"></span>张</li>
+                                        <li>其他<span ms-text="@other_count"></span>张</li>
                                     </ul>
                                     <div class="layui-tab-content">
                                         <div class="layui-tab-item layui-show clearfix">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <img ms-for="el in @appearance_pic" ms-attr="{ src : el }" width="245px" height='196px' alt="">
                                             <div class='clearfix'></div>
                                         </div>
                                         <div class="layui-tab-item">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <img ms-for="el in @interior_pic" ms-attr="{ src : el }" width="245px" height='196px' alt="">
                                             <div class='clearfix'></div>
-                                            <div style='height:320px'></div>
                                         </div>
                                         <div class="layui-tab-item">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <img ms-for="el in @chassis_pic" ms-attr="{ src : el }" width="245px" height='196px' alt="">
                                             <div class='clearfix'></div>
-                                            <div style='height:320px'></div>
                                         </div>
                                         <div class="layui-tab-item">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <img ms-for="el in @tops_pic" ms-attr="{ src : el }"  src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
                                             <div class='clearfix'></div>
-                                            <div style='height:320px'></div>
                                         </div>
                                         <div class="layui-tab-item">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
-                                            <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                            <img ms-for="el in @other_pic" ms-attr="{ src : el }" src="../../images/hotSaleType .png" width="245px" height='196px' alt="">
+                                           <!-- <img src="../../images/hotSaleType .png" width="245px" height='196px' alt="">-->
                                             <div class='clearfix'></div>
-                                            <div style='height:320px'></div>
                                         </div>
                                     </div>
                                 </div>

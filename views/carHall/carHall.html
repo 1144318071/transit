@@ -254,7 +254,7 @@
                                     <li class="selected" ms-on-click="@getQKList">轻卡</li>
                                     <li ms-on-click="@getQYList">牵引车</li>
                                     <li ms-on-click="@getZHList">载货车</li>
-                                    <li ms-on-click="@getQYList">自卸车</li>
+                                    <li ms-on-click="@getZXList">自卸车</li>
                                     <li ms-on-click="@getGCList">挂车</li>
                                     <li ms-on-click="@getXNYList">新能源</li>
                                 </ul>
@@ -263,7 +263,7 @@
                                 <!--轻卡-->
                                 <div class='tab-detail clearfix' style="display:block">
                                     <div class='tabDetail_left'>
-                                        <ul class='carDetail clearfix' ms-for="(index,el) in @carTypeList">
+                                        <ul class='carDetail clearfix' ms-for="(index,el) in @QKList">
                                             <li ms-text="el.manager_name"></li>
                                             <li ms-text="el.type_name"></li>
                                             <li><span ms-text="el.engine_max_power"></span>马力</li>
@@ -284,7 +284,7 @@
                                 <!--牵引车-->
                                 <div class='tab-detail clearfix'>
                                     <div class='tabDetail_left'>
-                                        <ul class='carDetail clearfix' ms-for="(index,el) in @carTypeList">
+                                        <ul class='carDetail clearfix' ms-for="(index,el) in @QYList">
                                             <li ms-text="el.manager_name"></li>
                                             <li ms-text="el.type_name"></li>
                                             <li><span ms-text="el.engine_max_power"></span>马力</li>
@@ -305,7 +305,7 @@
                                 <!--载货车-->
                                 <div class='tab-detail clearfix'>
                                     <div class='tabDetail_left'>
-                                        <ul class='carDetail clearfix' ms-for="(index,el) in @carTypeList">
+                                        <ul class='carDetail clearfix' ms-for="(index,el) in @ZHList">
                                             <li ms-text="el.manager_name"></li>
                                             <li ms-text="el.type_name"></li>
                                             <li><span ms-text="el.engine_max_power"></span>马力</li>
@@ -326,7 +326,7 @@
                                 <!--自卸车-->
                                 <div class='tab-detail clearfix'>
                                     <div class='tabDetail_left'>
-                                        <ul class='carDetail clearfix' ms-for="(index,el) in @carTypeList">
+                                        <ul class='carDetail clearfix' ms-for="(index,el) in @ZXList">
                                             <li ms-text="el.manager_name"></li>
                                             <li ms-text="el.type_name"></li>
                                             <li><span ms-text="el.engine_max_power"></span>马力</li>
@@ -347,7 +347,7 @@
                                 <!--挂车-->
                                 <div class='tab-detail clearfix'>
                                     <div class='tabDetail_left'>
-                                        <ul class='carDetail clearfix' ms-for="(index,el) in @carTypeList">
+                                        <ul class='carDetail clearfix' ms-for="(index,el) in @GCList">
                                             <li ms-text="el.manager_name"></li>
                                             <li ms-text="el.type_name"></li>
                                             <li><span ms-text="el.engine_max_power"></span>马力</li>
@@ -368,7 +368,7 @@
                                 <!--新能源-->
                                 <div class='tab-detail clearfix'>
                                     <div class='tabDetail_left'>
-                                        <ul class='carDetail clearfix' ms-for="(index,el) in @carTypeList">
+                                        <ul class='carDetail clearfix' ms-for="(index,el) in @XNYList">
                                             <li ms-text="el.manager_name"></li>
                                             <li ms-text="el.type_name"></li>
                                             <li><span ms-text="el.engine_max_power"></span>马力</li>

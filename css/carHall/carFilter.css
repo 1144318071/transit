@@ -370,3 +370,15 @@ i{
 .checkMoreItem{
     position: relative;
 }
+/*分页样式改写*/
+#demo2, #demo3, #demo4{
+  margin-left: 0px;
+  margin-top: 20px;
+}
+#demo2{
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  display: flex;
+  justify-content: center;
+}

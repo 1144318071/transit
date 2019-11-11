@@ -53,6 +53,10 @@
 .relativeNews ul li {
   font-size: 16px;
   float: left;
+  cursor: pointer;
+}
+.relativeNews ul li:hover{
+  color: #f57619;
 }
 .relativeNews ul li:last-child {
   margin-left: 6px;

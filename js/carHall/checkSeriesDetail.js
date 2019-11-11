@@ -18,6 +18,11 @@ $(function(){
           tops_pic:[],
           other_pic:[],
           hotCarList:[],
+          appearance_count:'0',
+          interior_count:'0',
+          chassis_count:'0',
+          tops_count:'0',
+          other_count:'0',
           onLoad:function(){
              vmCheckSeriesDetail.getUrlJson();
           },
@@ -43,6 +48,56 @@ $(function(){
                          res.result.image = getApiHost + res.result.image;
                      }
                      vmCheckSeriesDetail.carInfo = res.result;
+                     /*外观*/
+                     var appearance_pic = [];
+                     /*内饰*/
+                     var interior_pic=[];
+                     /*底盘*/
+                     var chassis_pic=[];
+                     /*上装*/
+                     var tops_pic=[];
+                     /*其他*/
+                     var other_pic = [];
+                     if(res.result.appearance_pic!=''){
+                         appearance_pic = res.result.appearance_pic.split(',');
+                     }
+                     if(res.result.interior_pic!=''){
+                         interior_pic = res.result.interior_pic.split(',');
+                     }
+                     if(res.result.chassis_pic!=''){
+                         chassis_pic = res.result.chassis_pic.split(',');
+                     }
+                     if(res.result.tops_pic!=''){
+                         tops_pic = res.result.tops_pic.split(',');
+                     }
+                     if(res.result.other_pic!=''){
+                         other_pic = res.result.other_pic.split(',');
+                     }
+                     for(var i in appearance_pic){
+                         var img1 = getApiHost + appearance_pic[i];
+                         vmCheckSeriesDetail.appearance_pic.push(img1);
+                     };
+                     for(var j in interior_pic){
+                         var img2 = getApiHost + interior_pic[j];
+                         vmCheckSeriesDetail.interior_pic.push(img2);
+                     };
+                     for(var k in chassis_pic){
+                         var img3 = getApiHost + chassis_pic[k];
+                         vmCheckSeriesDetail.chassis_pic.push(img3);
+                     };
+                     for(var m in tops_pic){
+                         var img4 = getApiHost + tops_pic[m];
+                         vmCheckSeriesDetail.tops_pic.push(img4);
+                     };
+                     for(var n in other_pic){
+                         var img5 = getApiHost + other_pic[n];
+                         vmCheckSeriesDetail.other_pic.push(img5);
+                     };
+                     vmCheckSeriesDetail.appearance_count = vmCheckSeriesDetail.appearance_pic.length;
+                     vmCheckSeriesDetail.interior_count = vmCheckSeriesDetail.interior_pic.length;
+                     vmCheckSeriesDetail.chassis_count = vmCheckSeriesDetail.chassis_pic.length;
+                     vmCheckSeriesDetail.tops_count = vmCheckSeriesDetail.tops_pic.length;
+                     vmCheckSeriesDetail.other_count = vmCheckSeriesDetail.other_pic.length;
                  }else{
                      alertMsg(res.message,2);
                  }

@@ -132,6 +132,8 @@ var API = {
     URL_POST_CLOSEORDER : getApiHost + '/order/closeOrder',
     //投诉详情
     URL_GET_COMPLAININFO : getApiHost + '/complaintInfo',
+    //取消投诉
+    URL_POST_CLOSECOMPLAIN : getApiHost + '/closeComplaint',
     //----------------------------------------------物流公司-----------------------------------
     //公司主页
     URL_GET_COMPANYINFO : getApiHost + '/companyInfo',

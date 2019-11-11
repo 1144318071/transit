@@ -63,7 +63,7 @@ $(function(){
                 '_token_' :'',
                 'city':'',
                 //10：载货车 20：牵引车  30：自卸车 40：新能源  50：轻卡  60：挂车
-                'car_type':'40'
+                'car_type':'50'
             },
             city:'成都市',
             token:'',
@@ -73,6 +73,12 @@ $(function(){
             agentList:[],
             attentionList:[],
             carTypeList:[],
+            ZHList:[],
+            QYList:[],
+            ZXList:[],
+            XNYList:[],
+            QKList:[],
+            GCList:[],
             carTypeNews:[],
             onLoad:function(){
                 var token = localStorage.getItem('token');
@@ -80,7 +86,7 @@ $(function(){
                 vmCarHall.getNewsList();
                 vmCarHall.getPopularBrands();
                 vmCarHall.getAttention();
-                vmCarHall.getXNYList();
+                vmCarHall.getCityCarList();
             },
             getNewsList:function(){
                 vmCarHall.newsData._token_ = vmCarHall.token;
@@ -152,7 +158,6 @@ $(function(){
                             res.result[j].area = getAreaName(res.result[j].area)
                         }
                         vmCarHall.agentList = res.result;
-                        console.log('优质经销商',res.result)
                     }else{
                         alertMsg(res.message,2);
                     }
@@ -164,13 +169,31 @@ $(function(){
                 vmCarHall.cityCarType.city = cityCode;
                 getAjax(API.URL_GET_CITYCAR,'get',vmCarHall.cityCarType).then(function(res){
                     if(res.code == 200){
-                        vmCarHall.carTypeList = res.result.list;
+                        var type = vmCarHall.cityCarType.car_type;
                         vmCarHall.carTypeNews = res.result.news;
-                        if(res.result.list == ''){
-                            alertMsg('暂无数据',2);
-                        }
-                        console.log(vmCarHall.carTypeList);
-                        console.log(vmCarHall.carTypeNews);
+                        switch(type){
+                            //10：载货车 20：牵引车  30：自卸车 40：新能源  50：轻卡  60：挂车
+                            case '10':
+                                vmCarHall.ZHList = res.result.list;
+                            break;
+                            case '20':
+                                vmCarHall.QYList = res.result.list;
+                            break;
+                            case '30':
+                                vmCarHall.ZXList = res.result.list;
+                            break;
+                            case '40':
+                                vmCarHall.XNYList = res.result.list;
+                            break;
+                            case '50':
+                                vmCarHall.QKList = res.result.list;
+                            break;
+                            case '60':
+                                vmCarHall.GCList = res.result.list;
+                            break;
+                            default:
+                            break;
+                        };
                     }else{
                         alertMsg(res.message,2);
                     }

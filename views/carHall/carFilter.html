@@ -97,31 +97,31 @@
             <!-- 轻卡等分类系列 -->
             <div class='kinds clearfix'>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/qk.png" width='94px' height='60px' alt="轻卡"></a></li>
+                    <li><a href="#"><img src="../../images/qk.png" width='94px' height='60px' alt="轻卡"></a></li>
                     <li>轻卡</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/zk.png" width='94px' height='60px' alt="重卡"></a></li>
+                    <li><a href="#"><img src="../../images/zk.png" width='94px' height='60px' alt="重卡"></a></li>
                     <li>重卡</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/qy.png" width='94px' height='60px' alt="牵引车"></a></li>
+                    <li><a href="#"><img src="../../images/qy.png" width='94px' height='60px' alt="牵引车"></a></li>
                     <li>牵引车</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/zh.png" width='94px' height='60px' alt="载货车"></a></li>
+                    <li><a href="#"><img src="../../images/zh.png" width='94px' height='60px' alt="载货车"></a></li>
                     <li>载货车</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/zx.png" width='94px' height='60px' alt="自卸车"></a></li>
+                    <li><a href="#"><img src="../../images/zx.png" width='94px' height='60px' alt="自卸车"></a></li>
                     <li>自卸车</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/xny.png" width='94px' height='60px' alt="新能源"></a></li>
+                    <li><a href="#"><img src="../../images/xny.png" width='94px' height='60px' alt="新能源"></a></li>
                     <li>新能源</li>
                 </ul>
                 <ul>
-                    <li><a href="./carFilter.html"><img src="../../images/carAdd.png" width='94px' height='60px' alt="二手车"></a></li>
+                    <li><a href="#"><img src="../../images/carAdd.png" width='94px' height='60px' alt="二手车"></a></li>
                     <li>二手车</li>
                 </ul>
             </div>
@@ -140,7 +140,7 @@
                     </span>
                 </div>
                 <div class='col-md-6 col-sm-6 text-right'>
-                    <input type="text" class='search' placeholder="输入车系进行搜索" /><button class='btn-search' ms-on-click="@getSearchData">搜索</button>
+                    <input type="text" class='search' ms-duplex="@filterSearch.series" placeholder="输入车系进行搜索" /><button class='btn-search' ms-on-click="@getSearchData">搜索</button>
                 </div>
             </div>
             <!-- 面包屑导航结束 -->
@@ -236,8 +236,8 @@
                             <li ms-on-click="@getSearchResult('20')">停售(<span ms-text="@countData.status_20"></span>)</li>
                         </ul>
                         <ul class='pull-right sort'>
-                            <li class='pull-left mr20' id="newest" ms-on-click="@getSortData('newest')">最新<span class='up'>↑</span></li>
-                            <li class='pull-left mr20' id="priceSort" ms-on-click="@getSortData('priceSort')">价格<span class='up'>↑</span></li>
+                            <li class='pull-left mr20' id="newest" ms-on-click="@getSortData">最新<span class='up'>↑</span></li>
+                            <li class='pull-left mr20' id="priceSort" ms-on-click="@getSortData">价格<span class='up'>↑</span></li>
                         </ul>
                     </div>
                     <div class='statusContent'>
@@ -298,7 +298,7 @@
                                                 </div>
                                             </div>
                                             <!--新能源展示的信息-->
-                                            <div class='col-md-9 col-sm-9  dis_none' ms-visible="@filterSearch._t == 'ENERGY'">
+                                            <div class='col-md-9 col-sm-9' ms-visible="@filterSearch._t == 'ENERGY'">
                                                 <div class='statusDesTitle' ms-text="el.series">一汽解放J6P牵引车</div>
                                                 <div class='row carDes'>
                                                     <div class='col-md-6 col-sm-6'>
@@ -392,180 +392,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <!--测试数据-->
-                            <!--<div class="statusSelect">
-                                <div class="row statusDes">
-                                    <div class="col-md-3 col-sm-3 statusImg">
-                                        <img alt="" src="http://transit.scsiren.com\file\crop\9f3d2ad962df447ce7671ab5c3e961d2ff5de995.jpg">
-                                    </div>
-                                    <div class="col-md-8 col-md-8 carContent">
-                                        <div class="row">
-                                            <div class="col-md-9 col-sm-9">
-                                                <div class="statusDesTitle">修改的数据2333</div>
-                                                <div class="row carDes">
-                                                    <div class="col-md-6 col-sm-6">
-                                                        <ul class="clearfix">
-                                                            <li>驱动形式<span>:</span></li>
-                                                            <li>4x4 4x6</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6">
-                                                        <ul>
-                                                            <li>发动机<span>:</span></li>
-                                                            <li>12542 145 12 10</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="row carDes">
-                                                    <div class="col-md-6 col-sm-6">
-                                                        <ul class="clearfix">
-                                                            <li>最大马力<span>:</span></li>
-                                                            <li>150 350 550 10</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6">
-                                                        <ul>
-                                                            <li>排放标准<span>:</span></li>
-                                                            <li>30 10</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="row carDes">
-                                                    <div class="col-md-6 col-sm-6">
-                                                        <ul class="clearfix">
-                                                            <li>变速箱<span>:</span></li>
-                                                            <li>1 10</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6">
-                                                        <ul>
-                                                            <li>前进档位<span>:</span></li>
-                                                            <li>5 4 8 10</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-9 col-sm-9  dis_none" style="display: none;">
-                                                <div class="statusDesTitle">一汽解放J6P牵引车</div>
-                                                <div class="row carDes">
-                                                    <div class="col-md-6 col-sm-6">
-                                                        <ul class="clearfix">
-                                                            <li>总质量<span>:</span></li>
-                                                            <li>​</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6">
-                                                        <ul>
-                                                            <li>轴距<span>:</span></li>
-                                                            <li>​</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="row carDes">
-                                                    <div class="col-md-6 col-sm-6">
-                                                        <ul class="clearfix">
-                                                            <li>货箱长度<span>:</span></li>
-                                                            <li>​</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6">
-                                                        <ul>
-                                                            <li>峰值功率<span>:</span></li>
-                                                            <li>​</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="row carDes">
-                                                    <div class="col-md-6 col-sm-6">
-                                                        <ul class="clearfix">
-                                                            <li>最大扭矩<span>:</span></li>
-                                                            <li>​</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6">
-                                                        <ul>
-                                                            <li>厂标续航<span>:</span></li>
-                                                            <li>​</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-3 all">
-                                                <select type="select-one" selectedindex="0">
-                                                    <option selected="true" value="中国重汽">中国重汽</option>
-                                                    <option selected="true" value="丶长情">丶长情</option>
-                                                    <option selected="true" value="丶长情1">丶长情1</option>
-                                                </select>
-                                                <ul>
-                                                    <li>厂商指导价</li>
-                                                    <li><span>20.8</span>~<span>53.66</span>万</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <table class="table table-condensed selectTable">
-                                    <tbody>
-                                    <tr>
-                                        <td>驱动形式<span>4x4</span></td>
-                                        <td>厂商指导价</td>
-                                        <td>图片</td>
-                                        <td>相关信息</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="selectDetail">
-                                                <span>丶长情</span><span> 全柴 </span><span><i>10</i>马力</span><span>4x4</span><span>(<i>ZH2019090900003T</i>)</span>
-                                            </div>
-                                            <div class="allStatus">
-                                                <button>在售</button>
-                                                <button><span>10.00</span>米</button>
-                                                <button>核载<span>10.00</span>吨</button>
-                                                <div class="checkMore">
-                                                    <div class="checkBtn">查看<span class="color-orange">18</span>款符合条件的车型</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span>18.88</span>万
-                                        </td>
-                                        <td>
-                                            <a href="./checkSeriesDetail.html?car_ty=TRADITIONAL&amp;id=47">查看图片</a>
-                                        </td>
-                                        <td>
-                                            <a href="./checkSeriesDetail.html?car_ty=TRADITIONAL&amp;id=47">查看参数</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="selectDetail">
-                                                <span>中国重汽</span><span> 全柴 </span><span><i>10</i>马力</span><span>4x4</span><span>(<i>ZH2019090900004T</i>)</span>
-                                            </div>
-                                            <div class="allStatus">
-                                                <button>在售</button>
-                                                <button><span>10.00</span>米</button>
-                                                <button>核载<span>10.00</span>吨</button>
-                                                <div class="checkMore">
-                                                    <div class="checkBtn">查看<span class="color-orange">18</span>款符合条件的车型
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <span>8.88</span>万
-                                        </td>
-                                        <td>
-                                            <a href="./checkSeriesDetail.html?car_ty=TRADITIONAL&amp;id=48">查看图片</a>
-                                        </td>
-                                        <td>
-                                            <a href="./checkSeriesDetail.html?car_ty=TRADITIONAL&amp;id=48">查看参数</a>
-                                        </td>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-
-                            </div>-->
                             <div id="demo2"></div>
                         </div>
                         <!--即将上市-->
@@ -578,6 +404,7 @@
                                      </div>
                                      <div class='col-md-8 col-md-8 carContent'>
                                          <div class='row'>
+                                             <!--传统车型展示的信息-->
                                              <div class='col-md-9 col-sm-9' ms-visible="@filterSearch._t == 'TRADITIONAL'">
                                                  <div class='statusDesTitle' ms-text="el.series"></div>
                                                  <div class='row carDes'>
@@ -623,8 +450,9 @@
                                                      </div>
                                                  </div>
                                              </div>
+                                             <!--新能源展示的信息-->
                                              <div class='col-md-9 col-sm-9  dis_none' ms-visible="@filterSearch._t == 'ENERGY'">
-                                                 <div class='statusDesTitle' ms-text="el.series"></div>
+                                                 <div class='statusDesTitle' ms-text="el.series">一汽解放J6P牵引车</div>
                                                  <div class='row carDes'>
                                                      <div class='col-md-6 col-sm-6'>
                                                          <ul class='clearfix'>
@@ -670,10 +498,7 @@
                                              </div>
                                              <div class='col-md-3 col-sm-3 all'>
                                                  <select>
-                                                     <option>成都共有9家经销商</option>
-                                                     <option>成都共有9家经销商</option>
-                                                     <option>成都共有9家经销商</option>
-                                                     <option>成都共有9家经销商</option>
+                                                     <option ms-for="value in el.brands" ms-attr="{ value : value.nick_name }" ms-text="value.nick_name"></option>
                                                  </select>
                                                  <ul>
                                                      <li>厂商指导价</li>
@@ -691,32 +516,34 @@
                                          <td>图片</td>
                                          <td>相关信息</td>
                                      </tr>
-                                     <tr ms-for="val in value">
+                                     <tr ms-for="val in value" ms-attr="{ id : 'append_' + val.id }">
                                          <td>
-                                             <div class='selectDetail'>
+                                             <div class="selectDetail">
                                                  <span ms-text="val.manager_name"></span>
                                                  <span ms-text="val.type_name"></span>
                                                  <span><i ms-text="val.engine_max_power"></i>马力</span>
                                                  <span  ms-text="val.base_drive"></span>
                                                  <span>(<i ms-text="val.car_number"></i>)</span>
                                              </div>
-                                             <div class='allStatus'>
+                                             <div class="allStatus">
                                                  <button>在售</button>
-                                                 <!--  <button>大柴</button>
-                                                   <button>国五</button>-->
                                                  <button><span ms-text="val.base_long"></span>米</button>
                                                  <button>核载<span ms-text="val.base_load"></span>吨</button>
                                              </div>
                                          </td>
                                          <td><span ms-text="val.price"></span>万</td>
-                                         <td><a  ms-attr="{ href : './checkSeriesDetail.html?car_ty=' + val.car_type + '&id=' + val.id }">查看图片</a></td>
-                                         <td><a  ms-attr="{ href : './checkSeriesDetail.html?car_ty=' + val.car_type + '&id=' + val.id }">查看参数</a></td>
+                                         <td>
+                                             <a  ms-attr="{ href : './checkSeriesDetail.html?car_ty=' + val.car_type + '&id=' + val.id }">查看图片</a>
+                                         </td>
+                                         <td>
+                                             <a  ms-attr="{ href : './checkSeriesDetail.html?car_ty=' + val.car_type + '&id=' + val.id }">查看参数</a>
+                                         </td>
                                      </tr>
+                                     <div class="checkMore"><a  ms-attr="{ href: './carSeriesDetail.html?car_ty='+@filterSearch._t+'&id='+el.brands[0].manager_id+'&series='+ el.series}">
+                                         <div class="checkBtn">查看<span class="color-orange" ms-text="el.car_count"></span>款符合条件的车型</div></a>
+                                     </div>
                                      </tbody>
                                  </table>
-                                 <div class='checkMore'>
-                                     <div class='checkBtn'>查看<span class='color-orange'>18</span>款符合条件的车型</div>
-                                 </div>
                              </div>
                              <div id="demo3"></div>
                          </div>
@@ -730,6 +557,7 @@
                                     </div>
                                     <div class='col-md-8 col-md-8 carContent'>
                                         <div class='row'>
+                                            <!--传统车型展示的信息-->
                                             <div class='col-md-9 col-sm-9' ms-visible="@filterSearch._t == 'TRADITIONAL'">
                                                 <div class='statusDesTitle' ms-text="el.series"></div>
                                                 <div class='row carDes'>
@@ -775,8 +603,9 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!--新能源展示的信息-->
                                             <div class='col-md-9 col-sm-9  dis_none' ms-visible="@filterSearch._t == 'ENERGY'">
-                                                <div class='statusDesTitle'>一汽解放J6P牵引车</div>
+                                                <div class='statusDesTitle' ms-text="el.series">一汽解放J6P牵引车</div>
                                                 <div class='row carDes'>
                                                     <div class='col-md-6 col-sm-6'>
                                                         <ul class='clearfix'>
@@ -822,10 +651,7 @@
                                             </div>
                                             <div class='col-md-3 col-sm-3 all'>
                                                 <select>
-                                                    <option>成都共有9家经销商</option>
-                                                    <option>成都共有9家经销商</option>
-                                                    <option>成都共有9家经销商</option>
-                                                    <option>成都共有9家经销商</option>
+                                                    <option ms-for="value in el.brands" ms-attr="{ value : value.nick_name }" ms-text="value.nick_name"></option>
                                                 </select>
                                                 <ul>
                                                     <li>厂商指导价</li>
@@ -843,32 +669,34 @@
                                         <td>图片</td>
                                         <td>相关信息</td>
                                     </tr>
-                                    <tr ms-for="val in value">
+                                    <tr ms-for="val in value" ms-attr="{ id : 'append_' + val.id }">
                                         <td>
-                                            <div class='selectDetail'>
+                                            <div class="selectDetail">
                                                 <span ms-text="val.manager_name"></span>
                                                 <span ms-text="val.type_name"></span>
                                                 <span><i ms-text="val.engine_max_power"></i>马力</span>
                                                 <span  ms-text="val.base_drive"></span>
                                                 <span>(<i ms-text="val.car_number"></i>)</span>
                                             </div>
-                                            <div class='allStatus'>
+                                            <div class="allStatus">
                                                 <button>在售</button>
-                                                <!--  <button>大柴</button>
-                                                  <button>国五</button>-->
                                                 <button><span ms-text="val.base_long"></span>米</button>
                                                 <button>核载<span ms-text="val.base_load"></span>吨</button>
                                             </div>
                                         </td>
                                         <td><span ms-text="val.price"></span>万</td>
-                                        <td><a  ms-attr="{ href : './checkSeriesDetail.html?car_ty=' + val.car_type + '&id=' + val.id }">查看图片</a></td>
-                                        <td><a  ms-attr="{ href : './checkSeriesDetail.html?car_ty=' + val.car_type + '&id=' + val.id }">查看参数</a></td>
+                                        <td>
+                                            <a  ms-attr="{ href : './checkSeriesDetail.html?car_ty=' + val.car_type + '&id=' + val.id }">查看图片</a>
+                                        </td>
+                                        <td>
+                                            <a  ms-attr="{ href : './checkSeriesDetail.html?car_ty=' + val.car_type + '&id=' + val.id }">查看参数</a>
+                                        </td>
                                     </tr>
+                                    <div class="checkMore"><a  ms-attr="{ href: './carSeriesDetail.html?car_ty='+@filterSearch._t+'&id='+el.brands[0].manager_id+'&series='+ el.series}">
+                                        <div class="checkBtn">查看<span class="color-orange" ms-text="el.car_count"></span>款符合条件的车型</div></a>
+                                    </div>
                                     </tbody>
                                 </table>
-                                <div class='checkMore'>
-                                    <div class='checkBtn'>查看<span class='color-orange'>18</span>款符合条件的车型</div>
-                                </div>
                             </div>
                             <div id="demo4"></div>
                         </div>

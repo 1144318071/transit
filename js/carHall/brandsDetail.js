@@ -131,6 +131,8 @@ $(function(){
             }
         });
         vmBrandDetail.onLoad();
+        $('#province>a:first-child').addClass('active');
+        setCity(1);
         avalon.scan(document.body);
     });
 });

@@ -16,12 +16,10 @@ layui.use('upload', function () {
         },
         url: API.URL_POST_UPLOADFILE,
         done: function (res) {
-            console.log(res)
             vmOrderState.imgCount = parseInt(vmOrderState.imgCount);
             if(vmOrderState.imgCount < 6){
                 //上传成功
                 if(res.code == 200){
-                    console.log(res);
                     var html = '<li class="delImg"><img class="img_reason" src="'+getApiHost+res.result.crop+'" data-src="'+res.result.crop+'" width="135px" height="147px" alt=""><span class="del">X</span></li>';
                     $('.uploadContent').append(html);
                     vmOrderState.imgCount +=1;
@@ -78,29 +76,32 @@ $(function () {
                     alertMsg('请上传图片',2);
                     return false;
                 }else{
-                    for(var i in imgs){
+                    for(var i=0;i<len;i++){
                         var src = $(imgs[i]).attr('data-src');
                         imgsArr.push(src);
                     }
                 };
                 vmOrderState.postData.certificate = imgsArr.join(',');
-                console.log(vmOrderState.postData)
-                getAjax(API.URL_POST_GOODSCOMPLAINT,'post',vmOrderState.postData).then(function(res){
-                   if(res.code == 200){
-                       top.layer.open({
-                           type: 2,
-                           title: false,
-                           skin: 'layui-layer-demo', //样式类名
-                           closeBtn: 1, //不显示关闭按钮
-                           area: ['876px', '513px'],
-                           shadeClose: true, //开启遮罩关闭
-                           content: ['/views/order/muckStateSuccess.html']
-                       });
-                   }else{
-                       alertMsg(res.message,2);
-                   }
-                });
-
+                console.log(vmOrderState.postData);
+                if(vmOrderState.postData.certificate == ''){
+                    alertMsg('请上传凭证',2);
+                }else{
+                    getAjax(API.URL_POST_GOODSCOMPLAINT,'post',vmOrderState.postData).then(function(res){
+                        if(res.code == 200){
+                            top.layer.open({
+                                type: 2,
+                                title: false,
+                                skin: 'layui-layer-demo', //样式类名
+                                closeBtn: 1, //不显示关闭按钮
+                                area: ['876px', '513px'],
+                                shadeClose: true, //开启遮罩关闭
+                                content: ['/views/order/muckStateSuccess.html']
+                            });
+                        }else{
+                            alertMsg(res.message,2);
+                        }
+                    });
+                }
             },
 
         });

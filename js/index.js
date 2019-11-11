@@ -110,10 +110,10 @@ $(function(){
                 });
             },
             changeShow:function(el){
-                $('#'+el).find('.info_carSeries').show(500).siblings().find('.info_carSeries').hide(500);
+                $('#'+el).find('.info_carSeries').show().siblings().find('.info_carSeries').hide();
             },
             hideShow:function(el){
-                $('#'+el).find('.info_carSeries').hide(500);
+                $('#'+el).find('.info_carSeries').hide();
             },
             //获取banner图片
             getBanners:function(){

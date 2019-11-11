@@ -33,9 +33,7 @@ $(function(){
                             imgArr[i] = getApiHost + imgArr[i];
                         }
                         result.goods_images = imgArr;
-                        console.log(imgArr)
                         var len = imgArr.length;
-                        console.log(len)
                         switch(len){
                             case 1:
                                 $('.img1').attr('src',imgArr[0]);

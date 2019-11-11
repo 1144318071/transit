@@ -282,7 +282,6 @@ $(function(){
                         imgs.push(src)
                     }
                    vmPublishOrder.postData.goods_images = imgs.join(',');
-                    console.log(vmPublishOrder.postData)
                     getAjax(API.URL_POST_GOODSSHIP,'post',vmPublishOrder.postData).then(function(res){
                         if(res.code == 200){
                             alertMsg(res.message,1);

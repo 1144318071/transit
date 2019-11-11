@@ -28,6 +28,7 @@ $(function(){
             getNewsDetail:function(){
                 var token = localStorage.getItem('token');
                 vmNewsDetail.postData._token_ = token;
+                console.log(vmNewsDetail.postData)
                 getAjax(API.URL_GET_NEWSINFO,'get',vmNewsDetail.postData).then(function(res){
                     if(res.code == 200){
                         vmNewsDetail.newsDetail = res.result;
@@ -68,9 +69,14 @@ $(function(){
                         alertMsg(res.message,2);
                     }
                 });
-            }
+            },
         });
         vmNewsDetail.onLoad();
         avalon.scan(document.body);
     });
 });
+var x = 1;
+if(function f() {}){
+    x += typeof f;
+}
+console.log(x)

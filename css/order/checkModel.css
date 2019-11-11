@@ -163,6 +163,34 @@
   height: 54px;
   line-height: 54px;
 }
+.complainContent .upload .uploadimg{
+ width: 117px;
+  height: 89px;
+}
+.complainContent .upload .uploadimg img {
+  margin-left: 39px;
+  margin-top: -69px;
+}
+.complainContent .delItem{
+  position: relative;
+}
+.complainContent .del{
+  position: absolute;
+  top: -6px;
+  right: -7px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 20px;
+  background-color:#f51919;
+  color: #fff;
+  cursor: pointer;
+}
+.complainContent .upload .layui-btn{
+  margin-left: 12px;
+}
 .uploadContent li {
   float: left;
 }
@@ -298,6 +326,7 @@
 }
 .itemMore ul li:nth-child(2){
   width: 160px;
+  margin-right: 10px;
 }
 .itemDetail li textarea{
   width: 413px;
@@ -541,16 +570,6 @@ table{border-collapse:collapse;border-spacing:0;}
   background-color: #ffffff;
   border: solid 1px #999999;
   outline: none;
-}
-.complainContent ul li>div{
-  float: left;
-  width: 117px;
-  height: 89px;
-  background-color: #f57619;
-  border-radius: 6px;
-}
-.complainContent ul li>div:not(:first-child){
-  margin-left: 59px;
 }
 .orderComplain .buttons{
   margin-top: 40px;
