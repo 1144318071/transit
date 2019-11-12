@@ -152,23 +152,11 @@ $(function(){
                 }
                 vmAddCar.postData.driving_license = img1Arr.join(',');
                 var len = vehicle_picture.length;
-                for(var i =0 ; i<vehicle_picture.length;i++){
+                for(var i =0 ; i<len;i++){
                     var src = $(vehicle_picture[i]).attr('data-src');
                     img2Arr.push(src);
                 }
                 vmAddCar.postData.vehicle_picture = img2Arr.join(',');
-               /* $('.formItem li input[type=text]').each(function(i,item){
-                   if($(item).val() == ''){
-                        alertMsg('所填信息不能为空',2);
-                        return false;
-                   }else{
-                       if(vmAddCar.postData.driving_license == '' || vmAddCar.postData.vehicle_picture == ''){
-                           alertMsg('请上传相关图片!',2);
-                           return false;
-                       }
-                   }
-                });*/
-                console.log(vmAddCar.postData)
                 getAjax(API.URL_POST_VEHICLEADD,'post',vmAddCar.postData).then(function(res){
                     if(res.code == 200){
                         layer.open({
