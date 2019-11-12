@@ -163,30 +163,30 @@ $(function(){
            /*下一步*/
            nextStep:function () {
                 vmPublishOrder.postData._token_ = localStorage.getItem('token');
-                var car_model = $("#m1").ySelectedValues(",").split(',');
-                var len = car_model.length;
-                if(len == 0){
+                var carModel = $("#m1").ySelectedValues(",");
+                if(carModel == ''){
                     alertMsg('请选择车型',2);
                     return false;
                 }else{
+                    var len = carModel.split(',').length;
                     if(len > 3){
                         alertMsg('最多可以选择3个车型',2);
                         return false;
                     }else{
-                        vmPublishOrder.postData.car_model = $("#m1").ySelectedValues(",");
+                        vmPublishOrder.postData.car_model = carModel;
                     }
-                };
-                var car_length = $("#m2").ySelectedValues(",").split(',');;
-                var lent = car_length.length;
-               if(lent == 0){
+                }
+                var carLength = $("#m2").ySelectedValues(",");
+               if(carLength == 0){
                    alertMsg('请选择车长',2);
                    return false;
                }else{
+                   var len = carLength.split(',').length;
                    if(len > 3){
                        alertMsg('最多可以选择3个车长',2);
                        return false;
                    }else{
-                       vmPublishOrder.postData.car_length = $("#m2").ySelectedValues(",");
+                       vmPublishOrder.postData.car_length = carLength;
                    }
                };
                /*地址*/
@@ -229,32 +229,80 @@ $(function(){
                var three_hidden = $('.addressItem_three').is(':hidden');
                var four_hidden = $('.addressItem_four').is(':hidden');
                if(!one_hidden){
-                   obj_one.province = $("#province1 option[value =" + vmPublishOrder.model.addressList_one.province + "]").attr('data-code');
-                   obj_one.city = $("#city1 option[value =" + vmPublishOrder.model.addressList_one.city + "]").attr('data-code');
-                   obj_one.area= $("#district1 option[value =" + vmPublishOrder.model.addressList_one.area + "]").attr('data-code');
+                   var p1,c1,a1;
+                   p1 = $("#province1 option[value =" + vmPublishOrder.model.addressList_one.province + "]").attr('data-code');
+                   $('#city1 option').each(function(i,val){
+                       if($(val).attr('selected') == 'selected'){
+                           c1 = $(val).attr('data-code')
+                       }
+                   });
+                   $('#district1 option').each(function(i,val){
+                       if($(val).attr('selected') == 'selected'){
+                           a1 = $(val).attr('data-code')
+                       }
+                   });
+                   obj_one.province = p1;
+                   obj_one.city = c1;
+                   obj_one.area = a1;
                    obj_one.address = vmPublishOrder.model.addressList_one.address;
                    vmPublishOrder.postData.adList.push(obj_one);
-                   console.log(vmPublishOrder.postData.adList)
                }
                if(!two_hidden){
-                   obj_two.province = $("#province1_two option[value =" + vmPublishOrder.model.addressList_two.province + "]").attr('data-code');
-                   obj_two.city = $("#city1_two option[value =" + vmPublishOrder.model.addressList_two.city + "]").attr('data-code');
-                   obj_two.area = $("#district1_two option[value =" + vmPublishOrder.model.addressList_two.area + "]").attr('data-code');
+                   var p2,c2,a2;
+                   p2 = $("#province1_two option[value =" + vmPublishOrder.model.addressList_two.province + "]").attr('data-code');
+                   $('#city1_two option').each(function(i,val){
+                       if($(val).attr('selected') == 'selected'){
+                           c2 = $(val).attr('data-code');
+                       }
+                   });
+                   $('#district1_two option').each(function(i,val){
+                       if($(val).attr('selected') == 'selected'){
+                           a2 = $(val).attr('data-code');
+                       }
+                   });
+                   obj_two.province = p2;
+                   obj_two.city = c2;
+                   obj_two.area = a2;
                    obj_two.address = vmPublishOrder.model.addressList_two.address;
                    vmPublishOrder.postData.adList.push(obj_two);
                }
                if(!three_hidden){
-                   obj_three.province= $("#province1_three option[value =" + vmPublishOrder.model.addressList_three.province + "]").attr('data-code');
-                   obj_three.city = $("#city1_three option[value =" + vmPublishOrder.model.addressList_three.city + "]").attr('data-code');
-                   obj_three.area = $("#district1_three option[value =" + vmPublishOrder.model.addressList_three.area + "]").attr('data-code');
+                   var p3,c3,a3;
+                   p3 = $("#province1_three option[value =" + vmPublishOrder.model.addressList_three.province + "]").attr('data-code');
+                   $('#city1_three option').each(function(i,val){
+                       if($(val).attr('selected') == 'selected'){
+                           c3 = $(val).attr('data-code');
+                       }
+                   });
+                   $('#district1_three option').each(function(i,val){
+                       if($(val).attr('selected') == 'selected'){
+                           a3 = $(val).attr('data-code');
+                       }
+                   });
+                   obj_three.province = p3;
+                   obj_three.city = c3;
+                   obj_three.area = a3;
                    obj_three.address = vmPublishOrder.model.addressList_three.address;
                    vmPublishOrder.postData.adList.push(obj_three);
                }
                if(!four_hidden){
-                   obj_four.province = $("#province1_four option[value =" + vmPublishOrder.model.addressList_four.province + "]").attr('data-code');
-                   obj_four.city = $("#city1_four option[value =" + vmPublishOrder.model.addressList_four.city + "]").attr('data-code');
-                   obj_four.area = $("#district1_four option[value =" + vmPublishOrder.model.addressList_four.area + "]").attr('data-code');
+                   var p4,c4,a4;
+                   p4 = $("#province1_four option[value =" + vmPublishOrder.model.addressList_four.province + "]").attr('data-code');
+                   $('#city1_four option').each(function(i,val){
+                       if($(val).attr('selected') == 'selected'){
+                           c4 = $(val).attr('data-code');
+                       }
+                   });
+                   $('#district1_four option').each(function(i,val){
+                       if($(val).attr('selected') == 'selected'){
+                           a4 = $(val).attr('data-code');
+                       }
+                   });
+                   obj_four.province = p4;
+                   obj_four.city = c4;
+                   obj_four.area = a4;
                    obj_four.address = vmPublishOrder.model.addressList_four.address;
+                   obj_four.id = vmPublishOrder.model.addressList_four.id;
                    vmPublishOrder.postData.adList.push(obj_four);
                }
                //是否加急的选择
@@ -282,6 +330,7 @@ $(function(){
                         imgs.push(src)
                     }
                    vmPublishOrder.postData.goods_images = imgs.join(',');
+                    console.log(vmPublishOrder.postData)
                     getAjax(API.URL_POST_GOODSSHIP,'post',vmPublishOrder.postData).then(function(res){
                         if(res.code == 200){
                             alertMsg(res.message,1);

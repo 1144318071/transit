@@ -15,39 +15,6 @@ $('.img_carSeries_small').hover(function(){
 },function(){
   $(this).find('.info_carSeries_small').hide();
 });
-//百度地址定位
-var map = new BMap.Map("allmap");
-var point = new BMap.Point(116.404, 39.915);
-map.centerAndZoom(point,14);
-//浏览器定位
-/*
-var geolocation = new BMap.Geolocation();
-geolocation.getCurrentPosition(function(r){
-    if(this.getStatus() == BMAP_STATUS_SUCCESS){
-        var mk = new BMap.Marker(r.point);
-        map.addOverlay(mk);
-        map.panTo(r.point);
-        // alert('您的位置：'+r.point.lng+','+r.point.lat);
-        $('#lat').val(r.point.lat);//获取到的纬度
-        $('#lon').val(r.point.lng);//获取到的经度
-
-        var gc = new BMap.Geocoder();
-        var pointAdd = new BMap.Point(r.point.lng, r.point.lat);
-        gc.getLocation(pointAdd, function(rs){
-            // 百度地图解析城市名
-            $('#pro_num').html(rs.addressComponents.city);
-            //或者其他信息
-            console.log(rs);
-            vmCarHall.city = rs.addressComponents.city;
-            // vmCarHall.getCityCar();
-        })
-    }
-    else {
-        console.log('获取当前定位失败');
-    }
-},{enableHighAccuracy: true});
-*/
-
 $(function(){
     avalon.ready(function(){
         window.vmCarHall = avalon.define({
@@ -85,9 +52,8 @@ $(function(){
                 vmCarHall.token = token;
                 vmCarHall.getNewsList();
                 vmCarHall.getPopularBrands();
-                vmCarHall.getAttention();
-                vmCarHall.getCityCarList();
             },
+            /*新闻列表*/
             getNewsList:function(){
                 vmCarHall.newsData._token_ = vmCarHall.token;
                 getAjax(API.URL_GET_NEWS, 'get', vmCarHall.newsData).then(function (res) {
@@ -96,7 +62,10 @@ $(function(){
                         //     res.result[i].images = getApiHost + res.result[i].images;
                         // }
                         vmCarHall.newsList = res.result;
+                        /*热门车型的数据*/
                         vmCarHall.getHotCar();
+                        /*关注度排行*/
+                        vmCarHall.getAttention();
                     }else{
                         alertMsg(res.message,2);
                     }
@@ -131,6 +100,7 @@ $(function(){
                             }
                         }
                         vmCarHall.hotCarList = res.result;
+                        vmCarHall.getCityCarList();
                     }else{
                         alertMsg(res.message,2);
                     }
@@ -163,6 +133,7 @@ $(function(){
                     }
                 });
             },
+            /*车市数据*/
             getCityCarList:function(){
                 vmCarHall.cityCarType._token_ = vmCarHall.token;
                 var cityCode = getCode(vmCarHall.city);

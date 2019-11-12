@@ -124,30 +124,35 @@ $(function(){
             },
              // 获取验证码(加上倒计时功能)
             getCheckCode:function(){
-                var token  = localStorage.getItem('token');
-                var getCode = {
-                    '_token_': token,
-                    'mobile': vmLogin.postData.username
-                };
-                getAjax(API.URL_POST_SENDCODE, 'post', getCode).then(function (res) {
-                    if(res.code == 200){
-                        alertMsg(res.message,1)
-                    }else{
-                        alertMsg(res.message,2)
-                    }
-                });
-                let count = 60;
-                const countDown = setInterval(()=>{
-                    if(count == 0){
-                        $('.layui-btn-Code').text('获取验证码').removeAttr('disabled');
-                        clearInterval(countDown);
-                    }else{
-                        $('.layui-btn-Code').attr('disabled',true);
-                        $('.layui-btn-Code').css({'background':'#ff0000','cursor':'pointer'});
-                        $('.layui-btn-Code').text('重新发送(' + count+')');
-                    }
-                    count--;
-                },1000);
+                var phone = vmLogin.postData.username;
+                if(!(/^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/.test(phone))){
+                    alertMsg("请输入正确格式的手机号",2);
+                }else{
+                    var token  = localStorage.getItem('token');
+                    var getCode = {
+                        '_token_': token,
+                        'mobile': vmLogin.postData.username
+                    };
+                    getAjax(API.URL_POST_SENDCODE, 'post', getCode).then(function (res) {
+                        if(res.code == 200){
+                            alertMsg(res.message,1)
+                        }else{
+                            alertMsg(res.message,2)
+                        }
+                    });
+                    let count = 60;
+                    const countDown = setInterval(()=>{
+                        if(count == 0){
+                            $('.layui-btn-Code').text('获取验证码').removeAttr('disabled');
+                            clearInterval(countDown);
+                        }else{
+                            $('.layui-btn-Code').attr('disabled',true);
+                            $('.layui-btn-Code').css({'background':'#ff0000','cursor':'pointer'});
+                            $('.layui-btn-Code').text('重新发送(' + count+')');
+                        }
+                        count--;
+                    },1000);
+                }
             },
             // 忘记密码跳转
             forgetPwd:function(el){

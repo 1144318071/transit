@@ -30,9 +30,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.btn-more {
-  color: #999;
-}
 .news_brands {
   padding-top: 21px;
 }
@@ -44,7 +41,7 @@
   margin-left: 0px;
 }
 .news_brands ul:not(:first-child) {
-  margin-top: 14px;
+  margin-top: 13px;
 }
 .news_brands ul:nth-child(2){
   margin-top: 0px;

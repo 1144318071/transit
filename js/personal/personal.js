@@ -28,7 +28,6 @@ layui.use('laydate', function () {
     laydate.render({
         elem: '#test16'
         ,type: 'datetime'
-        ,value:'2019-10-22至2019-11-22'
         ,range: '至'
         ,format: 'yyyy-M-d'
     });
@@ -139,6 +138,8 @@ $(function(){
                             case 'PERSONAL':
                                 $('.companyInfo').remove();
                                 vmPersonal.userInfo.type = '个人';
+                                /*车辆列表*/
+                                vmPersonal.getCarList();
                                 break;
                             case 'MERCHANT':
                                 vmPersonal.userInfo.type = '商家';
@@ -152,8 +153,8 @@ $(function(){
                                 break;
                             case 'PROXY':
                                 vmPersonal.userInfo.type = '代理';
-                                /*$('.personalList li').eq(1).hide();
-                                $('.vehicleManagement').hide();*/
+                                $('.personalList li').eq(1).hide();
+                                $('.vehicleManagement').hide();
                                 break;
                         }
                     }else{
@@ -184,7 +185,6 @@ $(function(){
                        alertMsg(res.message,2);
                    }
                 });
-                vmPersonal.getCarList();
             },
             //获取车辆列表
             getCarList:function(){

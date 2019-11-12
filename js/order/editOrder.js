@@ -94,10 +94,6 @@ $(function(){
             elem: '#test1'
         });
     });
-    $('#distpicker').distpicker('reset', true);
-    $('#distpicker_two').distpicker('reset',true);
-    $('#distpicker_three').distpicker('reset',true);
-    $('#distpicker_four').distpicker('reset',true);
     avalon.ready(function(){
         window.vmPublishOrder = '';
         window.vmPublishOrder = avalon.define({
@@ -145,6 +141,7 @@ $(function(){
                 'loading_end_time':'',
                 'goods_images':'',
                 'remark':'',
+                'goods_id':'',
                 'adList':[],
             },
             date:{
@@ -155,11 +152,14 @@ $(function(){
             start:[],
             end:[],
             goods_id:'',
+            car_model:'',
+            car_length:'',
             //获取get传参的数据
             getOrderDetail:function(){
                 var src = window.location.href;
                 var params = GetRequest(src).goods_id;
                 vmPublishOrder.goods_id = params;
+                vmPublishOrder.postData.goods_id = params;
                 var token = localStorage.getItem('token');
                 var postData = {
                     '_token_':token,
@@ -167,7 +167,6 @@ $(function(){
                 };
                 getAjax(API.URL_GET_GOODSINFO,'get',postData).then(function(res){
                     if(res.code == 200){
-                        console.log(res.result);
                         var model = res.result.car_model.split(',');
                         var len = res.result.car_length.split(',');
                         var selected = model +',' +  len;
@@ -181,6 +180,8 @@ $(function(){
                                 }
                             }
                         });
+                        vmPublishOrder.car_model = res.result.car_model;
+                        vmPublishOrder.car_length = res.result.car_length;
                         /*数据渲染*/
                         /*时间的处理*/
                         var start_time = res.result.loading_start_time;
@@ -198,7 +199,6 @@ $(function(){
                         vmPublishOrder.postData.goods_images = res.result.goods_images;
                         vmPublishOrder.postData.remark = res.result.remark;
                         let detailAddress = res.result.line;
-                        console.log(detailAddress)
                         let start = [];
                         let end=[];
                         vmPublishOrder.start = start;
@@ -211,7 +211,9 @@ $(function(){
                             }
                         }
                         let start_len = start.length;
-                        let end_len = start.length;
+                        let end_len = end.length;
+                        console.log('start',start);
+                        console.log('end',end);
                         /*装货地址*/
                         switch(start_len){
                             case 1:
@@ -270,13 +272,14 @@ $(function(){
                                 $("#district1_three").trigger("change");
                                 vmPublishOrder.model.addressList_three.address=end[0].address;
                                 vmPublishOrder.model.addressList_three.id = end[0].id;
-                                $(" #province1_four option[data-code ='" + end[0].province + "']").attr("selected", "selected");
+                                console.log(end[1].province)
+                                $(" #province1_four option[data-code ='" + end[1].province + "']").attr("selected", "selected");
                                 $("#province1_four").trigger("change");
-                                $(" #city1_four option[data-code ='" + end[0].city + "']").attr("selected", "selected");
+                                $(" #city1_four option[data-code ='" + end[1].city + "']").attr("selected", "selected");
                                 $("#city1_four").trigger("change");
-                                $(" #district1_four option[data-code ='" + end[0].area + "']").attr("selected", "selected");
+                                $(" #district1_four option[data-code ='" + end[1].area + "']").attr("selected", "selected");
                                 $("#district1_four").trigger("change");
-                                vmPublishOrder.model.addressList_four.address=end[0].address;
+                                vmPublishOrder.model.addressList_four.address=end[1].address;
                                 vmPublishOrder.model.addressList_three.id = end[1].id;
                             break;
                             default:
@@ -324,31 +327,28 @@ $(function(){
             /*下一步*/
             nextStep:function () {
                 vmPublishOrder.postData._token_ = localStorage.getItem('token');
-                var car_model = $("#m1").ySelectedValues(",").split(',');
-                console.log(car_model)
-                var len = car_model.length;
-                if(len == 0){
-                    alertMsg('请选择车型',2);
-                    return false;
+                var carModel = $("#m1").ySelectedValues(",");
+                if(carModel ==''){
+                    vmPublishOrder.postData.car_model = vmPublishOrder.car_model;
                 }else{
+                    var len = carModel.split(',').length;
                     if(len > 3){
                         alertMsg('最多可以选择3个车型',2);
                         return false;
                     }else{
-                        vmPublishOrder.postData.car_model = $("#m1").ySelectedValues(",");
+                        vmPublishOrder.postData.car_model = carModel;
                     }
                 };
-                var car_length = $("#m2").ySelectedValues(",").split(',');;
-                var lent = car_length.length;
-                if(lent == 0){
-                    alertMsg('请选择车长',2);
-                    return false;
+                var carLength = $("#m2").ySelectedValues(",");
+                if(carLength ==''){
+                    vmPublishOrder.postData.car_length = vmPublishOrder.car_length;
                 }else{
+                    var len = carLength.split(',').length;
                     if(len > 3){
                         alertMsg('最多可以选择3个车长',2);
                         return false;
                     }else{
-                        vmPublishOrder.postData.car_length = $("#m2").ySelectedValues(",");
+                        vmPublishOrder.postData.car_length = carLength;
                     }
                 };
                 /*地址*/
@@ -512,10 +512,10 @@ $(function(){
                     }
                     vmPublishOrder.postData.goods_images = imgs.join(',');
                     console.log(vmPublishOrder.postData)
-                    getAjax(API.URL_POST_GOODSSHIP,'post',vmPublishOrder.postData).then(function(res){
+                    getAjax(API.URL_POST_GOODSEDIT,'post',vmPublishOrder.postData).then(function(res){
                         if(res.code == 200){
                             alertMsg(res.message,1);
-                            location.href='./payPublishOrder.html?goods_id='+res.result.goods_id;
+                            location.href='./payPublishOrder.html?goods_id='+vmPublishOrder.goods_id;
                         }else{
                             alertMsg(res.message,2);
                         }

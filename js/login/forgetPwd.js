@@ -17,7 +17,6 @@ $(function () {
             	var phone = vmForgetPwd.postData.username;
 			    if(!(/^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/.test(phone))){ 
 			       alertMsg("请输入正确格式的手机号",2);  
-			       $('.layui-btn-Code').attr('disabled',true);
 			    }else{
 			    	var token  = localStorage.getItem('token');
 	                var getCode = {

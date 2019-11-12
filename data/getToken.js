@@ -13,7 +13,6 @@ function getNowFormatDate() {
     var currentdate = date.getFullYear() + seperator + month + seperator + strDate;
     return currentdate;
 }
-
 var token = localStorage.getItem('token');
 if(token == null){
     $.ajax({

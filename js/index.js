@@ -33,24 +33,39 @@ $(function(){
             enterpriseList:[],
             bannerImg:[],
             onLoad:function(){
-                vmIndex.getNewsList();
-                vmIndex.getZCFGList();
-                vmIndex.getHQDGList();
-                vmIndex.getHYZXList();
-                vmIndex.getEnterpriseList();
-                vmIndex.getBanners();
+                vmIndex.getToken();
+            },
+            getToken:function(){
+                $.ajax({
+                    url: API.URL_POST_SETTOKEN,
+                    type: 'post',
+                    dataType: 'json',
+                    async: true,
+                    data: { version: '2.0.1', author: '丶Lee', email: '1144318071@qq.com', date: getNowFormatDate},
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    success:function(res){
+                        if(res.code == 200){
+                            localStorage.setItem('token',res.result.token);
+                            vmIndex.getBanners();
+                        }
+                    }
+                });
             },
             //获取新闻列表
             getNewsList:function(){
                 vmIndex.newsData._token_ = localStorage.getItem('token');
                 getAjax(API.URL_GET_NEWS, 'get', vmIndex.newsData).then(function (res) {
-
                     if(res.code == 200){
                         /*图片加域名*/
                         // for(var i=0;i<res.result.length;i++){
                         //     res.result[i].images = getApiHost + res.result[i].images;
                         // }
                         vmIndex.newsList = res.result;
+                        vmIndex.getZCFGList();
+                        vmIndex.getHQDGList();
+                        vmIndex.getHYZXList();
                     }else{
                         alertMsg(res.message,2);
                     }
@@ -83,6 +98,7 @@ $(function(){
                 //10：政策法规  20：行情导购  30：行业资讯
                 vmIndex.newsData.news_type = '10';
                 vmIndex.getTypeList('10');
+                vmIndex.getEnterpriseList();
             },
             getHQDGList:function () {
                 vmIndex.newsData.news_type = '20';
@@ -124,6 +140,7 @@ $(function(){
                             res.result[i].banner_img = getApiHost + res.result[i].banner_img;
                         }
                         vmIndex.bannerImg = res.result;
+                        vmIndex.getNewsList();
                     }else{
                         alertMsg(res.message,2);
                     }
@@ -137,12 +154,3 @@ $(function(){
 });
 // 发布订单系列的内容
 $('.hLine').hide();
-// $('.itemBox').hover(function(){
-//     $(this).addClass('active');
-//     $(this).find('.hLine').show();
-//     $(this).find('img').css({'width':'153px','height':'153px'});
-// },function(){
-//     $(this).removeClass('active');
-//     $(this).find('.hLine').hide();
-//     $(this).find('img').css({'width':'175px','height':'175px'})
-// });

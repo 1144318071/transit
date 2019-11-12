@@ -97,6 +97,10 @@ $(function () {
                                 shadeClose: true, //开启遮罩关闭
                                 content: ['/views/order/muckStateSuccess.html']
                             });
+                            setTimeout(function(){
+                                parent.layer.close(parent.layer.index);
+                                parent.parent.layer.close(parent.layer.index);
+                            },1000);
                         }else{
                             alertMsg(res.message,2);
                         }

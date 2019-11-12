@@ -1,12 +1,10 @@
 // app下载
 $('.downLoad').hover(function(){
     $(this).addClass('layui-this');
-    /*$(this).siblings().removeClass('layui-this');*/
-    $(this).find('.downloadApp').slideDown();
-
+    $(this).find('.downloadApp').show();
 },function(){
     $(this).removeClass('layui-this');
-    $(this).find('.downloadApp').slideUp();
+    $(this).find('.downloadApp').hide()
 });
 $('#avatar').click(function(){
    window.location.href = '../personal/personal.html';
@@ -55,6 +53,10 @@ $(function(){
                         case 'LOGISTICS':
                             $('.layui-nav-item .layui-nav-child').remove();
                         break;
+                        case 'PROXY':
+                            $('.logistics').attr('data-src','javascript:;');
+                            $('.layui-nav-item .layui-nav-child').remove();
+                        break;
                         default:
                         break;
                     }
@@ -73,11 +75,11 @@ $(function(){
                 }else{
                     if(type == 'MERCHANT'){
                         if(userInfo.type != "MERCHANT") {
-                            alertMsg('您无权限查看当前模块', 5);
+                            alertMsg('此账号无权限查看该内容', 5);
                         }
                     }else if(type == 'LOGISTICS'){
                         if(userInfo.type != "LOGISTICS") {
-                            alertMsg('您无权限查看当前模块', 5);
+                            alertMsg('此账号无权限查看该内容', 5);
                         }
                     }
                 }

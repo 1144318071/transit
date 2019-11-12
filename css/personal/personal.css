@@ -208,6 +208,9 @@ footer {
 .vehicleDes li:not(:last-child){
   padding-left: 33px;
 }
+.vehicleDes li:nth-child(3){
+  padding-left: 33px;
+}
 .vehicleDes li:nth-child(2) {
   margin-top: 5px;
   margin-bottom: 5px;
