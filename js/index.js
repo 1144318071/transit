@@ -15,6 +15,7 @@ layui.use(['carousel', 'form'], function () {
         });
     });
 });
+
 $(function(){
     avalon.ready(function(){
         window.vmIndex = avalon.define({
@@ -149,7 +150,8 @@ $(function(){
             }
         });
         vmIndex.onLoad();
-        avalon.scan(document.body)
+
+        avalon.scan(document.body);
     });
 });
 // 发布订单系列的内容

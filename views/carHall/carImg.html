@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../css/footer.css">
     <link rel="stylesheet" href="../../css/carHall/common.css">
     <link rel="stylesheet" href="../../css/carHall/carImg.css">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=n6K0xWCoAKyRgR0cYt6uVaC1EgAVAGFR"></script>
     <title>汽车大厅</title>
 </head>
 
@@ -30,6 +31,7 @@
                                 <input class="address" value="切换">
                             </div>
                         </div>
+                        <div id="allmap" class="dis_none"></div>
                     </div>
                     <div class='col-md-6 col-sm-6'>
                         <div class='row  text-right'>
@@ -140,8 +142,8 @@
                         <a href='javascript:;'><cite>条件找车</cite></a>
                     </span>
                 </div>
-                <div class='col-md-6 col-sm-6 text-right dis_none'>
-                    <input type="text" class='search' placeholder="输入要查找的关键词" /><button class='btn-search'>搜索</button>
+                <div class='col-md-6 col-sm-6 text-right'>
+                    <input type="text" class='search' ms-duplex="@keyword" placeholder="输入要查找的关键词" /><button class='btn-search' ms-on-click="@getSearch">搜索</button>
                 </div>
             </div>
             <div class='row'>
@@ -206,7 +208,6 @@
     <script src="../../plugins/common/include.js"></script>
     <include src="../footer/footer.html"></include>
     <script src='../../plugins/jquery/jquery.min.js'></script>
-    <script src="../../plugins/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../../plugins/img/jquery.magnific-popup.min.js"></script>
     <script src='../../plugins/layui/dist/layui.js'></script>
     <script src='../../plugins/avalon/avalon.min.js'></script>

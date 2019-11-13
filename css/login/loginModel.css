@@ -56,7 +56,7 @@ body{
   height: 44px;
 }
 .model .checkCode {
-  width: 178px;
+  width: 190px;
 }
 .model .layui-btn-Code {
   width: 178px;
@@ -70,6 +70,11 @@ body{
   border-radius: 4px;
   margin-left: 14px;
   cursor: pointer;
+}
+.completeInfo .model .layui-btn-Code{
+  height: 30px;
+  line-height: 30px;
+  width: 190px;
 }
 .model .layui-btn-primary {
   border: 0px;
@@ -132,6 +137,9 @@ input[type=file] {
   top: 0px;
   left: 0px;
   opacity: 0;
+}
+.form-group{
+  margin-right: 20px;
 }
 @media (min-width: 768px) {
   .form-inline .form-control {

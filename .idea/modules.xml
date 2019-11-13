@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://E:/纵运PC端/source/marqueen/.idea/marqueen.iml" filepath="E:/纵运PC端/source/marqueen/.idea/marqueen.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/project_web.iml" filepath="$PROJECT_DIR$/.idea/project_web.iml" />
     </modules>
   </component>

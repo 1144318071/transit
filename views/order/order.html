@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/header.css">
     <link rel="stylesheet" href="../../css/footer.css">
     <link rel="stylesheet" href="../../css/order/order.css">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=n6K0xWCoAKyRgR0cYt6uVaC1EgAVAGFR"></script>
     <title>运输管理</title>
 </head>
 
@@ -29,6 +30,7 @@
                                 <input class="address" value="切换">
                             </div>
                         </div>
+                        <div id="allmap" class="dis_none"></div>
                     </div>
                     <div class='col-md-6 col-sm-6'>
                         <div class='row  text-right'>
@@ -688,9 +690,10 @@
                         </div>
                     </div>
                     <div class="countItem">
-                        <div class="countTitle">成都市在线车辆</div>
+                        <div class="countTitle"><span ms-text="@city"></span>在线车辆</div>
+                        <div class="dis_none" id="map"></div>
                         <div class="countImg">
-                            <div class="tips">1222辆</div>
+                            <div class="tips" ms-text="@onlineCar + '辆'"></div>
                         </div>
                     </div>
                 </div>

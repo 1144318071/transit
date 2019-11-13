@@ -47,8 +47,8 @@ $(function(){
 
                         localStorage.setItem('userInfo',JSON.stringify(res.result));
                         var userInfo = res.result;
-                        //没有进行实名认证
-                        if(userInfo.verfied){
+                        //判断用户是否进行实名认证，并进入不同的页面
+                        if(userInfo.verfied ==='TRUE'){
                             location.href = '../index.html';
                         }else{
                             var type = res.result.type;
@@ -63,9 +63,9 @@ $(function(){
                                 case 'LOGISTICS':
                                     location.href = '../views/login/completeInfo.html';
                                 break;
-                               /* case 'PROXY':
+                                case 'PROXY':
                                     location.href = '../views/login/changePwd.html';
-                                break;*/
+                                break;
                                 default:
                                 break;
                             };
@@ -158,7 +158,14 @@ $(function(){
             forgetPwd:function(el){
                 localStorage.setItem('_t',el);
                 location.href = '../views/login/forgetPwd.html';
-            }   
+            },
+            logIn:function(e,userType,loginWay){
+                if(e.keyCode == 13){
+                    vmLogin.postData.t = userType;
+                    vmLogin.postData.m = loginWay;
+                    vmLogin.signIn();
+                }
+            }
         });
         vmLogin.onLoad();
         avalon.scan(document.body);

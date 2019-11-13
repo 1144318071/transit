@@ -134,6 +134,8 @@ var API = {
     URL_GET_COMPLAININFO : getApiHost + '/complaintInfo',
     //取消投诉
     URL_POST_CLOSECOMPLAIN : getApiHost + '/closeComplaint',
+    //在线车辆
+    URL_GET_ONLINECAR: getApiHost + '/onlineCar',
     //----------------------------------------------物流公司-----------------------------------
     //公司主页
     URL_GET_COMPANYINFO : getApiHost + '/companyInfo',

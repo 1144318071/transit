@@ -13,6 +13,7 @@ $(function(){
                 'series':'',
                 'type':''
             },
+            keyword:'',
             appearance_pic:[],
             chassis_pic:[],
             interior_pic:[],
@@ -57,7 +58,13 @@ $(function(){
                         alertMsg(res.message,2);
                     }
                 });
-            }
+            },
+            /*搜索跳转*/
+            getSearch:function () {
+                var keyword = vmCarImg.keyword;
+                localStorage.setItem('searchKeyWord',keyword);
+                location.href = '../../views/carHall/carfilter.html';
+            },
         });
         vmCarImg.onLoad();
         avalon.scan(document.body);

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../css/footer.css">
     <link rel="stylesheet" href="../../css/carHall/common.css">
     <link rel="stylesheet" href="../../css/carHall/carFilter.css">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=n6K0xWCoAKyRgR0cYt6uVaC1EgAVAGFR"></script>
     <title>汽车大厅</title>
 </head>
 
@@ -30,6 +31,7 @@
                             <input class="address" value="切换">
                         </div>
                     </div>
+                    <div id="allmap" class="dis_none"></div>
                 </div>
                 <div class='col-md-6 col-sm-6'>
                     <div class='row  text-right'>
@@ -208,9 +210,9 @@
                 <span class='pull-left'>筛选条件:</span>
                 <ul class='selectItems clearfix'>
                     <li class='delItem apply'></li>
-                    <li class='delItem carLevelItem'></li>
-                    <li class='delItem allBrandsItemDetail'></li>
-                    <li class="delItem priceItemFilter"></li>
+                    <li class='delItem base_tonnage'></li>
+                    <li class='delItem sha1'></li>
+                    <li class="delItem price"></li>
                     <li class="delItem base_drive"></li>
                     <li class="delItem base_long"></li>
                     <li class="delItem container_long"></li>

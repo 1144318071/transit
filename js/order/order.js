@@ -5,6 +5,18 @@ $('.tabTitle li').click(function () {
 $('.tabType li').click(function(){
     $(this).addClass('active').siblings().removeClass('active');
 });
+/*城市定位*/
+// 百度地图API功能
+var map = new BMap.Map("allmap");
+var point = new BMap.Point(116.331398,39.897445);
+map.centerAndZoom(point,12);
+function myFun(result){
+    var cityName = result.name;
+    map.setCenter(cityName);
+    vmOrder.city = cityName;
+};
+var myCity = new BMap.LocalCity();
+myCity.get(myFun);
 $(function(){
     avalon.ready(function(){
         window.vmOrder = avalon.define({
@@ -18,6 +30,8 @@ $(function(){
                 'order_status':'',
                 'goods_status':''
             },
+            city:'成都市',
+            onlineCar:'0',
             orderList_one:[],
             orderList_two:[],
             orderList:[],
@@ -33,6 +47,7 @@ $(function(){
                 vmOrder.getUrl();
                 vmOrder.getStatusOrder('demo1','','');
                 vmOrder.getMerchantInfo();
+                vmOrder.getOnlineCar();
             },
             // 查看评价
             checkRate:function(){
@@ -374,6 +389,17 @@ $(function(){
             },
             hideModel:function(el){
                 $('#'+el).find('.model').hide();
+            },
+            /*获取在线车辆*/
+            getOnlineCar:function(){
+                var token = localStorage.getItem('token');
+                getAjax(API.URL_GET_ONLINECAR,'get',{'_token_':token}).then(function(res){
+                   if(res.code == 200){
+                       vmOrder.onlineCar = res.result.onlineCar;
+                   }else{
+                       alertMsg(res.message);
+                   }
+                });
             }
         });
         vmOrder.onLoad();

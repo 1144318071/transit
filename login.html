@@ -49,8 +49,8 @@
                                         <div class="layui-form-item">
                                             <label class="layui-form-label">密码:</label>
                                             <div class="layui-input-block">
-                                                <input type="password" name="password" ms-duplex='@postData.password' placeholder="请输入密码" autocomplete="off" class="layui-input">
-                                            </div>
+                                                <input type="password" name="password" ms-duplex='@postData.password' ms-keyup="@logIn($event,'PERSONAL','pwd')" placeholder="请输入密码" autocomplete="off" class="layui-input">
+                                        </div>
                                         </div>
                                         <button type="button" class="layui-btn layui-btn-primary" ms-on-click='@driverPwdLogin'>登<span class='ml60'>录</span></button>
                                         <div class='row font14 mt30'>
@@ -69,7 +69,7 @@
                                             <label class="layui-form-label">验证码:</label>
                                             <div class="layui-input-block clearfix">
                                                 <input type="text" name="text"  placeholder="请输入验证码" ms-duplex='@postData.code' autocomplete="off" class="layui-input checkCode pull-left">
-                                                <button type="button" class="layui-btn-Code pull-left" ms-on-click='@getCheckCode'>获取验证码</button>
+                                                <button type="button" class="layui-btn-Code pull-left" ms-keyup="@logIn($event,'PERSONAL','code')" ms-on-click='@getCheckCode'>获取验证码</button>
                                             </div>
                                         </div>
                                         <button type="button" class="layui-btn layui-btn-primary" ms-on-click='@driverCodeLogin'>登<span class='ml60'>录</span></button>
@@ -91,7 +91,7 @@
                                         <div class="layui-form-item">
                                             <label class="layui-form-label">密码:</label>
                                             <div class="layui-input-block">
-                                                <input type="password" name="password" ms-duplex='@postData.password' placeholder="请输入密码" autocomplete="off" class="layui-input">
+                                                <input type="password" name="password" ms-duplex='@postData.password' ms-keyup="@logIn($event,'LOGISTICS','pwd')" placeholder="请输入密码" autocomplete="off" class="layui-input">
                                             </div>
                                         </div>
                                         <button type="button" class="layui-btn layui-btn-primary" ms-on-click='@logisticsPwdLogin'>登<span class='ml60'>录</span></button>
@@ -110,7 +110,7 @@
                                         <div class="layui-form-item">
                                             <label class="layui-form-label">验证码:</label>
                                             <div class="layui-input-block clearfix">
-                                                <input type="text" name="text"  placeholder="请输入验证码" ms-duplex='@postData.code' autocomplete="off" class="layui-input checkCode pull-left">
+                                                <input type="text" name="text"  placeholder="请输入验证码" ms-duplex='@postData.code' autocomplete="off" ms-keyup="@logIn($event,'LOGISTICS','code')" class="layui-input checkCode pull-left">
                                                 <button type="button" class="layui-btn-Code pull-left" ms-on-click='@getCheckCode'>获取验证码</button>
                                             </div>
                                         </div>
@@ -134,7 +134,7 @@
                                         <div class="layui-form-item">
                                             <label class="layui-form-label">密码:</label>
                                             <div class="layui-input-block">
-                                                <input type="password" name="password"  ms-duplex='@postData.password' placeholder="请输入密码" autocomplete="off" class="layui-input">
+                                                <input type="password" name="password"  ms-duplex='@postData.password' ms-keyup="@logIn($event,'MERCHANT','pwd')"  placeholder="请输入密码" autocomplete="off" class="layui-input">
                                             </div>
                                         </div>
                                         <button type="button" class="layui-btn layui-btn-primary" ms-on-click='@coPwdLogin'>登<span class='ml60'>录</span></button>
@@ -154,7 +154,7 @@
                                         <div class="layui-form-item">
                                             <label class="layui-form-label">验证码:</label>
                                             <div class="layui-input-block clearfix">
-                                                <input type="text" name="text"  ms-duplex='@postData.code' placeholder="请输入验证码" autocomplete="off" class="layui-input checkCode pull-left">
+                                                <input type="text" name="text"  ms-duplex='@postData.code' placeholder="请输入验证码" autocomplete="off" ms-keyup="@logIn($event,'MERCHANT','code')" class="layui-input checkCode pull-left">
                                                 <button type="button" class="layui-btn-Code pull-left"
                                                     ms-on-click='@getCheckCode'>获取验证码</button>
                                             </div>

@@ -157,6 +157,9 @@ layui.use('upload', function () {
                 getAjax(API.URL_POST_VERIFYCOMPANY,'post',vmCompleteInfo.postData).then(function(res){
                     if(res.code == 200){
                         alertMsg(res.message,1);
+                        setTimeout(function () {
+                            location.href = '../../index.html';
+                        },1000);
                     }else{
                         alertMsg(res.message,2)
                     }

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/index.css">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=n6K0xWCoAKyRgR0cYt6uVaC1EgAVAGFR"></script>
 </head>
 <body ms-controller="home">
     <div class='header fixHeader' ms-controller='header'>
@@ -28,6 +29,7 @@
                             <div class='col-sm-7 citySelect'><span ms-text="@city"></span>|
                                 <input class="address" value="切换">
                             </div>
+                            <div id="allmap" class="dis_none"></div>
                         </div>
                     </div>
                     <div class='col-md-6 col-sm-6'>
@@ -61,7 +63,7 @@
                             <li class="layui-nav-item" data-src='./views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
                             <li class="layui-nav-item" data-src='javascript:;'><a href="javascript:;">金融中心</a></li>
                             <li class="layui-nav-item merchant" data-src="javascript:;" ms-on-click="@setDisable('MERCHANT')">
-                                <a href="javascript:;">运输管理</a>
+                                <a href="javascript:;" data-src="javascript:;">运输管理</a>
                                 <dl class="layui-nav-child">
                                     <dd><a href="./views/order/order.html?state=10" style="color:#f57619!important">渣土运输</a></dd>
                                     <dd><a href="./views/order/order.html?state=20" style="color:#f57619!important">产业运输</a></dd>

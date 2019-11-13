@@ -72,6 +72,7 @@ $(function(){
             relatedCars:[],
             carDetail:{},
             page:'1',
+            keyword:'',
             filterData:{
                 '_token_':'',
                 'series':'',
@@ -115,6 +116,11 @@ $(function(){
             getPage: function (el) {
                 var src = el.currentTarget.dataset.src;
                 location.href = src;
+            },
+            getSearch:function(){
+                var keyword = vmCarSeriesDetail.keyword;
+                localStorage.setItem('searchKeyWord',keyword);
+                location.href = '../../views/carHall/carfilter.html';
             },
             //获取url传过来的值
             getUrlJson:function(){

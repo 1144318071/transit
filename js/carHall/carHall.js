@@ -15,6 +15,18 @@ $('.img_carSeries_small').hover(function(){
 },function(){
   $(this).find('.info_carSeries_small').hide();
 });
+/*城市定位*/
+// 百度地图API功能
+var map = new BMap.Map("allmap");
+var point = new BMap.Point(116.331398,39.897445);
+map.centerAndZoom(point,12);
+function myFun(result){
+    var cityName = result.name;
+    map.setCenter(cityName);
+    vmCarHall.city = cityName;
+}
+var myCity = new BMap.LocalCity();
+myCity.get(myFun);
 $(function(){
     avalon.ready(function(){
         window.vmCarHall = avalon.define({

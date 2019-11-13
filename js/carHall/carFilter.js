@@ -48,20 +48,23 @@ $(".apply").delegate(".del", "click", function () {
 function deleteItem(item){
     $(item).delegate(".del", "click", function () {
         $(this).parent().remove();
+
     });
 }
-deleteItem('.carLevelItem');
-deleteItem('.allBrandsItemDetail');
-deleteItem('.priceItemFilter');
+deleteItem('.base_tonnage');
+deleteItem('.sha1');
+deleteItem('.price');
 deleteItem('.base_drive');
 deleteItem('.base_long');
 deleteItem('.container_long');
 deleteItem('.base_quality');
-deleteItem('.max_power');
+deleteItem('.engine_max_power');
 deleteItem('.engine_emission');
-deleteItem('.forward_gear');
+deleteItem('.engine_fuel');
+deleteItem('.gearbox_forward_gear');
+deleteItem('.engine_peak_power');
 deleteItem('.base_endurance');
-deleteItem('.peak_power');
+deleteItem('.engine_peak_power');
 deleteItem('.battery_endurance');
 deleteItem('.country');
 // 清除筛选条件
@@ -132,6 +135,10 @@ $(function(){
               var src = window.location.href;
               var params = GetRequest(src);
               var filterType = params.filterType;
+              var keyword = localStorage.getItem('searchKeyWord');
+              if(keyword != null){
+                  vmCarFilter.filterSearch.series = keyword;
+              }
               if(filterType != undefined){
                   switch(filterType){
                       /*轻卡*/
@@ -193,7 +200,7 @@ $(function(){
                   }
               }else{
                   vmCarFilter.getFilterCondition('TRADITIONAL');
-              }
+              };
           },
           /*获取筛选条件*/
           getFilterCondition:function(car_type,type){
@@ -347,7 +354,6 @@ $(function(){
           },
           //输入车系名称进行搜索
           getSearchData:function(){
-              console.log(vmCarFilter.filterSearch.series)
               vmCarFilter.getSearchResult(vmCarFilter.filterSearch.status);
           },
           getPrice:function () {

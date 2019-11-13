@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="../../common/css/common.css">
         <link rel="stylesheet" href="../../css/header.css">
         <link rel="stylesheet" href="../../css/footer.css">
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=n6K0xWCoAKyRgR0cYt6uVaC1EgAVAGFR"></script>
     </head>
     <body>
     	<div class='header fixHeader' ms-controller='header'>
@@ -26,6 +27,7 @@
                                 <input class="address" value="切换">
                             </div>
                         </div>
+                        <div id="allmap" class="dis_none"></div>
                     </div>
                     <div class='col-md-6 col-sm-6'>
                         <div class='row  text-right'>
@@ -34,7 +36,7 @@
                                 <ul class='clearfix'>
                                     <li class="userMsg dis_none ml10"><img width="32px" height="32px" id="avatar"/></li>
                                     <li class="userMsg dis_none" ms-text="@userInfo.username" data-src="../personal/personal.html" ms-on-click="@getPage($event)"></li>
-                                    <li class="userLogin">您好,请<a href='login.html'>登录</a></li>
+                                    <li class="userLogin">您好,请<a href='../../login.html'>登录</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -57,7 +59,7 @@
                             <li class="layui-nav-item" data-src='../../index.html'><a href="javascript:;">首页</a></li>
                             <li class="layui-nav-item" data-src='../../views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
                             <li class="layui-nav-item layui-this" data-src='javascript:;'><a href="javascript:;">金融中心</a></li>
-                            <li class="layui-nav-item merchant" data-src='javascipt:;' ms-on-click="@setDisable('MERCHANT')">
+                            <li class="layui-nav-item merchant" data-src='javascript:;' ms-on-click="@setDisable('MERCHANT')">
                                 <a href="javascript:;" data-src="javascript:;">运输管理</a>
                                 <dl class="layui-nav-child">
                                     <dd><a href="../order/order.html?state=10" style="color:#f57619!important">渣土运输</a></dd>
