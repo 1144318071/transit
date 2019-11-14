@@ -21,7 +21,7 @@ $(function(){
             brandSearchList:[],
             onLoad:function () {
                 vmAllBrands.getKeyword();
-                vmAllBrands.getKeyWordList();
+                vmAllBrands.getKeyWordList('');
             },
             typeData:{
                 '_token_':'',
@@ -56,6 +56,7 @@ $(function(){
                 $("#brands").html('');
                 getAjax(API.URL_GET_BRANDSSEARCH,'get',{'_token_':vmAllBrands._token_,'keyword':el}).then(function (res) {
                     if(res.code == 200) {
+                        console.log(res.result.data)
                         for (var i = 0; i < res.result.data.length; i++) {
                             res.result.data[i][0].logo = getApiHost + res.result.data[i][0].logo;
                         }
@@ -63,12 +64,12 @@ $(function(){
                         var result = res.result.data;
                         var loopItem = '';
                         $(result).each(function (index, el) {
-                            $(el).each(function (i, item) {
+                            $(el).each(function (i,item) {
                                 loopItem +=
                                     "<li>\n" +
                                     "<a href='./carSeriesDetail.html?car_ty=" + item.car_ty + "&id=" + item.manager_id + "&series=" + item.series + "'>" + item.series + "</a>\n" +
                                     "</li>\n";
-                            });
+                            })
                             htmlContent = "<div class='row groupItems'>\n" +
                                 "                            <div class='col-md-3 col-sm-3'>\n" +
                                 "                                <ul>\n" +

@@ -169,36 +169,36 @@
                     <!--卡车级别-->
                     <ul class="filterItem carLevel clearfix" ms-for="el in @filterList"  ms-if="el.field == 'base_tonnage'">
                         <li>{{ el.title }}<span class="ml6 mr6">:</span></li>
-                        <li ms-for="(index,val) in el.base_tonnage" ms-attr="{ id : 'carLevel_' + index }" ms-on-click="@addStyle('carLevel_' + index,'base_tonnage',val.keyword)">{{ val.mixed }}</li>
+                        <li ms-for="(index,val) in el.base_tonnage" ms-attr="{ id : 'carLevel_' + index,class:'base_tonnageItem' }" ms-on-click="@addStyle('carLevel_' + index,'base_tonnage',val.keyword)">{{ val.mixed }}</li>
                     </ul>
                     <!--卡车品牌-->
                     <ul class="filterItem brandsItem clearfix"  ms-for="el in @filterList"  ms-if="el.field == 'group'">
                         <li>{{ el.title }}<span class="ml6 mr6">:</span></li>
                         <li ms-for="(index,val) in el.group" ms-on-click="@getBrandsList(val.mixed,'brandsItem_'+index)"  ms-attr="{ id : 'brandsItem_' + index }">{{ val.mixed }}</li>
                         <div class="allBrandsItem dis_none">
-                            <span ms-for="(index,value) in @filterBrandsList" ms-attr="{ id : 'allBrandsItem_' + index }"  ms-on-click="@addStyle('allBrandsItem_' + index,'sha1',value.sha1)">{{ value.nick_name }}</span>
+                            <span ms-for="(index,value) in @filterBrandsList" ms-attr="{ id : 'allBrandsItem_' + index,class:'sha1Item' }"  ms-on-click="@addStyle('allBrandsItem_' + index,'sha1',value.sha1)">{{ value.nick_name }}</span>
                         </div>
                     </ul>
                     <!--卡车价格-->
-                    <ul class="filterItem priceItem clearfix" ms-for="el in @filterList" ms-if="el.field == 'price'">
+                    <ul class="filterItem clearfix" ms-for="el in @filterList" ms-if="el.field == 'price'">
                         <li>{{ el.title }}<span class="ml6 mr6">:</span></li>
-                        <li ms-for="(index,val) in el.price" ms-if="val.keyword != '80'"  ms-attr="{ id : 'priceItem_' + index }" ms-on-click="@addStyle('priceItem_' + index,'price',val.keyword)">{{ val.mixed }}</li>
+                        <li ms-for="(index,val) in el.price" ms-if="val.keyword != '80'"  ms-attr="{ id : 'priceItem_' + index,class:'priceItem' }" ms-on-click="@addStyle('priceItem_' + index,'price',val.keyword)">{{ val.mixed }}</li>
                         <li ms-for="(index,val) in el.price" ms-if="val.keyword == '80'"><input type="text" ms-duplex="@price.minPrice" /> —— <input type="text" ms-duplex="@price.maxPrice" ms-on-input="@getPrice" /></li>
                     </ul>
                     <ul class="filterItem clearfix" ms-for="el in @anotherList" ms-if="el.title" >
                         <li>{{ el.title }}<span class="ml6 mr6">:</span></li>
-                        <li ms-if="el.field == 'base_drive'" ms-for="(index,val) in el.base_drive" ms-attr="{ id : 'base_drive_' + index }" ms-on-click="@addStyle('base_drive_' + index,'base_drive',val.keyword)">{{ val.mixed }}</li>
-                        <li ms-if="el.field == 'base_long'" ms-for="(index,val) in el.base_long" ms-attr="{ id : 'base_long_' + index }" ms-on-click="@addStyle('base_long_' + index,'base_long',val.keyword)">{{ val.mixed }}</li>
-                        <li ms-if="el.field == 'container_long'" ms-for="(index,val) in el.container_long" ms-attr="{ id : 'container_long_' + index }" ms-on-click="@addStyle('container_long_' + index,'container_long',val.keyword)">{{ val.mixed }}</li>
-                        <li ms-if="el.field == 'base_quality'" ms-for="(index,val) in el.base_quality" ms-attr="{ id : 'base_quality_' + index }" ms-on-click="@addStyle('base_quality_' + index,'base_quality',val.keyword)">{{ val.mixed }}</li>
-                        <li ms-if="el.field == 'engine_max_power'" ms-for="(index,val) in el.engine_max_power" ms-attr="{ id : 'engine_max_power_' + index }" ms-on-click="@addStyle('engine_max_power_' + index,'engine_max_power',val.keyword)">{{ val.mixed }}</li>
-                        <li ms-if="el.field == 'gearbox_forward_gear'" ms-for="(index,val) in el.gearbox_forward_gear" ms-attr="{ id : 'gearbox_forward_gear_' + index }" ms-on-click="@addStyle('gearbox_forward_gear_' + index,'gearbox_forward_gear',val.keyword)">{{ val.mixed }}</li>
-                        <li ms-if="el.field == 'engine_fuel'" ms-for="(index,val) in el.engine_fuel" ms-attr="{ id : 'engine_fuel_' + index }" ms-on-click="@addStyle('engine_fuel_' + index,'engine_fuel',val.keyword)">{{ val.mixed }}</li>
-                        <li ms-if="el.field == 'engine_emission'" ms-for="(index,val) in el.engine_emission" ms-attr="{ id : 'engine_emission_' + index }" ms-on-click="@addStyle('engine_emission_' + index,'engine_emission',val.keyword)">{{ val.mixed }}</li>
-                        <li ms-if="el.field == 'base_endurance'" ms-for="(index,val) in el.base_endurance" ms-attr="{ id : 'base_endurance_' + index }" ms-on-click="@addStyle('base_endurance_' + index,'base_endurance',val.keyword)">{{ val.mixed }}</li>
-                        <li ms-if="el.field == 'engine_peak_power'" ms-for="(index,val) in el.engine_peak_power" ms-attr="{ id : 'engine_peak_power_' + index }" ms-on-click="@addStyle('engine_peak_power_' + index,'engine_peak_power',val.keyword)">{{ val.mixed }}</li>
-                        <li ms-if="el.field == 'battery_endurance'" ms-for="(index,val) in el.battery_endurance" ms-attr="{ id : 'battery_endurance_' + index }" ms-on-click="@addStyle('battery_endurance_' + index,'battery_endurance',val.keyword)">{{ val.mixed }}</li>
-                        <li ms-if="el.field == 'country'" ms-for="(index,val) in el.country" ms-attr="{ id : 'country_' + index }" ms-on-click="@addStyle('country_' + index,'country',val.keyword)">{{ val.mixed }}</li>
+                        <li ms-if="el.field == 'base_drive'" ms-for="(index,val) in el.base_drive" ms-attr="{ id : 'base_drive_' + index,class:'base_driveItem' }" ms-on-click="@addStyle('base_drive_' + index,'base_drive',val.keyword)">{{ val.mixed }}</li>
+                        <li ms-if="el.field == 'base_long'" ms-for="(index,val) in el.base_long" ms-attr="{ id : 'base_long_' + index,class:'base_longItem' }" ms-on-click="@addStyle('base_long_' + index,'base_long',val.keyword)">{{ val.mixed }}</li>
+                        <li ms-if="el.field == 'container_long'" ms-for="(index,val) in el.container_long" ms-attr="{ id : 'container_long_' + index,class:'container_longItem' }" ms-on-click="@addStyle('container_long_' + index,'container_long',val.keyword)">{{ val.mixed }}</li>
+                        <li ms-if="el.field == 'base_quality'" ms-for="(index,val) in el.base_quality" ms-attr="{ id : 'base_quality_' + index,class:'base_qualityItem' }" ms-on-click="@addStyle('base_quality_' + index,'base_quality',val.keyword)">{{ val.mixed }}</li>
+                        <li ms-if="el.field == 'engine_max_power'" ms-for="(index,val) in el.engine_max_power" ms-attr="{ id : 'engine_max_power_' + index,class:'engine_max_powerItem' }" ms-on-click="@addStyle('engine_max_power_' + index,'engine_max_power',val.keyword)">{{ val.mixed }}</li>
+                        <li ms-if="el.field == 'gearbox_forward_gear'" ms-for="(index,val) in el.gearbox_forward_gear" ms-attr="{ id : 'gearbox_forward_gear_' + index,class:'gearbox_forward_gearItem' }" ms-on-click="@addStyle('gearbox_forward_gear_' + index,'gearbox_forward_gear',val.keyword)">{{ val.mixed }}</li>
+                        <li ms-if="el.field == 'engine_fuel'" ms-for="(index,val) in el.engine_fuel" ms-attr="{ id : 'engine_fuel_' + index,class:'engine_fuelItem' }" ms-on-click="@addStyle('engine_fuel_' + index,'engine_fuel',val.keyword)">{{ val.mixed }}</li>
+                        <li ms-if="el.field == 'engine_emission'" ms-for="(index,val) in el.engine_emission" ms-attr="{ id : 'engine_emission_' + index,class:'engine_emissionItem' }" ms-on-click="@addStyle('engine_emission_' + index,'engine_emission',val.keyword)">{{ val.mixed }}</li>
+                        <li ms-if="el.field == 'base_endurance'" ms-for="(index,val) in el.base_endurance" ms-attr="{ id : 'base_endurance_' + index,class:'base_enduranceItem' }" ms-on-click="@addStyle('base_endurance_' + index,'base_endurance',val.keyword)">{{ val.mixed }}</li>
+                        <li ms-if="el.field == 'engine_peak_power'" ms-for="(index,val) in el.engine_peak_power" ms-attr="{ id : 'engine_peak_power_' + index,class:'engine_peak_powerItem' }" ms-on-click="@addStyle('engine_peak_power_' + index,'engine_peak_power',val.keyword)">{{ val.mixed }}</li>
+                        <li ms-if="el.field == 'battery_endurance'" ms-for="(index,val) in el.battery_endurance" ms-attr="{ id : 'battery_endurance_' + index,class:'battery_enduranceItem'}" ms-on-click="@addStyle('battery_endurance_' + index,'battery_endurance',val.keyword)">{{ val.mixed }}</li>
+                        <li ms-if="el.field == 'country'" ms-for="(index,val) in el.country" ms-attr="{ id : 'country_' + index,class:'countryItem' }" ms-on-click="@addStyle('country_' + index,'country',val.keyword)">{{ val.mixed }}</li>
                     </ul>
                 </div>
             </div>
@@ -278,7 +278,7 @@
                                                         </ul>
                                                     </div>
                                                     <div class='col-md-6 col-sm-6'>
-                                                        <ul>  
+                                                        <ul>
                                                             <li>排放标准<span>:</span></li>
                                                             <li ms-text="el.engine_emission"></li>
                                                         </ul>

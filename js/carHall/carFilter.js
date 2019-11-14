@@ -34,11 +34,12 @@ $('.newEnergyItem li').click(function(){
 /*卡车品牌*/
 $('.brandsItem li:not(:first-child)').click(function() {
     $(this).addClass('active').siblings().removeClass('active');
-    if($(".allBrandsItem").is(":hidden")){
-        $('.allBrandsItem').show(200);
+    $('.allBrandsItem').show();
+    /*if($(".allBrandsItem").is(":hidden")){
+    $('.allBrandsItem').show(200);
     }else{
         $('.allBrandsItem').hide(200);
-    }
+    }*/
 });
 $(".apply").delegate(".del", "click", function () {
     $(this).parent().remove();
@@ -48,7 +49,68 @@ $(".apply").delegate(".del", "click", function () {
 function deleteItem(item){
     $(item).delegate(".del", "click", function () {
         $(this).parent().remove();
-
+        $(item +'Item').removeClass('active');
+        var el = item.slice(1);
+        switch(el){
+            case 'base_tonnage':
+                vmCarFilter.filterSearch.base_tonnage='';
+                vmCarFilter.getSearchResult(vmCarFilter.filterSearch.status);
+            break;
+            case 'sha1':
+                vmCarFilter.filterSearch.sha1='';
+                vmCarFilter.getSearchResult(vmCarFilter.filterSearch.status);
+            break;
+            case 'price':
+                vmCarFilter.filterSearch.price='';
+                vmCarFilter.getSearchResult(vmCarFilter.filterSearch.status);
+            break;
+            case 'base_drive':
+                vmCarFilter.filterSearch.base_drive='';
+                vmCarFilter.getSearchResult(vmCarFilter.filterSearch.status);
+            break;
+            case 'base_long':
+                vmCarFilter.filterSearch.base_long='';
+                vmCarFilter.getSearchResult(vmCarFilter.filterSearch.status);
+            break;
+            case 'container_long':
+                vmCarFilter.filterSearch.container_long='';
+                vmCarFilter.getSearchResult(vmCarFilter.filterSearch.status);
+            break;
+            case 'base_quality':
+                vmCarFilter.filterSearch.base_quality='';
+                vmCarFilter.getSearchResult(vmCarFilter.filterSearch.status);
+            break;
+            case 'engine_max_power':
+                vmCarFilter.filterSearch.base_tonnage='';
+                vmCarFilter.getSearchResult(vmCarFilter.filterSearch.status);
+            break;
+            case 'engine_emission':
+                vmCarFilter.filterSearch.engine_max_power='';
+                vmCarFilter.getSearchResult(vmCarFilter.filterSearch.status);
+            break;
+            case 'engine_fuel':
+                vmCarFilter.filterSearch.engine_fuel='';
+                vmCarFilter.getSearchResult(vmCarFilter.filterSearch.status);
+            break;
+            case 'gearbox_forward_gear':
+                vmCarFilter.filterSearch.gearbox_forward_gear='';
+                vmCarFilter.getSearchResult(vmCarFilter.filterSearch.status);
+            break;
+            case 'engine_peak_power':
+                vmCarFilter.filterSearch.engine_peak_power='';
+                vmCarFilter.getSearchResult(vmCarFilter.filterSearch.status);
+            break;
+            case 'battery_endurance':
+                vmCarFilter.filterSearch.battery_endurance='';
+                vmCarFilter.getSearchResult(vmCarFilter.filterSearch.status);
+            break;
+            case 'country':
+                vmCarFilter.filterSearch.country='';
+                vmCarFilter.getSearchResult(vmCarFilter.filterSearch.status);
+            break;
+            default:
+            break;
+        }
     });
 }
 deleteItem('.base_tonnage');
@@ -69,7 +131,7 @@ deleteItem('.battery_endurance');
 deleteItem('.country');
 // 清除筛选条件
 $('.delAll').click(function(){
-    $(this).siblings().remove(); 
+    $(this).siblings().remove();
 });
 /*排序(价格以及时间)*/
 $('.sort li').click(function(){
@@ -143,7 +205,7 @@ $(function(){
                   switch(filterType){
                       /*轻卡*/
                       case '10':
-                          var html = "<li class='delItem'>轻卡<span class = 'del'> x </span></li>";
+                          var html = "<label>轻卡<span class = 'del'> x </span></label>";
                           $('.carLevelItem').html(html);
                           vmCarFilter.kind = 'base_tonnage';
                           vmCarFilter.keyword = '20';
@@ -152,7 +214,7 @@ $(function(){
                           break;
                       /*重卡*/
                       case '20':
-                          var html = "<li class='delItem'>重卡<span class = 'del'> x </span></li>";
+                          var html = "<label class='delItem'>重卡<span class = 'del'> x </span></label>";
                           $('.carLevelItem').html(html);
                           vmCarFilter.kind = 'base_tonnage';
                           vmCarFilter.keyword = '40';
@@ -163,21 +225,21 @@ $(function(){
                       case '30':
                           vmCarFilter.getFilterCondition('TRADITIONAL','20');
                           $('.carApply>li:nth-child(3) ').addClass('active').siblings().removeClass('active');
-                          var html = "<li class='delItem'>牵引车<span class = 'del'> x </span></li>";
+                          var html = "<label class='delItem'>牵引车<span class = 'del'> x </span></label>";
                           $('.apply').html(html);
                       break;
                       /*载货车*/
                       case '40':
                           vmCarFilter.getFilterCondition('TRADITIONAL','10');
                           $('.carApply>li:nth-child(4) ').addClass('active').siblings().removeClass('active');
-                          var html = "<li class='delItem'>载货车<span class = 'del'> x </span></li>";
+                          var html = "<label class='delItem'>载货车<span class = 'del'> x </span></label>";
                           $('.apply').html(html);
                       break;
                       /*自卸车*/
                       case '50':
                           vmCarFilter.getFilterCondition('TRADITIONAL','30');
                           $('.carApply>li:nth-child(5) ').addClass('active').siblings().removeClass('active');
-                          var html = "<li class='delItem'>自卸车<span class = 'del'> x </span></li>";
+                          var html = "<label class='delItem'>自卸车<span class = 'del'> x </span></label>";
                           $('.apply').html(html);
                       break;
                       /*新能源*/
@@ -187,7 +249,7 @@ $(function(){
                           $('.carApply>li').removeClass('active');
                           $('.newEnergyTitle').find('.icon_arrow').css({'background-position-y':'-30px'});
                           $('.newEnergyItem li:first-child').addClass('hightLight').siblings().removeClass('hightLight');
-                          var html = "<li class='delItem'>电动载货车<span class = 'del'> x </span></li>";
+                          var html = "<label class='delItem'>电动载货车<span class = 'del'> x </span></label>";
                           $('.apply').html(html);
                           $('.newEnergyTitle').find('.newEnergyItem').show();
                       break;
@@ -216,7 +278,6 @@ $(function(){
               postData._t = car_type;
               postData._m = type;
               vmCarFilter.filterSearch._t = car_type;
-              console.log(vmCarFilter.filterSearch._t);
               vmCarFilter.filterSearch._m = type;
               getAjax(API.URL_GET_FILTERCONDITION,'get',postData).then(function(res){
                   if(res.code == 200){
@@ -240,11 +301,12 @@ $(function(){
           /*卡车品牌*/
           getBrandsList:function(el,item){
               $('#'+item).addClass('active').siblings().removeClass('active');
-              if($(".allBrandsItem").is(":hidden")){
+              $('.allBrandsItem').toggle();
+             /* if($(".allBrandsItem").is(":hidden")){
                   $('.allBrandsItem').show(200);
               }else{
                   $('.allBrandsItem').hide(200);
-              }
+              }*/
               for(var i in vmCarFilter.brandsList){
                     if(vmCarFilter.brandsList[i].mixed == el){
                         vmCarFilter.filterBrandsList = vmCarFilter.brandsList[i].list;
@@ -255,7 +317,7 @@ $(function(){
           addStyle:function(el,kind,keyword){
               $('#'+el).addClass('active').siblings().removeClass('active');
               var text = $('#'+el).text();
-              var html = "<li class='delItem'>" + text + "<span class = 'del'> x </span></li>";
+              var html = "<label>"+text + "<span class = 'del'> x </span></label>";
               $('.'+kind).html(html);
               vmCarFilter.kind = kind;
               vmCarFilter.keyword = keyword;

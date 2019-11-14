@@ -19,18 +19,7 @@ $('#avatar').click(function(){
 },function(){
 	$(this).removeClass('layui-this');
 });*/
-/*城市定位*/
-// 百度地图API功能
-var map = new BMap.Map("allmap");
-var point = new BMap.Point(116.331398,39.897445);
-map.centerAndZoom(point,12);
-function myFun(result){
-    var cityName = result.name;
-    map.setCenter(cityName);
-    vmHeader.city = cityName;
-}
-var myCity = new BMap.LocalCity();
-myCity.get(myFun);
+
 $(function(){
 	$('.address').kuCity();
     avalon.ready(function(){
@@ -41,6 +30,18 @@ $(function(){
             city:'',
             onLoad:function(){
                 vmHeader.isLogin();
+                /*城市定位*/
+                // 百度地图API功能
+                var map = new BMap.Map("allmap");
+                var point = new BMap.Point(116.331398,39.897445);
+                map.centerAndZoom(point,12);
+                function myFun(result){
+                    var cityName = result.name;
+                    map.setCenter(cityName);
+                    vmHeader.city = cityName;
+                }
+                var myCity = new BMap.LocalCity();
+                myCity.get(myFun);
             },
             // 判断用户是否登录
             isLogin:function(){

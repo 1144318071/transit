@@ -150,9 +150,13 @@ $(function(){
             }
         });
         vmIndex.onLoad();
-
         avalon.scan(document.body);
     });
 });
 // 发布订单系列的内容
 $('.hLine').hide();
+$('.img_carSeries').hover(function(){
+    $(this).find('.info_carSeries').show().siblings().hide();
+},function(){
+    $(this).find('.info_carSeries').hide();
+});

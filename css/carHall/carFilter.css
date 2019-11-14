@@ -358,7 +358,7 @@ label {
 .allBrandsItem span.active{
   color: #f57619;
 }
-.priceItem input{
+.filterItem input{
   width: 62px;
   height: 24px;
   border: solid 1px #999999;

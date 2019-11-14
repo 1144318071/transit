@@ -164,7 +164,7 @@
                     </div>
                 </div>
                 <div class='col-md-4 col-sm-4 showImgs' style='padding-left: 40px;'>
-                    <ul class='img_carSeries' ms-for="(index,el) in @newsList" ms-if="index == 3 || index == 4" ms-attr="{ id : 'show_' + el.id }" ms-mouseenter="@changeShow('show_' + el.id )" ms-mouseout="@hideShow('show_' + el.id)">
+                    <ul class='img_carSeries' ms-for="(index,el) in @newsList" ms-if="index == 3 || index == 4" ms-attr="{ id : 'show_' + el.id }" ms-mouseover="@changeShow('show_' + el.id )" ms-mouseout="@hideShow('show_' + el.id)">
                         <li><img ms-attr='{ src:el.images,alt:el.title }' src="./images/1.jpg" width="331" height="163"></li>
                         <li class='info_carSeries dis_none'>
                             <div class='carIntroduce'><a ms-attr="{href:'./views/carHall/carNewsDetail.html?id='+ el.id + '&type=' + el.type + '&news_type=' + el.news_type}" ms-text="el.title"></a></div>
@@ -172,7 +172,7 @@
                     </ul>
                 </div>
                 <div class='col-md-4 col-sm-4 latestNews pr0'>
-                    <div class="news_title font22 fontw" ms-for="(index,el) in @newsList" ms-if="index == 5"><a   ms-attr="{ href:'./views/carHall/carNewsDetail.html?id='+ el.id + '&type=' + el.type + '&news_type=' + el.news_type}"><span class='line'></span>最新新闻<span class='ml4 mr4'>:</span><span ms-text="el.title"></span></a></div>
+                    <div class="news_title font22 fontw" ms-for="(index,el) in @newsList" ms-if="index == 5"><a  ms-attr="{ href:'./views/carHall/carNewsDetail.html?id='+ el.id + '&type=' + el.type + '&news_type=' + el.news_type}"><span class='line'></span>最新新闻<span class='ml4 mr4'>:</span><span ms-text="el.title"></span></a></div>
                     <div class='news_list font16'>
                         <ul class='clearfix' ms-for="(index,el) in @newsList" ms-if="index > 5">
                             <li><span class='circle-orange'></span></li>

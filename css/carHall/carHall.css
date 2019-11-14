@@ -36,7 +36,10 @@
 .news_brands>ul{
   margin-left: 20px;
   float: left;
-}
+}.news_brands a img{
+  border: 1px solid #eaeaea;
+ }
+
 .news_brands>ul:nth-child(2n+1){
   margin-left: 0px;
 }
