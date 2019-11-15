@@ -13,6 +13,8 @@ var API = {
     // 商家信息完善
     URL_POST_VERIFYCOMPANY: getApiHost + '/company/verify',
     // ----------------------------------------------个人中心-----------------------------------
+    //判断用户是否登录
+    URL_POST_ISLOGIN : getApiHost + '/user/isLogin',
     // 个人资料
     URL_GET_PERSONALINFO: getApiHost + '/personal/info',
     // 修改头像
@@ -25,10 +27,10 @@ var API = {
     URL_POST_CHANGEPHONETWO: getApiHost + '/personal/update/mobile/second',
     // 修改公司信息
     URL_POST_EDITCOMPANY: getApiHost + '/company/edit',
-    //修改头像
-    URL_POST_UPDATEAVATAR : getApiHost + '/personal/update/avatar',
     //修改支付密码
     URL_POST_SETPAYMENT : getApiHost + '/personal/set/payment',
+    /*代理商家列表*/
+    URL_GET_PROXYLIST: getApiHost + '/proxy/_companyList',
     //----------------------------------------------账户管理-----------------------------------
     //银行卡列表
     URL_GET_BANKLIST : getApiHost + '/bank/list',

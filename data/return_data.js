@@ -57,6 +57,7 @@ function getAjax(url, type, data) {
             if(res.code ==43961 || res.code ==43962 ||res.code == 43963|| res.code ==43964|| res.code ==43965|| res.code ==43966|| res.code ==43967|| res.code ==43968){
                 localStorage.clear();
                 getToken();
+                window.location.reload();
             /*登录失效,需要重新登录*/
             }else if(res.code == 77893 || res.code == 77894){
                 alertMsg(res.message, 2);
@@ -137,7 +138,7 @@ function stringHidePart(strObj){
     var star = '';
     var strRel = '';
     if(strLength>6){
-        var hideSec = strObj.substring(3);    //星号部分
+        var hideSec = strObj.substring(3); //星号部分
         for(var i=5;i<hideSec.length;i++){
             star+= "*";
         }

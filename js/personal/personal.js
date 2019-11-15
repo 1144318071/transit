@@ -15,12 +15,13 @@ layui.use(['laypage', 'layer'], function () {
         count: 1000,
         theme: '#f57619'
     });
-    laypage.render({
-        elem: 'demo3',
-        count: 1000,
-        theme: '#f57619'
-    });
 });
+$('.upload').hover(function(){
+    $(this).find('.uploadimg').show();
+},function(){
+    $(this).find('.uploadimg').hide();
+});
+
 // 日历
 layui.use('laydate', function () {
     var laydate = layui.laydate;
@@ -42,12 +43,22 @@ $(function(){
                 var token = localStorage.getItem('token');
                 vmPersonal.token = token;
                 vmPersonal.getUserInfo();
-                vmPersonal.getBankCardList();
             },
             userInfo:{},
             couponList:[],
             bankCardList:[],
             carList:[],
+            companyInfo:{},
+            agentList:[],
+            agentData:{
+                '_token_':'',
+                'page':'1',
+                'limit':'4'
+            },
+            avatarData:{
+                '_token_':'',
+                'avatar':'',
+            },
             changePwd:function(){
                 var userType = JSON.parse(localStorage.getItem('userInfo')).type;
                 localStorage.setItem('_t', userType);
@@ -131,7 +142,8 @@ $(function(){
             getUserInfo:function(){
                 getAjax(API.URL_GET_PERSONALINFO,'get',{'_token_':vmPersonal.token}).then(function(res){
                     if(res.code == 200){
-                        res.result.avatar = getApiHost + res.result.avatar;
+                         res.result.avatar = getApiHost + res.result.avatar;
+                        /*res.result.avatar = '../../images/avatar.png';*/
                         vmPersonal.userInfo = res.result;
                         var userType = res.result.type;
                         switch(userType){
@@ -140,22 +152,28 @@ $(function(){
                                 vmPersonal.userInfo.type = '个人';
                                 /*车辆列表*/
                                 vmPersonal.getCarList();
-                                break;
+                                $('.personalList .proxyAgent').remove();
+                                $('.personalAgent').remove();
+                            break;
                             case 'MERCHANT':
                                 vmPersonal.userInfo.type = '商家';
                                 $('.personalList li').eq(1).remove();
                                 $('.vehicleManagement').remove();
-                                break;
+                                $('.personalList .proxyAgent').remove();
+                                $('.personalAgent').remove();
+                            break;
                             case 'LOGISTICS':
                                 vmPersonal.userInfo.type = '物流公司';
                                 $('.personalList li').eq(1).remove();
                                 $('.vehicleManagement').remove();
-                                break;
+                                $('.personalList .proxyAgent').remove();
+                                $('.personalAgent').remove();
+                            break;
                             case 'PROXY':
                                 vmPersonal.userInfo.type = '代理';
-                                $('.personalList li').eq(1).hide();
-                                $('.vehicleManagement').hide();
-                                break;
+                                $('.personalList li').eq(1).remove();
+                                $('.vehicleManagement').remove();
+                            break;
                         }
                     }else{
                         alertMsg(res.message,2);
@@ -175,7 +193,8 @@ $(function(){
             },
             //获取银行卡列表
             getBankCardList:function(){
-                getAjax(API.URL_GET_BANKLIST,'get',{'_token_':vmPersonal.token}).then(function(res){
+                var token = localStorage.getItem('token')
+                getAjax(API.URL_GET_BANKLIST,'get',{'_token_':token}).then(function(res){
                    if(res.code == 200){
                        for(var i in res.result){
                            res.result[i].card_number = stringHidePart(res.result[i].card_number);
@@ -228,8 +247,99 @@ $(function(){
                    }
                 });
             },
+            /*点击银行卡的时候获取银行卡列表*/
+            getBankCar:function(){
+                vmPersonal.getBankCardList();
+            },
+            /*代理商家列表*/
+            getProxyList:function(){
+                vmPersonal.agentData._token_ = localStorage.getItem('token');
+                getAjax(API.URL_GET_PROXYLIST,'get',vmPersonal.agentData).then(function(res){
+                    if(res.code == 200){
+                        for(var i=0;i<res.result.list.length;i++){
+                            res.result.list[i].avatar = getApiHost + res.result.list[i].avatar;
+                            res.result.list[i].province = getProvinceName(res.result.list[i].province);
+                            res.result.list[i].city = getCityName(res.result.list[i].city);
+                            res.result.list[i].area = getAreaName(res.result.list[i].area);
+                        }
+                        vmPersonal.companyInfo = res.result;
+                        vmPersonal.agentList = res.result.list;
+                        layui.use(['laypage', 'layer'], function () {
+                            var laypage = layui.laypage,
+                                layer = layui.layer;
+                            laypage.render({
+                                elem: 'demo3',
+                                count: res.count,
+                                limit: '4',
+                                curr: vmPersonal.agentData.page,
+                                theme: '#f57619',
+                                jump: function(obj,first) {
+                                    if(!first){
+                                        vmPersonal.agentData.page = obj.curr;
+                                        vmPersonal.getProxyList();
+                                    }
+                                }
+                            });
+                        });
+                        console.log(res);
+                    }else{
+                        alertMsg(res.message,2);
+                    }
+                })
+            },
+            /*更换头像*/
+            changeAvatar:function(){
+                vmPersonal.avatarData._token_ = vmPersonal.token;
+                getAjax(API.URL_POST_CHANGEAVATAR,'post',vmPersonal.avatarData).then(function(res){
+                   if(res.code == 200){
+                        alertMsg(res.message,1);
+                   }else{
+                       alertMsg(res.message,2);
+                   }
+                });
+            }
         });
         vmPersonal.onLoad();
         avalon.scan(document.body);
+    });
+});
+/*上传头像*/
+layui.use('upload', function() {
+    var token = localStorage.getItem('token');
+    var $ = layui.jquery
+        , upload = layui.upload;
+    $.ajaxSetup({
+        // 发送cookie
+        xhrFields: {
+            withCredentials: true
+        },
+    });
+    //普通图片上传
+    var uploadInst = upload.render({
+        elem: '#test1'
+        ,data:{'_token_':token}
+        , url: API.URL_POST_UPLOADFILE
+        , done: function (res) {
+            if(res.code == 200){
+                $('#avatarLogo').attr('src',getApiHost + res.result.crop);
+                $('.personalLogo li img').attr('src',getApiHost + res.result.crop);
+                vmPersonal.avatarData.avatar = res.result.crop;
+                var userInfo = JSON.parse(localStorage.getItem('userInfo'));
+                userInfo.avatar = res.result.crop;
+                localStorage.setItem('userInfo',JSON.stringify(userInfo));
+                vmPersonal.changeAvatar();
+                window.location.reload();
+            }else{
+                alertMsg(res.message,2);
+            }
+        }
+        , error: function () {
+            //演示失败状态，并实现重传
+            var demoText = $('#demoText');
+            demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+            demoText.find('.demo-reload').on('click', function () {
+                uploadInst.upload();
+            });
+        }
     });
 });

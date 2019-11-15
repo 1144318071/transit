@@ -89,8 +89,13 @@
         <div class='row personal'>
             <div class='col-md-3 col-sm-3 personalItem'>
                 <ul class='avatar'>
-                    <li class="avatar"><img width='94' height='90' ms-attr="{ src : @userInfo.avatar }" src="../../images/avartar.png" alt=""></li>
-                    <!--<li ms-text="@userInfo.actual_name"></li>-->
+                    <li class="upload">
+                        <img id="avatarLogo"  ms-attr="{ src : @userInfo.avatar==''?'../../images/avatar.png':@userInfo.avatar }" width="94px" height="94px" alt="">
+                        <span class="uploadimg">
+                        <button type="button" class="layui-btn" id="test1">上传图片</button>
+                        <img class="img-responsive" src="../../images/upload.png" alt="">
+                    </span>
+                    </li>
                     <li ms-text="@userInfo.username"></li>
                     <li ms-text="@userInfo.type"></li>
                 </ul>
@@ -100,8 +105,8 @@
                     <li>消息</li>
                     <li>卡券</li>
                     <li>账户</li>
-                    <li>银行卡</li>
-                    <li>代理商家</li>
+                    <li ms-on-click="@getBankCar">银行卡</li>
+                    <li class="proxyAgent" ms-on-click="@getProxyList">代理商家</li>
                 </ul>
             </div>
             <div class='col-md-8 col-sm-8 personalContent'>
@@ -110,8 +115,7 @@
                 <div class='PanelTitle'>个人资料</div>
                 <div class='personalDes'>
                     <ul class='personalLogo'>
-                        <li><img width='94' height='90' ms-attr="{ src : @userInfo.avatar }" src="../../images/avartar.png" alt=""></li>
-                        <!--<li class='font20 fontw mt30' ms-text="@userInfo.actual_name">用户名</li>-->
+                        <li><img width='94' height='90' ms-attr="{ src : @userInfo.avatar==''?'../../images/avatar.png':@userInfo.avatar }" src="../../images/avartar.png" alt=""></li>
                         <li class='font20 fontw mt30' ms-text="@userInfo.username">用户名</li>
                     </ul>
                     <div class='row description pt50'>
@@ -462,15 +466,10 @@
                     <ul class='cardShow' ms-for="el in @bankCardList">
                         <li class="carDetail">
                             <span class="bankName" ms-text="el.bank_name">中国建设银行</span><br>
-                            <span class="bankAccount" ms-text="el.card_number">6217003810043214355</span>
+                            <span class="bankAccount" ms-text="el.card_number"></span>
                         </li>
                         <li class='clearfix'><span class='pull-left' ms-on-click='@setDefault(el.card_id)'>设为默认</span><span class='pull-right' ms-on-click='@unbind(el.card_id)'>解绑</span></li>
                     </ul>
-                   <!-- <ul class='cardShow'>
-                        <li><img src="../../images/cardBlue.png" alt=""></li>
-                        <li class='clearfix'><span class='pull-left'>设为默认</span><span class='pull-right'>解绑</span>
-                        </li>
-                    </ul>-->
                 </div>
             </div>
             <!-- 代理商家 -->
@@ -479,125 +478,44 @@
                 <div class='countContent clearfix'>
                     <div class='countItem'>
                         <div class='countTitle'>总订单数量(单)</div>
-                        <div class='countNumber'>1222</div>
+                        <div class='countNumber' ms-text="@companyInfo.order"></div>
                     </div>
                     <div class='countItem'>
                         <div class='countTitle'>总订单金额(¥)</div>
-                        <div class='countNumber'>1222</div>
+                        <div class='countNumber' ms-text="@companyInfo.money"></div>
                     </div>
                     <div class='countItem'>
                         <div class='countTitle'>可提现金额(¥)</div>
-                        <div class='countNumber'>1222</div>
+                        <div class='countNumber' ms-text="@companyInfo.withdraw"></div>
                         <div class='apply' ms-on-click='@applyMoney'>申请提现</div>
                     </div>
                 </div>
                 <div class='agentList'>
-                    <div class='agentItem clearfix'>
+                    <div class='agentItem clearfix' ms-for="el in @agentList">
                         <div class='agentLogo pull-left'>
-                            <img src="../../images/companyInfo.png" width="99px"  height="70px" alt="">
+                            <img ms-attr="{ src : el.avatar }"  width="99px"  height="70px" alt="">
                         </div>
                         <div class='agentMsg pull-left'>
-                            <div class='agentName'>成都鑫元通汽车销售有限公司</div>
+                            <div class='agentName' ms-text="el.company_name"></div>
                             <ul class='clearfix'>
                                 <li>总订单数量</li>
                                 <li>:</li>
-                                <li>2132</li>
+                                <li ms-text="el.order"></li>
                             </ul>
                             <ul class='clearfix'>
                                 <li>总订单金额</li>
                                 <li>:</li>
-                                <li>21314.00</li>
+                                <li ms-text="el.money"></li>
                             </ul>
                             <ul class='clearfix'>
                                 <li>公司地址</li>
                                 <li>:</li>
-                                <li>四川省成都市双流区会缘路会缘汽配城10栋</li>
+                                <li ms-text="el.province + el.city + el.area + el.address"></li>
                             </ul>
                         </div>
                         <div class='agentContact pull-right'>
                             <img src="../../images/phoneIcon.png" alt="">
-                            <span>0288-65266985</span>
-                        </div>
-                    </div>
-                    <div class='agentItem clearfix'>
-                        <div class='agentLogo pull-left'>
-                            <img src="../../images/companyInfo.png" width="99px" height="70px" alt="">
-                        </div>
-                        <div class='agentMsg pull-left'>
-                            <div class='agentName'>成都鑫元通汽车销售有限公司</div>
-                            <ul class='clearfix'>
-                                <li>总订单数量</li>
-                                <li>:</li>
-                                <li>2132</li>
-                            </ul>
-                            <ul class='clearfix'>
-                                <li>总订单金额</li>
-                                <li>:</li>
-                                <li>21314.00</li>
-                            </ul>
-                            <ul class='clearfix'>
-                                <li>公司地址</li>
-                                <li>:</li>
-                                <li>四川省成都市双流区会缘路会缘汽配城10栋</li>
-                            </ul>
-                        </div>
-                        <div class='agentContact pull-right'>
-                            <img src="../../images/phoneIcon.png" alt="">
-                            <span>0288-65266985</span>
-                        </div>
-                    </div>
-                    <div class='agentItem clearfix'>
-                        <div class='agentLogo pull-left'>
-                            <img src="../../images/companyInfo.png" width="99px" height="70px" alt="">
-                        </div>
-                        <div class='agentMsg pull-left'>
-                            <div class='agentName'>成都鑫元通汽车销售有限公司</div>
-                            <ul class='clearfix'>
-                                <li>总订单数量</li>
-                                <li>:</li>
-                                <li>2132</li>
-                            </ul>
-                            <ul class='clearfix'>
-                                <li>总订单金额</li>
-                                <li>:</li>
-                                <li>21314.00</li>
-                            </ul>
-                            <ul class='clearfix'>
-                                <li>公司地址</li>
-                                <li>:</li>
-                                <li>四川省成都市双流区会缘路会缘汽配城10栋</li>
-                            </ul>
-                        </div>
-                        <div class='agentContact pull-right'>
-                            <img src="../../images/phoneIcon.png" alt="">
-                            <span>0288-65266985</span>
-                        </div>
-                    </div>
-                    <div class='agentItem clearfix'>
-                        <div class='agentLogo pull-left'>
-                            <img src="../../images/companyInfo.png" width="99px" height="70px" alt="">
-                        </div>
-                        <div class='agentMsg pull-left'>
-                            <div class='agentName'>成都鑫元通汽车销售有限公司</div>
-                            <ul class='clearfix'>
-                                <li>总订单数量</li>
-                                <li>:</li>
-                                <li>2132</li>
-                            </ul>
-                            <ul class='clearfix'>
-                                <li>总订单金额</li>
-                                <li>:</li>
-                                <li>21314.00</li>
-                            </ul>
-                            <ul class='clearfix'>
-                                <li>公司地址</li>
-                                <li>:</li>
-                                <li>四川省成都市双流区会缘路会缘汽配城10栋</li>
-                            </ul>
-                        </div>
-                        <div class='agentContact pull-right'>
-                            <img src="../../images/phoneIcon.png" alt="">
-                            <span>0288-65266985</span>
+                            <span ms-text="el.mobile"></span>
                         </div>
                     </div>
                     <div id="demo3"></div>
@@ -613,8 +531,8 @@
     <script src='../../plugins/avalon/avalon.min.js'></script>
     <script src='../../common/js/kuCity.js'></script>
     <script src="../../data/api.js"></script>
+    <script src="../../data/data.js"></script>
     <script src="../../data/return_data.js"></script>
     <script src='../../js/header.js'></script>
     <script src='../../js/personal/personal.js'></script>
 </body>
- 

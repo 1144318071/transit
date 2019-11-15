@@ -373,7 +373,18 @@ footer {
   padding: 53px 0px 10px 106px;
 }
 #demo3 {
-  padding: 35px 0px 10px 106px;
+  width: 772px;
+  height: 60px;
+  line-height: 60px;
+  margin-left: 30px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+.layui-laypage{
+  margin: 0px;
 }
 .bankCard {
   margin-top: 41px;
@@ -469,6 +480,7 @@ footer {
   background-color: #fffaf6;
   margin-top: 61px;
   padding-top: 8px;
+  position: relative;
 }
 .agentItem {
   width: 772px;
@@ -493,6 +505,7 @@ footer {
 }
 .agentContact img {
   vertical-align: middle;
+  margin-top: -5px;
 }
 .agentName {
   margin-bottom: 10px;
@@ -619,4 +632,48 @@ footer {
   padding-top: 16px;
   margin-left: 20px;
   color: #fff;
+}
+.layui-upload{
+  width: 94px;
+  height: 94px;
+  line-height: 94px;
+  border-radius: 100%;
+}
+.layui-btnUpload{
+  padding: 0px;
+  width: 94px;
+  height: 94px;
+  border-radius: 94px;
+  background-color:rgba(0,0,0,0.4);
+}
+.avatar .upload {
+  position: relative;
+}
+.avatar .uploadimg {
+  position: absolute;
+  left: 112px;
+  top: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: inline-block;
+  width: 94px;
+  height: 94px;
+  border-radius: 94px;
+  display: none;
+}
+.avatar .uploadimg img {
+  margin-left: 30px;
+  margin-top: -30px;
+}
+.avatar .layui-btn {
+  opacity: 0;
+  background-color: transparent;
+  margin-left: 0px;
+  margin-top: 10px;
+  height: 54px;
+  line-height: 54px;
+}
+#avatarLogo,.personalLogo li img{
+    width: 94px;
+    height: 94px;
+    border-radius: 100%;
 }

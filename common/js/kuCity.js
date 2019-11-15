@@ -96,7 +96,7 @@
         //创建市列表
         creatItem: function() {
             if(this.isContainerExit) return;
-            var template = '<div class="kucity"><div class="citybox"><h3 class="kucity_header">热门城市(支持汉字/拼音搜索)</h3><ul class="kucity_nav"><li class="active">热门城市</li><li>ABCDEFGH</li><li>IJKLMNOP</li><li>QRSTUVWXYZ</li></ul><div class="kucity_body"></div></div><ul class="result"></ul></div>';
+            var template = '<div class="kucity"><div class="citybox"><ul class="kucity_nav"><li class="active">热门城市</li><li>ABCDEFGH</li><li>IJKLMNOP</li><li>QRSTUVWXYZ</li></ul><div class="kucity_body"></div></div><ul class="result"></ul></div>';
             $('body').append(template);
 
             this.container = $('.kucity');
@@ -175,7 +175,7 @@
                 if(current !== -1){
                     switch(e.keyCode){
                         //上
-                        case 38: 
+                        case 38:
                             keyActive(false);
                             break;
                         //下
@@ -183,13 +183,13 @@
                             keyActive(true);
                             break;
                         //确定
-                        case 13: 
+                        case 13:
                             self.isKeyslect = false;
                             self.target.val(self.resultct.find('.active .name').text());
                             self.triggleShow('all');
                             self.target.blur();
                             break;
-                        default: 
+                        default:
                             self.isKeyslect = false;
                             break;
                     }

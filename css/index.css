@@ -2,6 +2,9 @@
   width: 100%;
   margin-top: 118px;
 }
+footer{
+  margin-top: 0px!important;
+}
 .inform {
   margin-top: 18px;
 }
@@ -217,9 +220,6 @@
 .cooperateList .listItems>.cooperateItem:nth-child(7)
 {
   margin-left: 0px;
-}
-footer {
-  margin-top: 0px;
 }
 .carIntroduce a{
   color: #fff;
