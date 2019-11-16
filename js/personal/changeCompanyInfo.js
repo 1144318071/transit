@@ -101,6 +101,11 @@ $(function(){
                         vmChangeInfo.postData.business_license_number = result.business_license_number;
                         vmChangeInfo.postData.address = result.address;
                         vmChangeInfo.postData.mobile = result.mobile;
+                        vmChangeInfo.postData.company_logo = result.company_logo;
+                        vmChangeInfo.postData.business_license = result.business_license;
+                        vmChangeInfo.postData.province = result.province;
+                        vmChangeInfo.postData.city = result.city;
+                        vmChangeInfo.postData.area = result.area;
                         var logo = getApiHost + result.company_logo;
                         $('#logo').attr('src',logo);
                         var license = getApiHost + result.business_license;

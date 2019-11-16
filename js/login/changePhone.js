@@ -15,7 +15,10 @@ $(function(){
                 'verify_code':'',
                 'code':''//短信验证码
             },
-            onLoad:function(){},
+            onLoad:function(){
+                var userInfo = JSON.parse(localStorage.getItem('userInfo'));
+                vmChangePhone.stepOne.username = userInfo.mobile;
+            },
             // 下一步
             nextStep:function(){
                 var token = localStorage.getItem('token');
@@ -34,8 +37,8 @@ $(function(){
             // 获取验证码(加上倒计时功能)
             getCheckCode:function(){
             	var phone = vmChangePhone.stepTwo.username;
-			    if(!(/^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/.test(phone))){ 
-			       alertMsg("请输入正确格式的手机号",2);  
+			    if(!(/^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/.test(phone))){
+			       alertMsg("请输入正确格式的手机号",2);
 			       $('.layui-btn-Code').attr('disabled',true);
 			    }else{
 			    	var token  = localStorage.getItem('token');
