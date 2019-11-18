@@ -173,9 +173,9 @@
                                     <div class="des_right pull-right">
                                         <ul class="operateItem" ms-if="el.goods_status !='40' && el.goods_status == '10'">
                                             <!--待支付-->
-                                            <li><button>立即付款</button></li>
-                                            <li class="color-999 mt10">修改货单</li>
-                                            <li class="color-orange mt10">删除货单 </li>
+                                            <li><a ms-attr="{ href : './payPublishOrder.html?goods_id=' + el.goods_id }"><button>立即付款</button></a></li>
+                                            <li class="color-999 mt10"><a ms-attr="{ href : './editOrder.html?goods_id=' + el.goods_id }">修改货单</a></li>
+                                            <li class="color-orange mt10" ms-on-click="@deleteOrder(el.goods_id,'demo1','','')">删除货单 </li>
                                         </ul>
                                         <!--未接单的取消货单-->
                                         <ul class="operateItem" ms-if="el.goods_status !='40' && el.goods_status == '20'">

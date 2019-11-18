@@ -1,6 +1,9 @@
 .ads {
   padding-top: 177px;
 }
+footer{
+  margin-top: 0px!important;
+}
 .breadNav {
   color: #333;
   margin-top: 38px;
@@ -255,7 +258,6 @@ footer{
 
 .upload {
   position: relative;
-  margin-left: 15px;
 }
 .uploadimg {
   position: absolute;

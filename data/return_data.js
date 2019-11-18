@@ -55,6 +55,7 @@ function getAjax(url, type, data) {
         }).done(function (res) {
             /*token问题*/
             if(res.code ==43961 || res.code ==43962 ||res.code == 43963|| res.code ==43964|| res.code ==43965|| res.code ==43966|| res.code ==43967|| res.code ==43968){
+                alertMsg(res.message,2);
                 localStorage.clear();
                 getToken();
             /*登录失效,需要重新登录*/
@@ -120,12 +121,30 @@ function getProvinceName(code){
         }
     }
 }
+function getProvince(name){
+    for(let i in Area.provinces.province){
+        if(Area.provinces.province[i].ssqname == name){
+            return Area.provinces.province[i].ssqid;
+        }
+    }
+}
 function getAreaName(code){
     for(var i in Area.provinces.province){
         for(var j in Area.provinces.province[i].cities.city){
             for(var k in Area.provinces.province[i].cities.city[j].areas.area){
                 if(Area.provinces.province[i].cities.city[j].areas.area[k].ssqid == code){
                     return Area.provinces.province[i].cities.city[j].areas.area[k].ssqname
+                }
+            }
+        }
+    }
+};
+function getArea(name){
+    for(let i in Area.provinces.province){
+        for(var j in Area.provinces.province[i].cities.city){
+            for(var k in Area.provinces.province[i].cities.city[j].areas.area){
+                if(Area.provinces.province[i].cities.city[j].areas.area[k].ssqname == name){
+                    return Area.provinces.province[i].cities.city[j].areas.area[k].ssqid
                 }
             }
         }

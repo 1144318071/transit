@@ -160,6 +160,22 @@ $(function(){
                vmPublishOrder.date.time = '';
                $('.delItem').remove();
            },
+           getPCode:function(){
+               console.log(vmPublishOrder.model.addressList_one.province);
+           },
+           getCCode:function(){
+               if(vmPublishOrder.model.addressList_one.city == ''){
+                   $('#city1 option').each(function(i,val){
+                       if($(val).attr('selected') == 'selected'){
+                           vmPublishOrder.model.addressList_one.city = $(val).attr('data-code')
+                       }
+                   });
+                   console.log(vmPublishOrder.model.addressList_one.city)
+               }
+           },
+           getACode:function(){
+               console.log(vmPublishOrder.model.addressList_one.area);
+           },
            /*下一步*/
            nextStep:function () {
                 vmPublishOrder.postData._token_ = localStorage.getItem('token');
@@ -229,80 +245,65 @@ $(function(){
                var three_hidden = $('.addressItem_three').is(':hidden');
                var four_hidden = $('.addressItem_four').is(':hidden');
                if(!one_hidden){
-                   var p1,c1,a1;
-                   p1 = $("#province1 option[value =" + vmPublishOrder.model.addressList_one.province + "]").attr('data-code');
-                   $('#city1 option').each(function(i,val){
-                       if($(val).attr('selected') == 'selected'){
-                           c1 = $(val).attr('data-code')
-                       }
-                   });
-                   $('#district1 option').each(function(i,val){
-                       if($(val).attr('selected') == 'selected'){
-                           a1 = $(val).attr('data-code')
-                       }
-                   });
-                   obj_one.province = p1;
-                   obj_one.city = c1;
-                   obj_one.area = a1;
+                   obj_one.province = $("#province1 option[value =" + vmPublishOrder.model.addressList_one.province + "]").attr('data-code');
+                   if(vmPublishOrder.model.addressList_one.city == ''){
+                       obj_one.city = $("#city1").find("option:selected").attr('data-code');
+                   }else{
+                       obj_one.city = $("#city1 option[value =" + vmPublishOrder.model.addressList_one.city + "]").attr('data-code');
+                   }
+                   if(vmPublishOrder.model.addressList_one.area == ''){
+                       obj_one.area = $("#district1").find("option:selected").attr('data-code')
+                   }else{
+                       obj_one.area = $("#district1 option[value =" + vmPublishOrder.model.addressList_one.area + "]").attr('data-code');
+                   }
                    obj_one.address = vmPublishOrder.model.addressList_one.address;
                    vmPublishOrder.postData.adList.push(obj_one);
                }
                if(!two_hidden){
-                   var p2,c2,a2;
-                   p2 = $("#province1_two option[value =" + vmPublishOrder.model.addressList_two.province + "]").attr('data-code');
-                   $('#city1_two option').each(function(i,val){
-                       if($(val).attr('selected') == 'selected'){
-                           c2 = $(val).attr('data-code');
-                       }
-                   });
-                   $('#district1_two option').each(function(i,val){
-                       if($(val).attr('selected') == 'selected'){
-                           a2 = $(val).attr('data-code');
-                       }
-                   });
-                   obj_two.province = p2;
-                   obj_two.city = c2;
-                   obj_two.area = a2;
+                   obj_two.province = $("#province1_two option[value =" + vmPublishOrder.model.addressList_two.province + "]").attr('data-code');
+                   if(vmPublishOrder.model.addressList_two.city == ''){
+                       obj_two.city = $("#city1_two").find("option:selected").attr('data-code');
+                   }else{
+                       obj_two.city = $("#city1_two option[value =" + vmPublishOrder.model.addressList_two.city + "]").attr('data-code');
+                   }
+                   if(vmPublishOrder.model.addressList_two.area == ''){
+                       obj_two.area = $("#district1_two").find("option:selected").attr('data-code')
+                   }else{
+                       obj_two.area = $("#district1_two option[value =" + vmPublishOrder.model.addressList_two.area + "]").attr('data-code');
+                   }
+                   obj_two.city = $("#city1_two option[value =" + vmPublishOrder.model.addressList_two.city + "]").attr('data-code');
+                   obj_two.area = $("#district1_two option[value =" + vmPublishOrder.model.addressList_two.area + "]").attr('data-code');
                    obj_two.address = vmPublishOrder.model.addressList_two.address;
                    vmPublishOrder.postData.adList.push(obj_two);
                }
                if(!three_hidden){
-                   var p3,c3,a3;
-                   p3 = $("#province1_three option[value =" + vmPublishOrder.model.addressList_three.province + "]").attr('data-code');
-                   $('#city1_three option').each(function(i,val){
-                       if($(val).attr('selected') == 'selected'){
-                           c3 = $(val).attr('data-code');
-                       }
-                   });
-                   $('#district1_three option').each(function(i,val){
-                       if($(val).attr('selected') == 'selected'){
-                           a3 = $(val).attr('data-code');
-                       }
-                   });
-                   obj_three.province = p3;
-                   obj_three.city = c3;
-                   obj_three.area = a3;
+                   obj_three.province = $("#province1_three option[value =" + vmPublishOrder.model.addressList_three.province + "]").attr('data-code');
+                   if(vmPublishOrder.model.addressList_three.city == ''){
+                       obj_three.city = $("#city1_three").find("option:selected").attr('data-code');
+                   }else{
+                       obj_three.city = $("#city1_three option[value =" + vmPublishOrder.model.addressList_three.city + "]").attr('data-code');
+                   }
+                   if(vmPublishOrder.model.addressList_three.area == ''){
+                       obj_three.area = $("#district1_three").find("option:selected").attr('data-code')
+                   }else{
+                       obj_three.area = $("#district1_three option[value =" + vmPublishOrder.model.addressList_three.area + "]").attr('data-code');
+                   }
                    obj_three.address = vmPublishOrder.model.addressList_three.address;
                    vmPublishOrder.postData.adList.push(obj_three);
                }
                if(!four_hidden){
-                   var p4,c4,a4;
-                   p4 = $("#province1_four option[value =" + vmPublishOrder.model.addressList_four.province + "]").attr('data-code');
-                   $('#city1_four option').each(function(i,val){
-                       if($(val).attr('selected') == 'selected'){
-                           c4 = $(val).attr('data-code');
-                       }
-                   });
-                   $('#district1_four option').each(function(i,val){
-                       if($(val).attr('selected') == 'selected'){
-                           a4 = $(val).attr('data-code');
-                       }
-                   });
-                   obj_four.province = p4;
-                   obj_four.city = c4;
-                   obj_four.area = a4;
+                   obj_four.province = $("#province1_four option[value =" + vmPublishOrder.model.addressList_four.province + "]").attr('data-code');
+                   if(vmPublishOrder.model.addressList_four.city == ''){
+                       obj_four.city = $("#city1_four").find("option:selected").attr('data-code');
+                   }else{
+                       obj_four.city = $("#city1_four option[value =" + vmPublishOrder.model.addressList_four.city + "]").attr('data-code');
+                   }
+                   if(vmPublishOrder.model.addressList_four.area == ''){
+                       obj_four.area = $("#district1_four").find("option:selected").attr('data-code')
+                   }else{
+                       obj_four.area = $("#district1_four option[value =" + vmPublishOrder.model.addressList_four.area + "]").attr('data-code');
+                   }
                    obj_four.address = vmPublishOrder.model.addressList_four.address;
-                   obj_four.id = vmPublishOrder.model.addressList_four.id;
                    vmPublishOrder.postData.adList.push(obj_four);
                }
                //是否加急的选择

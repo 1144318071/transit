@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../css/header.css">
     <link rel="stylesheet" href="../../css/footer.css">
     <link rel="stylesheet" href="../../css/order/publishOrder.css">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=n6K0xWCoAKyRgR0cYt6uVaC1EgAVAGFR"></script>
     <title>运输管理</title>
 </head>
 
@@ -30,6 +31,7 @@
                             <input class="address" value="切换">
                         </div>
                     </div>
+                    <div id="allmap" class="dis_none"></div>
                 </div>
                 <div class='col-md-6 col-sm-6'>
                     <div class='row  text-right'>
@@ -126,7 +128,7 @@
                         <div id='distpicker'  data-toggle="distpicker">
                             <div class="form-group"><span>装货地址</span><span class="ml4 mr10">:</span></div>
                             <div class="form-group">
-                                <select class="form-control" ms-duplex="@model.addressList_one.province"  id="province1"></select>
+                                <select class="form-control" ms-duplex="@model.addressList_one.province" id="province1"></select>
                                 <span>省/直辖市</span>
                             </div>
                             <div class="form-group">
@@ -183,11 +185,11 @@
                                 <span>省/直辖市</span>
                             </div>
                             <div class="form-group">
-                                <select class="form-control" ms-duplex="@model.addressList_three.city" id="city1_three"></select>
+                                <select class="form-control" ms-duplex="@model.addressList_three.city"  id="city1_three"></select>
                                 <span>市</span>
                             </div>
                             <div class="form-group">
-                                <select class="form-control" ms-duplex="@model.addressList_three.area" id="district1_three"></select>
+                                <select class="form-control" ms-duplex="@model.addressList_three.area"  id="district1_three"></select>
                                 <span>区县</span>
                             </div>
                             <div class="form-group">
