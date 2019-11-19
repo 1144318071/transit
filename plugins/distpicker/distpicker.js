@@ -242,7 +242,7 @@
     return this;
   };
 
- /* $(function () {
+  $(function () {
     $('[data-toggle="distpicker"]').distpicker();
-  });*/
+  });
 });

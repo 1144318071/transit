@@ -124,7 +124,7 @@
                 <div class='form'>
                     <div class="addressItem loadAddress">
                         <form class="form-inline addressItem_one">
-                            <div id='distpicker'>
+                            <div id='distpicker' data-toggle="distpicker">
                                 <div class="form-group"><span>装货地址</span><span class="ml4 mr10">:</span></div>
                                 <div class="form-group">
                                     <select class="form-control" ms-duplex="@model.addressList_one.province" data-duplex-changed="@getPCode"  id="province1"></select>
@@ -148,7 +148,7 @@
                             </div>
                         </form>
                         <form class="form-inline addressItem_two dis_none">
-                            <div id="distpicker_two">
+                            <div id="distpicker_two" data-toggle="distpicker">
                                 <div class="form-group"><span>装货地址</span><span class="ml4 mr10">:</span></div>
                                 <div class="form-group">
                                     <select class="form-control"  ms-duplex="@model.addressList_two.province"  id="province1_two"></select>
@@ -176,7 +176,7 @@
                     </div>
                     <div class="addressItem unloadAddress">
                         <form class="form-inline addressItem_three">
-                            <div id='distpicker_three'>
+                            <div id='distpicker_three' data-toggle="distpicker">
                                 <div class="form-group"><span>卸货地址</span><span class="ml4 mr10">:</span></div>
                                 <div class="form-group">
                                     <!-- data-duplex-changed='getPcode' -->
@@ -201,7 +201,7 @@
                             </ul>
                         </form>
                         <form class="form-inline addressItem_four dis_none">
-                            <div id='distpicker_four'>
+                            <div id='distpicker_four' data-toggle="distpicker">
                                 <div class="form-group"><span>卸货地址</span><span class="ml4 mr10">:</span></div>
                                 <div class="form-group">
                                     <!-- data-duplex-changed='getPcode' -->
