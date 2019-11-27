@@ -5,6 +5,7 @@ $(function(){
     avalon.ready(function(){
         window.vmLogin = avalon.define({
             $id:'root',
+            token:'',
             postData:{
                 '_token_':'',
                 'type':'pc',
@@ -15,7 +16,24 @@ $(function(){
                 'username':''//用户名或者手机号
             },
             onLoad:function(){
-               
+                vmLogin.getToken();
+            },
+            getToken:function(){
+                $.ajax({
+                    url: API.URL_POST_SETTOKEN,
+                    type: 'post',
+                    dataType: 'json',
+                    async: true,
+                    data: { version: '2.0.1', author: '丶Lee', email: '1144318071@qq.com', date: getNowFormatDate},
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    success:function(res){
+                        if(res.code == 200){
+                            vmLogin.token = res.result.token;
+                        }
+                    }
+                });
             },
              // 切换密码登录
             changePwdShow:function(pwd,code){
@@ -41,7 +59,7 @@ $(function(){
             },
             // 登录(账号密码登录)
             signIn:function(){
-                vmLogin.postData._token_ = localStorage.getItem('token');
+                vmLogin.postData._token_ = vmLogin.token;
                 getAjax(API.URL_POST_USERLOGIN,'post',vmLogin.postData).then(function(res){
                     if(res.code == 200){
 
@@ -71,7 +89,12 @@ $(function(){
                             };
                         }
                     }else{
-                        alertMsg(res.message,2);
+                        if(res.code == 43968){
+                            window.location.reload();
+                        }else{
+                            alertMsg(res.message,2);
+                        }
+
                     }
                 });
             },
@@ -128,9 +151,8 @@ $(function(){
                 if(!(/^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/.test(phone))){
                     alertMsg("请输入正确格式的手机号",2);
                 }else{
-                    var token  = localStorage.getItem('token');
                     var getCode = {
-                        '_token_': token,
+                        '_token_': vmLogin.token,
                         'mobile': vmLogin.postData.username
                     };
                     getAjax(API.URL_POST_SENDCODE, 'post', getCode).then(function (res) {

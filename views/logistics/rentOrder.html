@@ -38,7 +38,7 @@
                         <div class='col-md-4 col-sm-4 userInfo text-left'>
                             <ul class='clearfix'>
                                 <li class="userMsg dis_none ml10"><img width="32px" height="32px" id="avatar"/></li>
-                                <li class="userMsg dis_none" ms-text="@userInfo.username" data-src="../personal/personal.html" ms-on-click="@getPage($event)"></li>
+                                <li class="userMsg dis_none"><a href="../personal/personal.html" ms-text="@userInfo.username"></a><span class="ml8" ms-on-click="@loginOut">退出</span></li>
                                 <li class="userLogin">您好,请<a href='../../login.html'>登录</a></li>
                             </ul>
                         </div>
@@ -127,37 +127,15 @@
                         <div id='distpicker' data-toggle="distpicker">
                             <div class="form-group"><span>装货地址</span><span class="ml4 mr10">:</span></div>
                             <div class="form-group">
-                                <!-- data-duplex-changed='getPcode' -->
-                                <select class="form-control"   id="province1"></select>
+                                <select class="form-control" data-province="请选择省" ms-duplex="@startAddress.province"  id="province1"></select>
                                 <span>省/直辖市</span>
                             </div>
                             <div class="form-group">
-                                <select class="form-control" id="city1"></select>
+                                <select class="form-control" data-city="请选择市" ms-duplex="@startAddress.city" id="city1"></select>
                                 <span>市</span>
                             </div>
                             <div class="form-group">
-                                <select class="form-control" id="district1"></select>
-                                <span>区县</span>
-                            </div>
-                            <div class="form-group">
-                                <span class="addressAdd">+</span>
-                            </div>
-                        </div>
-                    </form>
-                    <form class="form-inline  dis_none">
-                        <div id='distpicker_two' data-toggle="distpicker">
-                            <div class="form-group"><span>装货地址</span><span class="ml4 mr10">:</span></div>
-                            <div class="form-group">
-                                <!-- data-duplex-changed='getPcode' -->
-                                <select class="form-control"   id="province1_two"></select>
-                                <span>省/直辖市</span>
-                            </div>
-                            <div class="form-group">
-                                <select class="form-control" id="city1_two"></select>
-                                <span>市</span>
-                            </div>
-                            <div class="form-group">
-                                <select class="form-control" id="district1_two"></select>
+                                <select class="form-control" data-district="请选择区" ms-duplex="@startAddress.area" id="district1"></select>
                                 <span>区县</span>
                             </div>
                         </div>
@@ -165,57 +143,62 @@
                 </div>
                 <div class="addressItem">
                     <form class="form-inline">
-                        <div id='distpicker_three' data-toggle="distpicker">
+                        <div id='distpicker_two' data-toggle="distpicker">
                             <div class="form-group"><span>卸货地址</span><span class="ml4 mr10">:</span></div>
                             <div class="form-group">
-                                <!-- data-duplex-changed='getPcode' -->
-                                <select class="form-control"   id="province1_three"></select>
+                                <select class="form-control" data-province="请选择省" ms-duplex="@endAddress.province"  id="province1_two"></select>
                                 <span>省/直辖市</span>
                             </div>
                             <div class="form-group">
-                                <select class="form-control" id="city1_three"></select>
+                                <select class="form-control" data-city="请选择市" ms-duplex="@endAddress.city" id="city1_two"></select>
                                 <span>市</span>
                             </div>
                             <div class="form-group">
-                                <select class="form-control" id="district1_three"></select>
-                                <span>区县</span>
-                            </div>
-                            <div class="form-group">
-                                <span class="addressAdd">+</span>
-                            </div>
-                        </div>
-                    </form>
-                    <form class="form-inline  dis_none">
-                        <div id='distpicker_four' data-toggle="distpicker">
-                            <div class="form-group"><span>卸货地址</span><span class="ml4 mr10">:</span></div>
-                            <div class="form-group">
-                                <!-- data-duplex-changed='getPcode' -->
-                                <select class="form-control"   id="province1_four"></select>
-                                <span>省/直辖市</span>
-                            </div>
-                            <div class="form-group">
-                                <select class="form-control" id="city1_four"></select>
-                                <span>市</span>
-                            </div>
-                            <div class="form-group">
-                                <select class="form-control" id="district1_four"></select>
+                                <select class="form-control" data-district="请选择区" ms-duplex="@endAddress.area" id="district1_two"></select>
                                 <span>区县</span>
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="formItem">
-                    <ul class="clearfix">
+                <div class="formItem carItem">
+                    <ul class="clearfix needCarItem">
                         <li>所需车型<span class="ml4 mr10">:</span></li>
                         <li>
                             <select>
-                                <option value="不限">不限</option>
+                                <option value="">不限</option>
+                                <option value="平板">平板</option>
+                                <option value="高栏">高栏</option>
+                                <option value="厢式">厢式</option>
+                                <option value="集装箱">集装箱</option>
+                                <option value="自卸">自卸</option>
+                                <option value="冷藏">冷藏</option>
+                                <option value="保温">保温</option>
+                                <option value="高地板">高地板</option>
+                                <option value="爬梯车">爬梯车</option>
+                                <option value="飞翼车">飞翼车</option>
                             </select>
                             <label>类型</label>
                         </li>
                         <li>
                             <select>
-                                <option value="不限">不限</option>
+                                <option value="">不限</option>
+                                <option value="1.8m">1.8米</option>
+                                <option value="2.7m">2.7米</option>
+                                <option value="3.8m">3.8米</option>
+                                <option value="4.2m">4.2米</option>
+                                <option value="5.0m">5.0米</option>
+                                <option value="6.2m">6.2米</option>
+                                <option value="6.8m">6.8米</option>
+                                <option value="7.7m">7.7米</option>
+                                <option value="8.2m">8.2米</option>
+                                <option value="8.7m">8.7米</option>
+                                <option value="9.6m">9.6米</option>
+                                <option value="11.7m">11.7米</option>
+                                <option value="12.5m">12.5米</option>
+                                <option value="13.0m">13.0米</option>
+                                <option value="15.0m">15.0米</option>
+                                <option value="16.0m">16.0米</option>
+                                <option value="17.5m">17.5米</option>
                             </select>
                             <label>车长</label>
                         </li>
@@ -227,36 +210,18 @@
                             <input type="text"  placeholder="每辆价格" />
                             <label>元/天</label>
                         </li>
-                    </ul>
-                    <ul class="clearfix innerItem dis_none">
-                        <li>
-                            <select>
-                                <option value="不限">不限</option>
-                            </select>
-                            <label>类型</label>
-                        </li>
-                        <li>
-                            <select>
-                                <option value="不限">不限</option>
-                            </select>
-                            <label>车长</label>
-                        </li>
-                        <li>
-                            <input type="text" placeholder="所需数量" />
-                            <label>辆</label>
-                        </li>
-                        <li>
-                            <input type="text"  placeholder="每辆价格" />
-                            <label>元/天</label>
-                        </li>
+                        <li class="font24 addItemOne" style="margin-top: -7px;cursor:pointer;">+</li>
                     </ul>
                 </div>
-                <div class="formItem">
-                    <ul class="clearfix">
+                <div class="formItem driverItem">
+                    <ul class="clearfix needDriverItem">
                         <li>所需司机<span class="ml4 mr10">:</span></li>
                         <li>
                             <select>
-                                <option value="不限">不限</option>
+                                <option value="">不限</option>
+                                <option value="A">A级</option>
+                                <option value="B">B级</option>
+                                <option value="C">C级</option>
                             </select>
                             <label>驾照</label>
                         </li>
@@ -268,42 +233,15 @@
                             <input type="text"  placeholder="每辆价格" />
                             <label>元/天</label>
                         </li>
-                    </ul>
-                    <ul class="innerItem clearfix dis_none">
-                        <li>
-                            <select>
-                                <option value="不限">不限</option>
-                            </select>
-                            <label>驾照</label>
-                        </li>
-                        <li>
-                            <input type="text" placeholder="所需司机数量" />
-                            <label>人&emsp;</label>
-                        </li>
-                        <li>
-                            <input type="text"  placeholder="每辆价格" />
-                            <label>元/天</label>
-                        </li>
+                        <li class="font24 addItemTwo" style="margin-top: -7px;cursor:pointer;">+</li>
                     </ul>
                 </div>
                 <div class="formItem">
                     <ul class="clearfix">
                         <li>运输距离<span class="ml4 mr10">:</span></li>
                         <li>
-                            <input type="text" placeholder="大约运输里程" />
+                            <input type="text" ms-duplex="@postData.distance" placeholder="大约运输里程" />
                             <label>km</label>
-                        </li>
-                    </ul>
-                </div>
-                <div class="formItem">
-                    <ul class="clearfix">
-                        <li>货物属性<span class="ml4 mr10">:</span></li>
-                        <li>
-                            <select>
-                                <option value="农畜牧业">农畜牧业</option>
-                                <option value="轻工业">轻工业</option>
-                                <option value="重工业">重工业</option>
-                            </select>
                         </li>
                     </ul>
                 </div>
@@ -311,29 +249,27 @@
                     <ul class="clearfix">
                         <li>运输货物<span class="ml4 mr10">:</span></li>
                         <li>
-                            <input type="text" class="longerInput" placeholder="如:木材，钢铁等" />
+                            <input type="text" ms-duplex="@postData.goods" class="longerInput" placeholder="如:木材，钢铁等" />
                         </li>
                     </ul>
                 </div>
-                <div class="formItem dateItem">
+                <div class="formItem">
                     <ul class="clearfix">
-                        <li>信息下架日期<span class="ml4 mr10">:</span></li>
+                        <li>运输时间<span class="ml4 mr10">:</span></li>
                         <li>
                             <div class="layui-form">
                                 <div class="layui-input-inline">
-                                    <input type="text" class="layui-input" id="test1" placeholder="年-月-日">
+                                    <input type="text" ms-duplex="@postData.s_time" class="layui-input" id="test1" placeholder="年-月-日">
                                 </div>
-                                <label>日期</label>
                             </div>
                         </li>
-                        <li>
-                            <select class="time">
-                                <option value="全天(00:00 - 24:00)">全天(00:00 - 24:00)</option>
-                                <option value="凌晨(00:00 - 06:00)">凌晨(00:00 - 06:00)</option>
-                                <option value="上午(06:00 - 12:00)">凌晨(06:00 - 12:00)</option>
-                                <option value="下午(12:00 - 18:00)">凌晨(12:00 - 18:00)</option>
-                                <option value="晚上(18:00 - 24:00)">晚上(18:00 - 24:00)</option></select>
-                            <label>时间</label>
+                        <span class="pull-left ml20">至</span>
+                        <li style="margin-left: 20px">
+                            <div class="layui-form">
+                                <div class="layui-input-inline">
+                                    <input type="text" ms-duplex="@postData.e_time" class="layui-input" id="test2" placeholder="年-月-日">
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -341,31 +277,31 @@
                     <ul class="clearfix">
                         <li>备注信息<span class="ml4 mr10">:</span></li>
                         <li>
-                            <textarea></textarea>
+                            <textarea ms-duplex="@postData.remark"></textarea>
                         </li>
                     </ul>
                 </div>
                 <div class="formItem contactPerson">
                     <ul class="clearfix">
                         <li>联系人<span class="ml4 mr10">:</span></li>
-                        <li><input type="text" class="longerInput" placeholder="先生/女士" /></li>
+                        <li><input ms-duplex="@postData.contact" type="text" class="longerInput" placeholder="先生/女士" /></li>
                     </ul>
                 </div>
                 <div class="formItem contractPhone">
                     <ul class="clearfix">
                         <li>联系电话<span class="ml4 mr10">:</span></li>
-                        <li><input type="text" class="longerInput" placeholder="请输入您的电话号码" /><label><button class="btn-code">获取验证码</button></label></li>
+                        <li><input ms-duplex="@postData.tell" type="text" class="longerInput" placeholder="请输入您的电话号码" /><label><button class="btn-code" ms-on-click="@getCheckCode">获取验证码</button></label></li>
                     </ul>
                 </div>
                 <div class="formItem checkCode">
                     <ul class="clearfix">
                         <li>填写验证码<span class="ml4 mr10">:</span></li>
-                        <li><input type="text" class="longerInput" placeholder="请输入6位数验证码" /></li>
+                        <li><input ms-duplex="@postData.code" type="text" class="longerInput" placeholder="请输入6位数验证码" /></li>
                     </ul>
                 </div>
                 <ul class="buttons clearfix">
-                    <li><button>重置</button></li>
-                    <li><button class="btn-next">发布订单</button></li>
+                    <li><button ms-on-click="@resetData">重置</button></li>
+                    <li><button class="btn-next" ms-on-click="@publishOrder">发布订单</button></li>
                 </ul>
             </div>
         </div>
@@ -382,7 +318,8 @@
 <script src='../../common/js/kuCity.js'></script>
 <script src='../../js/header.js'></script>
 <script src="../../data/api.js"></script>
+<script src="../../data/data.js"></script>
 <script src="../../data/return_data.js"></script>
-<script src="../../js/order/publishOrder.js"></script>
+<script src="../../js/logistics/rentOrder.js"></script>
 </body>
 </html>

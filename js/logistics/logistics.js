@@ -3,20 +3,6 @@ $('.countItem').hover(function(){
 },function(){
     $(this).find('.mask').hide();
 });
-layui.use(['laypage', 'layer'], function () {
-    var laypage = layui.laypage,
-        layer = layui.layer;
-    laypage.render({
-        elem: 'demo2',
-        count: 1000,
-        theme: '#f57619'
-    });
-    laypage.render({
-        elem: 'demo3',
-        count: 1000,
-        theme: '#f57619'
-    });
-});
 $('.drivers .title li').click(function(){
    $(this).addClass('active').siblings().removeClass('active');
    $('.itemCon .item').eq($(this).index()).show().siblings().hide();
@@ -38,6 +24,7 @@ $(function(){
             },
             companyInfo:{},
             memberList:[],
+            rentList:[],
             // 查看所有订单记录
             checkOrders:function(){
                 layer.open({
@@ -89,7 +76,12 @@ $(function(){
                         vmLogistics.memberList = res.result;
                         vmLogistics.getPageList('demo2',res.count)
                     }else{
-                        alertMsg(res.message,2);
+                        if(res.code == 40040){
+                            $('.noInfo').show();
+                            $('.noInfo').html('暂无数据')
+                        }else{
+                            alertMsg(res.message,2);
+                        }
                     }
                 })
             },
@@ -110,6 +102,25 @@ $(function(){
                             }
                         }
                     });
+                });
+            },
+            /*获取租赁列表*/
+            getRentList:function(){
+                var token = localStorage.getItem('token');
+                getAjax(API.URL_GET_LEASELIST,'get',{'_token_':token}).then(function(res){
+                   if(res.code == 200){
+                       for(var i in res.result){
+                           res.result[i].s_city = getCityName(res.result[i].s_city);
+                           res.result[i].s_area = getAreaName(res.result[i].s_area);
+                           res.result[i].e_city = getCityName(res.result[i].e_city);
+                           res.result[i].e_area = getAreaName(res.result[i].e_area);
+                       }
+                       vmLogistics.rentList = res.result;
+                       console.log(res.result);
+                       vmLogistics.getPageList('demo3',res.count)
+                   }else{
+                       alertMsg(res.message,2)
+                   }
                 });
             },
         });

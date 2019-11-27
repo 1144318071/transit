@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <title>物流公司</title>
- 	<link rel="stylesheet" href="../../plugins/bootstrap/dist/css/bootstrap.css"> 
+ 	<link rel="stylesheet" href="../../plugins/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="../../plugins/layui/dist/css/layui.css">
  	<link rel="stylesheet" href="../../common/css/kuCity.css">
     <link rel="stylesheet" href="../../common/css/reset.css">
@@ -36,7 +36,7 @@
                             <div class='col-md-4 col-sm-4 userInfo text-left'>
                                 <ul class='clearfix'>
                                     <li class="userMsg dis_none ml10"><img width="32px" height="32px" id="avatar"/></li>
-                                    <li class="userMsg dis_none" ms-text="@userInfo.username" data-src="../personal/personal.html" ms-on-click="@getPage($event)"></li>
+                                    <li class="userMsg dis_none"><a href="../personal/personal.html" ms-text="@userInfo.username"></a><span class="ml8" ms-on-click="@loginOut">退出</span></li>
                                     <li class="userLogin">您好,请<a href='../../login.html'>登录</a></li>
                                 </ul>
                             </div>
@@ -162,7 +162,7 @@
                 <ul class='title clearfix'>
                     <li class="active">司机人员</li>
                     <li>|</li>
-                    <li>租赁管理</li>
+                    <li ms-on-click="@getRentList">租赁管理</li>
                 </ul>
                 <ul class='searchInput clearfix'>
                     <li><input type="text" placeholder="输入姓名或者电话号码搜索"></li>
@@ -175,13 +175,13 @@
                     <div class='item clearfix'>
                         <div class='itemBox' ms-for="el in @memberList">
                             <ul class='itemTitle clearfix'>
-                                <li ms-text="el.mobile">185 8541 5626</li>
+                                <li ms-text="el.mobile"></li>
                                 <li><img src="../../images/phone.png" alt=""></li>
                             </ul>
                             <div class='itemDetail clearfix'>
                                 <img  ms-attr="{ src : el.avatar }" src="../../images/driverLogo.png" width="122" height="136" alt="司机头像">
                                 <div class='itemDes'>
-                                    <div class='name' ms-text="el.actual_name">王某某</div>
+                                    <div class='name' ms-text="el.actual_name"></div>
                                     <ul class='clearfix'>
                                         <li>信用分</li>
                                         <li>:</li>
@@ -195,108 +195,43 @@
                                 </div>
                             </div>
                         </div>
-                      <!--  <div class='itemBox'>
-                            <ul class='itemTitle clearfix'>
-                                <li>185 8541 5626</li>
-                                <li><img src="../../images/phone.png" alt=""></li>
-                            </ul>
-                            <div class='itemDetail clearfix'>
-                                <img src="../../images/driverLogo.png" alt="司机头像">
-                                <div class='itemDes'>
-                                    <div class='name'>王某某</div>
-                                    <ul class='clearfix'>
-                                        <li>信用分</li>
-                                        <li>:</li>
-                                        <li class='core'>65分</li>
-                                    </ul>
-                                    <ul class='clearfix mt20'>
-                                        <li>运货次数</li>
-                                        <li>:</li>
-                                        <li>556单</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class='itemBox'>
-                            <ul class='itemTitle clearfix'>
-                                <li>185 8541 5626</li>
-                                <li><img src="../../images/phone.png" alt=""></li>
-                            </ul>
-                            <div class='itemDetail clearfix'>
-                                <img src="../../images/driverLogo.png" alt="司机头像">
-                                <div class='itemDes'>
-                                    <div class='name'>王某某</div>
-                                    <ul class='clearfix'>
-                                        <li>信用分</li>
-                                        <li>:</li>
-                                        <li class='core'>65分</li>
-                                    </ul>
-                                    <ul class='clearfix mt20'>
-                                        <li>运货次数</li>
-                                        <li>:</li>
-                                        <li>556单</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class='itemBox'>
-                            <ul class='itemTitle clearfix'>
-                                <li>185 8541 5626</li>
-                                <li><img src="../../images/phone.png" alt=""></li>
-                            </ul>
-                            <div class='itemDetail clearfix'>
-                                <img src="../../images/driverLogo.png" alt="司机头像">
-                                <div class='itemDes'>
-                                    <div class='name'>王某某</div>
-                                    <ul class='clearfix'>
-                                        <li>信用分</li>
-                                        <li>:</li>
-                                        <li class='core'>65分</li>
-                                    </ul>
-                                    <ul class='clearfix mt20'>
-                                        <li>运货次数</li>
-                                        <li>:</li>
-                                        <li>556单</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>-->
+                        <div class="noInfo dis_none" style="width:765px;height:400px;line-height: 400px;text-align: center;font-size:30px;border:1px solid #eaeaea"></div>
                         <div id="demo2"></div>
                     </div>
                     <div class='item dis_none clearfix'></div>
                     <!--租赁管理-->
                     <div class='item rentItem dis_none clearfix'>
-                        <div class='itemBox'>
+                        <div class='itemBox' ms-for="el in @rentList">
                             <ul class='itemTitle clearfix'>
                                 <li>订单编号:</li>
-                                <li>515135413131</li>
+                                <li ms-text="el.number">515135413131</li>
                             </ul>
                             <div class='itemDetail clearfix'>
                                 <div class="rent_left pull-left">
                                     <div class="rentTitle">
                                         <ul class="clearfix">
-                                            <li>成都</li></li>
-                                            <li>武侯区</li>
+                                            <li ms-text="el.s_city"></li>
+                                            <li ms-text="el.s_area"></li>
                                             <li>→</li>
-                                            <li>重庆</li>
-                                            <li>大坝</li>
+                                            <li ms-text="el.e_city"></li>
+                                            <li ms-text="el.e_area"></li>
                                         </ul>
                                     </div>
                                     <div class="rentDes">
                                         <ul class="clearfix">
                                             <li>所需车辆</li>
                                             <li>:</li>
-                                            <li>牵引车/1.7米/15辆/200/天</li>
+                                            <li ms-for="item in el.car">{{ item.type }}/{{ item.car_length }}/{{ item.num }}辆/{{ item.price }}/天</li>
                                         </ul>
                                         <ul class="clearfix">
                                             <li>所需司机</li>
                                             <li>:</li>
-                                            <li>A级/2名/200/天</li>
+                                            <li ms-for="val in el.chauffeur">{{ val.type }}级/{{ val.num }}名/{{ val.price }}/天</li>
                                         </ul>
                                         <ul class="clearfix">
                                             <li>联系电话</li>
                                             <li>:</li>
-                                            <li>18583971519</li>
+                                            <li ms-text="el.tell">18583971519</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -306,127 +241,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class='itemBox'>
-                            <ul class='itemTitle clearfix'>
-                                <li>订单编号:</li>
-                                <li>515135413131</li>
-                            </ul>
-                            <div class='itemDetail clearfix'>
-                                <div class="rent_left pull-left">
-                                    <div class="rentTitle">
-                                        <ul class="clearfix">
-                                            <li>成都</li></li>
-                                            <li>武侯区</li>
-                                            <li>→</li>
-                                            <li>重庆</li>
-                                            <li>大坝</li>
-                                        </ul>
-                                    </div>
-                                    <div class="rentDes">
-                                        <ul class="clearfix">
-                                            <li>所需车辆</li>
-                                            <li>:</li>
-                                            <li>牵引车/1.7米/15辆/200/天</li>
-                                        </ul>
-                                        <ul class="clearfix">
-                                            <li>所需司机</li>
-                                            <li>:</li>
-                                            <li>A级/2名/200/天</li>
-                                        </ul>
-                                        <ul class="clearfix">
-                                            <li>联系电话</li>
-                                            <li>:</li>
-                                            <li>18583971519</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="rent_right pull-right">
-                                    <button class="btn-cancel">取消订单</button>
-                                    <div class="cancelOrder">修改订单</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class='itemBox'>
-                            <ul class='itemTitle clearfix'>
-                                <li>订单编号:</li>
-                                <li>515135413131</li>
-                            </ul>
-                            <div class='itemDetail clearfix'>
-                                <div class="rent_left pull-left">
-                                    <div class="rentTitle">
-                                        <ul class="clearfix">
-                                            <li>成都</li></li>
-                                            <li>武侯区</li>
-                                            <li>→</li>
-                                            <li>重庆</li>
-                                            <li>大坝</li>
-                                        </ul>
-                                    </div>
-                                    <div class="rentDes">
-                                        <ul class="clearfix">
-                                            <li>所需车辆</li>
-                                            <li>:</li>
-                                            <li>牵引车/1.7米/15辆/200/天</li>
-                                        </ul>
-                                        <ul class="clearfix">
-                                            <li>所需司机</li>
-                                            <li>:</li>
-                                            <li>A级/2名/200/天</li>
-                                        </ul>
-                                        <ul class="clearfix">
-                                            <li>联系电话</li>
-                                            <li>:</li>
-                                            <li>18583971519</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="rent_right pull-right">
-                                    <button class="btn-cancel">取消订单</button>
-                                    <div class="cancelOrder">修改订单</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class='itemBox'>
-                            <ul class='itemTitle clearfix'>
-                                <li>订单编号:</li>
-                                <li>515135413131</li>
-                            </ul>
-                            <div class='itemDetail clearfix'>
-                                <div class="rent_left pull-left">
-                                    <div class="rentTitle">
-                                        <ul class="clearfix">
-                                            <li>成都</li></li>
-                                            <li>武侯区</li>
-                                            <li>→</li>
-                                            <li>重庆</li>
-                                            <li>大坝</li>
-                                        </ul>
-                                    </div>
-                                    <div class="rentDes">
-                                        <ul class="clearfix">
-                                            <li>所需车辆</li>
-                                            <li>:</li>
-                                            <li>牵引车/1.7米/15辆/200/天</li>
-                                        </ul>
-                                        <ul class="clearfix">
-                                            <li>所需司机</li>
-                                            <li>:</li>
-                                            <li>A级/2名/200/天</li>
-                                        </ul>
-                                        <ul class="clearfix">
-                                            <li>联系电话</li>
-                                            <li>:</li>
-                                            <li>18583971519</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="rent_right pull-right">
-                                    <button class="btn-cancel">取消订单</button>
-                                    <div class="cancelOrder">修改订单</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class='itemBox'>
+                        <div class='itemBox dis_none'>
                             <ul class='itemTitle clearfix'>
                                 <li>订单编号:</li>
                                 <li>515135413131</li>
@@ -472,7 +287,7 @@
                 <div class='countContent pull-right'>
                     <div class='countBox'>
                         <div class='countTitle'>发布租赁</div>
-                        <div class='countNumber'> <span>1222</span></div>
+                        <div class='countNumber'><a href="./rentOrder.html"><img src="../../images/rentOrder.png" /></a></div>
                         <div class="countDes">找人/找车信息发布</div>
                     </div>
                 </div>

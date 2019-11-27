@@ -138,17 +138,11 @@ label{
 .formItem ul li:not(:first-child){
     margin-left: 35px;
 }
+.formItem .innerItem{
+    margin-top: 35px;
+}
 .formItem ul li:nth-child(2){
     margin-left: 0px;
-}
-.formItem .innerItem li{
-    margin-left: 35px;
-}
-.formItem .innerItem li:nth-child(2){
-    margin-left: 35px;
-}
-.formItem .innerItem li:first-child{
-    margin-left: 81px;
 }
 .formItem ul li label{
     margin-left: 6px;
@@ -205,7 +199,21 @@ label{
     line-height: 24px;
     background-color: #999999;
     border-radius: 6px;
-    border: solid 1px #999999;
     outline: none;
     color: #fff;
+    border: 0px;
+}
+.addressItem .layui-input{
+    height: 24px;
+    padding-left: 0px;
+}
+.addressItem .layui-form-item .layui-input-inline{
+    width: 120px;
+    border-radius: 4px;
+}
+footer{
+    margin-top: 0px!important;
+}
+.btn-code{
+    cursor: pointer;
 }

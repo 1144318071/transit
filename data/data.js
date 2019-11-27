@@ -23,103 +23,103 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "110100",
-                            ssqname: "市辖区",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "110101",
-                                        ssqname: "东城区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "110102",
-                                        ssqname: "西城区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "110103",
-                                        ssqname: "崇文区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "110104",
-                                        ssqname: "宣武区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "110105",
-                                        ssqname: "朝阳区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "110106",
-                                        ssqname: "丰台区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "110107",
-                                        ssqname: "石景山区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "110108",
-                                        ssqname: "海淀区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "110109",
-                                        ssqname: "门头沟区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "110111",
-                                        ssqname: "房山区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "110112",
-                                        ssqname: "通州区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "110113",
-                                        ssqname: "顺义区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "110114",
-                                        ssqname: "昌平区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "110115",
-                                        ssqname: "大兴区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "110116",
-                                        ssqname: "平谷区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "110117",
-                                        ssqname: "怀柔区",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "110100",
+                        ssqname: "市辖区",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "110101",
+                                ssqname: "东城区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "110102",
+                                    ssqname: "西城区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "110103",
+                                    ssqname: "崇文区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "110104",
+                                    ssqname: "宣武区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "110105",
+                                    ssqname: "朝阳区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "110106",
+                                    ssqname: "丰台区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "110107",
+                                    ssqname: "石景山区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "110108",
+                                    ssqname: "海淀区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "110109",
+                                    ssqname: "门头沟区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "110111",
+                                    ssqname: "房山区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "110112",
+                                    ssqname: "通州区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "110113",
+                                    ssqname: "顺义区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "110114",
+                                    ssqname: "昌平区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "110115",
+                                    ssqname: "大兴区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "110116",
+                                    ssqname: "平谷区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "110117",
+                                    ssqname: "怀柔区",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "110200",
                             ssqname: "市辖县",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "110228",
-                                        ssqname: "密云县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "110228",
+                                    ssqname: "密云县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "110229",
                                         ssqname: "延庆县",
@@ -137,98 +137,98 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "120100",
-                            ssqname: "市辖区",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "120101",
-                                        ssqname: "和平区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "120102",
-                                        ssqname: "河东区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "120103",
-                                        ssqname: "河西区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "120104",
-                                        ssqname: "南开区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "120105",
-                                        ssqname: "河北区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "120106",
-                                        ssqname: "红桥区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "120107",
-                                        ssqname: "塘沽区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "120108",
-                                        ssqname: "汉沽区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "120109",
-                                        ssqname: "大港区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "120110",
-                                        ssqname: "东丽区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "120111",
-                                        ssqname: "西青区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "120112",
-                                        ssqname: "津南区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "120113",
-                                        ssqname: "北辰区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "120114",
-                                        ssqname: "武清区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "120115",
-                                        ssqname: "宝坻区",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "120100",
+                        ssqname: "市辖区",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "120101",
+                                ssqname: "和平区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "120102",
+                                    ssqname: "河东区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "120103",
+                                    ssqname: "河西区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "120104",
+                                    ssqname: "南开区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "120105",
+                                    ssqname: "河北区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "120106",
+                                    ssqname: "红桥区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "120107",
+                                    ssqname: "塘沽区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "120108",
+                                    ssqname: "汉沽区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "120109",
+                                    ssqname: "大港区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "120110",
+                                    ssqname: "东丽区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "120111",
+                                    ssqname: "西青区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "120112",
+                                    ssqname: "津南区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "120113",
+                                    ssqname: "北辰区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "120114",
+                                    ssqname: "武清区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "120115",
+                                    ssqname: "宝坻区",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "120200",
                             ssqname: "市辖县",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "120221",
-                                        ssqname: "宁河县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "120221",
+                                    ssqname: "宁河县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "120223",
                                         ssqname: "静海县",
@@ -251,138 +251,138 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "130100",
-                            ssqname: "石家庄市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "130102",
-                                        ssqname: "长安区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130103",
-                                        ssqname: "桥东区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130104",
-                                        ssqname: "桥西区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130105",
-                                        ssqname: "新华区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130107",
-                                        ssqname: "井陉矿区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130108",
-                                        ssqname: "裕华区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130121",
-                                        ssqname: "井陉县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130123",
-                                        ssqname: "正定县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130124",
-                                        ssqname: "栾城县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130125",
-                                        ssqname: "行唐县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130126",
-                                        ssqname: "灵寿县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130127",
-                                        ssqname: "高邑县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130128",
-                                        ssqname: "深泽县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130129",
-                                        ssqname: "赞皇县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130130",
-                                        ssqname: "无极县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130131",
-                                        ssqname: "平山县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130132",
-                                        ssqname: "元氏县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130133",
-                                        ssqname: "赵县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130181",
-                                        ssqname: "辛集市",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130182",
-                                        ssqname: "藁城市",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130183",
-                                        ssqname: "晋州市",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130184",
-                                        ssqname: "新乐市",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "130185",
-                                        ssqname: "鹿泉市",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "130100",
+                        ssqname: "石家庄市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "130102",
+                                ssqname: "长安区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "130103",
+                                    ssqname: "桥东区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130104",
+                                    ssqname: "桥西区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130105",
+                                    ssqname: "新华区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130107",
+                                    ssqname: "井陉矿区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130108",
+                                    ssqname: "裕华区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130121",
+                                    ssqname: "井陉县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130123",
+                                    ssqname: "正定县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130124",
+                                    ssqname: "栾城县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130125",
+                                    ssqname: "行唐县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130126",
+                                    ssqname: "灵寿县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130127",
+                                    ssqname: "高邑县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130128",
+                                    ssqname: "深泽县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130129",
+                                    ssqname: "赞皇县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130130",
+                                    ssqname: "无极县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130131",
+                                    ssqname: "平山县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130132",
+                                    ssqname: "元氏县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130133",
+                                    ssqname: "赵县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130181",
+                                    ssqname: "辛集市",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130182",
+                                    ssqname: "藁城市",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130183",
+                                    ssqname: "晋州市",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130184",
+                                    ssqname: "新乐市",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130185",
+                                    ssqname: "鹿泉市",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "130200",
                             ssqname: "唐山市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "130202",
-                                        ssqname: "路南区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "130202",
+                                    ssqname: "路南区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "130203",
                                         ssqname: "路北区",
@@ -462,10 +462,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "130302",
-                                        ssqname: "海港区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "130302",
+                                    ssqname: "海港区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "130303",
                                         ssqname: "山海关区",
@@ -505,10 +505,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "130402",
-                                        ssqname: "邯山区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "130402",
+                                    ssqname: "邯山区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "130403",
                                         ssqname: "丛台区",
@@ -608,10 +608,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "130502",
-                                        ssqname: "桥东区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "130502",
+                                    ssqname: "桥东区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "130503",
                                         ssqname: "桥西区",
@@ -711,10 +711,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "130602",
-                                        ssqname: "新市区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "130602",
+                                    ssqname: "新市区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "130603",
                                         ssqname: "北市区",
@@ -844,10 +844,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "130702",
-                                        ssqname: "桥东区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "130702",
+                                    ssqname: "桥东区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "130703",
                                         ssqname: "桥西区",
@@ -937,10 +937,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "130802",
-                                        ssqname: "双桥区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "130802",
+                                    ssqname: "双桥区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "130803",
                                         ssqname: "双滦区",
@@ -1000,10 +1000,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "130902",
-                                        ssqname: "新华区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "130902",
+                                    ssqname: "新华区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "130903",
                                         ssqname: "运河区",
@@ -1088,10 +1088,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "131002",
-                                        ssqname: "安次区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "131002",
+                                    ssqname: "安次区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "131003",
                                         ssqname: "广阳区",
@@ -1146,10 +1146,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "131102",
-                                        ssqname: "桃城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "131102",
+                                    ssqname: "桃城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "131121",
                                         ssqname: "枣强县",
@@ -1212,73 +1212,73 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "140100",
-                            ssqname: "太原市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "140105",
-                                        ssqname: "小店区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "140106",
-                                        ssqname: "迎泽区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "140107",
-                                        ssqname: "杏花岭区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "140108",
-                                        ssqname: "尖草坪区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "140109",
-                                        ssqname: "万柏林区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "140110",
-                                        ssqname: "晋源区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "140121",
-                                        ssqname: "清徐县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "140122",
-                                        ssqname: "阳曲县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "140123",
-                                        ssqname: "娄烦县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "140181",
-                                        ssqname: "古交市",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "140100",
+                        ssqname: "太原市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "140105",
+                                ssqname: "小店区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "140106",
+                                    ssqname: "迎泽区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "140107",
+                                    ssqname: "杏花岭区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "140108",
+                                    ssqname: "尖草坪区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "140109",
+                                    ssqname: "万柏林区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "140110",
+                                    ssqname: "晋源区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "140121",
+                                    ssqname: "清徐县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "140122",
+                                    ssqname: "阳曲县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "140123",
+                                    ssqname: "娄烦县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "140181",
+                                    ssqname: "古交市",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "140200",
                             ssqname: "大同市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "140202",
-                                        ssqname: "城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "140202",
+                                    ssqname: "城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "140203",
                                         ssqname: "矿区",
@@ -1338,10 +1338,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "140302",
-                                        ssqname: "城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "140302",
+                                    ssqname: "城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "140303",
                                         ssqname: "矿区",
@@ -1371,10 +1371,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "140402",
-                                        ssqname: "城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "140402",
+                                    ssqname: "城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "140411",
                                         ssqname: "郊区",
@@ -1444,10 +1444,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "140502",
-                                        ssqname: "城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "140502",
+                                    ssqname: "城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "140521",
                                         ssqname: "沁水县",
@@ -1482,10 +1482,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "140602",
-                                        ssqname: "朔城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "140602",
+                                    ssqname: "朔城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "140603",
                                         ssqname: "平鲁区",
@@ -1520,10 +1520,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "140702",
-                                        ssqname: "榆次区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "140702",
+                                    ssqname: "榆次区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "140721",
                                         ssqname: "榆社县",
@@ -1583,10 +1583,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "140802",
-                                        ssqname: "盐湖区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "140802",
+                                    ssqname: "盐湖区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "140821",
                                         ssqname: "临猗县",
@@ -1656,10 +1656,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "140902",
-                                        ssqname: "忻府区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "140902",
+                                    ssqname: "忻府区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "140921",
                                         ssqname: "定襄县",
@@ -1734,10 +1734,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "141002",
-                                        ssqname: "尧都区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "141002",
+                                    ssqname: "尧都区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "141021",
                                         ssqname: "曲沃县",
@@ -1827,10 +1827,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "142301",
-                                        ssqname: "孝义市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "142301",
+                                    ssqname: "孝义市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "142302",
                                         ssqname: "离石市",
@@ -1899,72 +1899,72 @@ var Area = {
             },
             {
                 ssqid: "150000",
-                ssqname: "内蒙古",
+                ssqname: "内蒙古自治区",
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "150100",
-                            ssqname: "呼和浩特市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "150102",
-                                        ssqname: "新城区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "150103",
-                                        ssqname: "回民区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "150104",
-                                        ssqname: "玉泉区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "150105",
-                                        ssqname: "赛罕区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "150121",
-                                        ssqname: "土默特左旗",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "150122",
-                                        ssqname: "托克托县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "150123",
-                                        ssqname: "和林格尔县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "150124",
-                                        ssqname: "清水河县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "150125",
-                                        ssqname: "武川县",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "150100",
+                        ssqname: "呼和浩特市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "150102",
+                                ssqname: "新城区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "150103",
+                                    ssqname: "回民区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "150104",
+                                    ssqname: "玉泉区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "150105",
+                                    ssqname: "赛罕区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "150121",
+                                    ssqname: "土默特左旗",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "150122",
+                                    ssqname: "托克托县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "150123",
+                                    ssqname: "和林格尔县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "150124",
+                                    ssqname: "清水河县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "150125",
+                                    ssqname: "武川县",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "150200",
                             ssqname: "包头市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "150202",
-                                        ssqname: "东河区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "150202",
+                                    ssqname: "东河区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "150203",
                                         ssqname: "昆都仑区",
@@ -2014,10 +2014,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "150302",
-                                        ssqname: "海勃湾区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "150302",
+                                    ssqname: "海勃湾区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "150303",
                                         ssqname: "海南区",
@@ -2037,10 +2037,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "150402",
-                                        ssqname: "红山区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "150402",
+                                    ssqname: "红山区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "150403",
                                         ssqname: "元宝山区",
@@ -2105,10 +2105,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "150502",
-                                        ssqname: "科尔沁区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "150502",
+                                    ssqname: "科尔沁区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "150521",
                                         ssqname: "科尔沁左翼中旗",
@@ -2153,10 +2153,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "150602",
-                                        ssqname: "东胜区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "150602",
+                                    ssqname: "东胜区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "150621",
                                         ssqname: "达拉特旗",
@@ -2201,10 +2201,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "150702",
-                                        ssqname: "海拉尔区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "150702",
+                                    ssqname: "海拉尔区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "150721",
                                         ssqname: "阿荣旗",
@@ -2274,10 +2274,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "152201",
-                                        ssqname: "乌兰浩特市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "152201",
+                                    ssqname: "乌兰浩特市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "152202",
                                         ssqname: "阿尔山市",
@@ -2312,10 +2312,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "152501",
-                                        ssqname: "二连浩特市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "152501",
+                                    ssqname: "二连浩特市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "152502",
                                         ssqname: "锡林浩特市",
@@ -2380,10 +2380,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "152601",
-                                        ssqname: "集宁市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "152601",
+                                    ssqname: "集宁市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "152602",
                                         ssqname: "丰镇市",
@@ -2443,10 +2443,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "152801",
-                                        ssqname: "临河市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "152801",
+                                    ssqname: "临河市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "152822",
                                         ssqname: "五原县",
@@ -2486,10 +2486,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "152921",
-                                        ssqname: "阿拉善左旗",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "152921",
+                                    ssqname: "阿拉善左旗",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "152922",
                                         ssqname: "阿拉善右旗",
@@ -2512,88 +2512,88 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "210100",
-                            ssqname: "沈阳市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "210102",
-                                        ssqname: "和平区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "210103",
-                                        ssqname: "沈河区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "210104",
-                                        ssqname: "大东区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "210105",
-                                        ssqname: "皇姑区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "210106",
-                                        ssqname: "铁西区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "210111",
-                                        ssqname: "苏家屯区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "210112",
-                                        ssqname: "东陵区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "210113",
-                                        ssqname: "新城子区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "210114",
-                                        ssqname: "于洪区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "210122",
-                                        ssqname: "辽中县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "210123",
-                                        ssqname: "康平县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "210124",
-                                        ssqname: "法库县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "210181",
-                                        ssqname: "新民市",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "210100",
+                        ssqname: "沈阳市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "210102",
+                                ssqname: "和平区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "210103",
+                                    ssqname: "沈河区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "210104",
+                                    ssqname: "大东区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "210105",
+                                    ssqname: "皇姑区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "210106",
+                                    ssqname: "铁西区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "210111",
+                                    ssqname: "苏家屯区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "210112",
+                                    ssqname: "东陵区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "210113",
+                                    ssqname: "新城子区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "210114",
+                                    ssqname: "于洪区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "210122",
+                                    ssqname: "辽中县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "210123",
+                                    ssqname: "康平县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "210124",
+                                    ssqname: "法库县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "210181",
+                                    ssqname: "新民市",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "210200",
                             ssqname: "大连市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "210202",
-                                        ssqname: "中山区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "210202",
+                                    ssqname: "中山区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "210203",
                                         ssqname: "西岗区",
@@ -2648,10 +2648,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "210302",
-                                        ssqname: "铁东区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "210302",
+                                    ssqname: "铁东区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "210303",
                                         ssqname: "铁西区",
@@ -2691,10 +2691,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "210402",
-                                        ssqname: "新抚区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "210402",
+                                    ssqname: "新抚区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "210403",
                                         ssqname: "东洲区",
@@ -2734,10 +2734,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "210502",
-                                        ssqname: "平山区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "210502",
+                                    ssqname: "平山区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "210503",
                                         ssqname: "溪湖区",
@@ -2772,10 +2772,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "210602",
-                                        ssqname: "元宝区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "210602",
+                                    ssqname: "元宝区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "210603",
                                         ssqname: "振兴区",
@@ -2810,10 +2810,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "210702",
-                                        ssqname: "古塔区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "210702",
+                                    ssqname: "古塔区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "210703",
                                         ssqname: "凌河区",
@@ -2853,10 +2853,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "210802",
-                                        ssqname: "站前区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "210802",
+                                    ssqname: "站前区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "210803",
                                         ssqname: "西市区",
@@ -2891,10 +2891,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "210902",
-                                        ssqname: "海州区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "210902",
+                                    ssqname: "海州区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "210903",
                                         ssqname: "新邱区",
@@ -2934,10 +2934,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "211002",
-                                        ssqname: "白塔区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "211002",
+                                    ssqname: "白塔区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "211003",
                                         ssqname: "文圣区",
@@ -2977,10 +2977,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "211102",
-                                        ssqname: "双台子区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "211102",
+                                    ssqname: "双台子区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "211103",
                                         ssqname: "兴隆台区",
@@ -3005,10 +3005,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "211202",
-                                        ssqname: "银州区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "211202",
+                                    ssqname: "银州区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "211204",
                                         ssqname: "清河区",
@@ -3048,10 +3048,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "211302",
-                                        ssqname: "双塔区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "211302",
+                                    ssqname: "双塔区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "211303",
                                         ssqname: "龙城区",
@@ -3091,10 +3091,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "211402",
-                                        ssqname: "连山区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "211402",
+                                    ssqname: "连山区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "211403",
                                         ssqname: "龙港区",
@@ -3132,73 +3132,73 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "220100",
-                            ssqname: "长春市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "220102",
-                                        ssqname: "南关区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "220103",
-                                        ssqname: "宽城区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "220104",
-                                        ssqname: "朝阳区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "220105",
-                                        ssqname: "二道区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "220106",
-                                        ssqname: "绿园区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "220112",
-                                        ssqname: "双阳区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "220122",
-                                        ssqname: "农安县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "220181",
-                                        ssqname: "九台市",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "220182",
-                                        ssqname: "榆树市",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "220183",
-                                        ssqname: "德惠市",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "220100",
+                        ssqname: "长春市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "220102",
+                                ssqname: "南关区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "220103",
+                                    ssqname: "宽城区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "220104",
+                                    ssqname: "朝阳区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "220105",
+                                    ssqname: "二道区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "220106",
+                                    ssqname: "绿园区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "220112",
+                                    ssqname: "双阳区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "220122",
+                                    ssqname: "农安县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "220181",
+                                    ssqname: "九台市",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "220182",
+                                    ssqname: "榆树市",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "220183",
+                                    ssqname: "德惠市",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "220200",
                             ssqname: "吉林市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "220202",
-                                        ssqname: "昌邑区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "220202",
+                                    ssqname: "昌邑区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "220203",
                                         ssqname: "龙潭区",
@@ -3248,10 +3248,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "220302",
-                                        ssqname: "铁西区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "220302",
+                                    ssqname: "铁西区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "220303",
                                         ssqname: "铁东区",
@@ -3286,10 +3286,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "220402",
-                                        ssqname: "龙山区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "220402",
+                                    ssqname: "龙山区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "220403",
                                         ssqname: "西安区",
@@ -3314,10 +3314,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "220502",
-                                        ssqname: "东昌区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "220502",
+                                    ssqname: "东昌区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "220503",
                                         ssqname: "二道江区",
@@ -3357,10 +3357,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "220602",
-                                        ssqname: "八道江区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "220602",
+                                    ssqname: "八道江区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "220621",
                                         ssqname: "抚松县",
@@ -3395,10 +3395,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "220702",
-                                        ssqname: "宁江区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "220702",
+                                    ssqname: "宁江区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "220721",
                                         ssqname: "前郭尔罗斯蒙古族自治县",
@@ -3428,10 +3428,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "220802",
-                                        ssqname: "洮北区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "220802",
+                                    ssqname: "洮北区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "220821",
                                         ssqname: "镇赉县",
@@ -3461,10 +3461,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "222401",
-                                        ssqname: "延吉市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "222401",
+                                    ssqname: "延吉市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "222402",
                                         ssqname: "图们市",
@@ -3512,118 +3512,118 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "230100",
-                            ssqname: "哈尔滨市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "230102",
-                                        ssqname: "道里区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "230103",
-                                        ssqname: "南岗区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "230104",
-                                        ssqname: "道外区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "230105",
-                                        ssqname: "太平区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "230106",
-                                        ssqname: "香坊区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "230107",
-                                        ssqname: "动力区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "230108",
-                                        ssqname: "平房区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "230121",
-                                        ssqname: "呼兰县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "230123",
-                                        ssqname: "依兰县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "230124",
-                                        ssqname: "方正县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "230125",
-                                        ssqname: "宾县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "230126",
-                                        ssqname: "巴彦县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "230127",
-                                        ssqname: "木兰县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "230128",
-                                        ssqname: "通河县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "230129",
-                                        ssqname: "延寿县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "230181",
-                                        ssqname: "阿城市",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "230182",
-                                        ssqname: "双城市",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "230183",
-                                        ssqname: "尚志市",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "230184",
-                                        ssqname: "五常市",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "230100",
+                        ssqname: "哈尔滨市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "230102",
+                                ssqname: "道里区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "230103",
+                                    ssqname: "南岗区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "230104",
+                                    ssqname: "道外区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "230105",
+                                    ssqname: "太平区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "230106",
+                                    ssqname: "香坊区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "230107",
+                                    ssqname: "动力区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "230108",
+                                    ssqname: "平房区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "230121",
+                                    ssqname: "呼兰县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "230123",
+                                    ssqname: "依兰县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "230124",
+                                    ssqname: "方正县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "230125",
+                                    ssqname: "宾县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "230126",
+                                    ssqname: "巴彦县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "230127",
+                                    ssqname: "木兰县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "230128",
+                                    ssqname: "通河县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "230129",
+                                    ssqname: "延寿县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "230181",
+                                    ssqname: "阿城市",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "230182",
+                                    ssqname: "双城市",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "230183",
+                                    ssqname: "尚志市",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "230184",
+                                    ssqname: "五常市",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "230200",
                             ssqname: "齐齐哈尔市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "230202",
-                                        ssqname: "龙沙区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "230202",
+                                    ssqname: "龙沙区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "230203",
                                         ssqname: "建华区",
@@ -3708,10 +3708,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "230302",
-                                        ssqname: "鸡冠区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "230302",
+                                    ssqname: "鸡冠区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "230303",
                                         ssqname: "恒山区",
@@ -3761,10 +3761,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "230402",
-                                        ssqname: "向阳区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "230402",
+                                    ssqname: "向阳区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "230403",
                                         ssqname: "工农区",
@@ -3809,10 +3809,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "230502",
-                                        ssqname: "尖山区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "230502",
+                                    ssqname: "尖山区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "230503",
                                         ssqname: "岭东区",
@@ -3857,10 +3857,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "230602",
-                                        ssqname: "萨尔图区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "230602",
+                                    ssqname: "萨尔图区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "230603",
                                         ssqname: "龙凤区",
@@ -3910,10 +3910,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "230702",
-                                        ssqname: "伊春区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "230702",
+                                    ssqname: "伊春区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "230703",
                                         ssqname: "南岔区",
@@ -4003,10 +4003,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "230802",
-                                        ssqname: "永红区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "230802",
+                                    ssqname: "永红区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "230803",
                                         ssqname: "向阳区",
@@ -4066,10 +4066,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "230902",
-                                        ssqname: "新兴区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "230902",
+                                    ssqname: "新兴区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "230903",
                                         ssqname: "桃山区",
@@ -4094,10 +4094,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "231002",
-                                        ssqname: "东安区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "231002",
+                                    ssqname: "东安区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "231003",
                                         ssqname: "阳明区",
@@ -4152,10 +4152,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "231102",
-                                        ssqname: "爱辉区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "231102",
+                                    ssqname: "爱辉区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "231121",
                                         ssqname: "嫩江县",
@@ -4190,10 +4190,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "231202",
-                                        ssqname: "北林区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "231202",
+                                    ssqname: "北林区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "231221",
                                         ssqname: "望奎县",
@@ -4248,10 +4248,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "232721",
-                                        ssqname: "呼玛县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "232721",
+                                    ssqname: "呼玛县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "232722",
                                         ssqname: "塔河县",
@@ -4274,103 +4274,103 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "310100",
-                            ssqname: "市辖区",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "310101",
-                                        ssqname: "黄浦区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "310103",
-                                        ssqname: "卢湾区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "310104",
-                                        ssqname: "徐汇区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "310105",
-                                        ssqname: "长宁区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "310106",
-                                        ssqname: "静安区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "310107",
-                                        ssqname: "普陀区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "310108",
-                                        ssqname: "闸北区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "310109",
-                                        ssqname: "虹口区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "310110",
-                                        ssqname: "杨浦区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "310112",
-                                        ssqname: "闵行区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "310113",
-                                        ssqname: "宝山区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "310114",
-                                        ssqname: "嘉定区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "310115",
-                                        ssqname: "浦东新区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "310116",
-                                        ssqname: "金山区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "310117",
-                                        ssqname: "松江区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "310118",
-                                        ssqname: "青浦区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "310119",
-                                        ssqname: "南汇区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "310120",
-                                        ssqname: "奉贤区",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "310100",
+                        ssqname: "市辖区",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "310101",
+                                ssqname: "黄浦区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "310103",
+                                    ssqname: "卢湾区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "310104",
+                                    ssqname: "徐汇区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "310105",
+                                    ssqname: "长宁区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "310106",
+                                    ssqname: "静安区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "310107",
+                                    ssqname: "普陀区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "310108",
+                                    ssqname: "闸北区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "310109",
+                                    ssqname: "虹口区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "310110",
+                                    ssqname: "杨浦区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "310112",
+                                    ssqname: "闵行区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "310113",
+                                    ssqname: "宝山区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "310114",
+                                    ssqname: "嘉定区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "310115",
+                                    ssqname: "浦东新区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "310116",
+                                    ssqname: "金山区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "310117",
+                                    ssqname: "松江区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "310118",
+                                    ssqname: "青浦区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "310119",
+                                    ssqname: "南汇区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "310120",
+                                    ssqname: "奉贤区",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "310200",
                             ssqname: "市辖县",
@@ -4392,98 +4392,98 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "320100",
-                            ssqname: "南京市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "320102",
-                                        ssqname: "玄武区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "320103",
-                                        ssqname: "白下区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "320104",
-                                        ssqname: "秦淮区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "320105",
-                                        ssqname: "建邺区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "320106",
-                                        ssqname: "鼓楼区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "320107",
-                                        ssqname: "下关区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "320111",
-                                        ssqname: "浦口区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "320112",
-                                        ssqname: "大厂区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "320113",
-                                        ssqname: "栖霞区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "320114",
-                                        ssqname: "雨花台区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "320115",
-                                        ssqname: "江宁区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "320122",
-                                        ssqname: "江浦县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "320123",
-                                        ssqname: "六合县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "320124",
-                                        ssqname: "溧水县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "320125",
-                                        ssqname: "高淳县",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "320100",
+                        ssqname: "南京市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "320102",
+                                ssqname: "玄武区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "320103",
+                                    ssqname: "白下区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "320104",
+                                    ssqname: "秦淮区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "320105",
+                                    ssqname: "建邺区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "320106",
+                                    ssqname: "鼓楼区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "320107",
+                                    ssqname: "下关区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "320111",
+                                    ssqname: "浦口区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "320112",
+                                    ssqname: "大厂区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "320113",
+                                    ssqname: "栖霞区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "320114",
+                                    ssqname: "雨花台区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "320115",
+                                    ssqname: "江宁区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "320122",
+                                    ssqname: "江浦县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "320123",
+                                    ssqname: "六合县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "320124",
+                                    ssqname: "溧水县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "320125",
+                                    ssqname: "高淳县",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "320200",
                             ssqname: "无锡市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "320202",
-                                        ssqname: "崇安区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "320202",
+                                    ssqname: "崇安区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "320203",
                                         ssqname: "南长区",
@@ -4528,10 +4528,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "320302",
-                                        ssqname: "鼓楼区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "320302",
+                                    ssqname: "鼓楼区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "320303",
                                         ssqname: "云龙区",
@@ -4591,10 +4591,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "320402",
-                                        ssqname: "天宁区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "320402",
+                                    ssqname: "天宁区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "320404",
                                         ssqname: "钟楼区",
@@ -4634,10 +4634,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "320502",
-                                        ssqname: "沧浪区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "320502",
+                                    ssqname: "沧浪区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "320503",
                                         ssqname: "平江区",
@@ -4697,10 +4697,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "320602",
-                                        ssqname: "崇川区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "320602",
+                                    ssqname: "崇川区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "320611",
                                         ssqname: "港闸区",
@@ -4745,10 +4745,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "320703",
-                                        ssqname: "连云区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "320703",
+                                    ssqname: "连云区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "320705",
                                         ssqname: "新浦区",
@@ -4788,10 +4788,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "320802",
-                                        ssqname: "清河区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "320802",
+                                    ssqname: "清河区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "320803",
                                         ssqname: "楚州区",
@@ -4836,10 +4836,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "320902",
-                                        ssqname: "城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "320902",
+                                    ssqname: "城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "320921",
                                         ssqname: "响水县",
@@ -4889,10 +4889,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "321002",
-                                        ssqname: "广陵区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "321002",
+                                    ssqname: "广陵区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "321003",
                                         ssqname: "邗江区",
@@ -4932,10 +4932,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "321102",
-                                        ssqname: "京口区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "321102",
+                                    ssqname: "京口区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "321111",
                                         ssqname: "润州区",
@@ -4970,10 +4970,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "321202",
-                                        ssqname: "海陵区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "321202",
+                                    ssqname: "海陵区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "321203",
                                         ssqname: "高港区",
@@ -5008,10 +5008,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "321302",
-                                        ssqname: "宿城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "321302",
+                                    ssqname: "宿城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "321321",
                                         ssqname: "宿豫县",
@@ -5044,88 +5044,88 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "330100",
-                            ssqname: "杭州市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "330102",
-                                        ssqname: "上城区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "330103",
-                                        ssqname: "下城区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "330104",
-                                        ssqname: "江干区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "330105",
-                                        ssqname: "拱墅区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "330106",
-                                        ssqname: "西湖区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "330108",
-                                        ssqname: "滨江区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "330109",
-                                        ssqname: "萧山区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "330110",
-                                        ssqname: "余杭区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "330122",
-                                        ssqname: "桐庐县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "330127",
-                                        ssqname: "淳安县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "330182",
-                                        ssqname: "建德市",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "330183",
-                                        ssqname: "富阳市",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "330185",
-                                        ssqname: "临安市",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "330100",
+                        ssqname: "杭州市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "330102",
+                                ssqname: "上城区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "330103",
+                                    ssqname: "下城区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "330104",
+                                    ssqname: "江干区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "330105",
+                                    ssqname: "拱墅区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "330106",
+                                    ssqname: "西湖区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "330108",
+                                    ssqname: "滨江区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "330109",
+                                    ssqname: "萧山区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "330110",
+                                    ssqname: "余杭区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "330122",
+                                    ssqname: "桐庐县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "330127",
+                                    ssqname: "淳安县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "330182",
+                                    ssqname: "建德市",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "330183",
+                                    ssqname: "富阳市",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "330185",
+                                    ssqname: "临安市",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "330200",
                             ssqname: "宁波市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "330203",
-                                        ssqname: "海曙区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "330203",
+                                    ssqname: "海曙区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "330204",
                                         ssqname: "江东区",
@@ -5185,10 +5185,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "330302",
-                                        ssqname: "鹿城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "330302",
+                                    ssqname: "鹿城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "330303",
                                         ssqname: "龙湾区",
@@ -5248,10 +5248,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "330402",
-                                        ssqname: "秀城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "330402",
+                                    ssqname: "秀城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "330411",
                                         ssqname: "秀洲区",
@@ -5291,10 +5291,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "330521",
-                                        ssqname: "德清县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "330521",
+                                    ssqname: "德清县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "330522",
                                         ssqname: "长兴县",
@@ -5314,10 +5314,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "330602",
-                                        ssqname: "越城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "330602",
+                                    ssqname: "越城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "330621",
                                         ssqname: "绍兴县",
@@ -5352,10 +5352,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "330702",
-                                        ssqname: "婺城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "330702",
+                                    ssqname: "婺城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "330703",
                                         ssqname: "金东区",
@@ -5405,10 +5405,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "330802",
-                                        ssqname: "柯城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "330802",
+                                    ssqname: "柯城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "330803",
                                         ssqname: "衢江区",
@@ -5443,10 +5443,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "330902",
-                                        ssqname: "定海区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "330902",
+                                    ssqname: "定海区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "330903",
                                         ssqname: "普陀区",
@@ -5471,10 +5471,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "331002",
-                                        ssqname: "椒江区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "331002",
+                                    ssqname: "椒江区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "331003",
                                         ssqname: "黄岩区",
@@ -5524,10 +5524,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "331102",
-                                        ssqname: "莲都区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "331102",
+                                    ssqname: "莲都区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "331121",
                                         ssqname: "青田县",
@@ -5580,58 +5580,58 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "340100",
-                            ssqname: "合肥市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "340102",
-                                        ssqname: "东市区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "340103",
-                                        ssqname: "中市区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "340104",
-                                        ssqname: "西市区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "340111",
-                                        ssqname: "郊区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "340121",
-                                        ssqname: "长丰县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "340122",
-                                        ssqname: "肥东县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "340123",
-                                        ssqname: "肥西县",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "340100",
+                        ssqname: "合肥市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "340102",
+                                ssqname: "东市区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "340103",
+                                    ssqname: "中市区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "340104",
+                                    ssqname: "西市区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "340111",
+                                    ssqname: "郊区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "340121",
+                                    ssqname: "长丰县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "340122",
+                                    ssqname: "肥东县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "340123",
+                                    ssqname: "肥西县",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "340200",
                             ssqname: "芜湖市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "340202",
-                                        ssqname: "镜湖区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "340202",
+                                    ssqname: "镜湖区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "340203",
                                         ssqname: "马塘区",
@@ -5671,10 +5671,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "340302",
-                                        ssqname: "东市区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "340302",
+                                    ssqname: "东市区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "340303",
                                         ssqname: "中市区",
@@ -5714,10 +5714,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "340402",
-                                        ssqname: "大通区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "340402",
+                                    ssqname: "大通区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "340403",
                                         ssqname: "田家庵区",
@@ -5752,10 +5752,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "340502",
-                                        ssqname: "金家庄区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "340502",
+                                    ssqname: "金家庄区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "340503",
                                         ssqname: "花山区",
@@ -5780,10 +5780,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "340602",
-                                        ssqname: "杜集区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "340602",
+                                    ssqname: "杜集区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "340603",
                                         ssqname: "相山区",
@@ -5808,10 +5808,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "340702",
-                                        ssqname: "铜官山区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "340702",
+                                    ssqname: "铜官山区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "340703",
                                         ssqname: "狮子山区",
@@ -5836,10 +5836,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "340802",
-                                        ssqname: "迎江区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "340802",
+                                    ssqname: "迎江区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "340803",
                                         ssqname: "大观区",
@@ -5899,10 +5899,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "341002",
-                                        ssqname: "屯溪区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "341002",
+                                    ssqname: "屯溪区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "341003",
                                         ssqname: "黄山区",
@@ -5942,10 +5942,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "341102",
-                                        ssqname: "琅琊区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "341102",
+                                    ssqname: "琅琊区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "341103",
                                         ssqname: "南谯区",
@@ -5990,10 +5990,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "341202",
-                                        ssqname: "颍州区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "341202",
+                                    ssqname: "颍州区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "341203",
                                         ssqname: "颍东区",
@@ -6038,10 +6038,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "341302",
-                                        ssqname: "墉桥区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "341302",
+                                    ssqname: "墉桥区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "341321",
                                         ssqname: "砀山县",
@@ -6071,10 +6071,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "341402",
-                                        ssqname: "居巢区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "341402",
+                                    ssqname: "居巢区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "341421",
                                         ssqname: "庐江县",
@@ -6104,10 +6104,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "341502",
-                                        ssqname: "金安区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "341502",
+                                    ssqname: "金安区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "341503",
                                         ssqname: "裕安区",
@@ -6147,10 +6147,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "341602",
-                                        ssqname: "谯城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "341602",
+                                    ssqname: "谯城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "341621",
                                         ssqname: "涡阳县",
@@ -6175,10 +6175,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "341702",
-                                        ssqname: "贵池区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "341702",
+                                    ssqname: "贵池区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "341721",
                                         ssqname: "东至县",
@@ -6203,10 +6203,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "341802",
-                                        ssqname: "宣州区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "341802",
+                                    ssqname: "宣州区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "341821",
                                         ssqname: "郎溪县",
@@ -6249,88 +6249,88 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "350100",
-                            ssqname: "福州市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "350102",
-                                        ssqname: "鼓楼区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "350103",
-                                        ssqname: "台江区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "350104",
-                                        ssqname: "仓山区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "350105",
-                                        ssqname: "马尾区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "350111",
-                                        ssqname: "晋安区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "350121",
-                                        ssqname: "闽侯县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "350122",
-                                        ssqname: "连江县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "350123",
-                                        ssqname: "罗源县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "350124",
-                                        ssqname: "闽清县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "350125",
-                                        ssqname: "永泰县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "350128",
-                                        ssqname: "平潭县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "350181",
-                                        ssqname: "福清市",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "350182",
-                                        ssqname: "长乐市",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "350100",
+                        ssqname: "福州市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "350102",
+                                ssqname: "鼓楼区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "350103",
+                                    ssqname: "台江区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "350104",
+                                    ssqname: "仓山区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "350105",
+                                    ssqname: "马尾区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "350111",
+                                    ssqname: "晋安区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "350121",
+                                    ssqname: "闽侯县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "350122",
+                                    ssqname: "连江县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "350123",
+                                    ssqname: "罗源县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "350124",
+                                    ssqname: "闽清县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "350125",
+                                    ssqname: "永泰县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "350128",
+                                    ssqname: "平潭县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "350181",
+                                    ssqname: "福清市",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "350182",
+                                    ssqname: "长乐市",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "350200",
                             ssqname: "厦门市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "350202",
-                                        ssqname: "鼓浪屿区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "350202",
+                                    ssqname: "鼓浪屿区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "350203",
                                         ssqname: "思明区",
@@ -6370,10 +6370,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "350302",
-                                        ssqname: "城厢区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "350302",
+                                    ssqname: "城厢区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "350303",
                                         ssqname: "涵江区",
@@ -6398,10 +6398,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "350402",
-                                        ssqname: "梅列区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "350402",
+                                    ssqname: "梅列区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "350403",
                                         ssqname: "三元区",
@@ -6466,10 +6466,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "350502",
-                                        ssqname: "鲤城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "350502",
+                                    ssqname: "鲤城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "350503",
                                         ssqname: "丰泽区",
@@ -6534,10 +6534,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "350602",
-                                        ssqname: "芗城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "350602",
+                                    ssqname: "芗城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "350603",
                                         ssqname: "龙文区",
@@ -6597,10 +6597,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "350702",
-                                        ssqname: "延平区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "350702",
+                                    ssqname: "延平区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "350721",
                                         ssqname: "顺昌县",
@@ -6655,10 +6655,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "350802",
-                                        ssqname: "新罗区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "350802",
+                                    ssqname: "新罗区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "350821",
                                         ssqname: "长汀县",
@@ -6698,10 +6698,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "350902",
-                                        ssqname: "蕉城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "350902",
+                                    ssqname: "蕉城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "350921",
                                         ssqname: "霞浦县",
@@ -6754,68 +6754,68 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "360100",
-                            ssqname: "南昌市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "360102",
-                                        ssqname: "东湖区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "360103",
-                                        ssqname: "西湖区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "360104",
-                                        ssqname: "青云谱区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "360105",
-                                        ssqname: "湾里区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "360111",
-                                        ssqname: "郊区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "360121",
-                                        ssqname: "南昌县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "360122",
-                                        ssqname: "新建县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "360123",
-                                        ssqname: "安义县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "360124",
-                                        ssqname: "进贤县",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "360100",
+                        ssqname: "南昌市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "360102",
+                                ssqname: "东湖区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "360103",
+                                    ssqname: "西湖区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "360104",
+                                    ssqname: "青云谱区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "360105",
+                                    ssqname: "湾里区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "360111",
+                                    ssqname: "郊区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "360121",
+                                    ssqname: "南昌县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "360122",
+                                    ssqname: "新建县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "360123",
+                                    ssqname: "安义县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "360124",
+                                    ssqname: "进贤县",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "360200",
                             ssqname: "景德镇市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "360202",
-                                        ssqname: "昌江区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "360202",
+                                    ssqname: "昌江区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "360203",
                                         ssqname: "珠山区",
@@ -6840,10 +6840,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "360302",
-                                        ssqname: "安源区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "360302",
+                                    ssqname: "安源区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "360313",
                                         ssqname: "湘东区",
@@ -6873,10 +6873,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "360402",
-                                        ssqname: "庐山区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "360402",
+                                    ssqname: "庐山区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "360403",
                                         ssqname: "浔阳区",
@@ -6941,10 +6941,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "360502",
-                                        ssqname: "渝水区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "360502",
+                                    ssqname: "渝水区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "360521",
                                         ssqname: "分宜县",
@@ -6959,10 +6959,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "360602",
-                                        ssqname: "月湖区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "360602",
+                                    ssqname: "月湖区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "360622",
                                         ssqname: "余江县",
@@ -6982,10 +6982,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "360702",
-                                        ssqname: "章贡区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "360702",
+                                    ssqname: "章贡区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "360721",
                                         ssqname: "赣县",
@@ -7080,10 +7080,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "360802",
-                                        ssqname: "吉州区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "360802",
+                                    ssqname: "吉州区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "360803",
                                         ssqname: "青原区",
@@ -7153,10 +7153,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "360902",
-                                        ssqname: "袁州区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "360902",
+                                    ssqname: "袁州区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "360921",
                                         ssqname: "奉新县",
@@ -7211,10 +7211,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "361002",
-                                        ssqname: "临川区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "361002",
+                                    ssqname: "临川区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "361021",
                                         ssqname: "南城县",
@@ -7274,10 +7274,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "361102",
-                                        ssqname: "信州区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "361102",
+                                    ssqname: "信州区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "361121",
                                         ssqname: "上饶县",
@@ -7345,73 +7345,73 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "370100",
-                            ssqname: "济南市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "370102",
-                                        ssqname: "历下区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "370103",
-                                        ssqname: "市中区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "370104",
-                                        ssqname: "槐荫区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "370105",
-                                        ssqname: "天桥区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "370112",
-                                        ssqname: "历城区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "370113",
-                                        ssqname: "长清区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "370124",
-                                        ssqname: "平阴县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "370125",
-                                        ssqname: "济阳县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "370126",
-                                        ssqname: "商河县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "370181",
-                                        ssqname: "章丘市",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "370100",
+                        ssqname: "济南市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "370102",
+                                ssqname: "历下区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "370103",
+                                    ssqname: "市中区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "370104",
+                                    ssqname: "槐荫区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "370105",
+                                    ssqname: "天桥区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "370112",
+                                    ssqname: "历城区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "370113",
+                                    ssqname: "长清区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "370124",
+                                    ssqname: "平阴县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "370125",
+                                    ssqname: "济阳县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "370126",
+                                    ssqname: "商河县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "370181",
+                                    ssqname: "章丘市",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "370200",
                             ssqname: "青岛市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "370202",
-                                        ssqname: "市南区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "370202",
+                                    ssqname: "市南区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "370203",
                                         ssqname: "市北区",
@@ -7476,10 +7476,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "370302",
-                                        ssqname: "淄川区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "370302",
+                                    ssqname: "淄川区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "370303",
                                         ssqname: "张店区",
@@ -7524,10 +7524,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "370402",
-                                        ssqname: "市中区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "370402",
+                                    ssqname: "市中区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "370403",
                                         ssqname: "薛城区",
@@ -7562,10 +7562,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "370502",
-                                        ssqname: "东营区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "370502",
+                                    ssqname: "东营区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "370503",
                                         ssqname: "河口区",
@@ -7595,10 +7595,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "370602",
-                                        ssqname: "芝罘区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "370602",
+                                    ssqname: "芝罘区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "370611",
                                         ssqname: "福山区",
@@ -7663,10 +7663,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "370702",
-                                        ssqname: "潍城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "370702",
+                                    ssqname: "潍城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "370703",
                                         ssqname: "寒亭区",
@@ -7731,10 +7731,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "370802",
-                                        ssqname: "市中区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "370802",
+                                    ssqname: "市中区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "370811",
                                         ssqname: "任城区",
@@ -7799,10 +7799,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "370902",
-                                        ssqname: "泰山区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "370902",
+                                    ssqname: "泰山区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "370903",
                                         ssqname: "岱岳区",
@@ -7837,10 +7837,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "371002",
-                                        ssqname: "环翠区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "371002",
+                                    ssqname: "环翠区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "371081",
                                         ssqname: "文登市",
@@ -7865,10 +7865,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "371102",
-                                        ssqname: "东港区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "371102",
+                                    ssqname: "东港区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "371121",
                                         ssqname: "五莲县",
@@ -7888,10 +7888,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "371202",
-                                        ssqname: "莱城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "371202",
+                                    ssqname: "莱城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "371203",
                                         ssqname: "钢城区",
@@ -7906,10 +7906,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "371302",
-                                        ssqname: "兰山区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "371302",
+                                    ssqname: "兰山区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "371311",
                                         ssqname: "罗庄区",
@@ -7974,10 +7974,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "371402",
-                                        ssqname: "德城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "371402",
+                                    ssqname: "德城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "371421",
                                         ssqname: "陵县",
@@ -8037,10 +8037,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "371502",
-                                        ssqname: "东昌府区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "371502",
+                                    ssqname: "东昌府区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "371521",
                                         ssqname: "阳谷县",
@@ -8085,10 +8085,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "371602",
-                                        ssqname: "滨城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "371602",
+                                    ssqname: "滨城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "371621",
                                         ssqname: "惠民县",
@@ -8128,10 +8128,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "371702",
-                                        ssqname: "牡丹区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "371702",
+                                    ssqname: "牡丹区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "371721",
                                         ssqname: "曹县",
@@ -8184,83 +8184,83 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "410100",
-                            ssqname: "郑州市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "410102",
-                                        ssqname: "中原区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "410103",
-                                        ssqname: "二七区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "410104",
-                                        ssqname: "管城回族区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "410105",
-                                        ssqname: "金水区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "410106",
-                                        ssqname: "上街区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "410108",
-                                        ssqname: "邙山区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "410122",
-                                        ssqname: "中牟县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "410181",
-                                        ssqname: "巩义市",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "410182",
-                                        ssqname: "荥阳市",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "410183",
-                                        ssqname: "新密市",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "410184",
-                                        ssqname: "新郑市",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "410185",
-                                        ssqname: "登封市",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "410100",
+                        ssqname: "郑州市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "410102",
+                                ssqname: "中原区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "410103",
+                                    ssqname: "二七区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "410104",
+                                    ssqname: "管城回族区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "410105",
+                                    ssqname: "金水区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "410106",
+                                    ssqname: "上街区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "410108",
+                                    ssqname: "邙山区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "410122",
+                                    ssqname: "中牟县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "410181",
+                                    ssqname: "巩义市",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "410182",
+                                    ssqname: "荥阳市",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "410183",
+                                    ssqname: "新密市",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "410184",
+                                    ssqname: "新郑市",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "410185",
+                                    ssqname: "登封市",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "410200",
                             ssqname: "开封市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "410202",
-                                        ssqname: "龙亭区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "410202",
+                                    ssqname: "龙亭区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "410203",
                                         ssqname: "顺河回族区",
@@ -8315,10 +8315,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "410302",
-                                        ssqname: "老城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "410302",
+                                    ssqname: "老城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "410303",
                                         ssqname: "西工区",
@@ -8398,10 +8398,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "410402",
-                                        ssqname: "新华区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "410402",
+                                    ssqname: "新华区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "410403",
                                         ssqname: "卫东区",
@@ -8456,10 +8456,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "410502",
-                                        ssqname: "文峰区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "410502",
+                                    ssqname: "文峰区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "410503",
                                         ssqname: "北关区",
@@ -8509,10 +8509,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "410602",
-                                        ssqname: "鹤山区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "410602",
+                                    ssqname: "鹤山区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "410603",
                                         ssqname: "山城区",
@@ -8542,10 +8542,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "410702",
-                                        ssqname: "红旗区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "410702",
+                                    ssqname: "红旗区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "410703",
                                         ssqname: "新华区",
@@ -8610,10 +8610,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "410802",
-                                        ssqname: "解放区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "410802",
+                                    ssqname: "解放区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "410803",
                                         ssqname: "中站区",
@@ -8673,10 +8673,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "410902",
-                                        ssqname: "市区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "410902",
+                                    ssqname: "市区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "410922",
                                         ssqname: "清丰县",
@@ -8711,10 +8711,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "411002",
-                                        ssqname: "魏都区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "411002",
+                                    ssqname: "魏都区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "411023",
                                         ssqname: "许昌县",
@@ -8749,10 +8749,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "411102",
-                                        ssqname: "源汇区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "411102",
+                                    ssqname: "源汇区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "411121",
                                         ssqname: "舞阳县",
@@ -8777,10 +8777,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "411202",
-                                        ssqname: "湖滨区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "411202",
+                                    ssqname: "湖滨区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "411221",
                                         ssqname: "渑池县",
@@ -8815,10 +8815,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "411302",
-                                        ssqname: "宛城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "411302",
+                                    ssqname: "宛城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "411303",
                                         ssqname: "卧龙区",
@@ -8888,10 +8888,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "411402",
-                                        ssqname: "梁园区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "411402",
+                                    ssqname: "梁园区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "411403",
                                         ssqname: "睢阳区",
@@ -8941,10 +8941,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "411502",
-                                        ssqname: "师河区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "411502",
+                                    ssqname: "师河区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "411503",
                                         ssqname: "平桥区",
@@ -8999,10 +8999,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "411602",
-                                        ssqname: "川汇区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "411602",
+                                    ssqname: "川汇区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "411621",
                                         ssqname: "扶沟县",
@@ -9057,10 +9057,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "411702",
-                                        ssqname: "驿城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "411702",
+                                    ssqname: "驿城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "411721",
                                         ssqname: "西平县",
@@ -9118,88 +9118,88 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "420100",
-                            ssqname: "武汉市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "420102",
-                                        ssqname: "江岸区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "420103",
-                                        ssqname: "江汉区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "420104",
-                                        ssqname: "乔口区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "420105",
-                                        ssqname: "汉阳区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "420106",
-                                        ssqname: "武昌区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "420107",
-                                        ssqname: "青山区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "420111",
-                                        ssqname: "洪山区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "420112",
-                                        ssqname: "东西湖区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "420113",
-                                        ssqname: "汉南区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "420114",
-                                        ssqname: "蔡甸区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "420115",
-                                        ssqname: "江夏区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "420116",
-                                        ssqname: "黄陂区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "420117",
-                                        ssqname: "新洲区",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "420100",
+                        ssqname: "武汉市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "420102",
+                                ssqname: "江岸区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "420103",
+                                    ssqname: "江汉区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "420104",
+                                    ssqname: "乔口区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "420105",
+                                    ssqname: "汉阳区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "420106",
+                                    ssqname: "武昌区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "420107",
+                                    ssqname: "青山区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "420111",
+                                    ssqname: "洪山区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "420112",
+                                    ssqname: "东西湖区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "420113",
+                                    ssqname: "汉南区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "420114",
+                                    ssqname: "蔡甸区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "420115",
+                                    ssqname: "江夏区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "420116",
+                                    ssqname: "黄陂区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "420117",
+                                    ssqname: "新洲区",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "420200",
                             ssqname: "黄石市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "420202",
-                                        ssqname: "黄石港区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "420202",
+                                    ssqname: "黄石港区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "420203",
                                         ssqname: "西塞山区",
@@ -9234,10 +9234,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "420302",
-                                        ssqname: "茅箭区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "420302",
+                                    ssqname: "茅箭区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "420303",
                                         ssqname: "张湾区",
@@ -9282,10 +9282,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "420502",
-                                        ssqname: "西陵区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "420502",
+                                    ssqname: "西陵区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "420503",
                                         ssqname: "伍家岗区",
@@ -9355,10 +9355,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "420602",
-                                        ssqname: "襄城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "420602",
+                                    ssqname: "襄城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "420606",
                                         ssqname: "樊城区",
@@ -9408,10 +9408,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "420702",
-                                        ssqname: "梁子湖区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "420702",
+                                    ssqname: "梁子湖区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "420703",
                                         ssqname: "华容区",
@@ -9431,10 +9431,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "420802",
-                                        ssqname: "东宝区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "420802",
+                                    ssqname: "东宝区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "420804",
                                         ssqname: "掇刀区",
@@ -9464,10 +9464,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "420902",
-                                        ssqname: "孝南区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "420902",
+                                    ssqname: "孝南区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "420921",
                                         ssqname: "孝昌县",
@@ -9507,10 +9507,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "421002",
-                                        ssqname: "沙市区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "421002",
+                                    ssqname: "沙市区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "421003",
                                         ssqname: "荆州区",
@@ -9555,10 +9555,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "421102",
-                                        ssqname: "黄州区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "421102",
+                                    ssqname: "黄州区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "421121",
                                         ssqname: "团风县",
@@ -9613,10 +9613,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "421202",
-                                        ssqname: "咸安区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "421202",
+                                    ssqname: "咸安区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "421221",
                                         ssqname: "嘉鱼县",
@@ -9651,10 +9651,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "421302",
-                                        ssqname: "曾都区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "421302",
+                                    ssqname: "曾都区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "421381",
                                         ssqname: "广水市",
@@ -9669,10 +9669,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "422801",
-                                        ssqname: "恩施市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "422801",
+                                    ssqname: "恩施市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "422802",
                                         ssqname: "利川市",
@@ -9717,10 +9717,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "429004",
-                                        ssqname: "仙桃市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "429004",
+                                    ssqname: "仙桃市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "429005",
                                         ssqname: "潜江市",
@@ -9748,68 +9748,68 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "430100",
-                            ssqname: "长沙市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "430102",
-                                        ssqname: "芙蓉区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "430103",
-                                        ssqname: "天心区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "430104",
-                                        ssqname: "岳麓区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "430105",
-                                        ssqname: "开福区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "430111",
-                                        ssqname: "雨花区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "430121",
-                                        ssqname: "长沙县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "430122",
-                                        ssqname: "望城县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "430124",
-                                        ssqname: "宁乡县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "430181",
-                                        ssqname: "浏阳市",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "430100",
+                        ssqname: "长沙市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "430102",
+                                ssqname: "芙蓉区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "430103",
+                                    ssqname: "天心区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "430104",
+                                    ssqname: "岳麓区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "430105",
+                                    ssqname: "开福区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "430111",
+                                    ssqname: "雨花区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "430121",
+                                    ssqname: "长沙县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "430122",
+                                    ssqname: "望城县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "430124",
+                                    ssqname: "宁乡县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "430181",
+                                    ssqname: "浏阳市",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "430200",
                             ssqname: "株洲市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "430202",
-                                        ssqname: "荷塘区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "430202",
+                                    ssqname: "荷塘区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "430203",
                                         ssqname: "芦淞区",
@@ -9859,10 +9859,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "430302",
-                                        ssqname: "雨湖区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "430302",
+                                    ssqname: "雨湖区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "430304",
                                         ssqname: "岳塘区",
@@ -9892,10 +9892,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "430405",
-                                        ssqname: "珠晖区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "430405",
+                                    ssqname: "珠晖区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "430406",
                                         ssqname: "雁峰区",
@@ -9960,10 +9960,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "430502",
-                                        ssqname: "双清区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "430502",
+                                    ssqname: "双清区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "430503",
                                         ssqname: "大祥区",
@@ -10028,10 +10028,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "430602",
-                                        ssqname: "岳阳楼区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "430602",
+                                    ssqname: "岳阳楼区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "430603",
                                         ssqname: "云溪区",
@@ -10081,10 +10081,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "430702",
-                                        ssqname: "武陵区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "430702",
+                                    ssqname: "武陵区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "430703",
                                         ssqname: "鼎城区",
@@ -10134,10 +10134,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "430802",
-                                        ssqname: "永定区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "430802",
+                                    ssqname: "永定区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "430811",
                                         ssqname: "武陵源区",
@@ -10162,10 +10162,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "430902",
-                                        ssqname: "资阳区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "430902",
+                                    ssqname: "资阳区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "430903",
                                         ssqname: "赫山区",
@@ -10200,10 +10200,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "431002",
-                                        ssqname: "北湖区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "431002",
+                                    ssqname: "北湖区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "431003",
                                         ssqname: "苏仙区",
@@ -10263,10 +10263,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "431102",
-                                        ssqname: "芝山区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "431102",
+                                    ssqname: "芝山区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "431103",
                                         ssqname: "冷水滩区",
@@ -10326,10 +10326,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "431202",
-                                        ssqname: "鹤城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "431202",
+                                    ssqname: "鹤城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "431221",
                                         ssqname: "中方县",
@@ -10394,10 +10394,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "431302",
-                                        ssqname: "娄星区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "431302",
+                                    ssqname: "娄星区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "431321",
                                         ssqname: "双峰县",
@@ -10427,10 +10427,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "433101",
-                                        ssqname: "吉首市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "433101",
+                                    ssqname: "吉首市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "433122",
                                         ssqname: "泸溪县",
@@ -10478,83 +10478,83 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "440100",
-                            ssqname: "广州市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "440102",
-                                        ssqname: "东山区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "440103",
-                                        ssqname: "荔湾区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "440104",
-                                        ssqname: "越秀区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "440105",
-                                        ssqname: "海珠区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "440106",
-                                        ssqname: "天河区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "440107",
-                                        ssqname: "芳村区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "440111",
-                                        ssqname: "白云区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "440112",
-                                        ssqname: "黄埔区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "440113",
-                                        ssqname: "番禺区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "440114",
-                                        ssqname: "花都区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "440183",
-                                        ssqname: "增城市",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "440184",
-                                        ssqname: "从化市",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "440100",
+                        ssqname: "广州市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "440102",
+                                ssqname: "东山区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "440103",
+                                    ssqname: "荔湾区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "440104",
+                                    ssqname: "越秀区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "440105",
+                                    ssqname: "海珠区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "440106",
+                                    ssqname: "天河区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "440107",
+                                    ssqname: "芳村区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "440111",
+                                    ssqname: "白云区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "440112",
+                                    ssqname: "黄埔区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "440113",
+                                    ssqname: "番禺区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "440114",
+                                    ssqname: "花都区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "440183",
+                                    ssqname: "增城市",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "440184",
+                                    ssqname: "从化市",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "440200",
                             ssqname: "韶关市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "440202",
-                                        ssqname: "北江区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "440202",
+                                    ssqname: "北江区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "440203",
                                         ssqname: "武江区",
@@ -10614,10 +10614,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "440303",
-                                        ssqname: "罗湖区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "440303",
+                                    ssqname: "罗湖区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "440304",
                                         ssqname: "福田区",
@@ -10652,10 +10652,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "440402",
-                                        ssqname: "香洲区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "440402",
+                                    ssqname: "香洲区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "440403",
                                         ssqname: "斗门区",
@@ -10675,10 +10675,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "440506",
-                                        ssqname: "达濠区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "440506",
+                                    ssqname: "达濠区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "440507",
                                         ssqname: "龙湖区",
@@ -10723,10 +10723,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "440602",
-                                        ssqname: "城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "440602",
+                                    ssqname: "城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "440603",
                                         ssqname: "石湾区",
@@ -10761,10 +10761,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "440703",
-                                        ssqname: "蓬江区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "440703",
+                                    ssqname: "蓬江区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "440704",
                                         ssqname: "江海区",
@@ -10804,10 +10804,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "440802",
-                                        ssqname: "赤坎区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "440802",
+                                    ssqname: "赤坎区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "440803",
                                         ssqname: "霞山区",
@@ -10857,10 +10857,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "440902",
-                                        ssqname: "茂南区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "440902",
+                                    ssqname: "茂南区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "440903",
                                         ssqname: "茂港区",
@@ -10895,10 +10895,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "441202",
-                                        ssqname: "端州区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "441202",
+                                    ssqname: "端州区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "441203",
                                         ssqname: "鼎湖区",
@@ -10943,10 +10943,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "441302",
-                                        ssqname: "惠城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "441302",
+                                    ssqname: "惠城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "441322",
                                         ssqname: "博罗县",
@@ -10976,10 +10976,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "441402",
-                                        ssqname: "梅江区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "441402",
+                                    ssqname: "梅江区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "441421",
                                         ssqname: "梅县",
@@ -11024,10 +11024,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "441502",
-                                        ssqname: "城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "441502",
+                                    ssqname: "城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "441521",
                                         ssqname: "海丰县",
@@ -11052,10 +11052,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "441602",
-                                        ssqname: "源城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "441602",
+                                    ssqname: "源城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "441621",
                                         ssqname: "紫金县",
@@ -11090,10 +11090,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "441702",
-                                        ssqname: "江城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "441702",
+                                    ssqname: "江城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "441721",
                                         ssqname: "阳西县",
@@ -11118,10 +11118,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "441802",
-                                        ssqname: "清城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "441802",
+                                    ssqname: "清城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "441821",
                                         ssqname: "佛冈县",
@@ -11190,10 +11190,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "445102",
-                                        ssqname: "湘桥区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "445102",
+                                    ssqname: "湘桥区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "445121",
                                         ssqname: "潮安县",
@@ -11213,10 +11213,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "445202",
-                                        ssqname: "榕城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "445202",
+                                    ssqname: "榕城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "445221",
                                         ssqname: "揭东县",
@@ -11246,10 +11246,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "445302",
-                                        ssqname: "云城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "445302",
+                                    ssqname: "云城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "445321",
                                         ssqname: "新兴县",
@@ -11278,62 +11278,62 @@ var Area = {
             },
             {
                 ssqid: "450000",
-                ssqname: "广西",
+                ssqname: "广西壮族自治区",
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "450100",
-                            ssqname: "南宁市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "450102",
-                                        ssqname: "兴宁区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "450103",
-                                        ssqname: "新城区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "450104",
-                                        ssqname: "城北区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "450105",
-                                        ssqname: "江南区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "450106",
-                                        ssqname: "永新区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "450121",
-                                        ssqname: "邕宁县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "450122",
-                                        ssqname: "武鸣县",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "450100",
+                        ssqname: "南宁市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "450102",
+                                ssqname: "兴宁区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "450103",
+                                    ssqname: "新城区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "450104",
+                                    ssqname: "城北区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "450105",
+                                    ssqname: "江南区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "450106",
+                                    ssqname: "永新区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "450121",
+                                    ssqname: "邕宁县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "450122",
+                                    ssqname: "武鸣县",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "450200",
                             ssqname: "柳州市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "450202",
-                                        ssqname: "城中区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "450202",
+                                    ssqname: "城中区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "450203",
                                         ssqname: "鱼峰区",
@@ -11373,10 +11373,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "450302",
-                                        ssqname: "秀峰区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "450302",
+                                    ssqname: "秀峰区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "450303",
                                         ssqname: "叠彩区",
@@ -11466,10 +11466,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "450403",
-                                        ssqname: "万秀区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "450403",
+                                    ssqname: "万秀区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "450404",
                                         ssqname: "蝶山区",
@@ -11509,10 +11509,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "450502",
-                                        ssqname: "海城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "450502",
+                                    ssqname: "海城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "450503",
                                         ssqname: "银海区",
@@ -11537,10 +11537,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "450602",
-                                        ssqname: "港口区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "450602",
+                                    ssqname: "港口区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "450603",
                                         ssqname: "防城区",
@@ -11565,10 +11565,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "450702",
-                                        ssqname: "钦南区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "450702",
+                                    ssqname: "钦南区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "450703",
                                         ssqname: "钦北区",
@@ -11593,10 +11593,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "450802",
-                                        ssqname: "港北区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "450802",
+                                    ssqname: "港北区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "450803",
                                         ssqname: "港南区",
@@ -11621,10 +11621,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "450902",
-                                        ssqname: "玉州区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "450902",
+                                    ssqname: "玉州区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "450921",
                                         ssqname: "容县",
@@ -11659,10 +11659,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "452101",
-                                        ssqname: "凭祥市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "452101",
+                                    ssqname: "凭祥市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "452122",
                                         ssqname: "横县",
@@ -11727,10 +11727,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "452201",
-                                        ssqname: "合山市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "452201",
+                                    ssqname: "合山市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "452223",
                                         ssqname: "鹿寨县",
@@ -11785,10 +11785,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "452402",
-                                        ssqname: "贺州市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "452402",
+                                    ssqname: "贺州市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "452424",
                                         ssqname: "昭平县",
@@ -11813,10 +11813,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "452601",
-                                        ssqname: "百色市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "452601",
+                                    ssqname: "百色市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "452622",
                                         ssqname: "田阳县",
@@ -11881,10 +11881,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "452701",
-                                        ssqname: "河池市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "452701",
+                                    ssqname: "河池市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "452702",
                                         ssqname: "宜州市",
@@ -11947,28 +11947,28 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "460100",
-                            ssqname: "海口市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "460102",
-                                        ssqname: "振东区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "460103",
-                                        ssqname: "新华区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "460104",
-                                        ssqname: "秀英区",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "460100",
+                        ssqname: "海口市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "460102",
+                                ssqname: "振东区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "460103",
+                                    ssqname: "新华区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "460104",
+                                    ssqname: "秀英区",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "460200",
                             ssqname: "三亚市",
@@ -11987,10 +11987,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "469001",
-                                        ssqname: "通什市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "469001",
+                                    ssqname: "通什市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "469002",
                                         ssqname: "琼海市",
@@ -12098,98 +12098,98 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "500100",
-                            ssqname: "市辖区",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "500101",
-                                        ssqname: "万州区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "500102",
-                                        ssqname: "涪陵区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "500103",
-                                        ssqname: "渝中区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "500104",
-                                        ssqname: "大渡口区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "500105",
-                                        ssqname: "江北区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "500106",
-                                        ssqname: "沙坪坝区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "500107",
-                                        ssqname: "九龙坡区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "500108",
-                                        ssqname: "南岸区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "500109",
-                                        ssqname: "北碚区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "500110",
-                                        ssqname: "万盛区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "500111",
-                                        ssqname: "双桥区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "500112",
-                                        ssqname: "渝北区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "500113",
-                                        ssqname: "巴南区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "500114",
-                                        ssqname: "黔江区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "500115",
-                                        ssqname: "长寿区",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "500100",
+                        ssqname: "市辖区",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "500101",
+                                ssqname: "万州区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "500102",
+                                    ssqname: "涪陵区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500103",
+                                    ssqname: "渝中区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500104",
+                                    ssqname: "大渡口区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500105",
+                                    ssqname: "江北区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500106",
+                                    ssqname: "沙坪坝区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500107",
+                                    ssqname: "九龙坡区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500108",
+                                    ssqname: "南岸区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500109",
+                                    ssqname: "北碚区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500110",
+                                    ssqname: "万盛区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500111",
+                                    ssqname: "双桥区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500112",
+                                    ssqname: "渝北区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500113",
+                                    ssqname: "巴南区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500114",
+                                    ssqname: "黔江区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500115",
+                                    ssqname: "长寿区",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "500200",
                             ssqname: "市辖县",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "500222",
-                                        ssqname: "綦江县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "500222",
+                                    ssqname: "綦江县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "500223",
                                         ssqname: "潼南县",
@@ -12299,10 +12299,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "500381",
-                                        ssqname: "江津市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "500381",
+                                    ssqname: "江津市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "500382",
                                         ssqname: "合川市",
@@ -12330,118 +12330,118 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "510100",
-                            ssqname: "成都市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "510104",
-                                        ssqname: "锦江区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "510105",
-                                        ssqname: "青羊区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "510106",
-                                        ssqname: "金牛区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "510107",
-                                        ssqname: "武侯区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "510108",
-                                        ssqname: "成华区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "510112",
-                                        ssqname: "龙泉驿区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "510113",
-                                        ssqname: "青白江区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "510114",
-                                        ssqname: "新都区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "510121",
-                                        ssqname: "金堂县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "510122",
-                                        ssqname: "双流县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "510123",
-                                        ssqname: "温江县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "510124",
-                                        ssqname: "郫县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "510129",
-                                        ssqname: "大邑县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "510131",
-                                        ssqname: "蒲江县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "510132",
-                                        ssqname: "新津县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "510181",
-                                        ssqname: "都江堰市",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "510182",
-                                        ssqname: "彭州市",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "510183",
-                                        ssqname: "邛崃市",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "510184",
-                                        ssqname: "崇州市",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "510100",
+                        ssqname: "成都市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "510104",
+                                ssqname: "锦江区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "510105",
+                                    ssqname: "青羊区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "510106",
+                                    ssqname: "金牛区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "510107",
+                                    ssqname: "武侯区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "510108",
+                                    ssqname: "成华区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "510112",
+                                    ssqname: "龙泉驿区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "510113",
+                                    ssqname: "青白江区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "510114",
+                                    ssqname: "新都区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "510121",
+                                    ssqname: "金堂县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "510122",
+                                    ssqname: "双流县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "510123",
+                                    ssqname: "温江县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "510124",
+                                    ssqname: "郫县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "510129",
+                                    ssqname: "大邑县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "510131",
+                                    ssqname: "蒲江县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "510132",
+                                    ssqname: "新津县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "510181",
+                                    ssqname: "都江堰市",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "510182",
+                                    ssqname: "彭州市",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "510183",
+                                    ssqname: "邛崃市",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "510184",
+                                    ssqname: "崇州市",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "510300",
                             ssqname: "自贡市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "510302",
-                                        ssqname: "自流井区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "510302",
+                                    ssqname: "自流井区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "510303",
                                         ssqname: "贡井区",
@@ -12476,10 +12476,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "510402",
-                                        ssqname: "东区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "510402",
+                                    ssqname: "东区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "510403",
                                         ssqname: "西区",
@@ -12509,10 +12509,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "510502",
-                                        ssqname: "江阳区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "510502",
+                                    ssqname: "江阳区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "510503",
                                         ssqname: "纳溪区",
@@ -12552,10 +12552,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "510603",
-                                        ssqname: "旌阳区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "510603",
+                                    ssqname: "旌阳区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "510623",
                                         ssqname: "中江县",
@@ -12590,10 +12590,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "510703",
-                                        ssqname: "涪城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "510703",
+                                    ssqname: "涪城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "510704",
                                         ssqname: "游仙区",
@@ -12643,10 +12643,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "510802",
-                                        ssqname: "市中区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "510802",
+                                    ssqname: "市中区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "510811",
                                         ssqname: "元坝区",
@@ -12686,10 +12686,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "510902",
-                                        ssqname: "市中区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "510902",
+                                    ssqname: "市中区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "510921",
                                         ssqname: "蓬溪县",
@@ -12714,10 +12714,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "511002",
-                                        ssqname: "市中区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "511002",
+                                    ssqname: "市中区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "511011",
                                         ssqname: "东兴区",
@@ -12747,10 +12747,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "511102",
-                                        ssqname: "市中区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "511102",
+                                    ssqname: "市中区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "511111",
                                         ssqname: "沙湾区",
@@ -12810,10 +12810,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "511302",
-                                        ssqname: "顺庆区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "511302",
+                                    ssqname: "顺庆区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "511303",
                                         ssqname: "高坪区",
@@ -12863,10 +12863,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "511402",
-                                        ssqname: "东坡区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "511402",
+                                    ssqname: "东坡区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "511421",
                                         ssqname: "仁寿县",
@@ -12901,10 +12901,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "511502",
-                                        ssqname: "翠屏区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "511502",
+                                    ssqname: "翠屏区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "511521",
                                         ssqname: "宜宾县",
@@ -12959,10 +12959,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "511602",
-                                        ssqname: "广安区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "511602",
+                                    ssqname: "广安区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "511621",
                                         ssqname: "岳池县",
@@ -12992,10 +12992,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "511702",
-                                        ssqname: "通川区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "511702",
+                                    ssqname: "通川区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "511721",
                                         ssqname: "达县",
@@ -13035,10 +13035,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "511802",
-                                        ssqname: "雨城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "511802",
+                                    ssqname: "雨城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "511821",
                                         ssqname: "名山县",
@@ -13083,10 +13083,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "511902",
-                                        ssqname: "巴州区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "511902",
+                                    ssqname: "巴州区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "511921",
                                         ssqname: "通江县",
@@ -13111,10 +13111,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "512002",
-                                        ssqname: "雁江区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "512002",
+                                    ssqname: "雁江区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "512021",
                                         ssqname: "安岳县",
@@ -13139,10 +13139,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "513221",
-                                        ssqname: "汶川县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "513221",
+                                    ssqname: "汶川县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "513222",
                                         ssqname: "理县",
@@ -13212,10 +13212,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "513321",
-                                        ssqname: "康定县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "513321",
+                                    ssqname: "康定县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "513322",
                                         ssqname: "泸定县",
@@ -13310,10 +13310,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "513401",
-                                        ssqname: "西昌市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "513401",
+                                    ssqname: "西昌市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "513422",
                                         ssqname: "木里藏族自治县",
@@ -13406,73 +13406,73 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "520100",
-                            ssqname: "贵阳市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "520102",
-                                        ssqname: "南明区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "520103",
-                                        ssqname: "云岩区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "520111",
-                                        ssqname: "花溪区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "520112",
-                                        ssqname: "乌当区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "520113",
-                                        ssqname: "白云区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "520114",
-                                        ssqname: "小河区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "520121",
-                                        ssqname: "开阳县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "520122",
-                                        ssqname: "息烽县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "520123",
-                                        ssqname: "修文县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "520181",
-                                        ssqname: "清镇市",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "520100",
+                        ssqname: "贵阳市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "520102",
+                                ssqname: "南明区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "520103",
+                                    ssqname: "云岩区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "520111",
+                                    ssqname: "花溪区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "520112",
+                                    ssqname: "乌当区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "520113",
+                                    ssqname: "白云区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "520114",
+                                    ssqname: "小河区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "520121",
+                                    ssqname: "开阳县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "520122",
+                                    ssqname: "息烽县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "520123",
+                                    ssqname: "修文县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "520181",
+                                    ssqname: "清镇市",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "520200",
                             ssqname: "六盘水市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "520201",
-                                        ssqname: "钟山区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "520201",
+                                    ssqname: "钟山区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "520203",
                                         ssqname: "六枝特区",
@@ -13497,10 +13497,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "520302",
-                                        ssqname: "红花岗区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "520302",
+                                    ssqname: "红花岗区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "520321",
                                         ssqname: "遵义县",
@@ -13570,10 +13570,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "520402",
-                                        ssqname: "西秀区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "520402",
+                                    ssqname: "西秀区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "520421",
                                         ssqname: "平坝县",
@@ -13608,10 +13608,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "522201",
-                                        ssqname: "铜仁市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "522201",
+                                    ssqname: "铜仁市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "522222",
                                         ssqname: "江口县",
@@ -13666,10 +13666,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "522301",
-                                        ssqname: "兴义市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "522301",
+                                    ssqname: "兴义市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "522322",
                                         ssqname: "兴仁县",
@@ -13714,10 +13714,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "522401",
-                                        ssqname: "毕节市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "522401",
+                                    ssqname: "毕节市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "522422",
                                         ssqname: "大方县",
@@ -13762,10 +13762,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "522601",
-                                        ssqname: "凯里市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "522601",
+                                    ssqname: "凯里市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "522622",
                                         ssqname: "黄平县",
@@ -13850,10 +13850,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "522701",
-                                        ssqname: "都匀市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "522701",
+                                    ssqname: "都匀市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "522702",
                                         ssqname: "福泉市",
@@ -13921,93 +13921,93 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "530100",
-                            ssqname: "昆明市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "530102",
-                                        ssqname: "五华区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "530103",
-                                        ssqname: "盘龙区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "530111",
-                                        ssqname: "官渡区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "530112",
-                                        ssqname: "西山区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "530113",
-                                        ssqname: "东川区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "530121",
-                                        ssqname: "呈贡县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "530122",
-                                        ssqname: "晋宁县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "530124",
-                                        ssqname: "富民县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "530125",
-                                        ssqname: "宜良县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "530126",
-                                        ssqname: "石林彝族自治县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "530127",
-                                        ssqname: "嵩明县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "530128",
-                                        ssqname: "禄劝彝族苗族自治县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "530129",
-                                        ssqname: "寻甸回族彝族自治县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "530181",
-                                        ssqname: "安宁市",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "530100",
+                        ssqname: "昆明市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "530102",
+                                ssqname: "五华区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "530103",
+                                    ssqname: "盘龙区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "530111",
+                                    ssqname: "官渡区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "530112",
+                                    ssqname: "西山区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "530113",
+                                    ssqname: "东川区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "530121",
+                                    ssqname: "呈贡县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "530122",
+                                    ssqname: "晋宁县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "530124",
+                                    ssqname: "富民县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "530125",
+                                    ssqname: "宜良县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "530126",
+                                    ssqname: "石林彝族自治县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "530127",
+                                    ssqname: "嵩明县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "530128",
+                                    ssqname: "禄劝彝族苗族自治县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "530129",
+                                    ssqname: "寻甸回族彝族自治县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "530181",
+                                    ssqname: "安宁市",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "530300",
                             ssqname: "曲靖市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "530302",
-                                        ssqname: "麒麟区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "530302",
+                                    ssqname: "麒麟区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "530321",
                                         ssqname: "马龙县",
@@ -14057,10 +14057,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "530402",
-                                        ssqname: "红塔区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "530402",
+                                    ssqname: "红塔区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "530421",
                                         ssqname: "江川县",
@@ -14110,10 +14110,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "530502",
-                                        ssqname: "隆阳区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "530502",
+                                    ssqname: "隆阳区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "530521",
                                         ssqname: "施甸县",
@@ -14143,10 +14143,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "530602",
-                                        ssqname: "昭阳区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "530602",
+                                    ssqname: "昭阳区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "530621",
                                         ssqname: "鲁甸县",
@@ -14206,10 +14206,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "532301",
-                                        ssqname: "楚雄市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "532301",
+                                    ssqname: "楚雄市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "532322",
                                         ssqname: "双柏县",
@@ -14264,10 +14264,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "532501",
-                                        ssqname: "个旧市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "532501",
+                                    ssqname: "个旧市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "532502",
                                         ssqname: "开远市",
@@ -14337,10 +14337,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "532621",
-                                        ssqname: "文山县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "532621",
+                                    ssqname: "文山县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "532622",
                                         ssqname: "砚山县",
@@ -14385,10 +14385,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "532701",
-                                        ssqname: "思茅市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "532701",
+                                    ssqname: "思茅市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "532722",
                                         ssqname: "普洱哈尼族彝族自治县",
@@ -14443,10 +14443,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "532801",
-                                        ssqname: "景洪市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "532801",
+                                    ssqname: "景洪市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "532822",
                                         ssqname: "勐海县",
@@ -14466,10 +14466,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "532901",
-                                        ssqname: "大理市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "532901",
+                                    ssqname: "大理市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "532922",
                                         ssqname: "漾濞彝族自治县",
@@ -14534,10 +14534,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "533102",
-                                        ssqname: "瑞丽市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "533102",
+                                    ssqname: "瑞丽市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "533103",
                                         ssqname: "潞西市",
@@ -14567,10 +14567,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "533221",
-                                        ssqname: "丽江纳西族自治县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "533221",
+                                    ssqname: "丽江纳西族自治县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "533222",
                                         ssqname: "永胜县",
@@ -14595,10 +14595,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "533321",
-                                        ssqname: "泸水县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "533321",
+                                    ssqname: "泸水县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "533323",
                                         ssqname: "福贡县",
@@ -14623,10 +14623,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "533421",
-                                        ssqname: "香格里拉县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "533421",
+                                    ssqname: "香格里拉县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "533422",
                                         ssqname: "德钦县",
@@ -14646,10 +14646,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "533521",
-                                        ssqname: "临沧县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "533521",
+                                    ssqname: "临沧县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "533522",
                                         ssqname: "凤庆县",
@@ -14693,67 +14693,67 @@ var Area = {
             },
             {
                 ssqid: "540000",
-                ssqname: "西藏",
+                ssqname: "西藏自治区",
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "540100",
-                            ssqname: "拉萨市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "540102",
-                                        ssqname: "城关区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "540121",
-                                        ssqname: "林周县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "540122",
-                                        ssqname: "当雄县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "540123",
-                                        ssqname: "尼木县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "540124",
-                                        ssqname: "曲水县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "540125",
-                                        ssqname: "堆龙德庆县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "540126",
-                                        ssqname: "达孜县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "540127",
-                                        ssqname: "墨竹工卡县",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "540100",
+                        ssqname: "拉萨市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "540102",
+                                ssqname: "城关区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "540121",
+                                    ssqname: "林周县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "540122",
+                                    ssqname: "当雄县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "540123",
+                                    ssqname: "尼木县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "540124",
+                                    ssqname: "曲水县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "540125",
+                                    ssqname: "堆龙德庆县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "540126",
+                                    ssqname: "达孜县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "540127",
+                                    ssqname: "墨竹工卡县",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "542100",
                             ssqname: "昌都地区",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "542121",
-                                        ssqname: "昌都县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "542121",
+                                    ssqname: "昌都县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "542122",
                                         ssqname: "江达县",
@@ -14813,10 +14813,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "542221",
-                                        ssqname: "乃东县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "542221",
+                                    ssqname: "乃东县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "542222",
                                         ssqname: "扎囊县",
@@ -14881,10 +14881,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "542301",
-                                        ssqname: "日喀则市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "542301",
+                                    ssqname: "日喀则市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "542322",
                                         ssqname: "南木林县",
@@ -14979,10 +14979,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "542421",
-                                        ssqname: "那曲县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "542421",
+                                    ssqname: "那曲县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "542422",
                                         ssqname: "嘉黎县",
@@ -15037,10 +15037,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "542521",
-                                        ssqname: "普兰县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "542521",
+                                    ssqname: "普兰县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "542522",
                                         ssqname: "札达县",
@@ -15080,10 +15080,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "542621",
-                                        ssqname: "林芝县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "542621",
+                                    ssqname: "林芝县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "542622",
                                         ssqname: "工布江达县",
@@ -15126,88 +15126,88 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "610100",
-                            ssqname: "西安市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "610102",
-                                        ssqname: "新城区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "610103",
-                                        ssqname: "碑林区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "610104",
-                                        ssqname: "莲湖区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "610111",
-                                        ssqname: "灞桥区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "610112",
-                                        ssqname: "未央区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "610113",
-                                        ssqname: "雁塔区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "610114",
-                                        ssqname: "阎良区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "610115",
-                                        ssqname: "临潼区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "610121",
-                                        ssqname: "长安县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "610122",
-                                        ssqname: "蓝田县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "610124",
-                                        ssqname: "周至县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "610125",
-                                        ssqname: "户县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "610126",
-                                        ssqname: "高陵县",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "610100",
+                        ssqname: "西安市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "610102",
+                                ssqname: "新城区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "610103",
+                                    ssqname: "碑林区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "610104",
+                                    ssqname: "莲湖区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "610111",
+                                    ssqname: "灞桥区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "610112",
+                                    ssqname: "未央区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "610113",
+                                    ssqname: "雁塔区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "610114",
+                                    ssqname: "阎良区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "610115",
+                                    ssqname: "临潼区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "610121",
+                                    ssqname: "长安县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "610122",
+                                    ssqname: "蓝田县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "610124",
+                                    ssqname: "周至县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "610125",
+                                    ssqname: "户县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "610126",
+                                    ssqname: "高陵县",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "610200",
                             ssqname: "铜川市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "610202",
-                                        ssqname: "王益区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "610202",
+                                    ssqname: "王益区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "610203",
                                         ssqname: "印台区",
@@ -15232,10 +15232,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "610302",
-                                        ssqname: "渭滨区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "610302",
+                                    ssqname: "渭滨区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "610303",
                                         ssqname: "金台区",
@@ -15300,10 +15300,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "610402",
-                                        ssqname: "秦都区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "610402",
+                                    ssqname: "秦都区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "610403",
                                         ssqname: "杨凌区",
@@ -15378,10 +15378,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "610502",
-                                        ssqname: "临渭区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "610502",
+                                    ssqname: "临渭区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "610521",
                                         ssqname: "华县",
@@ -15441,10 +15441,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "610602",
-                                        ssqname: "宝塔区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "610602",
+                                    ssqname: "宝塔区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "610621",
                                         ssqname: "延长县",
@@ -15514,10 +15514,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "610702",
-                                        ssqname: "汉台区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "610702",
+                                    ssqname: "汉台区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "610721",
                                         ssqname: "南郑县",
@@ -15577,10 +15577,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "610802",
-                                        ssqname: "榆阳区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "610802",
+                                    ssqname: "榆阳区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "610821",
                                         ssqname: "神木县",
@@ -15645,10 +15645,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "610902",
-                                        ssqname: "汉滨区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "610902",
+                                    ssqname: "汉滨区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "610921",
                                         ssqname: "汉阴县",
@@ -15703,10 +15703,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "611002",
-                                        ssqname: "商州区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "611002",
+                                    ssqname: "商州区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "611021",
                                         ssqname: "洛南县",
@@ -15749,53 +15749,53 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "620100",
-                            ssqname: "兰州市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "620102",
-                                        ssqname: "城关区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "620103",
-                                        ssqname: "七里河区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "620104",
-                                        ssqname: "西固区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "620105",
-                                        ssqname: "安宁区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "620111",
-                                        ssqname: "红古区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "620121",
-                                        ssqname: "永登县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "620122",
-                                        ssqname: "皋兰县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "620123",
-                                        ssqname: "榆中县",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "620100",
+                        ssqname: "兰州市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "620102",
+                                ssqname: "城关区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "620103",
+                                    ssqname: "七里河区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "620104",
+                                    ssqname: "西固区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "620105",
+                                    ssqname: "安宁区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "620111",
+                                    ssqname: "红古区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "620121",
+                                    ssqname: "永登县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "620122",
+                                    ssqname: "皋兰县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "620123",
+                                    ssqname: "榆中县",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "620200",
                             ssqname: "嘉峪关市",
@@ -15814,10 +15814,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "620302",
-                                        ssqname: "金川区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "620302",
+                                    ssqname: "金川区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "620321",
                                         ssqname: "永昌县",
@@ -15832,10 +15832,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "620402",
-                                        ssqname: "白银区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "620402",
+                                    ssqname: "白银区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "620403",
                                         ssqname: "平川区",
@@ -15865,10 +15865,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "620502",
-                                        ssqname: "秦城区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "620502",
+                                    ssqname: "秦城区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "620503",
                                         ssqname: "北道区",
@@ -15908,10 +15908,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "620602",
-                                        ssqname: "凉州区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "620602",
+                                    ssqname: "凉州区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "620621",
                                         ssqname: "民勤县",
@@ -15936,10 +15936,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "622101",
-                                        ssqname: "玉门市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "622101",
+                                    ssqname: "玉门市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "622102",
                                         ssqname: "酒泉市",
@@ -15979,10 +15979,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "622201",
-                                        ssqname: "张掖市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "622201",
+                                    ssqname: "张掖市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "622222",
                                         ssqname: "肃南裕固族自治县",
@@ -16017,10 +16017,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "622421",
-                                        ssqname: "定西县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "622421",
+                                    ssqname: "定西县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "622424",
                                         ssqname: "通渭县",
@@ -16060,10 +16060,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "622621",
-                                        ssqname: "武都县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "622621",
+                                    ssqname: "武都县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "622623",
                                         ssqname: "宕昌县",
@@ -16113,10 +16113,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "622701",
-                                        ssqname: "平凉市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "622701",
+                                    ssqname: "平凉市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "622722",
                                         ssqname: "泾川县",
@@ -16156,10 +16156,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "622801",
-                                        ssqname: "西峰市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "622801",
+                                    ssqname: "西峰市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "622821",
                                         ssqname: "庆阳县",
@@ -16204,10 +16204,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "622901",
-                                        ssqname: "临夏市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "622901",
+                                    ssqname: "临夏市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "622921",
                                         ssqname: "临夏县",
@@ -16252,10 +16252,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "623001",
-                                        ssqname: "合作市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "623001",
+                                    ssqname: "合作市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "623021",
                                         ssqname: "临潭县",
@@ -16303,58 +16303,58 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "630100",
-                            ssqname: "西宁市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "630102",
-                                        ssqname: "城东区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "630103",
-                                        ssqname: "城中区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "630104",
-                                        ssqname: "城西区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "630105",
-                                        ssqname: "城北区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "630121",
-                                        ssqname: "大通回族土族自治县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "630122",
-                                        ssqname: "湟中县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "630123",
-                                        ssqname: "湟源县",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "630100",
+                        ssqname: "西宁市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "630102",
+                                ssqname: "城东区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "630103",
+                                    ssqname: "城中区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "630104",
+                                    ssqname: "城西区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "630105",
+                                    ssqname: "城北区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "630121",
+                                    ssqname: "大通回族土族自治县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "630122",
+                                    ssqname: "湟中县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "630123",
+                                    ssqname: "湟源县",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "632100",
                             ssqname: "海东地区",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "632121",
-                                        ssqname: "平安县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "632121",
+                                    ssqname: "平安县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "632122",
                                         ssqname: "民和回族土族自治县",
@@ -16389,10 +16389,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "632221",
-                                        ssqname: "门源回族自治县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "632221",
+                                    ssqname: "门源回族自治县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "632222",
                                         ssqname: "祁连县",
@@ -16417,10 +16417,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "632321",
-                                        ssqname: "同仁县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "632321",
+                                    ssqname: "同仁县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "632322",
                                         ssqname: "尖扎县",
@@ -16445,10 +16445,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "632521",
-                                        ssqname: "共和县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "632521",
+                                    ssqname: "共和县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "632522",
                                         ssqname: "同德县",
@@ -16478,10 +16478,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "632621",
-                                        ssqname: "玛沁县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "632621",
+                                    ssqname: "玛沁县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "632622",
                                         ssqname: "班玛县",
@@ -16516,10 +16516,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "632721",
-                                        ssqname: "玉树县",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "632721",
+                                    ssqname: "玉树县",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "632722",
                                         ssqname: "杂多县",
@@ -16554,10 +16554,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "632801",
-                                        ssqname: "格尔木市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "632801",
+                                    ssqname: "格尔木市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "632802",
                                         ssqname: "德令哈市",
@@ -16586,52 +16586,52 @@ var Area = {
             },
             {
                 ssqid: "640000",
-                ssqname: "宁夏",
+                ssqname: "宁夏回族自治区",
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "640100",
-                            ssqname: "银川市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "640102",
-                                        ssqname: "城区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "640103",
-                                        ssqname: "新城区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "640111",
-                                        ssqname: "郊区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "640121",
-                                        ssqname: "永宁县",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "640122",
-                                        ssqname: "贺兰县",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "640100",
+                        ssqname: "银川市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "640102",
+                                ssqname: "城区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "640103",
+                                    ssqname: "新城区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "640111",
+                                    ssqname: "郊区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "640121",
+                                    ssqname: "永宁县",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "640122",
+                                    ssqname: "贺兰县",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "640200",
                             ssqname: "石嘴山市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "640202",
-                                        ssqname: "大武口区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "640202",
+                                    ssqname: "大武口区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "640203",
                                         ssqname: "石嘴山区",
@@ -16666,10 +16666,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "640302",
-                                        ssqname: "利通区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "640302",
+                                    ssqname: "利通区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "640321",
                                         ssqname: "中卫县",
@@ -16709,10 +16709,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "640402",
-                                        ssqname: "原州区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "640402",
+                                    ssqname: "原州区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "640421",
                                         ssqname: "海原县",
@@ -16746,67 +16746,67 @@ var Area = {
             },
             {
                 ssqid: "650000",
-                ssqname: "新疆",
+                ssqname: "新疆维吾尔自治区",
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "650100",
-                            ssqname: "乌鲁木齐市",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                        ssqid: "650102",
-                                        ssqname: "天山区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "650103",
-                                        ssqname: "沙依巴克区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "650104",
-                                        ssqname: "新市区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "650105",
-                                        ssqname: "水磨沟区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "650106",
-                                        ssqname: "头屯河区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "650107",
-                                        ssqname: "南泉区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "650108",
-                                        ssqname: "东山区",
-                                        ssqename: ""
-                                    },
-                                    {
-                                        ssqid: "650121",
-                                        ssqname: "乌鲁木齐县",
-                                        ssqename: ""
-                                    }
-                                ]
-                            }
-                        },
+                        ssqid: "650100",
+                        ssqname: "乌鲁木齐市",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "650102",
+                                ssqname: "天山区",
+                                ssqename: ""
+                            },
+                                {
+                                    ssqid: "650103",
+                                    ssqname: "沙依巴克区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "650104",
+                                    ssqname: "新市区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "650105",
+                                    ssqname: "水磨沟区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "650106",
+                                    ssqname: "头屯河区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "650107",
+                                    ssqname: "南泉区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "650108",
+                                    ssqname: "东山区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "650121",
+                                    ssqname: "乌鲁木齐县",
+                                    ssqename: ""
+                                }
+                            ]
+                        }
+                    },
                         {
                             ssqid: "650200",
                             ssqname: "克拉玛依市",
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "650202",
-                                        ssqname: "独山子区",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "650202",
+                                    ssqname: "独山子区",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "650203",
                                         ssqname: "克拉玛依区",
@@ -16831,10 +16831,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "652101",
-                                        ssqname: "吐鲁番市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "652101",
+                                    ssqname: "吐鲁番市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "652122",
                                         ssqname: "鄯善县",
@@ -16854,10 +16854,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "652201",
-                                        ssqname: "哈密市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "652201",
+                                    ssqname: "哈密市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "652222",
                                         ssqname: "巴里坤哈萨克自治县",
@@ -16877,10 +16877,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "652301",
-                                        ssqname: "昌吉市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "652301",
+                                    ssqname: "昌吉市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "652302",
                                         ssqname: "阜康市",
@@ -16925,10 +16925,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "652701",
-                                        ssqname: "博乐市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "652701",
+                                    ssqname: "博乐市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "652722",
                                         ssqname: "精河县",
@@ -16948,10 +16948,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "652801",
-                                        ssqname: "库尔勒市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "652801",
+                                    ssqname: "库尔勒市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "652822",
                                         ssqname: "轮台县",
@@ -17001,10 +17001,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "652901",
-                                        ssqname: "阿克苏市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "652901",
+                                    ssqname: "阿克苏市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "652922",
                                         ssqname: "温宿县",
@@ -17054,10 +17054,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "653001",
-                                        ssqname: "阿图什市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "653001",
+                                    ssqname: "阿图什市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "653022",
                                         ssqname: "阿克陶县",
@@ -17082,10 +17082,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "653101",
-                                        ssqname: "喀什市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "653101",
+                                    ssqname: "喀什市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "653121",
                                         ssqname: "疏附县",
@@ -17150,10 +17150,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "653201",
-                                        ssqname: "和田市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "653201",
+                                    ssqname: "和田市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "653221",
                                         ssqname: "和田县",
@@ -17198,10 +17198,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "654002",
-                                        ssqname: "伊宁市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "654002",
+                                    ssqname: "伊宁市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "654003",
                                         ssqname: "奎屯市",
@@ -17256,10 +17256,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "654201",
-                                        ssqname: "塔城市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "654201",
+                                    ssqname: "塔城市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "654202",
                                         ssqname: "乌苏市",
@@ -17299,10 +17299,10 @@ var Area = {
                             ssqename: "",
                             areas: {
                                 area: [{
-                                        ssqid: "654301",
-                                        ssqname: "阿勒泰市",
-                                        ssqename: ""
-                                    },
+                                    ssqid: "654301",
+                                    ssqname: "阿勒泰市",
+                                    ssqename: ""
+                                },
                                     {
                                         ssqid: "654321",
                                         ssqname: "布尔津县",
@@ -17353,7 +17353,7 @@ var Area = {
             },
             {
                 ssqid: "710000",
-                ssqname: "香港",
+                ssqname: "香港特别行政区",
                 ssqename: "",
                 cities: {
                     city: [{
@@ -17372,7 +17372,7 @@ var Area = {
             },
             {
                 ssqid: "720000",
-                ssqname: "澳门",
+                ssqname: "澳门特别行政区",
                 ssqename: "",
                 cities: {
                     city: [{
@@ -17395,17 +17395,17 @@ var Area = {
                 ssqename: "",
                 cities: {
                     city: [{
-                            ssqid: "730100",
-                            ssqname: "台北",
-                            ssqename: "",
-                            areas: {
-                                area: [{
-                                    ssqid: "730101",
-                                    ssqname: "台北",
-                                    ssqename: ""
-                                }]
-                            }
-                        },
+                        ssqid: "730100",
+                        ssqname: "台北",
+                        ssqename: "",
+                        areas: {
+                            area: [{
+                                ssqid: "730101",
+                                ssqname: "台北",
+                                ssqename: ""
+                            }]
+                        }
+                    },
                         {
                             ssqid: "730200",
                             ssqname: "高雄",

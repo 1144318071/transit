@@ -37,7 +37,7 @@
                             <div class='col-md-4 col-sm-4 userInfo text-left'>
                                 <ul class='clearfix'>
                                     <li class="userMsg dis_none ml10"><img width="32px" height="32px" id="avatar"/></li>
-                                    <li class="userMsg dis_none" ms-text="@userInfo.username" data-src="../personal/personal.html" ms-on-click="@getPage($event)"></li>
+                                    <li class="userMsg dis_none"><a href="../personal/personal.html" ms-text="@userInfo.username"></a><span class="ml8" ms-on-click="@loginOut">退出</span></li>
                                     <li class="userLogin">您好,请<a href='../../login.html'>登录</a></li>
                                 </ul>
                             </div>

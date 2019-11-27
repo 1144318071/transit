@@ -105,6 +105,7 @@ function getCode(name){
         }
     }
 }
+/*获取城市的名称*/
 function getCityName(code){
     for(var k in Area.provinces.province){
         for(var l in Area.provinces.province[k].cities.city){
@@ -114,6 +115,7 @@ function getCityName(code){
         }
     }
 }
+/*获取省份的名称*/
 function getProvinceName(code){
     for(var m in Area.provinces.province){
         if(Area.provinces.province[m].ssqid == code){
@@ -121,6 +123,7 @@ function getProvinceName(code){
         }
     }
 }
+/*获取省份的code*/
 function getProvince(name){
     for(let i in Area.provinces.province){
         if(Area.provinces.province[i].ssqname == name){
@@ -128,6 +131,7 @@ function getProvince(name){
         }
     }
 }
+/*获取地区的名称*/
 function getAreaName(code){
     for(var i in Area.provinces.province){
         for(var j in Area.provinces.province[i].cities.city){
@@ -139,6 +143,7 @@ function getAreaName(code){
         }
     }
 };
+/*获取地区的code值*/
 function getArea(name){
     for(let i in Area.provinces.province){
         for(var j in Area.provinces.province[i].cities.city){

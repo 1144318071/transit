@@ -102,6 +102,18 @@ $(function(){
                 var src = el.currentTarget.dataset.src;
                 location.href = src;
             },
+            /*退出登录*/
+            loginOut:function(){
+                var token = localStorage.getItem('token');
+                getAjax(API.URL_POST_LOGINOUT,'post',{'_token_':token}).then(function(res){
+                    if(res.code == 200){
+                        localStorage.clear();
+                        location.href = '../../login.html';
+                    }else{
+                        alertMsg(res.message,2);
+                    }
+                })
+            }
         });
         vmHeader.onLoad();
         avalon.scan(document.body);

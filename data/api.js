@@ -1,4 +1,4 @@
-var getApiHost = 'http://transit.scsiren.com';
+var getApiHost = 'http://transit.zyiov.com';
 var API = {
     //----------------------------------------------获取TOKEN-----------------------------------
     URL_POST_SETTOKEN: getApiHost + '/set/token',
@@ -142,5 +142,9 @@ var API = {
     //公司主页
     URL_GET_COMPANYINFO : getApiHost + '/companyInfo',
     //公司人员
-    URL_GET_COMPANYMEMBER : getApiHost + '/companyMember'
+    URL_GET_COMPANYMEMBER : getApiHost + '/companyMember',
+    /*发布租赁订单*/
+    URL_POST_LEASE : getApiHost + '/lease',
+    /*租赁列表*/
+    URL_GET_LEASELIST : getApiHost + '/leaseList',
 }
