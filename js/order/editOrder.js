@@ -1,3 +1,15 @@
+$('#district1').distpicker({
+    autoSelect:false
+});
+$('#district1_two').distpicker({
+    autoSelect:false
+});
+$('#district1_three').distpicker({
+    autoSelect:false
+});
+$('#district1_four').distpicker({
+    autoSelect:false
+});
 layui.use('upload', function () {
     var token = localStorage.getItem('token');
     $ = layui.$;
@@ -62,6 +74,7 @@ changeCount('.loadAddress');
 changeCount('.unloadAddress');
 function deleteItem(item_one,item_two,item_three){
     $(item_one).delegate('.delAddress','click',function () {
+        $(this).parent().parent().parent().distpicker('reset', true);
         var one_hidden = $(item_two).is(':hidden');
         var two_hidden = $(item_three).is(':hidden');
         if(!one_hidden && !two_hidden){
@@ -70,15 +83,15 @@ function deleteItem(item_one,item_two,item_three){
         }
         if(item_one == '.loadAddress'){
            if(!one_hidden){
-               vmEditOrder.model.addressCode_one.id='';
+               vmEditOrder.model.addressList_one.id='';
            }else if(!two_hidden){
-               vmEditOrder.model.addressCode_two.id='';
+               vmEditOrder.model.addressList_two.id='';
            }
         }else if(item_one == '.unloadAddress'){
             if(one_hidden){
-                vmEditOrder.model.addressCode_three.id='';
+                vmEditOrder.model.addressList_three.id='';
             }else if(!two_hidden){
-                vmEditOrder.model.addressCode_four.id='';
+                vmEditOrder.model.addressList_four.id='';
             }
         }
     });
@@ -107,56 +120,36 @@ $(function(){
                     'city':'',
                     'area':'',
                     'address':'',
+                    'start':'1',
+                    'end':'2',
+                    'id':''
                 },
                 addressList_two:{
                     'province':'',
                     'city':'',
                     'area':'',
                     'address':'',
+                    'start':'1',
+                    'end':'2',
+                    'id':''
                 },
                 addressList_three:{
                     'province':'',
                     'city':'',
                     'area':'',
                     'address':'',
+                    'start':'2',
+                    'end':'1',
+                    'id':''
                 },
                 addressList_four:{
                     'province':'',
                     'city':'',
                     'area':'',
                     'address':'',
-                },
-                addressCode_one:{
-                    'province':'',
-                    'city':'',
-                    'area':'',
-                    'address':'',
-                    'start':'1',
-                    'end':'2'
-                },
-                addressCode_two:{
-                    'province':'',
-                    'city':'',
-                    'area':'',
-                    'address':'',
-                    'start':'1',
-                    'end':'2'
-                },
-                addressCode_three:{
-                    'province':'',
-                    'city':'',
-                    'area':'',
-                    'address':'',
                     'start':'2',
-                    'end':'1'
-                },
-                addressCode_four:{
-                    'province':'',
-                    'city':'',
-                    'area':'',
-                    'address':'',
-                    'start':'2',
-                    'end':'1'
+                    'end':'1',
+                    'id':''
                 },
             },
             postData:{
@@ -253,12 +246,11 @@ $(function(){
                                 $("#city1").trigger("change");
                                 $(" #district1 option[data-code ='" + start[0].area + "']").attr("selected", "selected");
                                 $("#district1").trigger("change");
-                                vmEditOrder.model.addressList_one.address=start[0].address;
-                                vmEditOrder.model.addressCode_one.province = start[0].province;
-                                vmEditOrder.model.addressCode_one.city = start[0].city;
-                                vmEditOrder.model.addressCode_one.area = start[0].area;
-                                vmEditOrder.model.addressCode_one.id = start[0].id;
-
+                                vmEditOrder.model.addressList_one.province=getProvinceName(start[0].province);
+                                vmEditOrder.model.addressList_one.city=getCityName(start[0].city);
+                                vmEditOrder.model.addressList_one.area=getAreaName(start[0].area);
+                                vmEditOrder.model.addressList_one.address = start[0].address;
+                                vmEditOrder.model.addressList_one.id = start[0].id;
                             break;
                             case 2:
                                 $('.addressItem_two').show();
@@ -269,22 +261,23 @@ $(function(){
                                 $("#city1").trigger("change");
                                 $(" #district1 option[data-code ='" + start[0].area + "']").attr("selected", "selected");
                                 $("#district1").trigger("change");
-                                vmEditOrder.model.addressList_one.address=start[0].address;
                                 $(" #province1_two option[data-code ='" + start[1].province + "']").attr("selected", "selected");
                                 $("#province1_two").trigger("change");
                                 $(" #city1_two option[data-code ='" + start[1].city + "']").attr("selected", "selected");
                                 $("#city1_two").trigger("change");
-                                $(" #district1 option[data-code ='" + start[1].area + "']").attr("selected", "selected");
+                                $(" #district1_two option[data-code ='" + start[1].area + "']").attr("selected", "selected");
                                 $("#district1_two").trigger("change");
+                                vmEditOrder.model.addressList_one.province=getProvinceName(start[0].province);
+                                vmEditOrder.model.addressList_one.city=getCityName(start[0].city);
+                                vmEditOrder.model.addressList_one.area=getAreaName(start[0].area);
+                                vmEditOrder.model.addressList_one.id = start[0].id;
+                                vmEditOrder.model.addressList_one.address = start[0].address;
+                                vmEditOrder.model.addressList_two.province=getProvinceName(start[1].province);
+                                vmEditOrder.model.addressList_two.city=getCityName(start[1].city);
+                                vmEditOrder.model.addressList_two.area=getAreaName(start[1].area);
+                                vmEditOrder.model.addressList_two.id = start[1].id;
                                 vmEditOrder.model.addressList_two.address=start[1].address;
-                                vmEditOrder.model.addressCode_one.province = start[0].province;
-                                vmEditOrder.model.addressCode_one.city = start[0].city;
-                                vmEditOrder.model.addressCode_one.area = start[0].area;
-                                vmEditOrder.model.addressCode_one.id = start[0].id;
-                                vmEditOrder.model.addressCode_two.province = start[1].province;
-                                vmEditOrder.model.addressCode_two.city = start[1].city;
-                                vmEditOrder.model.addressCode_two.area = start[1].area;
-                                vmEditOrder.model.addressCode_two.id = start[1].id;
+
                             break;
                             default:
                             break;
@@ -294,41 +287,41 @@ $(function(){
                             case 1:
                                 $(" #province1_three option[data-code ='" + end[0].province + "']").attr("selected", "selected");
                                 $("#province1_three").trigger("change");
-                                $(" #city_three1 option[data-code ='" + end[0].city + "']").attr("selected", "selected");
+                                $(" #city1_three option[data-code ='" + end[0].city + "']").attr("selected", "selected");
                                 $("#city1_three").trigger("change");
                                 $(" #district1_three option[data-code ='" + end[0].area + "']").attr("selected", "selected");
                                 $("#district1_three").trigger("change");
+                                vmEditOrder.model.addressList_three.province=getProvinceName(end[0].province);
+                                vmEditOrder.model.addressList_three.city=getCityName(end[0].city);
+                                vmEditOrder.model.addressList_three.area=getAreaName(end[0].area);
                                 vmEditOrder.model.addressList_three.address=end[0].address;
-                                vmEditOrder.model.addressCode_three.province = end[0].province;
-                                vmEditOrder.model.addressCode_three.city = end[0].city;
-                                vmEditOrder.model.addressCode_three.area = end[0].area;
-                                vmEditOrder.model.addressCode_three.id = end[0].id;
+                                vmEditOrder.model.addressList_three.id = end[0].id;
                             break;
                             case 2:
                                 $('.addressItem_four').show();
                                 $('.unloadAddress .addressAdd').html('<img src="../../images/delete_icon.svg" class="delAddress" />');
                                 $(" #province1_three option[data-code ='" + end[0].province + "']").attr("selected", "selected");
                                 $("#province1_three").trigger("change");
-                                $(" #city_three1 option[data-code ='" + end[0].city + "']").attr("selected", "selected");
+                                $(" #city1_three option[data-code ='" + end[0].city + "']").attr("selected", "selected");
                                 $("#city1_three").trigger("change");
                                 $(" #district1_three option[data-code ='" + end[0].area + "']").attr("selected", "selected");
                                 $("#district1_three").trigger("change");
-                                vmEditOrder.model.addressList_three.address=end[0].address;
                                 $(" #province1_four option[data-code ='" + end[1].province + "']").attr("selected", "selected");
                                 $("#province1_four").trigger("change");
                                 $(" #city1_four option[data-code ='" + end[1].city + "']").attr("selected", "selected");
                                 $("#city1_four").trigger("change");
                                 $(" #district1_four option[data-code ='" + end[1].area + "']").attr("selected", "selected");
                                 $("#district1_four").trigger("change");
+                                vmEditOrder.model.addressList_three.province=getProvinceName(end[0].province);
+                                vmEditOrder.model.addressList_three.city=getCityName(end[0].city);
+                                vmEditOrder.model.addressList_three.area=getAreaName(end[0].area);
+                                vmEditOrder.model.addressList_three.id = end[0].id;
+                                vmEditOrder.model.addressList_three.address=end[0].address;
+                                vmEditOrder.model.addressList_four.province=getProvinceName(end[1].province);
+                                vmEditOrder.model.addressList_four.city=getCityName(end[1].city);
+                                vmEditOrder.model.addressList_four.area=getAreaName(end[1].area);
+                                vmEditOrder.model.addressList_four.id = end[1].id;
                                 vmEditOrder.model.addressList_four.address=end[1].address;
-                                vmEditOrder.model.addressCode_three.province = end[0].province;
-                                vmEditOrder.model.addressCode_three.city = end[0].city;
-                                vmEditOrder.model.addressCode_three.area = end[0].area;
-                                vmEditOrder.model.addressCode_three.id = end[0].id;
-                                vmEditOrder.model.addressCode_four.province = end[1].province;
-                                vmEditOrder.model.addressCode_four.city = end[1].city;
-                                vmEditOrder.model.addressCode_four.area = end[1].area;
-                                vmEditOrder.model.addressCode_four.id = end[1].id;
                             break;
                             default:
                             break;
@@ -407,56 +400,32 @@ $(function(){
                 var three_hidden = $('.addressItem_three').is(':hidden');
                 var four_hidden = $('.addressItem_four').is(':hidden');
                 if(!one_hidden){
-                    if(vmEditOrder.model.addressList_one.province !=''){
-                        vmEditOrder.model.addressCode_one.province = getProvince(vmEditOrder.model.addressList_one.province);
-                    }
-                    if(vmEditOrder.model.addressList_one.city !=''){
-                        vmEditOrder.model.addressCode_one.city = getCode(vmEditOrder.model.addressList_one.city);
-                    }
-                    if(vmEditOrder.model.addressList_one.area !=''){
-                        vmEditOrder.model.addressCode_one.area = getArea(vmEditOrder.model.addressList_one.area);
-                    }
-                    vmEditOrder.model.addressCode_one.address = vmEditOrder.model.addressList_one.address;
-                    vmEditOrder.postData.adList.push(vmEditOrder.model.addressCode_one);
+                    vmEditOrder.model.addressList_one.province = getProvince(vmEditOrder.model.addressList_one.province);
+                    vmEditOrder.model.addressList_one.city = getCode(vmEditOrder.model.addressList_one.city);
+                    vmEditOrder.model.addressList_one.area = getArea(vmEditOrder.model.addressList_one.area);
+                    vmEditOrder.model.addressList_one.address = vmEditOrder.model.addressList_one.address;
+                    vmEditOrder.postData.adList.push(vmEditOrder.model.addressList_one);
                 }
                 if(!two_hidden){
-                    if(vmEditOrder.model.addressList_two.province !=''){
-                        vmEditOrder.model.addressCode_two.province = getProvince(vmEditOrder.model.addressList_two.province);
-                    }
-                    if(vmEditOrder.model.addressList_two.city !=''){
-                        vmEditOrder.model.addressCode_two.city = getCode(vmEditOrder.model.addressList_two.city);
-                    }
-                    if(vmEditOrder.model.addressList_two.area !=''){
-                        vmEditOrder.model.addressCode_two.area = getArea(vmEditOrder.model.addressList_two.area);
-                    }
-                    vmEditOrder.model.addressCode_two.address = vmEditOrder.model.addressList_two.address;
-                    vmEditOrder.postData.adList.push(vmEditOrder.model.addressCode_two);
+                    vmEditOrder.model.addressList_two.province = getProvince(vmEditOrder.model.addressList_two.province);
+                    vmEditOrder.model.addressList_two.city = getCode(vmEditOrder.model.addressList_two.city);
+                    vmEditOrder.model.addressList_two.area = getArea(vmEditOrder.model.addressList_two.area);
+                    vmEditOrder.model.addressList_two.address = vmEditOrder.model.addressList_two.address;
+                    vmEditOrder.postData.adList.push(vmEditOrder.model.addressList_two);
                 }
                 if(!three_hidden){
-                    if(vmEditOrder.model.addressList_three.province !=''){
-                        vmEditOrder.model.addressCode_three.province = getProvince(vmEditOrder.model.addressList_three.province);
-                    }
-                    if(vmEditOrder.model.addressList_three.city !=''){
-                        vmEditOrder.model.addressCode_three.city = getCode(vmEditOrder.model.addressList_three.city);
-                    }
-                    if(vmEditOrder.model.addressList_three.area !=''){
-                        vmEditOrder.model.addressCode_three.area = getArea(vmEditOrder.model.addressList_three.area);
-                    }
-                    vmEditOrder.model.addressCode_three.address = vmEditOrder.model.addressList_three.address;
-                    vmEditOrder.postData.adList.push(vmEditOrder.model.addressCode_three);
+                    vmEditOrder.model.addressList_three.province = getProvince(vmEditOrder.model.addressList_three.province);
+                    vmEditOrder.model.addressList_three.city = getCode(vmEditOrder.model.addressList_three.city);
+                    vmEditOrder.model.addressList_three.area = getArea(vmEditOrder.model.addressList_three.area);
+                    vmEditOrder.model.addressList_three.address = vmEditOrder.model.addressList_three.address;
+                    vmEditOrder.postData.adList.push(vmEditOrder.model.addressList_three);
                 }
                 if(!four_hidden){
-                    if(vmEditOrder.model.addressList_four.province !=''){
-                        vmEditOrder.model.addressCode_four.province = getProvince(vmEditOrder.model.addressList_four.province);
-                    }
-                    if(vmEditOrder.model.addressList_four.city !=''){
-                        vmEditOrder.model.addressCode_four.city = getCode(vmEditOrder.model.addressList_four.city);
-                    }
-                    if(vmEditOrder.model.addressList_four.area !=''){
-                        vmEditOrder.model.addressCode_four.area = getArea(vmEditOrder.model.addressList_four.area);
-                    }
-                    vmEditOrder.model.addressCode_four.address = vmEditOrder.model.addressList_four.address;
-                    vmEditOrder.postData.adList.push(vmEditOrder.model.addressCode_four);
+                    vmEditOrder.model.addressList_four.province = getProvince(vmEditOrder.model.addressList_four.province);
+                    vmEditOrder.model.addressList_four.city = getCode(vmEditOrder.model.addressList_four.city);
+                    vmEditOrder.model.addressList_four.area = getArea(vmEditOrder.model.addressList_four.area);
+                    vmEditOrder.model.addressList_four.address = vmEditOrder.model.addressList_four.address;
+                    vmEditOrder.postData.adList.push(vmEditOrder.model.addressList_four);
                 }
                 //是否加急的选择
                 var urgent = document.getElementsByName("urgent");

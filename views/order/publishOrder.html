@@ -61,7 +61,7 @@
                         <ul class="layui-nav">
                             <li class="layui-nav-item" data-src='../../index.html'><a href="javascript:;">首页</a></li>
                             <li class="layui-nav-item" data-src='../../views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
-                            <li class="layui-nav-item" data-src='../../views/financial/financial.html'><a href="javascript:;">金融中心</a></li>
+                            <li class="layui-nav-item" ms-on-click="@limitFinancial" data-src='javascript:;'><a href="javascript:;">金融中心</a></li>
                             <li class="layui-nav-item merchant layui-this" data-src='javascript:;' ms-on-click="@setDisable('MERCHANT')">
                                 <a href="javascript:;" data-src="javascript:;">运输管理</a>
                                 <dl class="layui-nav-child">
@@ -123,19 +123,19 @@
                 </div>
                 <div class='form'>
                     <div class="addressItem loadAddress">
-                        <form class="form-inline addressItem_one">
+                        <form class="form-inline loadItem addressItem_one">
                             <div id='distpicker' data-toggle="distpicker">
                                 <div class="form-group"><span>装货地址</span><span class="ml4 mr10">:</span></div>
                                 <div class="form-group">
-                                    <select class="form-control" ms-duplex="@model.addressList_one.province" data-duplex-changed="@getPCode"  id="province1"></select>
+                                    <select class="form-control" data-province="请选择省" ms-duplex="@model.addressList_one.province" id="province1"></select>
                                     <span>省/直辖市</span>
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-control" ms-duplex="@model.addressList_one.city" data-duplex-changed="@getCCode" id="city1"></select>
+                                    <select class="form-control" data-city="请选择市" ms-duplex="@model.addressList_one.city" id="city1"></select>
                                     <span>市</span>
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-control" ms-duplex="@model.addressList_one.area" data-duplex-changed="@getACode" id="district1"></select>
+                                    <select class="form-control" data-district="请选择区" ms-duplex="@model.addressList_one.area" id="district1"></select>
                                     <span>区县</span>
                                 </div>
                                 <div class="form-group">
@@ -147,19 +147,19 @@
                                 </ul>
                             </div>
                         </form>
-                        <form class="form-inline addressItem_two dis_none">
+                        <form class="form-inline loadItem addressItem_two dis_none">
                             <div id="distpicker_two" data-toggle="distpicker">
                                 <div class="form-group"><span>装货地址</span><span class="ml4 mr10">:</span></div>
                                 <div class="form-group">
-                                    <select class="form-control"  ms-duplex="@model.addressList_two.province"  id="province1_two"></select>
+                                    <select class="form-control" data-province="请选择省"  ms-duplex="@model.addressList_two.province"  id="province1_two"></select>
                                     <span>省/直辖市</span>
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-control" ms-duplex="@model.addressList_two.city" id="city1_two"></select>
+                                    <select class="form-control" data-city="请选择市" ms-duplex="@model.addressList_two.city" id="city1_two"></select>
                                     <span>市</span>
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-control" ms-duplex="@model.addressList_two.area" id="district1_two"></select>
+                                    <select class="form-control" data-district="请选择区" ms-duplex="@model.addressList_two.area" id="district1_two"></select>
                                     <span>区县</span>
                                 </div>
                                 <div class="form-group">
@@ -179,16 +179,15 @@
                             <div id='distpicker_three' data-toggle="distpicker">
                                 <div class="form-group"><span>卸货地址</span><span class="ml4 mr10">:</span></div>
                                 <div class="form-group">
-                                    <!-- data-duplex-changed='getPcode' -->
-                                    <select class="form-control"  ms-duplex="@model.addressList_three.province"  id="province1_three"></select>
+                                    <select class="form-control"  data-province="请选择省" ms-duplex="@model.addressList_three.province"  id="province1_three"></select>
                                     <span>省/直辖市</span>
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-control" ms-duplex="@model.addressList_three.city" id="city1_three"></select>
+                                    <select class="form-control" data-city="请选择市" ms-duplex="@model.addressList_three.city" id="city1_three"></select>
                                     <span>市</span>
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-control" ms-duplex="@model.addressList_three.area" id="district1_three"></select>
+                                    <select class="form-control" data-district="请选择区" ms-duplex="@model.addressList_three.area" id="district1_three"></select>
                                     <span>区县</span>
                                 </div>
                                 <div class="form-group">
@@ -204,16 +203,15 @@
                             <div id='distpicker_four' data-toggle="distpicker">
                                 <div class="form-group"><span>卸货地址</span><span class="ml4 mr10">:</span></div>
                                 <div class="form-group">
-                                    <!-- data-duplex-changed='getPcode' -->
-                                    <select class="form-control"  ms-duplex="@model.addressList_four.province"  id="province1_four"></select>
+                                    <select class="form-control"  data-province="请选择省" ms-duplex="@model.addressList_four.province"  id="province1_four"></select>
                                     <span>省/直辖市</span>
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-control" ms-duplex="@model.addressList_four.city" id="city1_four"></select>
+                                    <select class="form-control" data-city="请选择市" ms-duplex="@model.addressList_four.city" id="city1_four"></select>
                                     <span>市</span>
                                 </div>
                                 <div class="form-group">
-                                    <select class="form-control" ms-duplex="@model.addressList_four.area" id="district1_four"></select>
+                                    <select class="form-control"  data-district="请选择区"ms-duplex="@model.addressList_four.area" id="district1_four"></select>
                                     <span>区县</span>
                                 </div>
                                 <div class="form-group">

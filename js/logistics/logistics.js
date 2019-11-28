@@ -12,19 +12,26 @@ $(function(){
     avalon.ready(function(){
         window.vmLogistics = avalon.define({
             $id : 'root',
-            onLoad:function(){
-                vmLogistics.getCompanyInfo();
-                vmLogistics.getMemberList();
-            },
             postData:{
                 '_token_':'',
                 'keyword':'',
                 'page':'',
                 'limit':'5',
             },
+            postRentData:{
+                '_token_':'',
+                '_verify':'_verify',
+                'page':'1',
+                'limit':'5',
+                'keyword':'',
+            },
             companyInfo:{},
             memberList:[],
             rentList:[],
+            onLoad:function(){
+                vmLogistics.getCompanyInfo();
+                vmLogistics.getMemberList();
+            },
             // 查看所有订单记录
             checkOrders:function(){
                 layer.open({
@@ -70,6 +77,7 @@ $(function(){
             getMemberList:function(){
                 getAjax(API.URL_GET_COMPANYMEMBER,'get',vmLogistics.postData).then(function(res){
                     if(res.code == 200){
+                        $('.noInfo').hide();
                         for(var i in res.result){
                             res.result[i].avatar = getApiHost + res.result[i].avatar;
                         }
@@ -78,7 +86,8 @@ $(function(){
                     }else{
                         if(res.code == 40040){
                             $('.noInfo').show();
-                            $('.noInfo').html('暂无数据')
+                            $('.noInfo').html('暂无数据');
+                            $('#demo2').hide();
                         }else{
                             alertMsg(res.message,2);
                         }
@@ -106,23 +115,61 @@ $(function(){
             },
             /*获取租赁列表*/
             getRentList:function(){
+                /*API.URL_GET_LEASELIST*/
                 var token = localStorage.getItem('token');
-                getAjax(API.URL_GET_LEASELIST,'get',{'_token_':token}).then(function(res){
+                vmLogistics.postRentData._token_ = token;
+                getAjax(API.URL_GET_LEASELIST,'get',vmLogistics.postRentData).then(function (res) {
+                    if(res.code == 200){
+                        $('.rentItem .noInfo').hide();
+                        for(var i in res.result){
+                            res.result[i].s_city = getCityName(res.result[i].s_city);
+                            res.result[i].s_area = getAreaName(res.result[i].s_area);
+                            res.result[i].e_city = getCityName(res.result[i].e_city);
+                            res.result[i].e_area = getAreaName(res.result[i].e_area);
+                        }
+                        vmLogistics.rentList = res.result;
+                        layui.use(['laypage', 'layer'], function () {
+                            var laypage = layui.laypage,
+                                layer = layui.layer;
+                            //自定义样式
+                            laypage.render({
+                                elem: 'demo3',
+                                count: res.count,
+                                limit:'5',
+                                curr: vmLogistics.postRentData.page,
+                                theme: '#f57619',
+                                jump: function (obj,first) {
+                                    if(!first){
+                                        vmLogistics.postRentData.page = obj.curr;
+                                        vmLogistics.getRentList();
+                                    }
+                                }
+                            });
+                        });
+                    }else{
+                        if(res.code == 40040){
+                            $('.rentItem .noRentInfo').show();
+                            $('.rentItem .noRentInfo').html('暂无相关数据')
+                            vmLogistics.rentList = res.result;
+                            $('#demo3').hide();
+                        }else{
+                            alertMsg(res.message,2);
+                        }
+                    }
+                })
+            },
+            /*下架信息*/
+            removeMsg:function(el){
+                var token = localStorage.getItem('token');
+                getAjax(API.URL_POST_OBTAINED,'post',{'_token_':token,'id':el}).then(function(res){
                    if(res.code == 200){
-                       for(var i in res.result){
-                           res.result[i].s_city = getCityName(res.result[i].s_city);
-                           res.result[i].s_area = getAreaName(res.result[i].s_area);
-                           res.result[i].e_city = getCityName(res.result[i].e_city);
-                           res.result[i].e_area = getAreaName(res.result[i].e_area);
-                       }
-                       vmLogistics.rentList = res.result;
-                       console.log(res.result);
-                       vmLogistics.getPageList('demo3',res.count)
+                       alertMsg(res.message,1);
+                       vmEditRentOrder.getRentList();
                    }else{
-                       alertMsg(res.message,2)
+                       alertMsg(res.message,2);
                    }
                 });
-            },
+            }
         });
         vmLogistics.onLoad();
         avalon.scan(document.body);

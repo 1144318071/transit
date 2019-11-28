@@ -40,38 +40,38 @@
 }
 /*轻工业*/
 .tabType{
-  margin-top: 135px;
+  width: 284px;
+}
+#tabType .headeLine{
+  width: 284px;
+  height: 6px;
+  background-color:#f57619;
+  border-radius:4px 4px 0px 0px;
+}
+.tabType{
+  background-color:#fff;
 }
 .tabType li{
- float: left;
-  width: 212px;
-  height: 40px;
-  border: 1px solid #f57619;
-  line-height: 40px;
-  text-align: center;
-  color: #f57619;
   cursor: pointer;
+  height: 54px;
+  line-height: 54px;
+  text-align: center;
 }
-.tabType li:first-child{
-  border-radius: 6px 0px 0px 6px;
+.tabType li:not(:last-child){
+  border-bottom: 1px solid rgb(234,234,234);
 }
-.tabType li:last-child{
-  border-radius: 0px 6px 6px 0px;
-}
-.tabType li:not(:first-child){
-  margin-left: 2px;
-}
+
 .tabType li.active{
-  background-color:#f57619;
-  color: #fff;
+  color: #f57619;
 }
 .order{
-  margin-top: 58px;
+  margin-top: 135px;
 }
 .tabTitle li{
   float: left;
-  font-size: 24px;
+  font-size: 16px;
   cursor: pointer;
+  font-weight: bold;
 }
 .tabTitle li.active{
   color: #f57619;
@@ -80,10 +80,7 @@
   margin: 0 10px;
 }
 .search{
-  margin-top: 20px;
-}
-.search li{
-  float: left;
+  margin-top: 27px;
 }
 .search li input{
   width: 259px;
@@ -92,7 +89,7 @@
   outline: none;
   border-right: 0px;
 }
-.search li button{
+.search li .btn-search{
   color: #ffffff;
   border: 0px;
   outline: none;
@@ -126,11 +123,12 @@
   vertical-align: middle;
   margin-right: 8px;
 }
+
 .tabItem .itemDetail{
   margin-top: 22px;
 }
 .tabItem .itemDetail:first-child{
-  margin-top: 30px;
+  margin-top: 10px;
 }
 .itemDetail{
   position: relative;
@@ -224,19 +222,22 @@
   justify-content: center;
 }
 .tabTitle{
-  padding-bottom: 8px;
-  border-bottom: solid 1px #999999;
+  padding-left: 44px;
+  height: 60px;
+  line-height: 60px;
+  border-bottom: solid 1px #eaeaea;
 }
 .countItem{
-  width: 309px;
-  height: 303px;
+  width:284px;
+  height:271px;
   background-color: #ffffff;
-  border: solid 1px #999999;
 }
 .countImg{
-  width: 183px;
-  height: 183px;
-  border-radius:183px;
+  width:142px;
+  height:142px;
+  line-height: 142px;
+  text-align: center;
+  border-radius:50%;
   background-color:#fffaf6;
   margin: 25px 57px 0px 69px;
   position: relative;
@@ -265,18 +266,17 @@
 }
 .tips{
   text-align: center;
-  line-height: 183px;
-  font-size: 44px;
+  font-size: 28px;
   color: #999;
   font-weight: bold;
 }
 .countTitle{
-  font-size: 22px;
+  font-size: 18px;
   font-weight: bold;
-  margin: 25px 0px 0px 31px;
+  padding: 37px 0px 0px 14px;
 }
 .countItem:nth-child(2){
-  margin-top: 78px;
+  margin-top: 37px;
 }
 /*渣土运输按钮*/
 .description button{
@@ -308,4 +308,34 @@
 }
 .operateItem li a:hover,.operateItem li a:link,.operateItem li a:visited{
   color: #999;
+}
+/*修改样式*/
+.order{
+  padding-top: 97px;
+  margin-top: 0px;
+  padding-bottom: 62px;
+  background-color: rgb(246,246,246);
+}
+.order_left{
+  width: 866px;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  padding-bottom: 10px;
+}
+.tabContent{
+  padding-left: 44px;
+}
+/*发布货单按钮*/
+.btn-publish{
+  width:106px;
+  height:36px;
+  border:1px solid #f57619;
+  color: #f57619;
+  outline: 0;
+  border: 1px solid #f57619;
+  margin-right: 74px;
+}
+footer{
+  margin-top: 0px!important;
 }

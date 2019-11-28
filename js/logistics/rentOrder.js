@@ -131,7 +131,7 @@ $(function () {
                'remark':'',
                'contact':'',
                'tell':'',
-               'code':''
+               'code':'',
            },
            startAddress:{
                'province':'',
@@ -144,6 +144,7 @@ $(function () {
                'area':''
            },
            onLoad:function(){
+
            },
            /*获取验证码*/
            getCheckCode:function(){

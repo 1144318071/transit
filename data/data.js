@@ -19,12 +19,12 @@ var Area = {
             },
             {
                 ssqid: "110000",
-                ssqname: "北京",
+                ssqname: "北京市",
                 ssqename: "",
                 cities: {
                     city: [{
                         ssqid: "110100",
-                        ssqname: "市辖区",
+                        ssqname: "北京市市辖区",
                         ssqename: "",
                         areas: {
                             area: [{
@@ -133,12 +133,12 @@ var Area = {
             },
             {
                 ssqid: "120000",
-                ssqname: "天津",
+                ssqname: "天津市",
                 ssqename: "",
                 cities: {
                     city: [{
                         ssqid: "120100",
-                        ssqname: "市辖区",
+                        ssqname: "天津市市辖区",
                         ssqename: "",
                         areas: {
                             area: [{
@@ -4270,12 +4270,12 @@ var Area = {
             },
             {
                 ssqid: "310000",
-                ssqname: "上海",
+                ssqname: "上海市",
                 ssqename: "",
                 cities: {
                     city: [{
                         ssqid: "310100",
-                        ssqname: "市辖区",
+                        ssqname: "上海市市辖区",
                         ssqename: "",
                         areas: {
                             area: [{
@@ -4679,8 +4679,8 @@ var Area = {
                                         ssqename: ""
                                     },
                                     {
-                                        ssqid: "320584",
-                                        ssqname: "吴江市",
+                                        ssqid: "320509",
+                                        ssqname: "吴江区",
                                         ssqename: ""
                                     },
                                     {
@@ -10566,8 +10566,8 @@ var Area = {
                                         ssqename: ""
                                     },
                                     {
-                                        ssqid: "440221",
-                                        ssqname: "曲江县",
+                                        ssqid: "440205",
+                                        ssqname: "曲江区",
                                         ssqename: ""
                                     },
                                     {
@@ -12094,12 +12094,12 @@ var Area = {
             },
             {
                 ssqid: "500000",
-                ssqname: "重庆",
+                ssqname: "重庆市",
                 ssqename: "",
                 cities: {
                     city: [{
                         ssqid: "500100",
-                        ssqname: "市辖区",
+                        ssqname: "重庆市市辖区",
                         ssqename: "",
                         areas: {
                             area: [{

@@ -62,7 +62,6 @@ $(function(){
                 vmLogin.postData._token_ = vmLogin.token;
                 getAjax(API.URL_POST_USERLOGIN,'post',vmLogin.postData).then(function(res){
                     if(res.code == 200){
-
                         localStorage.setItem('userInfo',JSON.stringify(res.result));
                         var userInfo = res.result;
                         //判断用户是否进行实名认证，并进入不同的页面

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../../css/footer.css">
     <link rel="stylesheet" href="../../css/logistics/rentOrder.css">
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=n6K0xWCoAKyRgR0cYt6uVaC1EgAVAGFR"></script>
-    <title>发布订单</title>
+    <title>编辑订单</title>
 </head>
 
 <body>
@@ -161,10 +161,10 @@
                     </form>
                 </div>
                 <div class="formItem carItem">
-                    <ul class="clearfix needCarItem">
+                    <ul class="clearfix needCarItem" ms-for="(index,el)el in @rentInfo.car" ms-if="index==0" ms-attr="{ 'data-id' : el.id }">
                         <li>所需车型<span class="ml4 mr10">:</span></li>
                         <li>
-                            <select>
+                            <select ms-duplex="el.type">
                                 <option value="">不限</option>
                                 <option value="平板">平板</option>
                                 <option value="高栏">高栏</option>
@@ -180,7 +180,7 @@
                             <label>类型</label>
                         </li>
                         <li>
-                            <select>
+                            <select ms-duplex="el.car_length">
                                 <option value="">不限</option>
                                 <option value="1.8m">1.8米</option>
                                 <option value="2.7m">2.7米</option>
@@ -203,21 +203,72 @@
                             <label>车长</label>
                         </li>
                         <li>
-                            <input type="text" placeholder="所需数量" />
+                            <input type="text" ms-attr="{value : el.num}" placeholder="所需数量" />
                             <label>辆</label>
                         </li>
                         <li>
-                            <input type="text"  placeholder="每辆价格" />
+                            <input type="text" ms-attr="{ value : el.price }" placeholder="每辆价格" />
                             <label>元/天</label>
                         </li>
-                        <li class="font24 addItemOne" style="margin-top: -7px;cursor:pointer;">+</li>
+                        <li class="font24 addItemOne" ms-on-click="@addCarItem" style="margin-top: -7px;cursor:pointer;">+</li>
+                    </ul>
+                    <ul class="clearfix needCarItem mt35"  ms-for="(index,el) in @rentInfo.car" ms-if="index>0" ms-attr="{ 'data-id' : el.id }">
+                        <li class="dis_none">所需车型<span class="ml4 mr10">:</span></li>
+                        <li style="margin-left: 82px">
+                            <select ms-duplex="el.type">
+                                <option value="">不限</option>
+                                <option value="平板">平板</option>
+                                <option value="高栏">高栏</option>
+                                <option value="厢式">厢式</option>
+                                <option value="集装箱">集装箱</option>
+                                <option value="自卸">自卸</option>
+                                <option value="冷藏">冷藏</option>
+                                <option value="保温">保温</option>
+                                <option value="高地板">高地板</option>
+                                <option value="爬梯车">爬梯车</option>
+                                <option value="飞翼车">飞翼车</option>
+                            </select>
+                            <label>类型</label>
+                        </li>
+                        <li>
+                            <select  ms-duplex="el.car_length">
+                                <option value="">不限</option>
+                                <option value="1.8m">1.8米</option>
+                                <option value="2.7m">2.7米</option>
+                                <option value="3.8m">3.8米</option>
+                                <option value="4.2m">4.2米</option>
+                                <option value="5.0m">5.0米</option>
+                                <option value="6.2m">6.2米</option>
+                                <option value="6.8m">6.8米</option>
+                                <option value="7.7m">7.7米</option>
+                                <option value="8.2m">8.2米</option>
+                                <option value="8.7m">8.7米</option>
+                                <option value="9.6m">9.6米</option>
+                                <option value="11.7m">11.7米</option>
+                                <option value="12.5m">12.5米</option>
+                                <option value="13.0m">13.0米</option>
+                                <option value="15.0m">15.0米</option>
+                                <option value="16.0m">16.0米</option>
+                                <option value="17.5m">17.5米</option>
+                            </select>
+                            <label>车长</label>
+                        </li>
+                        <li>
+                            <input type="text" ms-attr="{ value : el.num }" placeholder="所需数量" />
+                            <label>辆</label>
+                        </li>
+                        <li>
+                            <input type="text" ms-attr="{ value : el.price }"  placeholder="每辆价格" />
+                            <label>元/天</label>
+                        </li>
+                        <li class="font24 addItemDel" style="margin-top: -7px;cursor:pointer;">-</li>
                     </ul>
                 </div>
                 <div class="formItem driverItem">
-                    <ul class="clearfix needDriverItem">
+                    <ul class="clearfix needDriverItem" ms-for="(index,el) in @rentInfo.chauffeur" ms-if="index == 0" ms-attr="{ 'data-id' : el.id }">
                         <li>所需司机<span class="ml4 mr10">:</span></li>
                         <li>
-                            <select>
+                            <select ms-duplex="el.type">
                                 <option value="">不限</option>
                                 <option value="A">A级</option>
                                 <option value="B">B级</option>
@@ -226,11 +277,32 @@
                             <label>驾照</label>
                         </li>
                         <li>
-                            <input type="text" placeholder="所需司机数量" />
+                            <input type="text" ms-duplex="el.num" placeholder="所需司机数量" />
                             <label>人&emsp;</label>
                         </li>
                         <li>
-                            <input type="text"  placeholder="每辆价格" />
+                            <input type="text" ms-duplex="el.price" placeholder="每辆价格" />
+                            <label>元/天</label>
+                        </li>
+                        <li class="font24 addItemTwo" style="margin-top: -7px;cursor:pointer;">+</li>
+                    </ul>
+                    <ul class="clearfix needDriverItem mt35" ms-for="(index,el) in @rentInfo.chauffeur" ms-if="index>0"  ms-if="index>0" ms-attr="{ 'data-id' : el.id }">
+                        <li class="dis_none">所需司机<span class="ml4 mr10">:</span></li>
+                        <li style="margin-left: 82px">
+                            <select ms-duplex="el.type">
+                                <option value="">不限</option>
+                                <option value="A">A级</option>
+                                <option value="B">B级</option>
+                                <option value="C">C级</option>
+                            </select>
+                            <label>驾照</label>
+                        </li>
+                        <li>
+                            <input type="text" ms-duplex="el.num" placeholder="所需司机数量" />
+                            <label>人&emsp;</label>
+                        </li>
+                        <li>
+                            <input type="text" ms-duplex="el.price"  placeholder="每辆价格" />
                             <label>元/天</label>
                         </li>
                         <li class="font24 addItemTwo" style="margin-top: -7px;cursor:pointer;">+</li>
@@ -301,7 +373,7 @@
                 </div>
                 <ul class="buttons clearfix">
                     <li><button ms-on-click="@resetData">重置</button></li>
-                    <li><button class="btn-next" ms-on-click="@publishOrder">发布订单</button></li>
+                    <li><button class="btn-next" ms-on-click="@publishOrder">编辑订单</button></li>
                 </ul>
             </div>
         </div>
@@ -320,6 +392,6 @@
 <script src="../../data/api.js"></script>
 <script src="../../data/data.js"></script>
 <script src="../../data/return_data.js"></script>
-<script src="../../js/logistics/rentOrder.js"></script>
+<script src="../../js/logistics/editRentOrder.js"></script>
 </body>
 </html>

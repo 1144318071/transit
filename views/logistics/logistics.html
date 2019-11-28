@@ -59,7 +59,7 @@
                         <ul class="layui-nav">
                             <li class="layui-nav-item" data-src='../../index.html'><a href="javascript:;">首页</a></li>
                             <li class="layui-nav-item" data-src='../../views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
-                            <li class="layui-nav-item" data-src='../../views/financial/financial.html'><a href="javascript:;">金融中心</a></li>
+                            <li class="layui-nav-item" ms-on-click="@limitFinancial" data-src='javascript:;'><a href="javascript:;">金融中心</a></li>
                             <li class="layui-nav-item merchant" data-src='javascipt:;' ms-on-click="@setDisable('MERCHANT')">
                                 <a href="javascript:;">运输管理</a>
                                 <dl class="layui-nav-child">
@@ -160,19 +160,19 @@
             </div>
             <div class='drivers'>
                 <ul class='title clearfix'>
-                    <li class="active">司机人员</li>
-                    <li>|</li>
+                    <li class="active">司机人员<span class="ml10 mr10" style="color:#333!important;">|</span></li>
                     <li ms-on-click="@getRentList">租赁管理</li>
-                </ul>
-                <ul class='searchInput clearfix'>
-                    <li><input type="text" placeholder="输入姓名或者电话号码搜索"></li>
-                    <li><button>搜索</button></li>
                 </ul>
             </div>
             <div class='itemContent clearfix'>
                 <div class="itemCon pull-left clearfix">
+
                     <!--司机人员-->
                     <div class='item clearfix'>
+                        <ul class='searchInput clearfix'>
+                            <li><input type="text" ms-duplex="@postData.keyword" placeholder="输入姓名或者电话号码搜索"></li>
+                            <li><button>搜索</button></li>
+                        </ul>
                         <div class='itemBox' ms-for="el in @memberList">
                             <ul class='itemTitle clearfix'>
                                 <li ms-text="el.mobile"></li>
@@ -198,13 +198,16 @@
                         <div class="noInfo dis_none" style="width:765px;height:400px;line-height: 400px;text-align: center;font-size:30px;border:1px solid #eaeaea"></div>
                         <div id="demo2"></div>
                     </div>
-                    <div class='item dis_none clearfix'></div>
                     <!--租赁管理-->
                     <div class='item rentItem dis_none clearfix'>
+                        <ul class='searchInput clearfix'>
+                            <li><input type="text" ms-duplex="@postRentData.keyword" placeholder="输入订单编号查找"></li>
+                            <li><button ms-on-click="@getRentList">搜索</button></li>
+                        </ul>
                         <div class='itemBox' ms-for="el in @rentList">
                             <ul class='itemTitle clearfix'>
                                 <li>订单编号:</li>
-                                <li ms-text="el.number">515135413131</li>
+                                <li ms-text="el.number"></li>
                             </ul>
                             <div class='itemDetail clearfix'>
                                 <div class="rent_left pull-left">
@@ -235,52 +238,17 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="rent_right pull-right">
-                                    <button class="btn-cancel">取消订单</button>
-                                    <div class="cancelOrder">修改订单</div>
+                                <div class="rent_right pull-right" ms-if="el.status == 10">
+                                    <button class="btn-cancel" ms-on-click="@removeMsg(el.id)">下架信息</button>
+                                    <div class="cancelOrder"> <button class="btn-cancel"><a style="color:#f57619;" ms-attr="{ href : './editRentOrder.html?id='+ el.id }">修改信息</a></button></div>
+                                </div>
+                                <div class="rent_right pull-right" ms-if="el.status == 20">
+                                    <div class="cancelOrder">信息已下架</div>
+                                    <div class="cancelOrder"> <button class="btn-cancel"><a style="color:#f57619;" ms-attr="{ href : './editRentOrder.html?id='+ el.id }">修改信息</a></button></div>
                                 </div>
                             </div>
                         </div>
-                        <div class='itemBox dis_none'>
-                            <ul class='itemTitle clearfix'>
-                                <li>订单编号:</li>
-                                <li>515135413131</li>
-                            </ul>
-                            <div class='itemDetail clearfix'>
-                                <div class="rent_left pull-left">
-                                    <div class="rentTitle">
-                                        <ul class="clearfix">
-                                            <li>成都</li></li>
-                                            <li>武侯区</li>
-                                            <li>→</li>
-                                            <li>重庆</li>
-                                            <li>大坝</li>
-                                        </ul>
-                                    </div>
-                                    <div class="rentDes">
-                                        <ul class="clearfix">
-                                            <li>所需车辆</li>
-                                            <li>:</li>
-                                            <li>牵引车/1.7米/15辆/200/天</li>
-                                        </ul>
-                                        <ul class="clearfix">
-                                            <li>所需司机</li>
-                                            <li>:</li>
-                                            <li>A级/2名/200/天</li>
-                                        </ul>
-                                        <ul class="clearfix">
-                                            <li>联系电话</li>
-                                            <li>:</li>
-                                            <li>18583971519</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="rent_right pull-right">
-                                    <button class="btn-cancel">取消订单</button>
-                                    <div class="cancelOrder">修改订单</div>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="noRentInfo dis_none" style="width:765px;height:400px;line-height: 400px;text-align: center;font-size:30px;border:1px solid #eaeaea"></div>
                         <div id="demo3"></div>
                     </div>
                 </div>

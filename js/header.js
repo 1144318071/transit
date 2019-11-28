@@ -113,6 +113,9 @@ $(function(){
                         alertMsg(res.message,2);
                     }
                 })
+            },
+            limitFinancial:function(){
+                alertMsg('当前木块暂未开放',4);
             }
         });
         vmHeader.onLoad();

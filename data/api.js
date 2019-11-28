@@ -147,4 +147,10 @@ var API = {
     URL_POST_LEASE : getApiHost + '/lease',
     /*租赁列表*/
     URL_GET_LEASELIST : getApiHost + '/leaseList',
+    /*修改租赁订单*/
+    URL_POST_EDITLEASE : getApiHost + '/editLease',
+    /*获取租赁订单详情*/
+    URL_GET_LEASEINFO : getApiHost + '/leaseInfo',
+    /*下架租赁*/
+    URL_POST_OBTAINED : getApiHost + '/obtained'
 }

@@ -128,9 +128,6 @@
   cursor: pointer;
   font-size: 24px;
 }
-.drivers .title li:nth-child(2){
-  margin: 0 12px;
-}
 .drivers .title li.active{
   color: #f57619;
 }
@@ -193,7 +190,7 @@
   margin-top: 16px;
 }
 .rentItem .rent_right{
-  padding-top: 31px;
+  padding-top: 18px;
   padding-right: 18px;
 }
 .rentItem .rent_right .btn-cancel{
@@ -302,9 +299,6 @@
   margin-top: 19px;
   margin-left: 37px;
 }
-.layui-laypage {
-  margin: 67px 0px 0px 78px;
-}
 .layui-laypage a,
 .layui-laypage span {
   font-size: 16px;
@@ -312,4 +306,12 @@
 #avatar{
   border-radius: 34px;
   vertical-align: middle;
+}
+#demo2,#demo3{
+  margin: 0px;
+  width: 766px;
+  height: 60px;
+  line-height: 60px;
+  display: flex;
+  justify-content: center;
 }

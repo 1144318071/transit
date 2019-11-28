@@ -26,7 +26,7 @@ $(function(){
                 '_token_':'',
                 'keyword':'',
                 'page':'1',
-                'limit':'5',
+                'limit':'6',
                 'order_status':'',
                 'goods_status':''
             },
@@ -242,7 +242,7 @@ $(function(){
                 var urlJson = GetRequest(url);
                 if(urlJson.state == '10'){
                     $('#tabType').hide();
-                    $('.order').css({'margin-top':'240px'});
+                    $('.countItem:nth-child(2)').css({'marginTop':'0px'})
                 }
             },
             //获取商家信息
@@ -281,7 +281,7 @@ $(function(){
                             result[i].end_address.area = getAreaName(result[i].end_address.area);
                             result[i].goods_images = getApiHost + result[i].goods_images;
                             if(res.result[i].goods_status == '40'){
-                                res.result[i].name = res.result[i].name.substr(0,1)+'师傅';
+                                /*res.result[i].name = res.result[i].name.substr(0,1)+'师傅';*/
                                 res.result[i].tell = getApiHost + res.result[i].tell;
                             }
                         }
@@ -336,7 +336,7 @@ $(function(){
                         laypage.render({
                             elem: elem,
                             count: count,
-                            limit: '5',
+                            limit: '6',
                             curr: vmOrder.postData.page,
                             theme: '#f57619',
                             jump: function(obj,first) {

@@ -61,7 +61,7 @@
                         <ul class="layui-nav">
                             <li class="layui-nav-item" data-src='../../index.html'><a href="javascript:;">首页</a></li>
                             <li class="layui-nav-item" data-src='../../views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
-                            <li class="layui-nav-item" data-src='../../views/financial/financial.html'><a href="javascript:;">金融中心</a></li>
+                            <li class="layui-nav-item" ms-on-click="@limitFinancial" data-src='javascript:;'><a href="javascript:;">金融中心</a></li>
                             <li class="layui-nav-item merchant layui-this" data-src='javascipt:;' ms-on-click="@setDisable('MERCHANT')">
                                 <a href="javascript:;" data-src="javascript:;">运输管理</a>
                                 <dl class="layui-nav-child">
@@ -124,18 +124,11 @@
             </div>
             <div class='clearfix'></div>
         </div>
-        <div class="content_box" id="tabType">
-            <ul class="tabType clearfix">
-                <li class="active">轻工业</li>
-                <li>重工业</li>
-                <li>农畜牧业</li>
-                <li>其他货物</li>
-            </ul>
-        </div>
+
         <div class="order">
         <div class='content_box'>
             <div class="order clearfix">
-                <div class="pull-left">
+                <div class="pull-right order_left">
                     <ul class="tabTitle clearfix">
                         <li class="active" ms-on-click="@getStatusOrder('demo1','','')">全部订单<span style="color:#333!important">|</span></li>
                         <li ms-on-click="@getStatusOrder('demo2','10','')">待支付<span style="color:#333!important">|</span></li>
@@ -150,10 +143,10 @@
                         <!--全部订单-->
                         <div class="tabItem">
                             <ul class="search clearfix">
-                                <li><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
-                                <li><button class="btn-search" ms-on-click="@getSearchList('demo1','40','')">搜索</button></li>
+                                <li class="pull-left"><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
+                                <li class="pull-left"><button class="btn-search" ms-on-click="@getSearchList('demo1','40','')">搜索</button></li>
+                                <li class="pull-right"><a href="./publishOrder.html"><button class="btn-publish">发布货单</button></a></li>
                             </ul>
-                            <!--未接单的状态 goods_status != 40-->
                             <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type=='10'" ms-attr="{ id : 'active_' + el.goods_id }" ms-mouseover="@setActive('active_'+el.goods_id)" ms-mouseout="@removeActive('active_'+el.goods_id)">
                                 <ul class="itemTitle clearfix">
                                     <li class="pull-left">订单编号<span class="ml4 mr4">:</span><span ms-text="el.goods_status != '40' ? el.goods_number : el.order_number"></span></li>
@@ -296,8 +289,9 @@
                         <!--待支付-->
                         <div class="tabItem dis_none">
                             <ul class="search clearfix">
-                                <li><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
-                                <li><button class="btn-search" ms-on-click="@getSearchList('demo2','10','')" >搜索</button></li>
+                                <li class="pull-left"><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
+                                <li class="pull-left"><button class="btn-search" ms-on-click="@getSearchList('demo2','10','')">搜索</button></li>
+                                <li class="pull-right"><a href="./publishOrder.html"><button class="btn-publish">发布货单</button></a></li>
                             </ul>
                             <!--待支付-->
                             <div class="itemDetail" ms-for="el in @DZFList" ms-if="el.type == '10'" ms-attr="{ id : 'active_' + el.goods_id }" ms-mouseover="@setActive('active_'+el.goods_id)" ms-mouseout="@removeActive('active_'+el.goods_id)">
@@ -330,8 +324,9 @@
                         <!--待接单-->
                         <div class="tabItem dis_none">
                             <ul class="search clearfix">
-                                <li><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
-                                <li><button class="btn-search" ms-on-click="@getSearchList('demo3','20','')" >搜索</button></li>
+                                <li class="pull-left"><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
+                                <li class="pull-left"><button class="btn-search" ms-on-click="@getSearchList('demo3','20','')">搜索</button></li>
+                                <li class="pull-right"><a href="./publishOrder.html"><button class="btn-publish">发布货单</button></a></li>
                             </ul>
                             <!--待接单(货物运输)-->
                             <div class="itemDetail" ms-for="el in @DJDList" ms-if="el.type == '10'" ms-attr="{ id : 'active_' + el.goods_id }" ms-mouseover="@setActive('active_'+el.goods_id)" ms-mouseout="@removeActive('active_'+el.goods_id)">
@@ -394,8 +389,9 @@
                         <!--待装货-->
                         <div class="tabItem dis_none">
                             <ul class="search clearfix">
-                                <li><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
-                                <li><button class="btn-search" ms-on-click="@getSearchList('demo4','40','10')">搜索</button></li>
+                                <li class="pull-left"><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
+                                <li class="pull-left"><button class="btn-search" ms-on-click="@getSearchList('demo4','40','10')">搜索</button></li>
+                                <li class="pull-right"><a href="./publishOrder.html"><button class="btn-publish">发布货单</button></a></li>
                             </ul>
                             <!--待装货状态-->
                             <div class="itemDetail" ms-for="el in @DZHList" ms-if="el.type == '10'" ms-attr="{ id : 'active_' + el.goods_id }" ms-mouseover="@setActive('active_'+el.goods_id)" ms-mouseout="@removeActive('active_'+el.goods_id)">
@@ -438,8 +434,9 @@
                         <!--运输中-->
                         <div class="tabItem dis_none">
                             <ul class="search clearfix">
-                                <li><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
-                                <li><button class="btn-search" ms-on-click="@getSearchList('demo5','40','20')">搜索</button></li>
+                                <li class="pull-left"><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
+                                <li class="pull-left"><button class="btn-search" ms-on-click="@getSearchList('demo5','40','20')">搜索</button></li>
+                                <li class="pull-right"><a href="./publishOrder.html"><button class="btn-publish">发布货单</button></a></li>
                             </ul>
                             <!--运输中(渣土运输)-->
                             <div class="itemDetail muckItem dis_none">
@@ -512,8 +509,9 @@
                         <!--待签收-->
                         <div class="tabItem dis_none">
                             <ul class="search clearfix">
-                                <li><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
-                                <li><button class="btn-search" ms-on-click="@getSearchList('demo6','40','40')">搜索</button></li>
+                                <li class="pull-left"><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
+                                <li class="pull-left"><button class="btn-search" ms-on-click="@getSearchList('demo6','40','40')">搜索</button></li>
+                                <li class="pull-right"><a href="./publishOrder.html"><button class="btn-publish">发布货单</button></a></li>
                             </ul>
                             <!--待收货-->
                             <div class="itemDetail" ms-for="el in @DQSList" ms-if="el.type == '10'" ms-attr="{ id : 'active_' + el.goods_id }" ms-mouseover="@setActive('active_'+el.goods_id)" ms-mouseout="@removeActive('active_'+el.goods_id)">
@@ -556,8 +554,9 @@
                         <!--投诉/申诉-->
                         <div class="tabItem dis_none">
                             <ul class="search clearfix">
-                                <li><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
-                                <li><button class="btn-search" ms-on-click="@getSearchList('demo7','40','60')">搜索</button></li>
+                                <li class="pull-left"><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
+                                <li class="pull-left"><button class="btn-search" ms-on-click="@getSearchList('demo7','40','60')">搜索</button></li>
+                                <li class="pull-right"><a href="./publishOrder.html"><button class="btn-publish">发布货单</button></a></li>
                             </ul>
                             <!--货物运输完成(申诉中/取消申诉)-->
                           <!--  <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type == '10'">
@@ -638,8 +637,9 @@
                         <!--赔付/退款-->
                         <div class="tabItem dis_none">
                             <ul class="search clearfix">
-                                <li><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
-                                <li><button class="btn-search" ms-on-click="@getSearchList('demo8','40','70')">搜索</button></li>
+                                <li class="pull-left"><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
+                                <li class="pull-left"><button class="btn-search" ms-on-click="@getSearchList('demo8','40','70')">搜索</button></li>
+                                <li class="pull-right"><a href="./publishOrder.html"><button class="btn-publish">发布货单</button></a></li>
                             </ul>
                             <!--退款中-->
                             <div class="itemDetail" ms-for="el in @TKList" ms-if="el.type == '10'" ms-attr="{ id : 'active_' + el.goods_id }" ms-mouseover="@setActive('active_'+el.goods_id)" ms-mouseout="@removeActive('active_'+el.goods_id)">
@@ -681,15 +681,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="pull-right">
-                    <div class="countItem">
-                        <div class="countImg">
-                            <a href="./publishOrder.html"><img src="../../images/publishOrder.png" alt=""></a>
-                        </div>
-                        <div class="itemTips">
-                            <div class="tipTxt"><a href="./publishOrder.html">发布货单</a></div>
-                        </div>
-                    </div>
+                <div class="pull-left order_right">
+                    <div id="tabType">
+                        <div class="headeLine"></div>
+                        <ul class="tabType clearfix">
+                           <li class="active">轻工业</li>
+                           <li>重工业</li>
+                           <li>农畜牧业</li>
+                           <li>其他货物</li>
+                        </ul>
+                   </div>
                     <div class="countItem">
                         <div class="countTitle"><span ms-text="@city"></span>在线车辆</div>
                         <div class="dis_none" id="map"></div>
