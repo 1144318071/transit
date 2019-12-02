@@ -174,7 +174,7 @@
                             </ul>
                             <ul class="clearfix">
                                 <li>共计金额<span class="ml4 mr10">:</span></li>
-                                <li style="margin-top:-10px">人民币<span class="font26 fontw" ms-text="@orderInfo.all_money"></span>元</li>
+                                <li style="margin-top:-10px">人民币<span class="font26 fontw">{{ @orderInfo.all_money }}</span>元</li>
                             </ul>
                             <ul  class="clearfix payWay">
                                 <li>支付方式<span class="ml4 mr10">:</span></li>
@@ -206,7 +206,7 @@
                     <span class='title'>选择抵用券</span>
                 </div>
                 <div class="discountDetail">
-                    <div class="discountItem pull-left rl" ms-for="el in @couponList" ms-if="el.type=='10' && (el.allMoney>el.full) " ms-attr="{ id : 'discount_'+ el.id }" ms-on-click="@chooseCoupon('discount_'+el.id,el.id,el.less)">
+                    <div class="discountItem pull-left rl" ms-for="el in @couponList" ms-if="el.type=='10' && (el.allMoney>=el.full) " ms-attr="{ id : 'discount_'+ el.id }" ms-on-click="@chooseCoupon('discount_'+el.id,el.id,el.less)">
                         <ul>
                             <li class="price">¥<span ms-text="el.less"></span></li>
                             <li class="font12 color-999">仅限使用一张</li>

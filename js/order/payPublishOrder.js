@@ -139,7 +139,6 @@ $(function(){
            couponList:[],
           onLoad:function(){
             vmPayOrder.getUrl();
-
             localStorage.setItem('coupon_id','');
           },
            // 货物运输查看详情
@@ -218,24 +217,37 @@ $(function(){
                        parent.layer.close(parent.layer.index);
                    }
                });
+               vmPayOrder.getCouponList();
            },
            //点击去支付
            payOrder:function(){
                if(vmPayOrder.way != null && vmPayOrder.way != ''){
-                   $('#pay').show();
-                   top.layer.open({
-                     type: 1,
-                     title: false,
-                     skin: 'layui-layer-demo', //样式类名
-                     closeBtn: 1, //不显示关闭按钮
-                     area: ['1127px', '639px'],
-                     shadeClose: true, //开启遮罩关闭
-                     content:  $('.payMoney'),
-                     cancel: function(){
-                         $(".payMoney").css({'display':'none'});
-                         parent.layer.close(parent.layer.index);
-                     }
-                   });
+                   if(vmPayOrder.payData.type=='Balance'){
+                       $('#pay').show();
+                       top.layer.open({
+                           type: 1,
+                           title: false,
+                           skin: 'layui-layer-demo', //样式类名
+                           closeBtn: 1, //不显示关闭按钮
+                           area: ['1127px', '639px'],
+                           shadeClose: true, //开启遮罩关闭
+                           content:  $('.payMoney'),
+                           cancel: function(){
+                               $(".payMoney").css({'display':'none'});
+                               parent.layer.close(parent.layer.index);
+                           }
+                       });
+                   }else{
+                       $('#pay').hide();
+                       if(vmPayOrder.payData.type=='Alipay'){
+                           getAjax(API.URL_POST_GOODSPAY,'get',vmPayOrder.payData).then(function(res){
+                               alertMsg(res.message,2);
+                           }).catch(function (err) {
+                               var url = API.URL_POST_GOODSPAY + '?_token_='+vmPayOrder.payData._token_+'&type=Alipay'+'&coupon_id='+vmPayOrder.payData.coupon_id+'&goods_id='+vmPayOrder.payData.goods_id+'&pay_password='+vmPayOrder.payData.pay_password;
+                               window.open(url,'_blank');
+                           });;
+                       }
+                   }
                }else{
                    alertMsg('请选择支付方式',2);
                }
@@ -269,7 +281,6 @@ $(function(){
                        vmPayOrder.orderInfo = res.result;
                        vmPayOrder.startAddress = res.result.start_address;
                        vmPayOrder.endAddress = res.result.end_address;
-                       vmPayOrder.getCouponList();
                    }else{
                         alertMsg(res.message,2);
                    }
@@ -288,7 +299,7 @@ $(function(){
            },
            //输入密码进行支付
            payMoney:function () {
-               getAjax(API.URL_POST_GOODSPAY,'post',vmPayOrder.payData).then(function(res){
+               getAjax(API.URL_POST_GOODSPAY,'get',vmPayOrder.payData).then(function(res){
                    if(res.code == 200){
                        alertMsg(res.message,1);
                        setTimeout(function(){
@@ -321,7 +332,9 @@ $(function(){
                var less = vmPayOrder.less;
                if(less !='' && less != null){
                    var lessMoney = parseInt(less);
-                   vmPayOrder.orderInfo.all_money = vmPayOrder.orderInfo.all_money - lessMoney;
+                   let cutMoney  = vmPayOrder.orderInfo.all_money - lessMoney;
+                   console.log(cutMoney)
+                   vmPayOrder.orderInfo.all_money = cutMoney;
                }
            },
            //选择优惠券

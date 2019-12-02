@@ -737,3 +737,6 @@ input[type=file] {
 label{
   margin-bottom: 0px;
 }
+.layui-layer-setwin .layui-layer-close2{
+  display: none!important;
+}
