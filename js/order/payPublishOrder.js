@@ -177,7 +177,6 @@ $(function(){
                    content: ['/views/order/payTip.html']
                });
            },
-
            //订单支付失败
            payFail:function(){
                top.layer.open({
@@ -217,7 +216,6 @@ $(function(){
                        parent.layer.close(parent.layer.index);
                    }
                });
-               vmPayOrder.getCouponList();
            },
            //点击去支付
            payOrder:function(){
@@ -263,6 +261,7 @@ $(function(){
                 vmPayOrder.payData.goods_id = url.goods_id;
                 localStorage.setItem('goods_id',url.goods_id);
                 vmPayOrder.getPayOrder();
+                vmPayOrder.getCouponList();
            },
            //获取要支付的订单
            getPayOrder:function(){
