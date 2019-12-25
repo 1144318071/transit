@@ -28,12 +28,18 @@ $(function(){
             getNewsDetail:function(){
                 var token = localStorage.getItem('token');
                 vmNewsDetail.postData._token_ = token;
-                console.log(vmNewsDetail.postData)
                 getAjax(API.URL_GET_NEWSINFO,'get',vmNewsDetail.postData).then(function(res){
                     if(res.code == 200){
                         vmNewsDetail.newsDetail = res.result;
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code) >= 0){
+                            getToken();
+                            vmNewsDetail.onLoad();
+                        }else{
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },
@@ -66,7 +72,11 @@ $(function(){
                     if(res.code == 200){
                         vmNewsDetail.hotNewsList = res.result;
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },
@@ -75,8 +85,3 @@ $(function(){
         avalon.scan(document.body);
     });
 });
-var x = 1;
-if(function f() {}){
-    x += typeof f;
-}
-console.log(x)

@@ -20,11 +20,28 @@
             <div class="payTips">
                 <img src="../../images/tips.png" alt="">
                 <p class="font26 fontw">您暂未设置支付密码，请先设置支付密码</p>
-                <button>去设置</button>
+                <button ms-on-click="@setPayCode">去设置</button>
             </div>
         </div>
         <script src='../../plugins/jquery/jquery.min.js'></script>
         <script src='../../plugins/layui/dist/layui.js'></script>
         <script src='../../plugins/avalon/avalon.min.js'></script>
+        <script>
+            $(function(){
+               avalon.ready(function(){
+                  window.vmPayTip = avalon.define({
+                     $id : 'root',
+                     onLoad:function(){
+
+                     },
+                      setPayCode:function(){
+                         window.parent.location.href = '../../views/login/changePayCode.html';
+                      }
+                  });
+                   vmPayTip.onLoad();
+                   avalon.scan(document.body);
+               });
+            });
+        </script>
     </body>
 </html>

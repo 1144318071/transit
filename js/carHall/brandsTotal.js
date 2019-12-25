@@ -31,14 +31,21 @@ $(function(){
             typeList:[],
             //获取首字母
             getKeyword : function(){
-                var token = localStorage.getItem('token');
+                let token = localStorage.getItem('token');
                 vmAllBrands._token_ = token;
                 vmAllBrands.typeData._token_ = token;
                 getAjax(API.URL_GET_KEYWORD,'get',{'_token_':token}).then(function (res) {
                     if(res.code == 200){
                         vmAllBrands.keyWordList = res.result;
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code) >= 0){
+                            getToken();
+                            window.location.reload();
+                        }else{
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },
@@ -56,7 +63,6 @@ $(function(){
                 $("#brands").html('');
                 getAjax(API.URL_GET_BRANDSSEARCH,'get',{'_token_':vmAllBrands._token_,'keyword':el}).then(function (res) {
                     if(res.code == 200) {
-                        console.log(res.result.data)
                         for (var i = 0; i < res.result.data.length; i++) {
                             res.result.data[i][0].logo = getApiHost + res.result.data[i][0].logo;
                         }
@@ -86,7 +92,11 @@ $(function(){
                             $("#brands").append(htmlContent);
                         });
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },
@@ -96,7 +106,6 @@ $(function(){
                 getAjax(API.URL_GET_TYPESEARCH,'get',vmAllBrands.typeData).then(function(res){
                     if(res.code == 200){
                         vmAllBrands.typeList = res.result;
-                        console.log(vmAllBrands.typeList);
                         let seriesList = vmAllBrands.typeList;
                         var str = '';
                         $.each(seriesList,function (index,elt) {
@@ -119,7 +128,11 @@ $(function(){
                             $("#test").append(info);
                         });
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },

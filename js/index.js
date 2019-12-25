@@ -68,7 +68,11 @@ $(function(){
                         vmIndex.getHQDGList();
                         vmIndex.getHYZXList();
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },
@@ -91,7 +95,11 @@ $(function(){
                                 break;
                         }
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },
@@ -122,7 +130,11 @@ $(function(){
                         }
                         vmIndex.enterpriseList = res.result;
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },
@@ -143,7 +155,18 @@ $(function(){
                         vmIndex.bannerImg = res.result;
                         vmIndex.getNewsList();
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code) >= 0){
+                            getToken();
+                            vmIndex.onLoad();
+                        }else{
+                            let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                            let code =  res.code;
+                            if(tokenCode.indexOf(code)<0){
+                                alertMsg(res.message,2);
+                            }
+                        }
                     }
 
                 })

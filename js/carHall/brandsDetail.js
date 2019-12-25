@@ -84,7 +84,7 @@ $(function(){
                 var url = window.location.href;
                 var urlJson = GetRequest(url);
                 vmBrandDetail.queryData = urlJson;
-                var token = localStorage.getItem('token');
+                let token = localStorage.getItem('token');
                 vmBrandDetail.queryData.token = token;
                 vmBrandDetail.agentData._token_ = token;
                 vmBrandDetail.agentData.brands_id = urlJson.id;
@@ -93,12 +93,12 @@ $(function(){
                 var postData = {
                     '_token_':vmBrandDetail.queryData.token,
                     'brands_id':vmBrandDetail.queryData.id
-                }
+                };
                 getAjax(API.URL_GET_BRANDINFO,'get',postData).then(function (res) {
                     if(res.code == 200){
                         res.result.info.logo = getApiHost + res.result.info.logo;
                         vmBrandDetail.brandInfo = res.result.info;
-                        vmBrandDetail.carDetail = res.result.data;
+                        vmBrandDetail.carDetail = res.result.data[0];
                         for(var i=0;i<res.result.car_type.length;i++){
                             if(res.result.car_type[i].appearance_pic !=''){
                                 res.result.car_type[i].appearance_pic = getApiHost + res.result.car_type[i].appearance_pic;
@@ -112,7 +112,14 @@ $(function(){
                             }
                         }
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code) >= 0){
+                            getToken();
+                            vmBrandDetail.onLoad();
+                        }else{
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
                 //vmBrandDetail.getAgentList();

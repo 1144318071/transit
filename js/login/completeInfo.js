@@ -1,5 +1,8 @@
+$('#distpicker').distpicker({
+    autoSelect:false
+});
 layui.use('upload', function () {
-    var token = localStorage.getItem('token');
+    let token = localStorage.getItem('token');
     $ = layui.$;
     upload = layui.upload;
     $.ajaxSetup({
@@ -9,7 +12,7 @@ layui.use('upload', function () {
         },
     });
     //普通图片上传
-    var uploadInst = upload.render({
+    let uploadInst = upload.render({
         elem: '#test1',
         url: API.URL_POST_UPLOADFILE,
         data: {
@@ -22,12 +25,16 @@ layui.use('upload', function () {
                 $('#logo').attr('src', getApiHost + res.result.crop).css({'width': "88px", "height": '118px'});
                 vmCompleteInfo.postData.company_logo = res.result.crop;
             }else{
-                alertMsg(res.message,2);
+                let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                let code =  res.code;
+                if(tokenCode.indexOf(code)<0){
+                    alertMsg(res.message,2);
+                }
             }
         },
         error: function () {
             //演示失败状态，并实现重传
-            var demoText = $('#demoText');
+            let demoText = $('#demoText');
             demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
             demoText.find('.demo-reload').on('click', function () {
                 uploadInst.upload();
@@ -46,7 +53,11 @@ layui.use('upload', function () {
                 $('#license').attr('src', getApiHost + res.result.crop).css({'width': "88px", "height": '118px'});
                 vmCompleteInfo.postData.business_license = res.result.crop;
             }else{
-                alertMsg(res.message,2);
+                let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                let code =  res.code;
+                if(tokenCode.indexOf(code)<0){
+                    alertMsg(res.message,2);
+                }
             }
         },
         error: function () {
@@ -113,19 +124,26 @@ layui.use('upload', function () {
                 } else if (vmCompleteInfo.postData.company_logo ==='' || vmCompleteInfo.postData.business_license === '') {
                     alertMsg('请上传图片', 2);
                 } else {
-                    $('.companyInfo').hide();
-                    $('.changePassword').show();
+                    let reg = /(^(?:(?![IOZSV])[\dA-Z]){2}\d{6}(?:(?![IOZSV])[\dA-Z]){10}$)|(^\d{15}$)/;
+                    let licenseNum = vmCompleteInfo.postData.business_license_number;
+                    if(reg.test(licenseNum)){
+                        $('.companyInfo').hide();
+                        $('.changePassword').show();
+                    }else{
+                        alertMsg('请输入正确格式的营业执照号',2);
+                    }
+
                 }
             },
             // 获取验证码(加上倒计时功能)
             getCheckCode:function(){
-            	var phone = vmCompleteInfo.postData.mobile;
-            	if(!(/^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/.test(phone))){ 
-			       alertMsg("请输入正确格式的手机号",2);  
+            	let phone = vmCompleteInfo.postData.mobile;
+            	if(!(/^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/.test(phone))){
+			       alertMsg("请输入正确格式的手机号",2);
 			       $('.layui-btn-Code').attr('disabled',true);
 			    }else{
-			    	var token  = localStorage.getItem('token');
-	                var getCode = {
+                    let token  = localStorage.getItem('token');
+                    let getCode = {
 	                    '_token_': token,
 	                    'mobile': vmCompleteInfo.postData.mobile
 	                };
@@ -133,7 +151,11 @@ layui.use('upload', function () {
 	                    if(res.code == 200){
                             alertMsg(res.message,1)
                         }else{
-                            alertMsg(res.message,2);
+                            let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                            let code =  res.code;
+                            if(tokenCode.indexOf(code)<0){
+                                alertMsg(res.message,2);
+                            }
                         }
 	                });
 	                let count = 60;
@@ -158,10 +180,14 @@ layui.use('upload', function () {
                     if(res.code == 200){
                         alertMsg(res.message,1);
                         setTimeout(function () {
-                            location.href = '../../index.html';
+                            location.href = '../../login.html';
                         },1000);
                     }else{
-                        alertMsg(res.message,2)
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             }

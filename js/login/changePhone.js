@@ -30,7 +30,11 @@ $(function(){
                         $('.codeMsg').show();
                         vmChangePhone.stepTwo.verify_code = res.result.verify_code;
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },
@@ -41,8 +45,9 @@ $(function(){
 			       alertMsg("请输入正确格式的手机号",2);
 			       $('.layui-btn-Code').attr('disabled',true);
 			    }else{
-			    	var token  = localStorage.getItem('token');
-	                var getCode = {
+                    $('.layui-btn-Code').removeAttr('disabled');
+			    	let token  = localStorage.getItem('token');
+                    let getCode = {
 	                    '_token_': token,
 	                    'mobile': vmChangePhone.stepTwo.username
 	                };
@@ -70,10 +75,18 @@ $(function(){
             // 确认修改密码
             changePwd:function(){
                 getAjax(API.URL_POST_CHANGEPHONETWO,'post',vmChangePhone.stepTwo).then(function(res){
-                    alertMsg(res.message,1);
-                    setTimeout(function(){
-                            location.href = '../.../login.html'
-                    },2000)
+                    if(res.code == 200){
+                        alertMsg(res.message,1);
+                        setTimeout(function(){
+                            location.href = '../../views/login.html'
+                        },2000)
+                    }else{
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
+                    }
                 });
             }
         });

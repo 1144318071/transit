@@ -31,6 +31,7 @@ $(function(){
                     success:function(res){
                         if(res.code == 200){
                             vmLogin.token = res.result.token;
+                            localStorage.setItem('token',res.result.token);
                         }
                     }
                 });
@@ -88,12 +89,13 @@ $(function(){
                             };
                         }
                     }else{
-                        if(res.code == 43968){
-                            window.location.reload();
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code) >= 0){
+                            vmLogin.getToken();
                         }else{
                             alertMsg(res.message,2);
                         }
-
                     }
                 });
             },

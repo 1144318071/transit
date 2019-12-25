@@ -88,17 +88,11 @@
         </div>
         <div class='model-content dis_none changePassword'>
             <div class="layui-input-block phone">
-                <input type="text" name="username" ms-duplex='@postData.mobile' lay-verify="required" lay-reqtext="手机号必填" placeholder="绑定手机号码" autocomplete="off" class="layui-input">
+                <input type="text" name="username" disabled readonly ms-duplex='@postData.mobile' lay-verify="required" lay-reqtext="手机号必填" placeholder="绑定手机号码" autocomplete="off" class="layui-input">
             </div>
             <div class="layui-input-block clearfix">
                 <input type="text" name="text"  ms-duplex='@postData.code'  placeholder="请输入验证码" autocomplete="off" class="layui-input checkCode pull-left">
                 <button type="button" id="layui-btn-Code" class="layui-btn-Code pull-left" ms-on-click='@getCheckCode'>获取验证码</button>
-            </div>
-            <div class="layui-input-block">
-                <input type="password" name="pwd"  ms-duplex='@postData.password'  lay-verify="required" lay-reqtext="新密码" placeholder="输入新密码" autocomplete="off" class="layui-input">
-            </div>
-            <div class="layui-input-block">
-                <input type="password" name="Rpwd"  ms-duplex='@postData.password_confirm'  lay-verify="required" lay-reqtext="确认密码" placeholder="确认新密码" autocomplete="off" class="layui-input">
             </div>
             <div class="btn-operate">
                 <button type="button" class="layui-btn layui-btn-primary font16" ms-on-click='@CompleteInfo'>确<span class='ml40'>定</span></button>

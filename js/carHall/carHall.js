@@ -79,7 +79,14 @@ $(function(){
                         /*关注度排行*/
                         vmCarHall.getAttention();
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code) >= 0){
+                            getToken();
+                            vmCarHall.onLoad();
+                        }else{
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },
@@ -97,7 +104,11 @@ $(function(){
                         }
                         vmCarHall.brandsList = res.result;
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },
@@ -114,7 +125,11 @@ $(function(){
                         vmCarHall.hotCarList = res.result;
                         vmCarHall.getCityCarList();
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },
@@ -124,7 +139,11 @@ $(function(){
                     if(res.code == 200){
                         vmCarHall.attentionList = res.result;
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
                 vmCarHall.getQualityAgent();
@@ -141,7 +160,11 @@ $(function(){
                         }
                         vmCarHall.agentList = res.result;
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },
@@ -178,7 +201,11 @@ $(function(){
                             break;
                         };
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },

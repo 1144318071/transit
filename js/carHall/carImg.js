@@ -31,7 +31,6 @@ $(function(){
                 vmCarImg.postData._token_ = token;
                 vmCarImg.postData.series = params.series;
                 vmCarImg.postData.type = params.type;
-                console.log(params)
             },
             getSeriesImg:function(){
                 getAjax(API.URL_GET_CARIMGS,'get',vmCarImg.postData).then(function(res){
@@ -55,7 +54,20 @@ $(function(){
                             }
                         }
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code) >= 0){
+                            getToken();
+                            vmCarImg.onLoad();
+                        }else{
+                            let loginCode = [77893,777894];
+                            if(loginCode.indexOf(code) >= 0){
+                                alertMsg(res.message,2);
+                                location.href='../../../login.html';
+                            }else{
+                                alertMsg(res.message,2);
+                            }
+                        }
                     }
                 });
             },

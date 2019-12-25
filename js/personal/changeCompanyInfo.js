@@ -1,3 +1,6 @@
+$('#distpicker').distpicker({
+    autoSelect:false
+});
 layui.use('upload', function () {
     var token = localStorage.getItem('token');
     $ = layui.$;
@@ -81,8 +84,7 @@ $(function(){
                 'address':'',
                 'mobile':'',
                 'code':'',
-                'password':'',
-                'password_confirm':''
+                'company_id':''
             },
             areaList: {
                 "provinceCode": '',
@@ -93,11 +95,11 @@ $(function(){
                 vmChangeInfo.getCompanyInfo();
             },
             getCompanyInfo:function(){
-                var token = localStorage.getItem('token');
+                let token = localStorage.getItem('token');
                 getAjax(API.URL_GET_PERSONALINFO,'get',{'_token_':token}).then(function(res){
                     if(res.code == 200){
-                        var result = res.result;
-                        vmChangeInfo.postData.company_name = result.nickname;
+                        let result = res.result;
+                        vmChangeInfo.postData.company_name = result.company_name;
                         vmChangeInfo.postData.business_license_number = result.business_license_number;
                         vmChangeInfo.postData.address = result.address;
                         vmChangeInfo.postData.mobile = result.mobile;
@@ -106,6 +108,7 @@ $(function(){
                         vmChangeInfo.postData.province = result.province;
                         vmChangeInfo.postData.city = result.city;
                         vmChangeInfo.postData.area = result.area;
+                        vmChangeInfo.postData.company_id = res.result.company_id;
                         var logo = getApiHost + result.company_logo;
                         $('#logo').attr('src',logo);
                         var license = getApiHost + result.business_license;
@@ -183,11 +186,19 @@ $(function(){
             CompleteInfo:function(){
                 var token = localStorage.getItem('token');
                 vmChangeInfo.postData._token_ = token;
-                getAjax(API.URL_POST_VERIFYCOMPANY,'post',vmChangeInfo.postData).then(function(res){
+                getAjax(API.URL_POST_EDITCOMPANY,'post',vmChangeInfo.postData).then(function(res){
                     if(res.code == 200){
                         alertMsg(res.message,1);
+                        location.href='../../views/personal/personal.html';
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }else{
+                            getToken();
+                            vmChangeInfo.onLoad();
+                        }
                     }
                 });
             }

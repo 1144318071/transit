@@ -99,7 +99,14 @@ $(function(){
                      vmCheckSeriesDetail.tops_count = vmCheckSeriesDetail.tops_pic.length;
                      vmCheckSeriesDetail.other_count = vmCheckSeriesDetail.other_pic.length;
                  }else{
-                     alertMsg(res.message,2);
+                     let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                     let code =  res.code;
+                     if(tokenCode.indexOf(code) >= 0){
+                         getToken();
+                         vmCheckSeriesDetail.onLoad();
+                     }else{
+                         alertMsg(res.message,2);
+                     }
                  }
              });
           },
@@ -114,7 +121,11 @@ $(function(){
                         }
                         vmCheckSeriesDetail.hotCarList = res.result;
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
           }

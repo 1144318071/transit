@@ -51,9 +51,11 @@ $(function(){
                     vmHeader.userInfo = userInfo;
                     $('.userMsg').show();
                     $('.userLogin').hide();
-                    if(vmHeader.userInfo.avatar !=''){
+                    if(vmHeader.userInfo.avatar){
                         var src  = getApiHost + vmHeader.userInfo.avatar;
-                        $('#avatar').attr('src',src)
+                        $('#avatar').attr('src',src);
+                    }else{
+                        $('#avatar').attr('src','../../images/avatar.png');
                     }
                     var type = userInfo.type;
                     switch (type) {
@@ -99,12 +101,12 @@ $(function(){
                 }
             },
             getPage:function(el){
-                var src = el.currentTarget.dataset.src;
+                let src = el.currentTarget.dataset.src;
                 location.href = src;
             },
             /*退出登录*/
             loginOut:function(){
-                var token = localStorage.getItem('token');
+                let token = localStorage.getItem('token');
                 getAjax(API.URL_POST_LOGINOUT,'post',{'_token_':token}).then(function(res){
                     if(res.code == 200){
                         localStorage.clear();
@@ -115,7 +117,7 @@ $(function(){
                 })
             },
             limitFinancial:function(){
-                alertMsg('当前木块暂未开放',4);
+                alertMsg('当前模块暂未开放',4);
             }
         });
         vmHeader.onLoad();

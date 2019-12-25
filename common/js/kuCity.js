@@ -165,7 +165,7 @@
                 vmHeader.city = $(e.target).text();
                 self.target.val("切换");
                 self.container.hide();
-            })
+            });
         },
         //上下键选择搜索结果
         keySelect: function() {

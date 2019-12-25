@@ -89,12 +89,18 @@ $(function(){
                 var token = localStorage.getItem('token');
                 vmCooperate.postData._token_ = token;
                 vmCooperate.postData.type = item;
-                console.log(vmCooperate.postData)
                 getAjax(API.URL_POST_ABOUTTEAMWORK,'post',vmCooperate.postData).then(function (res) {
                     if(res.code == 200){
                         alertMsg(res.message,1);
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code) >= 0){
+                            getToken();
+                            vmCooperate.onLoad();
+                        }else{
+                            alertMsg(res.message,2);
+                        }
                     }
                 })
             }

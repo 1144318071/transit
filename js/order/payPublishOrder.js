@@ -221,20 +221,25 @@ $(function(){
            payOrder:function(){
                if(vmPayOrder.way != null && vmPayOrder.way != ''){
                    if(vmPayOrder.payData.type=='Balance'){
-                       $('#pay').show();
-                       top.layer.open({
-                           type: 1,
-                           title: false,
-                           skin: 'layui-layer-demo', //样式类名
-                           closeBtn: 1, //不显示关闭按钮
-                           area: ['1127px', '639px'],
-                           shadeClose: true, //开启遮罩关闭
-                           content:  $('.payMoney'),
-                           cancel: function(){
-                               $(".payMoney").css({'display':'none'});
-                               parent.layer.close(parent.layer.index);
-                           }
-                       });
+                       let info = JSON.parse(localStorage.getItem('userInfo'));
+                       if(!info.payment_password){
+                           vmPayOrder.payTip();
+                       }else{
+                           $('#pay').show();
+                           top.layer.open({
+                               type: 1,
+                               title: false,
+                               skin: 'layui-layer-demo', //样式类名
+                               closeBtn: 1, //不显示关闭按钮
+                               area: ['1127px', '639px'],
+                               shadeClose: true, //开启遮罩关闭
+                               content:  $('.payMoney'),
+                               cancel: function(){
+                                   $(".payMoney").css({'display':'none'});
+                                   parent.layer.close(parent.layer.index);
+                               }
+                           });
+                       }
                    }else{
                        $('#pay').hide();
                        if(vmPayOrder.payData.type=='Alipay'){

@@ -9,18 +9,18 @@ function alertMsg(msg, icon) {
 }
 //获取当前时间
 function getNowFormatDate() {
-    var date = new Date();
-    var seperator = "-";
-    var month = date.getMonth() + 1;
-    var strDate = date.getDate();
-    if (month >= 1 && month <= 9) {
+    let date = new Date();
+    let seperator = "-";
+    let month = date.getMonth() + 1;
+    let strDate = date.getDate();
+    if(month >= 1 && month <= 9) {
         month = "0" + month;
     }
     if (strDate >= 0 && strDate <= 9) {
         strDate = "0" + strDate;
     }
-    var currentdate = date.getFullYear() + seperator + month + seperator + strDate;
-    return currentdate;
+    let currentDate = date.getFullYear() + seperator + month + seperator + strDate;
+    return currentDate;
 }
 /*获取token*/
 function getToken(){
@@ -53,17 +53,11 @@ function getAjax(url, type, data) {
                 withCredentials: true
             }
         }).done(function (res) {
-            /*token问题*/
-            if(res.code ==43961 || res.code ==43962 ||res.code == 43963|| res.code ==43964|| res.code ==43965|| res.code ==43966|| res.code ==43967|| res.code ==43968){
-                alertMsg(res.message,2);
-                localStorage.clear();
-                getToken();
-            /*登录失效,需要重新登录*/
-            }else if(res.code == 77893 || res.code == 77894){
+           if(res.code == 77893 || res.code == 77894){
                 alertMsg(res.message, 2);
                 setTimeout(function(){
                     location.href = '../../login.html';
-                },2000);
+                },1000);
             }else{
                 resolve(res);
             }

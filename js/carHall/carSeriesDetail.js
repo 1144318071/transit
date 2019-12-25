@@ -152,7 +152,14 @@ $(function(){
                         vmCarSeriesDetail.carDetail = res.result.list;
                         vmCarSeriesDetail.getStatusList();
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code) >= 0){
+                            getToken();
+                            vmCarSeriesDetail.onLoad();
+                        }else{
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },
@@ -161,7 +168,6 @@ $(function(){
                 vmCarSeriesDetail.filterData.series = vmCarSeriesDetail.carDetail.series;
                 vmCarSeriesDetail.filterData.group = vmCarSeriesDetail.carDetail.group;
                 vmCarSeriesDetail.filterData.type = vmCarSeriesDetail.data.car_ty;
-                console.log(vmCarSeriesDetail.filterData)
                 getAjax(API.URL_GET_CARFILTER,'get',vmCarSeriesDetail.filterData).then(function(res){
                     if(res.code == 200){
                         vmCarSeriesDetail.carList = res.result;
@@ -179,7 +185,11 @@ $(function(){
                                 break;
                         }
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },
@@ -220,11 +230,10 @@ $(function(){
                 vmCarSeriesDetail.getStatusList();
             },
             getMoreData:function(el){
-                var page = parseInt(vmCarSeriesDetail.page);
+                let page = parseInt(vmCarSeriesDetail.page);
                 vmCarSeriesDetail.page = page;
                 vmCarSeriesDetail.page += 1;
                 vmCarSeriesDetail.filterData.page = vmCarSeriesDetail.page;
-                console.log(vmCarSeriesDetail.filterData.page)
                 vmCarSeriesDetail.filterData.limit = 2;
                 vmCarSeriesDetail.filterData.status = el;
                 getAjax(API.URL_GET_CARFILTER,'get',vmCarSeriesDetail.filterData).then(function(res){
@@ -278,7 +287,11 @@ $(function(){
                         });
                         $('.moreData').before(loopItem);
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },
@@ -344,7 +357,11 @@ $(function(){
                         });
                         $('#base_drive_'+base).before(loopItem)
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },

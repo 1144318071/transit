@@ -142,7 +142,9 @@ $(function(){
             getUserInfo:function(){
                 getAjax(API.URL_GET_PERSONALINFO,'get',{'_token_':vmPersonal.token}).then(function(res){
                     if(res.code == 200){
-                         res.result.avatar = getApiHost + res.result.avatar;
+                        if(res.result.avatar){
+                            res.result.avatar = getApiHost + res.result.avatar;
+                        }
                         /*res.result.avatar = '../../images/avatar.png';*/
                         vmPersonal.userInfo = res.result;
                         var userType = res.result.type;
@@ -176,10 +178,16 @@ $(function(){
                             break;
                         }
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code) >= 0){
+                            getToken();
+                            vmPersonal.onLoad();
+                        }else{
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
-                vmPersonal.getCouponList('10');
             },
             //获取优惠券列表
             getCouponList:function(status){
@@ -187,7 +195,11 @@ $(function(){
                    if(res.code == 200){
                        vmPersonal.couponList = res.result;
                    }else{
-                       alertMsg(res.message,2);
+                       let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                       let code =  res.code;
+                       if(tokenCode.indexOf(code)<0){
+                           alertMsg(res.message,2);
+                       }
                    }
                 });
             },
@@ -201,7 +213,11 @@ $(function(){
                        }
                        vmPersonal.bankCardList = res.result;
                    }else{
-                       alertMsg(res.message,2);
+                       let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                       let code =  res.code;
+                       if(tokenCode.indexOf(code)<0){
+                           alertMsg(res.message,2);
+                       }
                    }
                 });
             },
@@ -220,7 +236,11 @@ $(function(){
                         }
                         vmPersonal.carList = res.result;
                    }else{
-                       alertMsg(res.message,2);
+                       let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                       let code =  res.code;
+                       if(tokenCode.indexOf(code)<0){
+                           alertMsg(res.message,2);
+                       }
                    }
                 });
             },
@@ -243,7 +263,11 @@ $(function(){
                    if(res.code == 200){
                         alertMsg(res.message,1);
                    }else{
-                       alertMsg(res.message);
+                       let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                       let code =  res.code;
+                       if(tokenCode.indexOf(code)<0){
+                           alertMsg(res.message,2);
+                       }
                    }
                 });
             },
@@ -281,9 +305,12 @@ $(function(){
                                 }
                             });
                         });
-                        console.log(res);
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 })
             },
@@ -294,7 +321,11 @@ $(function(){
                    if(res.code == 200){
                         alertMsg(res.message,1);
                    }else{
-                       alertMsg(res.message,2);
+                       let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                       let code =  res.code;
+                       if(tokenCode.indexOf(code)<0){
+                           alertMsg(res.message,2);
+                       }
                    }
                 });
             }

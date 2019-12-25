@@ -18,8 +18,8 @@ $(function () {
                 if(phone == ""){
                     alertMsg('手机号不能为空',2);
                 }else{
-                	if(!(/^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/.test(phone))){ 
-				       alertMsg("请输入正确格式的手机号",2);  
+                	if(!(/^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/.test(phone))){
+				       alertMsg("请输入正确格式的手机号",2);
 				       $('.layui-btn-Code').attr('disabled',true);
 				    }else{
 				    	var token  = localStorage.getItem('token');
@@ -31,7 +31,11 @@ $(function () {
                             if(res.code == 200){
                                 alertMsg(res.message,1);
                             }else{
-                                alertMsg(res.message,2);
+                                let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                                let code =  res.code;
+                                if(tokenCode.indexOf(code)<0){
+                                    alertMsg(res.message,2);
+                                }
                             }
 
                         });
@@ -58,7 +62,11 @@ $(function () {
                     if(res.code == 200){
                         alertMsg(res.message,1);
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             }

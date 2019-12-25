@@ -25,7 +25,7 @@
                 <div class='row topBar'>
                     <div class='col-md-6 col-sm-6'>
                         <div class='row'>
-                            <div class='col-sm-5'>欢迎登陆纵运汽车服务平台</div>
+                            <div class='col-sm-5'>欢迎登录纵运服务平台</div>
                             <div class='col-sm-7 citySelect'><span ms-text="@city"></span>|
                                 <input class="address" value="切换">
                             </div>
@@ -99,10 +99,10 @@
             <div class='row  showMsg'>
                 <div class='col-md-3 col-sm-3 showImg'>
                     <!--<div class='img' style='width:188px;height:126px;background:red'></div>-->
-                     <img id="companyLogo" src="../../images/companyInfo.png" width='188px' height='126px' alt="">
+                     <img id="companyLogo" ms-attr="{ src : @merchantInfo.company_logo?@merchantInfo.company_logo:'../../images/companyInfo.png' }" width='188px' height='126px' alt="">
                 </div>
                 <div class='col-md-9 col-sm-9'>
-                    <div class='cName'  ms-text="@merchantInfo.nickname"></div>
+                    <div class='cName'  ms-text="@merchantInfo.company_name"></div>
                     <div class='cMsg'>
                         <ul class='clearfix'>
                             <li>入驻时间</li>

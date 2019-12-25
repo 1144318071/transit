@@ -252,15 +252,18 @@ $(function(){
                 getAjax(API.URL_GET_PERSONALINFO,'get',{'_token_' : token}).then(function(res){
                     if(res.code == 200){
                         if(res.result.company_logo !=''){
-                            var src = getApiHost + res.result.company_logo;
-                            $('#companyLogo').attr('src',src)
+                            res.result.company_logo = getApiHost + res.result.company_logo;
                         }
                         res.result.province = getProvinceName(res.result.province);
                         res.result.city = getCityName(res.result.city);
                         res.result.area = getAreaName(res.result.area);
                         vmOrder.merchantInfo = res.result;
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },
@@ -323,7 +326,14 @@ $(function(){
                             }
                         }
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code) >= 0){
+                            getToken();
+                            vmOrder.onLoad();
+                        }else{
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },
@@ -367,7 +377,11 @@ $(function(){
                         //删除之后重新请求数据
                         vmOrder.getOrderList(demo,goods_status,order_status);
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },
@@ -397,7 +411,11 @@ $(function(){
                    if(res.code == 200){
                        vmOrder.onlineCar = res.result.onlineCar;
                    }else{
-                       alertMsg(res.message);
+                       let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                       let code =  res.code;
+                       if(tokenCode.indexOf(code)<0){
+                           alertMsg(res.message,2);
+                       }
                    }
                 });
             }

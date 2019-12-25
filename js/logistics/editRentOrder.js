@@ -187,7 +187,14 @@ $(function () {
                        vmEditRentOrder.postData.tell = res.result.tell;
                        vmEditRentOrder.postData.contact = res.result.contact;
                    }else{
-
+                       let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                       let code =  res.code;
+                       if(tokenCode.indexOf(code) >= 0){
+                           getToken();
+                           vmEditRentOrder.onLoad();
+                       }else{
+                           alertMsg(res.message,2);
+                       }
                    }
                 });
             },
@@ -258,7 +265,11 @@ $(function () {
                     if(res.code == 200){
                         alertMsg(res.message,1);
                     }else{
-                        alertMsg(res.message,2);
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
+                            alertMsg(res.message,2);
+                        }
                     }
                 });
             },
