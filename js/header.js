@@ -28,6 +28,7 @@ $(function(){
             $id : 'header',
             userInfo:{},
             city:'',
+            newsCount:0,
             onLoad:function(){
                 vmHeader.isLogin();
                 /*城市定位*/
@@ -42,6 +43,7 @@ $(function(){
                 }
                 var myCity = new BMap.LocalCity();
                 myCity.get(myFun);
+                vmHeader.getNewsCount();
             },
             // 判断用户是否登录
             isLogin:function(){
@@ -118,7 +120,25 @@ $(function(){
             },
             limitFinancial:function(){
                 alertMsg('当前模块暂未开放',4);
-            }
+            },
+            //获取消息条数
+            getNewsCount:function(){
+                let token = localStorage.getItem('token');
+                let params = {
+                  '_token_':token,
+                  'type':vmHeader.userInfo.type
+                };
+                getAjax(API.URL_POST_NOTICETOTAL,'post',params).then(function(res){
+                    if(res.code == 200){
+                        this.newsCount = res.count;
+                    }else{
+                        if(res.code != 40040 || res.code != 40045){
+                            alertMsg(res.message,2);
+                        }
+                    }
+                })
+
+            },
         });
         vmHeader.onLoad();
         avalon.scan(document.body);

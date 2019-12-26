@@ -73,7 +73,7 @@ avalon.ready(function(){
             vmAboutUs.getAboutContent();
         },
         getAboutContent:function(){
-            var token = localStorage.getItem('token');
+            let token = localStorage.getItem('token');
             vmAboutUs.postData._token_ = token;
             getAjax(API.URL_GET_ABOUTUS,'get',{'_token_':token}).then(function (res) {
                 if(res.code == 200){
@@ -88,7 +88,6 @@ avalon.ready(function(){
                         alertMsg(res.message,2);
                     }
                 }
-
             });
         },
         feedback:function(){

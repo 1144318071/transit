@@ -31,6 +31,10 @@ var API = {
     URL_POST_SETPAYMENT : getApiHost + '/personal/set/payment',
     /*代理商家列表*/
     URL_GET_PROXYLIST: getApiHost + '/proxy/_companyList',
+    //消息列表
+    URL_POST_NOTICELIST : getApiHost + '/__notice_list',
+    //消息条数
+    URL_POST_NOTICETOTAL : getApiHost + '/__notice_total',
     //----------------------------------------------账户管理-----------------------------------
     //银行卡列表
     URL_GET_BANKLIST : getApiHost + '/bank/list',
@@ -152,5 +156,7 @@ var API = {
     /*获取租赁订单详情*/
     URL_GET_LEASEINFO : getApiHost + '/leaseInfo',
     /*下架租赁*/
-    URL_POST_OBTAINED : getApiHost + '/obtained'
+    URL_POST_OBTAINED : getApiHost + '/obtained',
+    /*物流公司订单*/
+    URL_GET_LOGISTICSORDER : getApiHost + '/logistics/order'
 }

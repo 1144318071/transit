@@ -15,6 +15,11 @@ layui.use(['laypage', 'layer'], function () {
         count: 1000,
         theme: '#f57619'
     });
+    laypage.render({
+        elem: 'demo1',
+        count: 1,
+        theme: '#f57619'
+    });
 });
 $('.upload').hover(function(){
     $(this).find('.uploadimg').show();
@@ -59,6 +64,13 @@ $(function(){
                 '_token_':'',
                 'avatar':'',
             },
+            newData:{
+                '_token_':'',
+                'page':1,
+                'limit':7,
+                'type':''
+            },
+            newsList:[],
             changePwd:function(){
                 var userType = JSON.parse(localStorage.getItem('userInfo')).type;
                 localStorage.setItem('_t', userType);
@@ -147,6 +159,7 @@ $(function(){
                         }
                         /*res.result.avatar = '../../images/avatar.png';*/
                         vmPersonal.userInfo = res.result;
+                        vmPersonal.newData.type = res.result.type;
                         var userType = res.result.type;
                         switch(userType){
                             case 'PERSONAL':
@@ -191,11 +204,12 @@ $(function(){
             },
             //获取优惠券列表
             getCouponList:function(status){
+                vmPersonal.couponList=[];
                 getAjax(API.URL_GET_COUPONLIST,'get',{'_token_':vmPersonal.token,'status':status}).then(function(res){
                    if(res.code == 200){
                        vmPersonal.couponList = res.result;
                    }else{
-                       let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                       let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968,40040];
                        let code =  res.code;
                        if(tokenCode.indexOf(code)<0){
                            alertMsg(res.message,2);
@@ -328,7 +342,36 @@ $(function(){
                        }
                    }
                 });
-            }
+            },
+            //获取消息列表
+            getNoticeList:function(){
+                vmPersonal.newData._token_ = vmPersonal.token;
+                getAjax(API.URL_POST_NOTICELIST,'post',vmPersonal.newData).then(function(res){
+                   if(res.code == 200){
+                       vmPersonal.newsList = res.result;
+                       console.log(res.result);
+                       layui.use(['laypage', 'layer'], function () {
+                           var laypage = layui.laypage,
+                               layer = layui.layer;
+                           laypage.render({
+                               elem: 'demo1',
+                               count: res.count,
+                               limit: '7',
+                               curr: vmPersonal.newData.page,
+                               theme: '#f57619',
+                               jump: function(obj,first) {
+                                   if(!first){
+                                       vmPersonal.newData.page = obj.curr;
+                                       vmPersonal.getNoticeList();
+                                   }
+                               }
+                           });
+                       });
+                   }else{
+                       alertMsg(res.message,2);
+                   }
+                });
+            },
         });
         vmPersonal.onLoad();
         avalon.scan(document.body);

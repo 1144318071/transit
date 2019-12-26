@@ -147,7 +147,7 @@ $(function(){
             //获取banner图片
             getBanners:function(){
                 var token = localStorage.getItem('token');
-                getAjax(API.URL_GET_BANNERLIST,'get',{'_token_':token,'list':'5'}).then(function(res){
+                getAjax(API.URL_GET_BANNERLIST,'get',{'_token_':token,'list':'5','type':'50'}).then(function(res){
                     if(res.code == 200){
                         for(var i=0;i<res.result.length;i++){
                             res.result[i].banner_img = getApiHost + res.result[i].banner_img;

@@ -46,7 +46,6 @@
   bottom: 0px;
   left: 0px;
   z-index: 10;
+  text-align: center;
 }
-.layui-laypage {
-  margin: 10px 270px;
-}
+

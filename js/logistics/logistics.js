@@ -28,6 +28,7 @@ $(function(){
             companyInfo:{},
             memberList:[],
             rentList:[],
+            orderList:[],
             onLoad:function(){
                 vmLogistics.getCompanyInfo();
                 vmLogistics.getMemberList();
@@ -85,7 +86,9 @@ $(function(){
                     if(res.code == 200){
                         $('.noInfo').hide();
                         for(var i in res.result){
-                            res.result[i].avatar = getApiHost + res.result[i].avatar;
+                            if(res.result[i].avatar){
+                                res.result[i].avatar = getApiHost + res.result[i].avatar;
+                            }
                         }
                         vmLogistics.memberList = res.result;
                         vmLogistics.getPageList('demo2',res.count)
@@ -187,10 +190,9 @@ $(function(){
                        }
                    }
                 });
-            }
+            },
         });
         vmLogistics.onLoad();
         avalon.scan(document.body);
-
     });
 });

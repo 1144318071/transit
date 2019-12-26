@@ -164,3 +164,26 @@ header .topBar .city-cont a:visited {
 .layui-nav .layui-nav-more{
   border-style: none;
 }
+.header .informItem{
+  position: relative;
+  cursor: pointer;
+}
+.header .informItem img{
+ margin-right: 10px;
+ cursor: pointer;
+}
+.header .informItem .newsCount{
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color:#ff0000;
+  color:#fff;
+  border-radius: 12px;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+  position: absolute;
+  top: 5px;
+  right: 32px;
+  cursor: pointer;
+}

@@ -32,7 +32,7 @@
                     </div>
                     <div class='col-md-6 col-sm-6'>
                         <div class='row  text-right'>
-                            <div class='col-sm-2 col-sm-offset-6'>消息</div>
+                            <div class='col-sm-2 col-sm-offset-6 informItem'><a href="../personal/personal.html"><img src="../../images/inform.svg" />消息<span class="newsCount" ms-text="@newsCount"></span></a></div>
                             <div class='col-md-4 col-sm-4 userInfo text-left'>
                                 <ul class='clearfix'>
                                     <li class="userMsg dis_none ml10"><img width="32px" height="32px" id="avatar"/></li>
@@ -128,7 +128,7 @@
                     <img src="../../images/wl1.png" alt="">
                     <ul>
                         <li>总订单量</li>
-                        <li>1222<span>单</span></li>
+                        <li><b ms-text="companyInfo.orderNumber"> </b><span>单</span></li>
                     </ul>
                     <div class='clearfix'></div>
                     <div class='mask' ms-on-click='@checkOrders'>
@@ -139,10 +139,10 @@
                     <img src="../../images/wl2.png" alt="">
                     <ul>
                         <li>总订单金额</li>
-                        <li>1222<span>￥</span></li>
+                        <li><b ms-text="companyInfo.orderMoney"></b><span>￥</span></li>
                     </ul>
                     <div class='clearfix'></div>
-                    <div class='mask' ms-on-click='@checkAmount'>
+                    <div class='mask' ms-on-click='@checkOrders'>
                         查看所有订单金额
                     </div>
                 </div>
@@ -150,7 +150,7 @@
                     <img src="../../images/wl3.png" alt="">
                     <ul>
                         <li>可提现金额</li>
-                        <li>1222<span>￥</span></li>
+                        <li><b ms-text="companyInfo.withdrawMoney"></b><span>￥</span></li>
                     </ul>
                     <div class='clearfix'></div>
                     <div class='mask'>
@@ -179,7 +179,7 @@
                                 <li><img src="../../images/phone.png" alt=""></li>
                             </ul>
                             <div class='itemDetail clearfix'>
-                                <img  ms-attr="{ src : el.avatar }" src="../../images/driverLogo.png" width="122" height="136" alt="司机头像">
+                                <img ms-attr="{ src: el.avatar?el.avatar:'../../images/driverLogo.png' }" width="122" height="136" alt="司机头像">
                                 <div class='itemDes'>
                                     <div class='name' ms-text="el.actual_name"></div>
                                     <ul class='clearfix'>

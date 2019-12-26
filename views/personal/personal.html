@@ -28,7 +28,7 @@
                     </div>
                     <div class='col-md-6 col-sm-6'>
                         <div class='row  text-right'>
-                            <div class='col-sm-2 col-sm-offset-6'>消息</div>
+                            <div class='col-sm-2 col-sm-offset-6 informItem'><a href="../personal/personal.html"><img src="../../images/inform.svg" />消息<span class="newsCount" ms-text="@newsCount"></span></a></div>
                             <div class='col-md-4 col-sm-4 userInfo text-left'>
                                 <ul class='clearfix'>
                                     <li class="userMsg dis_none ml10"><img width="32px" height="32px" id="avatar"/></li>
@@ -102,7 +102,7 @@
                 <ul class='personalList'>
                     <li class='active'>个人资料</li>
                     <li>车辆管理</li>
-                    <li>消息</li>
+                    <li ms-on-click="@getNoticeList">消息</li>
                     <li ms-on-click="@getCouponList('10')">卡券</li>
                     <li>账户</li>
                     <li ms-on-click="@getBankCar">银行卡</li>
@@ -228,17 +228,16 @@
             <div class='personalDetail personalMsg dis_none'>
                 <div class='PanelTitle'>消息</div>
                 <div class='allInforms'>
-                    <div class='row informs mt50'>
+                    <div class='row informs'  ms-for="(i,item) in @newsList" ms-if="i==0">
                         <div class='col-md-1 col-sm-1 formLogo'>
                             <img src="../../images/form_logo.png" alt="">
                         </div>
                         <div class='col-md-9 col-sm-9 informContent'>
                             <ul class='clearfix fontw informTitle'>
-                                <li>系统通知</li>
-                                <li>2018-09-12</li>
-                                <li>15：32</li>
+                                <li ms-text="item.title"></li>
+                                <li ms-text="item.create_time"></li>
                             </ul>
-                            <div class='informDetail'>
+                            <div class='informDetail' ms-text="item.content">
                                 <p>平台将定于12月21日晚8：00进行更新:</p>
                                 <p>本次更新的主要功能有某某功能</p>
                                 <p>敬请期待！</p>
@@ -246,17 +245,16 @@
                         </div>
                         <div class='col-md-2 col-sm-2 text-right'><button class='btn-del'>删除</button></div>
                     </div>
-                    <div class='row informs'>
+                    <div class='row informs'  ms-for="(i,item) in @newsList" ms-if="i>=1">
                         <div class='col-md-1 col-sm-1 formLogo'>
                             <img src="../../images/form_logo.png" alt="">
                         </div>
                         <div class='col-md-9 col-sm-9 informContent'>
                             <ul class='clearfix fontw informTitle'>
-                                <li>系统通知</li>
-                                <li>2018-09-12</li>
-                                <li>15：32</li>
+                                <li ms-text="item.title"></li>
+                                <li ms-text="item.create_time"></li>
                             </ul>
-                            <div class='informDetail'>
+                            <div class='informDetail' ms-text="item.content">
                                 <p>平台将定于12月21日晚8：00进行更新:</p>
                                 <p>本次更新的主要功能有某某功能</p>
                                 <p>敬请期待！</p>
@@ -264,6 +262,7 @@
                         </div>
                         <div class='col-md-2 col-sm-2 text-right'><button class='btn-del'>删除</button></div>
                     </div>
+                    <div id="demo1"></div>
                 </div>
             </div>
             <!--卡券-->

@@ -15,7 +15,7 @@
     <div class='checkOrders' ms-controller='root'>
         <div class='titleLine'>
             <span class='line'></span>
-            <span class='title'>全部订单记录(232)</span>
+            <span class='title'>全部订单记录(<span ms-text="@count"></span>)</span>
         </div>
         <div class='ordersList'>
             <table class="table">
@@ -30,105 +30,16 @@
                         <td>联系电话</td>
                         <td>金额</td>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>15151513123</td>
-                        <td>绵阳-成都</td>
-                        <td>渣土运输</td>
-                        <td>2019-09-14</td>
-                        <td>张三</td>
-                        <td>18586935686</td>
-                        <td>123.0元</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>15151513123</td>
-                        <td>绵阳-成都</td>
-                        <td>渣土运输</td>
-                        <td>2019-09-14</td>
-                        <td>张三</td>
-                        <td>18586935686</td>
-                        <td>123.0元</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>15151513123</td>
-                        <td>绵阳-成都</td>
-                        <td>渣土运输</td>
-                        <td>2019-09-14</td>
-                        <td>张三</td>
-                        <td>18586935686</td>
-                        <td>123.0元</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>15151513123</td>
-                        <td>绵阳-成都</td>
-                        <td>渣土运输</td>
-                        <td>2019-09-14</td>
-                        <td>张三</td>
-                        <td>18586935686</td>
-                        <td>123.0元</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>15151513123</td>
-                        <td>绵阳-成都</td>
-                        <td>渣土运输</td>
-                        <td>2019-09-14</td>
-                        <td>张三</td>
-                        <td>18586935686</td>
-                        <td>123.0元</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>15151513123</td>
-                        <td>绵阳-成都</td>
-                        <td>渣土运输</td>
-                        <td>2019-09-14</td>
-                        <td>张三</td>
-                        <td>18586935686</td>
-                        <td>123.0元</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>15151513123</td>
-                        <td>绵阳-成都</td>
-                        <td>渣土运输</td>
-                        <td>2019-09-14</td>
-                        <td>张三</td>
-                        <td>18586935686</td>
-                        <td>123.0元</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>15151513123</td>
-                        <td>绵阳-成都</td>
-                        <td>渣土运输</td>
-                        <td>2019-09-14</td>
-                        <td>张三</td>
-                        <td>18586935686</td>
-                        <td>123.0元</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>15151513123</td>
-                        <td>绵阳-成都</td>
-                        <td>渣土运输</td>
-                        <td>2019-09-14</td>
-                        <td>张三</td>
-                        <td>18586935686</td>
-                        <td>123.0元</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>15151513123</td>
-                        <td>绵阳-成都</td>
-                        <td>渣土运输</td>
-                        <td>2019-09-14</td>
-                        <td>张三</td>
-                        <td>18586935686</td>
-                        <td>123.0元</td>
+                    <tr ms-for="item in @orderList">
+                        <td ms-text="item.order_id"></td>
+                        <td ms-text="item.order_number"></td>
+                        <td ms-text="item.start_address.city + '-' + item.end_address.city"></td>
+                        <td ms-if="item.type==10">产业运输</td>
+                        <td ms-if="item.type==20">渣土运输</td>
+                        <td ms-text="item.create_time"></td>
+                        <td ms-text="item.actual_name"></td>
+                        <td ms-text="item.mobile"></td>
+                        <td ms-text="item.money+'元'"></td>
                     </tr>
                 </tbody>
             </table>
@@ -138,6 +49,9 @@
     <script src='../../plugins/jquery/jquery.min.js'></script>
     <script src='../../plugins/layui/dist/layui.js'></script>
     <script src='../../plugins/avalon/avalon.min.js'></script>
+    <script src="../../data/api.js"></script>
+    <script src="../../data/data.js"></script>
+    <script src="../../data/return_data.js"></script>
     <script>
         layui.use(['laypage', 'layer'], function () {
             var laypage = layui.laypage,
@@ -145,9 +59,70 @@
             //自定义样式
             laypage.render({
                 elem: 'demo2',
-                count: 1000,
+                count: 0,
                 theme: '#f57619'
             });
+        });
+        $(function(){
+           avalon.ready(function(){
+              window.vmAllOrder = avalon.define({
+                  $id : 'root',
+                  count:0,
+                  orderList:[],
+                  pageData:{
+                      '_token_':'',
+                      'page':1,
+                      'limit':10
+                  },
+                  onLoad:function(){
+                      vmAllOrder.getLogisticOrder();
+                  },
+                  //获取物流公司订单
+                  getLogisticOrder:function () {
+                      let token = localStorage.getItem('token');
+                      vmAllOrder.orderList=[];
+                      vmAllOrder.pageData._token_ = token;
+                      getAjax(API.URL_GET_LOGISTICSORDER,'get',vmAllOrder.pageData).then(function(res){
+                          vmAllOrder.count = res.count;
+                          if(res.code == 200){
+                              let result = res.result;
+                              let len = res.result.length;
+                              for(let i=0;i<len;i++){
+                                  result[i].start_address.city = getCityName(result[i].start_address.city);
+                                  result[i].end_address.city = getCityName(result[i].end_address.city);
+                              }
+                              vmAllOrder.orderList = res.result;
+                              layui.use(['laypage', 'layer'], function () {
+                                  var laypage = layui.laypage,
+                                      layer = layui.layer;
+                                  //自定义样式
+                                  laypage.render({
+                                      elem: 'demo2',
+                                      count: res.count,
+                                      limit:'10',
+                                      curr: vmAllOrder.pageData.page,
+                                      theme: '#f57619',
+                                      jump: function (obj,first) {
+                                          if(!first){
+                                              vmAllOrder.pageData.page = obj.curr;
+                                              vmAllOrder.getLogisticOrder();
+                                          }
+                                      }
+                                  });
+                              });
+                          }else{
+                              let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968,40044];
+                              let code =  res.code;
+                              if(tokenCode.indexOf(code)<0){
+                                  alertMsg(res.message,2);
+                              }
+                          }
+                      });
+                  }
+              });
+               vmAllOrder.onLoad();
+               avalon.scan(document.body);
+           });
         });
     </script>
 </body>
