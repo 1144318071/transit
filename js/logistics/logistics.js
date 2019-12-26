@@ -57,6 +57,7 @@ $(function(){
                     content: ['totalAmount.html']
                 });
             },
+            //获取公司信息
             getCompanyInfo:function () {
                 var token = localStorage.getItem('token');
                 vmLogistics.postData._token_ = token;
@@ -81,7 +82,9 @@ $(function(){
                     }
                 });
             },
+            //获取司机人员信息
             getMemberList:function(){
+                vmLogistics.memberList=[];
                 getAjax(API.URL_GET_COMPANYMEMBER,'get',vmLogistics.postData).then(function(res){
                     if(res.code == 200){
                         $('.noInfo').hide();
@@ -128,12 +131,12 @@ $(function(){
             },
             /*获取租赁列表*/
             getRentList:function(){
-                /*API.URL_GET_LEASELIST*/
+                vmLogistics.rentList=[];
                 var token = localStorage.getItem('token');
                 vmLogistics.postRentData._token_ = token;
                 getAjax(API.URL_GET_LEASELIST,'get',vmLogistics.postRentData).then(function (res) {
                     if(res.code == 200){
-                        $('.rentItem .noInfo').hide();
+                        $('.rentItem .noRentInfo').hide();
                         for(var i in res.result){
                             res.result[i].s_city = getCityName(res.result[i].s_city);
                             res.result[i].s_area = getAreaName(res.result[i].s_area);
@@ -163,9 +166,10 @@ $(function(){
                         if(res.code == 40040){
                             $('.rentItem .noRentInfo').show();
                             $('.rentItem .noRentInfo').html('暂无相关数据')
-                            vmLogistics.rentList = res.result;
+                            vmLogistics.rentList = [];
                             $('#demo3').hide();
                         }else{
+                            $('.rentItem .noInfo').hide();
                             let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
                             let code =  res.code;
                             if(tokenCode.indexOf(code)<0){

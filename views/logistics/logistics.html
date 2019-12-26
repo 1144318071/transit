@@ -32,7 +32,7 @@
                     </div>
                     <div class='col-md-6 col-sm-6'>
                         <div class='row  text-right'>
-                            <div class='col-sm-2 col-sm-offset-6 informItem'><a href="../personal/personal.html"><img src="../../images/inform.svg" />消息<span class="newsCount" ms-text="@newsCount"></span></a></div>
+                            <div class='col-sm-2 col-sm-offset-6 informItem'><a href="../personal/personal.html"><img src="../../images/inform.svg" />消息<span class="newsCount" ms-if="@newsCount" ms-text="@newsCount"></span></a></div>
                             <div class='col-md-4 col-sm-4 userInfo text-left'>
                                 <ul class='clearfix'>
                                     <li class="userMsg dis_none ml10"><img width="32px" height="32px" id="avatar"/></li>
@@ -171,7 +171,7 @@
                     <div class='item clearfix'>
                         <ul class='searchInput clearfix'>
                             <li><input type="text" ms-duplex="@postData.keyword" placeholder="输入姓名或者电话号码搜索"></li>
-                            <li><button>搜索</button></li>
+                            <li><button ms-on-click="@getMemberList">搜索</button></li>
                         </ul>
                         <div class='itemBox' ms-for="el in @memberList">
                             <ul class='itemTitle clearfix'>

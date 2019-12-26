@@ -151,7 +151,6 @@ $(function () {
                var phone = vmRentOrder.postData.tell;
                if(!(/^1([38][0-9]|4[579]|5[0-3,5-9]|6[6]|7[0135678]|9[89])\d{8}$/.test(phone))){
                    alertMsg("请输入正确格式的手机号",2);
-                   $('.btn-code').attr('disabled',true);
                }else{
                    var token  = localStorage.getItem('token');
                    var getCode = {
@@ -176,7 +175,6 @@ $(function () {
                            $('.btn-code').css({'background':'#999','cursor':'pointer'});
                            clearInterval(countDown);
                        }else{
-                           $('.btn-code').attr('disabled',true);
                            $('.btn-code').css({'background':'#ff0000','cursor':'pointer'});
                            $('.btn-code').text('重新发送(' + count+')');
                        }
@@ -194,6 +192,7 @@ $(function () {
                vmRentOrder.postData.e_province = getProvince(vmRentOrder.endAddress.province);
                vmRentOrder.postData.e_city = getCode(vmRentOrder.endAddress.city);
                vmRentOrder.postData.e_area = getArea(vmRentOrder.endAddress.area);
+               console.log(vmRentOrder.postData);
                 /*所需车型*/
                var car = document.getElementsByClassName('needCarItem');
                var len = car.length;

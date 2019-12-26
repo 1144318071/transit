@@ -221,7 +221,7 @@ var Area = {
                     },
                         {
                             ssqid: "120200",
-                            ssqname: "市辖县",
+                            ssqname: "天津市郊县",
                             ssqename: "",
                             areas: {
                                 area: [{
@@ -4373,7 +4373,7 @@ var Area = {
                     },
                         {
                             ssqid: "310200",
-                            ssqname: "市辖县",
+                            ssqname: "上海市郊县",
                             ssqename: "",
                             areas: {
                                 area: [{
@@ -12182,7 +12182,7 @@ var Area = {
                     },
                         {
                             ssqid: "500200",
-                            ssqname: "市辖县",
+                            ssqname: "重庆市郊县",
                             ssqename: "",
                             areas: {
                                 area: [{

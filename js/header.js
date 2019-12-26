@@ -132,7 +132,9 @@ $(function(){
                     if(res.code == 200){
                         this.newsCount = res.count;
                     }else{
-                        if(res.code != 40040 || res.code != 40045){
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968,40040,40044,40045];
+                        let code =  res.code;
+                        if(tokenCode.indexOf(code)<0){
                             alertMsg(res.message,2);
                         }
                     }
