@@ -98,19 +98,20 @@ $(function(){
                     if(res.code == 200){
                         res.result.info.logo = getApiHost + res.result.info.logo;
                         vmBrandDetail.brandInfo = res.result.info;
-                        vmBrandDetail.carDetail = res.result.data[0];
                         for(var i=0;i<res.result.car_type.length;i++){
                             if(res.result.car_type[i].appearance_pic !=''){
                                 res.result.car_type[i].appearance_pic = getApiHost + res.result.car_type[i].appearance_pic;
                             }
                         }
                         vmBrandDetail.carType = res.result.car_type;
-                        var data = res.result.data;
+                        var data = res.result.data[0];
                         for(var j=0;j<data.length;j++){
-                            if(data[j].image !=''){
+                            if(data[j].image){
                                 data[j].image = getApiHost + data[j].image
                             }
                         }
+                        console.log(res.result.data[0])
+                        vmBrandDetail.carDetail = res.result.data[0];
                     }else{
                         let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
                         let code =  res.code;

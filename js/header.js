@@ -43,13 +43,13 @@ $(function(){
                 }
                 var myCity = new BMap.LocalCity();
                 myCity.get(myFun);
-                vmHeader.getNewsCount();
+
             },
             // 判断用户是否登录
             isLogin:function(){
                 var userInfo = JSON.parse(localStorage.getItem('userInfo'));
                 //已经登录;
-                if(userInfo != null){
+                if(userInfo){
                     vmHeader.userInfo = userInfo;
                     $('.userMsg').show();
                     $('.userLogin').hide();
@@ -77,12 +77,14 @@ $(function(){
                         break;
                         default:
                         break;
-                    }
+                    };
+                    vmHeader.getNewsCount();
                 }else{
                     $('.userMsg').hide();
                     $('.userLogin').show();
                     $('.logistics').attr('data-src','javascript:;');
                     $('.layui-nav-item .layui-nav-child').remove();
+
                 }
             },
             setDisable:function(type){
@@ -121,6 +123,7 @@ $(function(){
             limitFinancial:function(){
                 alertMsg('当前模块暂未开放',4);
             },
+
             //获取消息条数
             getNewsCount:function(){
                 let token = localStorage.getItem('token');
@@ -132,7 +135,7 @@ $(function(){
                     if(res.code == 200){
                         this.newsCount = res.count;
                     }else{
-                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968,40040,40044,40045];
+                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968,40040,40044,40045,77893,77894];
                         let code =  res.code;
                         if(tokenCode.indexOf(code)<0){
                             alertMsg(res.message,2);
