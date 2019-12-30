@@ -396,7 +396,7 @@
                             </div>
                             <div class='row agent'>
                                 <div class='col-md-12 col-sm-12'>
-                                    <div class='agent_content font14 clearfix'>
+                                    <div class='agent_content font16 clearfix'>
                                         <div class='agent_detail fl' ms-for="el in @agentList">
                                             <ul class='pull-left'>
                                                 <li ms-text="el.shop_name"></li>
@@ -410,16 +410,16 @@
                                             </ul>
                                             <div class='clearfix'></div>
                                             <ul class='clearfix'>
-                                                <li class='pull-left'>品&emsp;&emsp;牌&nbsp;:&nbsp;</li>
+                                                <li class='pull-left'>品&emsp;&emsp;&emsp;牌&nbsp;:&nbsp;</li>
                                                 <li class='pull-left' ms-text="el.brands"></li>
                                             </ul>
                                             <ul class='clearfix'>
-                                                <li class='pull-left'>地&emsp;&emsp;址&nbsp;:&nbsp;</li>
-                                                <li class='pull-left' ms-text="el.province + el.city + el.area + el.address"></li>
+                                                <li class='pull-left'>地&emsp;&emsp;&emsp;址&nbsp;:&nbsp;</li>
+                                                <li class='pull-left' style="width: 248px"><span  ms-text="el.province + el.city + el.area + el.address"></span><img style="margin:-8px 0px 0px 6px" class="location" src="../../images/gps.svg" /></li>
                                             </ul>
                                             <ul class='clearfix'>
                                                 <li class='pull-left'>经销商电话&nbsp;:&nbsp;</li>
-                                                <li class='pull-left font32 fontw' ms-text="el.hot_line"></li>
+                                                <li class='pull-left font30 fontw' ms-text="el.hot_line"></li>
                                             </ul>
                                         </div>
                                     </div>

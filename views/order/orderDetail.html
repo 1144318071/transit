@@ -58,30 +58,32 @@
             </div>
         </div>
         <div class="order_right itemDetail pull-left">
-            <ul class="clearfix address">
-                <li class="pull-left">装货地址<span class="ml6 mr6">:</span></li>
-                <li class="pull-left"><label ms-text="@startAddress.province"></label><label ms-text="@startAddress.city"></label><label ms-text="@startAddress.area"></label></li>
+            <ul class="clearfix address"  ms-for="el in @startAddress">
+                <li class="pull-left"><img style="margin-top: -2px;margin-right: 6px" src="../../images/loadGoods.png"/>装货地址<span class="ml6 mr6">:</span></li>
+                <li class="pull-left" style="width: 420px;"  ms-text="el.province + el.city + el.area + el.address"></li>
             </ul>
-            <ul class="clearfix">
-                <li class="pull-left">详细地址<span class="ml6 mr6">:</span></li>
-                <li class="pull-left"><input type="text" ms-duplex="@startAddress.address" class="longerInput" /></li>
-            </ul>
-            <ul class="clearfix address">
-                <li class="pull-left">卸货地址<span class="ml6 mr6">:</span></li>
-                <li class="pull-left"><label ms-text="@endAddress.province"></label><label ms-text="@endAddress.city"></label><label ms-text="@endAddress.area"></label></li>
-            </ul>
-            <ul class="clearfix">
-                <li class="pull-left">详细地址<span class="ml6 mr6">:</span></li>
-                <li class="pull-left"><input type="text" ms-duplex="@endAddress.address" class="longerInput" /></li>
+            <ul class="clearfix address" ms-for="el in @endAddress">
+                <li class="pull-left"><img style="margin-top: -2px;margin-right: 6px" src="../../images/unloadGoods.png"/>卸货地址<span class="ml6 mr6">:</span></li>
+                <li class="pull-left" style="width: 420px;"  ms-text="el.province + el.city + el.area + el.address"></li>
             </ul>
             <div class="itemMore clearfix">
                 <ul class="clearfix pull-left">
                     <li class="pull-left">所需车型<span class="ml6 mr6">:</span></li>
-                    <li class="pull-left"><span ms-text="@goodsInfo.car_length"></span>/<span ms-text="@goodsInfo.car_model"></span></li>
+                    <li class="pull-left" ms-text="@goodsInfo.car_model"></li>
                 </ul>
                 <ul class="clearfix pull-left">
                     <li class="pull-left">货物重量<span class="ml6 mr6">:</span></li>
-                    <li class="pull-left"><span ms-text="@goodsInfo.weight"></span>吨 <span ms-text="@goodsInfo.volume"></span>m³</li>
+                    <li class="pull-left"><span ms-text="@goodsInfo.weight"></span>吨</li>
+                </ul>
+            </div>
+            <div class="itemMore clearfix">
+                <ul class="clearfix pull-left">
+                    <li class="pull-left">所需车长<span class="ml6 mr6">:</span></li>
+                    <li class="pull-left" ms-text="@goodsInfo.car_length"></li>
+                </ul>
+                <ul class="clearfix pull-left">
+                    <li class="pull-left">货物体积<span class="ml6 mr6">:</span></li>
+                    <li class="pull-left" ms-text="@goodsInfo.volume+'m³'"></li>
                 </ul>
             </div>
             <div class="itemMore clearfix">
@@ -104,9 +106,7 @@
             </ul>
             <ul class="clearfix">
                 <li class="pull-left">备注信息<span class="ml6 mr6">:</span></li>
-                <li class="pull-left">
-                    <textarea ms-duplex="@goodsInfo.remark"></textarea>
-                </li>
+                <li class="pull-left" style="width: 420px"  ms-text="@goodsInfo.remark">备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息备注信息</li>
             </ul>
             <div class="itemMore clearfix">
                 <ul class="clearfix pull-left">

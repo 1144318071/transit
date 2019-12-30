@@ -47,7 +47,6 @@ $(function(){
                      if(res.result.image != ''){
                          res.result.image = getApiHost + res.result.image;
                      }
-                     vmCheckSeriesDetail.carInfo = res.result;
                      /*外观*/
                      var appearance_pic = [];
                      /*内饰*/
@@ -93,6 +92,13 @@ $(function(){
                          var img5 = getApiHost + other_pic[n];
                          vmCheckSeriesDetail.other_pic.push(img5);
                      };
+                     if(res.result.other){
+                         let other = JSON.parse(res.result.other);
+                         if(other.length){
+                             res.result.other = other;
+                         }
+                     }
+                     vmCheckSeriesDetail.carInfo = res.result;
                      vmCheckSeriesDetail.appearance_count = vmCheckSeriesDetail.appearance_pic.length;
                      vmCheckSeriesDetail.interior_count = vmCheckSeriesDetail.interior_pic.length;
                      vmCheckSeriesDetail.chassis_count = vmCheckSeriesDetail.chassis_pic.length;

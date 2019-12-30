@@ -141,6 +141,14 @@
 .description{
   margin-left: 25px;
 }
+.description .addressItem{
+  display: inline-block;
+  width: 445px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+}
 .description ul li:first-child{
   font-size: 20px;
   cursor: pointer;

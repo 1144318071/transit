@@ -110,7 +110,6 @@
 .allSeriesMsg {
   margin-top: 74px;
   padding-right: 20px;
-  border-right: 1px solid #999;
 }
 .brandsTitle {
   font-size: 26px;
@@ -122,6 +121,7 @@
 .moreMsg {
   padding-left: 20px;
   margin-top: 74px;
+  border-left: 1px solid #999;
 }
 .tab {
   margin-top: 22px;
@@ -160,6 +160,10 @@
 }
 .carItems .carDes li {
   line-height: 36px;
+}
+.carItems .carDes li label{
+  font-weight: normal;
+  margin-bottom: 0px;
 }
 .carItems .carDes li:not(:first-child) span {
   margin: 0px 6px;

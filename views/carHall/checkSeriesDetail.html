@@ -201,8 +201,11 @@
                                     <div class='row tabMsg'>
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
-                                                <li class='pull-left'>驱动形式:</li>
-                                                <li class='pull-left' ms-text="@carInfo.base_drive"></li>
+                                                <li class='pull-left'>类型:</li>
+                                                <li class='pull-left' ms-visible="@carInfo.base_type == 10">平板式</li>
+                                                <li class='pull-left' ms-visible="@carInfo.base_type == 20">栏板式</li>
+                                                <li class='pull-left' ms-visible="@carInfo.base_type == 30">箱式</li>
+                                                <li class='pull-left' ms-visible="@carInfo.base_type == 40">仓栏式</li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
@@ -566,15 +569,15 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>多功能方向盘:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_steering_wheel == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_steering_wheel == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_steering_wheel == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_steering_wheel != 1">无</li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>独立空调:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_air == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_air == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_air == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_air != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -590,8 +593,8 @@
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>独立暖风:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_warm_air == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_warm_air == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_warm_air == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_warm_air != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -599,15 +602,15 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>电动后视镜:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_review_mirror == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_review_mirror == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_review_mirror == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_review_mirror != 1">无</li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>电动车窗:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_car_window == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_car_window == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_car_window == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_car_window != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -615,8 +618,8 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>后视镜加热:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_heating == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_heating == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_heating == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_heating != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -625,15 +628,15 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>导流罩:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.external_shroud == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.external_shroud == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.external_shroud == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.external_shroud != 1">无</li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>铝合金车轮:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.external_wheel == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.external_wheel == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.external_wheel == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.external_wheel != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -641,8 +644,8 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>一体式挡泥板:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.external_fender == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.external_fender == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.external_fender == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.external_fender != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -651,15 +654,15 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>日夜行车灯:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.light_headlight == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.light_headlight == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.light_headlight == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.light_headlight != 1">无</li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>LED尾灯:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.light_led == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.light_led == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.light_led == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.light_led != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -668,8 +671,8 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>电子中控锁:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.brake_central_lock == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.brake_central_lock == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.brake_central_lock == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.brake_central_lock != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -678,15 +681,15 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>GPS/北斗行车记录仪:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.multimedia_gps == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.multimedia_gps == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.multimedia_gps == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.multimedia_gps != 1">无</li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>收音机:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.multimedia_radio == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.multimedia_radio == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.multimedia_radio == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.multimedia_radio != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -695,33 +698,31 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>胎压监测装置:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.tech_tire_pressure == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.tech_tire_pressure == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.tech_tire_pressure == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.tech_tire_pressure != 1">无</li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>定速巡航:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.tech_cruise == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.tech_cruise == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.tech_cruise == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.tech_cruise != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
                                     <!--other-->
-                                    <div class='titleLine'>其他配置</div>
-                                    <div class='row tabMsg'>
+                                    <div class='titleLine' ms-if="carInfo.other.length">其他配置</div>
+                                    <div class='row tabMsg' ms-if="carInfo.other.length" ms-for="(i,el) in carInfo.other">
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
-                                                <li class='pull-left'>驾驶室:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_heating == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_heating == 2">无</li>
+                                                <li class='pull-left'>配置名称{{ i+1 }}:</li>
+                                                <li class='pull-left' ms-text="el.name"></li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
-                                                <li class='pull-left'>驾驶室悬挂:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_heating == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_heating == 2">无</li>
+                                                <li class='pull-left'>配置参数{{ i+1 }}:</li>
+                                                <li class='pull-left' ms-text="el.number"></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -739,10 +740,7 @@
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>驱动&nbsp;:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.base_type == 10">平板式</li>
-                                                <li class='pull-left' ms-visible="@carInfo.base_type == 20">栏板式</li>
-                                                <li class='pull-left' ms-visible="@carInfo.base_type == 30">箱式</li>
-                                                <li class='pull-left' ms-visible="@carInfo.base_type == 40">仓栏式</li>
+                                                <li class="pull-left" ms-text="@carInfo.base_drive"></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1161,15 +1159,15 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>ABS防抱死&nbsp;:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.manipulation_abs == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.manipulation_abs == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.manipulation_abs == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.manipulation_abs != 1">无</li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>轮间差数锁&nbsp;:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.difference_lock == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.difference_lock == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.difference_lock == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.difference_lock != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1178,15 +1176,15 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>多功能方向盘&nbsp;:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_steering_wheel == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_steering_wheel == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_steering_wheel == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_steering_wheel != 1">无</li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>独立空调&nbsp;:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_air == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_air == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_air == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_air != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1202,8 +1200,8 @@
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>独立暖风&nbsp;:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_warm_air == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_warm_air == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_warm_air == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_warm_air != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1211,15 +1209,15 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>电动后视镜&nbsp;:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_review_mirror == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_review_mirror == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_review_mirror == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_review_mirror != 1">无</li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>电动车窗&nbsp;:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_car_window == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_car_window == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_car_window == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_car_window != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1227,8 +1225,8 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>后视镜加热&nbsp;:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_heating == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.internal_heating == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_heating == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.internal_heating != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1237,24 +1235,24 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>导流罩&nbsp;:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.external_shroud == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.external_shroud == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.external_shroud == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.external_shroud != 1">无</li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>铝合金车轮&nbsp;:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.external_wheel == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.external_wheel == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.external_wheel == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.external_wheel != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class='row tabMsg'>
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
-                                                <li class='pull-left'>一体式挡泥板&nbsp;:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.external_fender == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.external_fender == 2">无</li>
+                                                <li class='pull-left'>个体式挡泥板&nbsp;:</li>
+                                                <li class='pull-left' ms-if="@carInfo.external_fender == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.external_fender != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1263,15 +1261,15 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>日夜行车灯&nbsp;:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.light_headlight == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.light_headlight == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.light_headlight == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.light_headlight != 1">无</li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>LED尾灯&nbsp;:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.light_led == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.light_led == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.light_led == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.light_led != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1280,8 +1278,8 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>电子中控锁&nbsp;:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.brake_central_lock == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.brake_central_lock == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.brake_central_lock == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.brake_central_lock != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1290,15 +1288,15 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>GPS/北斗行车记录仪&nbsp;:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.multimedia_gps == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.multimedia_gps == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.multimedia_gps == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.multimedia_gps != 1">无</li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>收音机&nbsp;:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.multimedia_radio == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.multimedia_radio == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.multimedia_radio == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.multimedia_radio != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -1307,33 +1305,33 @@
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>胎压监测装置&nbsp;:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.tech_tire_pressure == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.tech_tire_pressure == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.tech_tire_pressure == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.tech_tire_pressure != 1">无</li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>定速巡航&nbsp;:</li>
-                                                <li class='pull-left' ms-visible="@carInfo.tech_cruise == 1">有</li>
-                                                <li class='pull-left' ms-visible="@carInfo.tech_cruise == 2">无</li>
+                                                <li class='pull-left' ms-if="@carInfo.tech_cruise == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.tech_cruise != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <!--<div class='titleLine'>其他配置</div>
-                                    <div class='row tabMsg'>
+                                    <div class='titleLine' ms-if="carInfo.other.length">其他配置</div>
+                                    <div class='row tabMsg' ms-if="carInfo.other.length" ms-for="(i,el) in carInfo.other">
                                         <div class='col-md-6 col-sm-6 clearfix'>
                                             <ul class='clearfix pull-left'>
-                                                <li class='pull-left'>驾驶室&nbsp;:</li>
-                                                <li class='pull-left'>厢式8</li>
+                                                <li class='pull-left'>配置名称{{ i+1 }}:</li>
+                                                <li class='pull-left' ms-text="el.name"></li>
                                             </ul>
                                         </div>
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
-                                                <li class='pull-left'>驾驶室悬挂&nbsp;:</li>
-                                                <li class='pull-left'>2.44米</li>
+                                                <li class='pull-left'>配置参数{{ i+1 }}:</li>
+                                                <li class='pull-left' ms-text="el.number"></li>
                                             </ul>
                                         </div>
-                                    </div>-->
+                                    </div>
                                 </div>
                             </div>
                             <!--查看图片-->

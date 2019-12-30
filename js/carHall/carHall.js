@@ -93,6 +93,11 @@ $(function(){
             getPage:function(el){
                 var src = el.currentTarget.dataset.src;
                 location.href = src;
+                //<a ms-attr="{ src : './checkSeriesDetail.html?car_ty='+el.car_ty +'&id='+el.id }" ></a>
+            },
+            getDetailPage(car_ty,id){
+                console.log(car_ty,id);
+                location.href='./checkSeriesDetail.html?car_ty='+car_ty+'&id='+id;
             },
             //获取热门品牌
             getPopularBrands:function(){

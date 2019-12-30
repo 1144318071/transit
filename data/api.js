@@ -12,6 +12,8 @@ var API = {
     URL_POST_LOGINOUT: getApiHost + '/login/out',
     // 商家信息完善
     URL_POST_VERIFYCOMPANY: getApiHost + '/company/verify',
+    //是否登录
+    URL__POST_ISLOGIN : getApiHost + '/user/isLogin',
     // ----------------------------------------------个人中心-----------------------------------
     //判断用户是否登录
     URL_POST_ISLOGIN : getApiHost + '/user/isLogin',
@@ -142,6 +144,8 @@ var API = {
     URL_POST_CLOSECOMPLAIN : getApiHost + '/closeComplaint',
     //在线车辆
     URL_GET_ONLINECAR: getApiHost + '/onlineCar',
+    //退款详情
+    URL_POST_REFUNDMONEY : getApiHost + '/refundInfo',
     //----------------------------------------------物流公司-----------------------------------
     //公司主页
     URL_GET_COMPANYINFO : getApiHost + '/companyInfo',

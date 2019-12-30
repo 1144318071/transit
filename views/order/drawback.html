@@ -25,47 +25,47 @@
             </ul>
         </div>
         <div class="complainSteps clearfix">
-            <ul class="stepOne">
-                <li><img src="../../images/s1.png" /></li>
-                <li class="oneItem">发起退款/赔付</li>
-            </ul>
-            <div class="stepLine"></div>
             <ul>
-                <li><img src="../../images/s2.png" /></li>
+                <li ms-class="@refundDetail.status == '10'||refundDetail.status == '20'||refundDetail.status == '30'?'active':''"><img src="../../images/s1.png" /></li>
+                <li>提交投诉</li>
+            </ul>
+            <div class="stepLine" ms-class="@refundDetail.status == '20'||refundDetail.status == '30'?'active':''"></div>
+            <ul>
+                <li ms-class="@refundDetail.status == '20'||@refundDetail.status == '30'?'active':''"><img src="../../images/s2.png" /></li>
                 <li>处理中</li>
             </ul>
-            <div class="stepLine"></div>
+            <div class="stepLine" ms-class="@refundDetail.status == '30'?'active':''"></div>
             <ul>
-                <li><img src="../../images/s3.png" /></li>
+                <li ms-class="@refundDetail.status == '30'?'active':''"><img src="../../images/s3.png" /></li>
                 <li>处理完成</li>
             </ul>
         </div>
         <div class="refundAmount">
             <div>退款金额<span class="ml6"></span></div>
-            <div class="amount font32 fontw">￥26711.00</div>
-            <div>退回支付宝(187****516@qq.com)</div>
+            <div class="amount font32 fontw" ms-text="'￥'+@refundDetail.money"></div>
+            <div><span ms-text="@refundDetail.road"></span><span ms-if="@refundDetail.payment_method=='Alipay'">(187****516@qq.com)</span></div>
         </div>
         <div class="refundOrder">
             <div class="refundTitle fontw">退款订单</div>
             <ul class="clearfix">
                 <li>订单编号<span class="ml6 mr6">:</span></li>
-                <li>54543452342133</li>
+                <li ms-text="@refundDetail.refund_number"></li>
             </ul>
             <ul class="clearfix">
                 <li>订单信息<span class="ml6 mr6">:</span></li>
-                <li>绵阳 - 成都</li>
+                <li ms-text="@start_city +'-'+ @end_city "></li>
             </ul>
             <ul class="clearfix">
                 <li>发起时间<span class="ml6 mr6">:</span></li>
-                <li>2018-08-08</li>
+                <li ms-text="@refundDetail.create_time"></li>
             </ul>
             <ul class="clearfix">
                 <li>退款原因<span class="ml6 mr6">:</span></li>
-                <li>订单取消</li>
+                <li ms-text="@refundDetail.reason"></li>
             </ul>
             <ul class="clearfix">
                 <li>扣除违约金<span class="ml6 mr6">:</span></li>
-                <li>￥241.00</li>
+                <li ms-text="'￥'+@refundDetail.damages"></li>
             </ul>
         </div>
     </div>
@@ -73,6 +73,47 @@
 <script src='../../plugins/jquery/jquery.min.js'></script>
 <script src='../../plugins/layui/dist/layui.js'></script>
 <script src='../../plugins/avalon/avalon.min.js'></script>
-<script src='../../js/order/orderStating.js'></script>
+<script src="../../data/api.js"></script>
+<script src="../../data/data.js"></script>
+<script src="../../data/return_data.js"></script>
+<script>
+    $(function(){
+       avalon.ready(function(){
+          window.vmMoney = avalon.define({
+              $id : 'root',
+              refundDetail:{},
+              start_city:'',
+              end_city:'',
+              onLoad:function(){
+                vmMoney.getMoneyInfo();
+              },
+              getMoneyInfo:function () {
+                  let id = localStorage.getItem('drawbackId');
+                  let token = localStorage.getItem('token');
+                  let params = {
+                      '_token_':token,
+                      'refund_id':id
+                  };
+                  getAjax(API.URL_POST_REFUNDMONEY,'post',params).then(function(res){
+                     if(res.code == 200){
+                         vmMoney.start_city = getCityName(res.result.start_address.city);
+                         vmMoney.end_city = getCityName(res.result.end_address.city);
+                         vmMoney.refundDetail = res.result;
+                        console.log(res.result)
+                     }else{
+                         let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
+                         let code =  res.code;
+                         if(tokenCode.indexOf(code)<0){
+                             alertMsg(res.message,2);
+                         }
+                     }
+                  });
+              }
+          });
+          vmMoney.onLoad();
+          avalon.scan(document.body);
+       });
+    });
+</script>
 </body>
 </html>

@@ -279,6 +279,9 @@ label {
   margin-top: 60px;
   margin-left: 250px;
 }
+#demo3{
+  text-align: center;
+}
 /*筛选条件*/
 .filterItem>li{
   float: left;

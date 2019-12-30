@@ -47,45 +47,56 @@ $(function(){
             },
             // 判断用户是否登录
             isLogin:function(){
-                var userInfo = JSON.parse(localStorage.getItem('userInfo'));
-                //已经登录;
-                if(userInfo){
-                    vmHeader.userInfo = userInfo;
-                    $('.userMsg').show();
-                    $('.userLogin').hide();
-                    if(vmHeader.userInfo.avatar){
-                        var src  = getApiHost + vmHeader.userInfo.avatar;
-                        $('#avatar').attr('src',src);
-                    }else{
-                        $('#avatar').attr('src','../../images/avatar.png');
+                let token = localStorage.getItem('token');
+                $.ajax({
+                    type:"POST",
+                    url:API.URL__POST_ISLOGIN,
+                    data:{'_token_':token},
+                    dataType:'json',
+                    xhrFields: {
+                        withCredentials: true // 这里设置了withCredentials
+                    },
+                    success:function (res) {
+                       if(res.code == 200){
+                           let userInfo = JSON.parse(localStorage.getItem('userInfo'));
+                           //已经登录;
+                           vmHeader.userInfo = userInfo;
+                           $('.userMsg').show();
+                           $('.userLogin').hide();
+                           if(vmHeader.userInfo.avatar){
+                               let src  = getApiHost + vmHeader.userInfo.avatar;
+                               $('#avatar').attr('src',src);
+                           }else{
+                               $('#avatar').attr('src','../../images/avatar.png');
+                           }
+                           var type = userInfo.type;
+                           switch (type) {
+                               case 'PERSONAL':
+                                   $('.logistics').attr('data-src','javascript:;');
+                                   $('.layui-nav-item .layui-nav-child').remove();
+                                   break;
+                               case 'MERCHANT':
+                                   $('.logistics').attr('data-src','javascript:;');
+                                   break;
+                               case 'LOGISTICS':
+                                   $('.layui-nav-item .layui-nav-child').remove();
+                                   break;
+                               case 'PROXY':
+                                   $('.logistics').attr('data-src','javascript:;');
+                                   $('.layui-nav-item .layui-nav-child').remove();
+                                   break;
+                               default:
+                                   break;
+                           };
+                           vmHeader.getNewsCount();
+                       }else{
+                           $('.userMsg').hide();
+                           $('.userLogin').show();
+                           $('.logistics').attr('data-src','javascript:;');
+                           $('.layui-nav-item .layui-nav-child').remove();
+                       }
                     }
-                    var type = userInfo.type;
-                    switch (type) {
-                        case 'PERSONAL':
-                            $('.logistics').attr('data-src','javascript:;');
-                            $('.layui-nav-item .layui-nav-child').remove();
-                        break;
-                        case 'MERCHANT':
-                            $('.logistics').attr('data-src','javascript:;');
-                        break;
-                        case 'LOGISTICS':
-                            $('.layui-nav-item .layui-nav-child').remove();
-                        break;
-                        case 'PROXY':
-                            $('.logistics').attr('data-src','javascript:;');
-                            $('.layui-nav-item .layui-nav-child').remove();
-                        break;
-                        default:
-                        break;
-                    };
-                    vmHeader.getNewsCount();
-                }else{
-                    $('.userMsg').hide();
-                    $('.userLogin').show();
-                    $('.logistics').attr('data-src','javascript:;');
-                    $('.layui-nav-item .layui-nav-child').remove();
-
-                }
+                });
             },
             setDisable:function(type){
                 var userInfo = JSON.parse(localStorage.getItem('userInfo'));

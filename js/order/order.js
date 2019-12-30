@@ -225,8 +225,8 @@ $(function(){
                 });
                 localStorage.setItem('loadId',el)
             },
-            //退款
-            drawback:function(){
+            //退款弹窗显示
+            drawback:function(el){
                 top.layer.open({
                     type: 2,
                     title: false,
@@ -236,6 +236,7 @@ $(function(){
                     shadeClose: true, //开启遮罩关闭
                     content: ['/views/order/drawback.html']
                 });
+                localStorage.setItem('drawbackId',el);
             },
             getUrl:function(){
                 var url = window.location.href;
@@ -274,8 +275,8 @@ $(function(){
                 vmOrder.postData.goods_status = goods_status;
                 vmOrder.postData.order_status = order_status;
                 getAjax(API.URL_GET_ORDERLIST,'get',vmOrder.postData).then(function(res){
+                    vmOrder.getPageList(elem,res.count,goods_status,order_status);
                     if(res.code == 200) {
-                        vmOrder.getPageList(elem,res.count,goods_status,order_status);
                         var result = res.result;
                         for (var i in result) {
                             result[i].start_address.city = getCityName(result[i].start_address.city);

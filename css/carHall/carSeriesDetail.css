@@ -260,23 +260,23 @@
   color:#f57619;
 }
 .agent_detail {
-  width: 362px;
-  height: 210px;
+  width: 400px;
+  height: 220px;
   padding-left: 8px;
   padding-right: 8px;
-  padding-top: 25px;
-  border: 1px solid #000;
-  margin-left: 107px;
+  padding-top: 20px;
+  border: 1px solid #eaeaea;
+  margin-left: 40px;
   margin-top: 31px;
 }
 .agent_detail:nth-child(2n+1) {
-  margin-left: 38px;
+  margin-left: 30px;
 }
 .agent_detail ul {
   line-height: 30px;
 }
 .agent_detail ul:first-child li:last-child {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .agent_detail ul li label{
   display: inline-block;
@@ -312,7 +312,7 @@
   color: #fff;
 }
 #province a {
-  width: 80px;
+  width: 180px;
   text-align: center;
 }
 .province,
