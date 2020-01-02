@@ -340,7 +340,7 @@ $(function(){
             },
             //分页
             getPageList:function(elem,count,goods_status,order_status){
-                if(count > 5){
+                /*if(count > 5){*/
                     layui.use(['laypage', 'layer'], function () {
                         var laypage = layui.laypage,
                             layer = layui.layer;
@@ -358,7 +358,7 @@ $(function(){
                             }
                         });
                     });
-                }
+                /*}*/
             },
             //根据订单状态请求数据
             getStatusOrder:function(el,good_status,order_status){

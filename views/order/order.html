@@ -144,7 +144,7 @@
                         <div class="tabItem">
                             <ul class="search clearfix">
                                 <li class="pull-left"><input type="text" ms-duplex="@postData.keyword" placeholder="请输入订单编号/目的地进行搜索" /></li>
-                                <li class="pull-left"><button class="btn-search" ms-on-click="@getSearchList('demo1','40','')">搜索</button></li>
+                                <li class="pull-left"><button class="btn-search" ms-on-click="@getSearchList('demo1','','')">搜索</button></li>
                                 <li class="pull-right"><a href="./publishOrder.html"><button class="btn-publish">发布货单</button></a></li>
                             </ul>
                             <div class="itemDetail" ms-for="el in @orderList" ms-if="el.type=='10'" ms-attr="{ id : 'active_' + el.goods_id }" ms-mouseover="@setActive('active_'+el.goods_id)" ms-mouseout="@removeActive('active_'+el.goods_id)">

@@ -71,7 +71,10 @@ $(function(){
             carList:[],
             relatedCars:[],
             carDetail:{},
-            page:'1',
+            page:1,
+            page_10:1,//在售
+            page_20:1,//停售
+            page_30:1,//即将上市
             keyword:'',
             filterData:{
                 '_token_':'',
@@ -99,8 +102,8 @@ $(function(){
               'type':'',
               'status':'',
               'base_drive':'',
-              'page':'1',
-              'limit':''
+              'page':1,
+              'limit':2
             },
             ZSList:[],
             TSList:[],
@@ -114,20 +117,21 @@ $(function(){
                 vmCarSeriesDetail.getUrlJson();
             },
             getPage: function (el) {
-                var src = el.currentTarget.dataset.src;
+                let src = el.currentTarget.dataset.src;
                 location.href = src;
             },
             getSearch:function(){
-                var keyword = vmCarSeriesDetail.keyword;
+                let keyword = vmCarSeriesDetail.keyword;
                 localStorage.setItem('searchKeyWord',keyword);
                 location.href = '../../views/carHall/carfilter.html';
             },
             //获取url传过来的值
             getUrlJson:function(){
-                var url = location.href;
-                var data = GetRequest(url);
+                let url = location.href;
+                let data = GetRequest(url);
+                console.log(data)
                 vmCarSeriesDetail.car_ty = data.car_ty;
-                var token = localStorage.getItem('token');
+                let token = localStorage.getItem('token');
                 data.token = token;
                 vmCarSeriesDetail.data = data;
                 vmCarSeriesDetail.agentData._token_ = token;
@@ -137,6 +141,7 @@ $(function(){
                 vmCarSeriesDetail.agentData.brands_id = data.id;
                 vmCarSeriesDetail.getSeriesDetail();
             },
+            //获取车系详情
             getSeriesDetail:function(){
                 var postData={
                     '_token_':vmCarSeriesDetail.data.token,
@@ -163,6 +168,7 @@ $(function(){
                     }
                 });
             },
+            //在售 停售 即将上市
             getStatusList:function(){
                 vmCarSeriesDetail.filterData._token_ = vmCarSeriesDetail.data.token;
                 vmCarSeriesDetail.filterData.series = vmCarSeriesDetail.carDetail.series;
@@ -200,7 +206,7 @@ $(function(){
                 vmCarSeriesDetail.filterData.engine = '';
                 vmCarSeriesDetail.filterData.engine_max_power = '';
                 vmCarSeriesDetail.filterData.gearbox_forward_gear = '';
-                vmCarSeriesDetail.filterData.page = '';
+                vmCarSeriesDetail.filterData.page = 1;
                 vmCarSeriesDetail.filterData.limit = '';
                 vmCarSeriesDetail.getStatusList();
             },
@@ -211,7 +217,7 @@ $(function(){
                 vmCarSeriesDetail.filterData.engine = '';
                 vmCarSeriesDetail.filterData.engine_max_power = '';
                 vmCarSeriesDetail.filterData.gearbox_forward_gear = '';
-                vmCarSeriesDetail.filterData.page = '';
+                vmCarSeriesDetail.filterData.page = 1;
                 vmCarSeriesDetail.filterData.limit = '';
                 vmCarSeriesDetail.getStatusList();
             },
@@ -222,7 +228,7 @@ $(function(){
                 vmCarSeriesDetail.filterData.engine = '';
                 vmCarSeriesDetail.filterData.engine_max_power = '';
                 vmCarSeriesDetail.filterData.gearbox_forward_gear = '';
-                vmCarSeriesDetail.filterData.page = '';
+                vmCarSeriesDetail.filterData.page = 1;
                 vmCarSeriesDetail.filterData.limit = '';
                 vmCarSeriesDetail.getStatusList();
             },
@@ -297,37 +303,42 @@ $(function(){
             },
             /*点击加载更多*/
             loadingMore:function(el,base,group){
-                var page = parseInt(vmCarSeriesDetail.page);
+                console.log(el,base,group)
+                let base_drive = vmCarSeriesDetail.loadingData.base_drive;
+                let status = vmCarSeriesDetail.loadingData.status;
+                let groupItem = vmCarSeriesDetail.loadingData.group;
+                if(base != base_drive || status != el || groupItem != group){
+                    vmCarSeriesDetail.page = 1;
+                }
+                let page = parseInt(vmCarSeriesDetail.page);
                 vmCarSeriesDetail.page = page;
                 vmCarSeriesDetail.page += 1;
                 vmCarSeriesDetail.loadingData.page = vmCarSeriesDetail.page;
-                vmCarSeriesDetail.loadingData.limit = 2;
                 vmCarSeriesDetail.loadingData.status = el;
                 vmCarSeriesDetail.loadingData.base_drive = base;
                 vmCarSeriesDetail.loadingData.group = group;
                 getAjax(API.URL_GET_LOADINGMORE,'get',vmCarSeriesDetail.loadingData).then(function(res){
                     if(res.code == 200){
-
-                        vmCarSeriesDetail.loadingList = res.result;
-                        var loadingList = res.result;
-                        switch (el) {
+                        vmCarSeriesDetail.loadingList = res.result[0];
+                        let loadingList = res.result[0];
+                        switch(el) {
                             case 10:
-                                for(var i in loadingList){
+                                for(let i in loadingList){
                                     loadingList[i].statusContent='在售';
                                 }
-                                break;
+                            break;
                             case 20:
-                                for(var j in moreList){
+                                for(let j in loadingList){
                                     loadingList[j].statusContent='停售';
                                 }
                                 break;
                             case 30:
-                                for(var k in moreList){
+                                for(let k in loadingList){
                                     loadingList[k].statusContent='即将上市';
                                 }
                                 break;
                         }
-                        var loopItem='';
+                        let loopItem='';
                         $(loadingList).each(function(index,item){
                             loopItem += "<tr>\n" +
                                 "    <td>\n" +
@@ -361,6 +372,9 @@ $(function(){
                         let code =  res.code;
                         if(tokenCode.indexOf(code)<0){
                             alertMsg(res.message,2);
+                        }
+                        if(code == 40040){
+                            $('#base_drive_'+base).hide();
                         }
                     }
                 });

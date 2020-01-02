@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <title>首页</title>
-    <link rel="shortcut icon" href="http://transit.scsiren.com/favicon.ico"  type="image/x-icon">
+    <link rel="shortcut icon" href="http://transit.scsiren.com/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./plugins/banner/css/banner.css">
     <link rel="stylesheet" href="./plugins/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="./plugins/layui/dist/css/layui.css">
@@ -14,224 +14,264 @@
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/index.css">
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=n6K0xWCoAKyRgR0cYt6uVaC1EgAVAGFR"></script>
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=3.0&ak=n6K0xWCoAKyRgR0cYt6uVaC1EgAVAGFR"></script>
 </head>
 <body ms-controller="home">
-    <div class='header fixHeader' ms-controller='header'>
-        <header>
-            <!-- 版心 -->
-            <div class='content_box'>
-                <!-- 顶部的引导导航条 -->
-                <div class='row topBar'>
-                    <div class='col-md-6 col-sm-6'>
-                        <div class='row'>
-                            <div class='col-sm-5'>欢迎登录纵运服务平台</div>
-                            <div class='col-sm-7 citySelect'><span ms-text="@city"></span>|
-                                <input class="address" value="切换">
-                            </div>
-                            <div id="allmap" class="dis_none"></div>
+<div class='header fixHeader' ms-controller='header'>
+    <header>
+        <!-- 版心 -->
+        <div class='content_box'>
+            <!-- 顶部的引导导航条 -->
+            <div class='row topBar'>
+                <div class='col-md-6 col-sm-6'>
+                    <div class='row'>
+                        <div class='col-sm-5'>欢迎登录纵运服务平台</div>
+                        <div class='col-sm-7 citySelect'><span ms-text="@city"></span>|
+                            <input class="address" value="切换">
                         </div>
+                        <div id="allmap" class="dis_none"></div>
                     </div>
-                    <div class='col-md-6 col-sm-6'>
-                        <div class='row  text-right'>
-                            <div class='col-sm-2 col-sm-offset-6 informItem'><a href="./views/personal/personal.html"><img src="./images/inform.svg" />消息<span class="newsCount" ms-if="@newsCount" ms-text="@newsCount"></span></a></div>
-                            <div class='col-md-4 col-sm-4 userInfo text-left'>
-                                <ul class='clearfix'>
-                                    <li class="userMsg dis_none ml10"><a href="./views/personal/personal.html"><img width="32px" height="32px" id="avatar"/></a></li>
-                                    <li class="userMsg dis_none"><a href="./views/personal/personal.html" ms-text="@userInfo.username"></a><span class="ml8" ms-on-click="@loginOut">退出</span></li>
-                                    <li class="userLogin">您好,请<a href='login.html'>登录</a></li>
-                                </ul>
-                            </div>
+                </div>
+                <div class='col-md-6 col-sm-6'>
+                    <div class='row  text-right'>
+                        <div class='col-sm-2 col-sm-offset-6 informItem'><a href="./views/personal/personal.html"><img
+                                src="./images/inform.svg"/>消息<span class="newsCount" ms-if="@newsCount"
+                                                                   ms-text="@newsCount"></span></a></div>
+                        <div class='col-md-4 col-sm-4 userInfo text-left'>
+                            <ul class='clearfix'>
+                                <li class="userMsg dis_none ml10"><a href="./views/personal/personal.html"><img
+                                        width="32px" height="32px" id="avatar"/></a></li>
+                                <li class="userMsg dis_none"><a href="./views/personal/personal.html"
+                                                                ms-text="@userInfo.username"></a><span class="ml8"
+                                                                                                       ms-on-click="@loginOut">退出</span>
+                                </li>
+                                <li class="userLogin">您好,请<a href='login.html'>登录</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
     <!-- 导航条 -->
-        <div class='navBar  fixNavBar'>
-            <!-- 版心 -->
-            <div class='content_box'>
-                <div class="row">
-                    <div class="col-md-3 col-sm-3 bg-fff">
-                        <div class='row'>
-                            <div class='col-sm-9 text-left'><img src="./images/logo.png" width='202px' height='80px' alt="logo"></div>
-                        </div>
+    <div class='navBar  fixNavBar'>
+        <!-- 版心 -->
+        <div class='content_box'>
+            <div class="row">
+                <div class="col-md-3 col-sm-3 bg-fff">
+                    <div class='row'>
+                        <div class='col-sm-9 text-left'><img src="./images/logo.png" width='202px' height='80px'
+                                                             alt="logo"></div>
                     </div>
-                    <div class="col-md-9 col-sm-9 pl0">
-                        <ul class="layui-nav">
-                            <li class="layui-nav-item  layui-this" data-src='./index.html'><a href="javascript:;">首页</a></li>
-                            <li class="layui-nav-item" data-src='./views/carHall/carHall.html'><a href="javascript:;">汽车大厅</a></li>
-                            <li class="layui-nav-item" ms-on-click="@limitFinancial" data-src='javascript:;'><a href="javascript:;">金融中心</a></li>
-                            <li class="layui-nav-item merchant" data-src="javascript:;" ms-on-click="@setDisable('MERCHANT')">
-                                <a href="javascript:;" data-src="javascript:;">运输管理</a>
-                                <dl class="layui-nav-child">
-                                    <dd><a href="./views/order/order.html?state=10" style="color:#f57619!important">渣土运输</a></dd>
-                                    <dd><a href="./views/order/order.html?state=20" style="color:#f57619!important">产业运输</a></dd>
-                                </dl>
-                            </li>
-                            <li class="layui-nav-item logistics" data-src='./views/logistics/logistics.html'  ms-on-click="@setDisable('LOGISTICS')"><a href="javascript:;">物流公司</a></li>
-                            <li class="layui-nav-item" data-src='./views/cooperate/cooperate.html'><a href="javascript:;">我要合作</a></li>
-                            <!--<li class="layui-nav-item" data-src='./views/aboutUs/aboutUs.html'><a href="javascript:;">关于我们</a></li>-->
-                            <li class="layui-nav-item  downLoad" data-src='javascript:;'>
-                                <a href="javascript:;">APP下载</a>
-                                <div class='downloadApp'>
-                                    <ul>
-                                        <li><img src="./images/qrCode.png" alt=""></li>
-                                        <li>iphone客户端</li>
-                                    </ul>
-                                    <ul>
-                                        <li><img src="./images/qrCode.png" alt=""></li>
-                                        <li>Android客户端</li>
-                                    </ul>
+                </div>
+                <div class="col-md-9 col-sm-9 pl0">
+                    <ul class="layui-nav">
+                        <li class="layui-nav-item  layui-this" data-src='./index.html'><a href="javascript:;">首页</a>
+                        </li>
+                        <li class="layui-nav-item" data-src='./views/carHall/carHall.html'><a
+                                href="javascript:;">汽车大厅</a></li>
+                        <li class="layui-nav-item" ms-on-click="@limitFinancial" data-src='javascript:;'><a
+                                href="javascript:;">金融中心</a></li>
+                        <li class="layui-nav-item merchant" data-src="javascript:;"
+                            ms-on-click="@setDisable('MERCHANT')">
+                            <a href="javascript:;" data-src="javascript:;">运输管理</a>
+                            <dl class="layui-nav-child">
+                                <dd><a href="./views/order/order.html?state=10" style="color:#f57619!important">渣土运输</a>
+                                </dd>
+                                <dd><a href="./views/order/order.html?state=20" style="color:#f57619!important">产业运输</a>
+                                </dd>
+                            </dl>
+                        </li>
+                        <li class="layui-nav-item logistics" data-src='./views/logistics/logistics.html'
+                            ms-on-click="@setDisable('LOGISTICS')"><a href="javascript:;">物流公司</a></li>
+                        <li class="layui-nav-item" data-src='./views/cooperate/cooperate.html'><a href="javascript:;">我要合作</a>
+                        </li>
+                        <!--<li class="layui-nav-item" data-src='./views/aboutUs/aboutUs.html'><a href="javascript:;">关于我们</a></li>-->
+                        <li class="layui-nav-item  downLoad" data-src='javascript:;'>
+                            <a href="javascript:;">APP下载</a>
+                            <div class='downloadApp'>
+                                <ul>
+                                    <li><img src="./images/qrCode.png" alt=""></li>
+                                    <li>iphone客户端</li>
+                                </ul>
+                                <ul>
+                                    <li><img src="./images/qrCode.png" alt=""></li>
+                                    <li>Android客户端</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class='banner'>
+    <div class="layui-carousel" id="test10">
+        <div carousel-item>
+            <div ms-for="el in @bannerImg"><img ms-attr="{ src : el.banner_img }" width="100%" height='460px'></div>
+        </div>
+    </div>
+</div>
+<div class='content_box'>
+    <!--公告通知-->
+    <div class='inform'>
+        <ul class='clearfix'>
+            <li><img src="./images/inform.png" style="margin-top: -3px;" height="24px" alt="公告通知"></li>
+            <li>公告</li>
+            <li>:</li>
+            <div class="layui-carousel" id="announcement" lay-filter="announcement" style="width: 400px;height: 24px;left: 100px;top: 0px;">
+                <div carousel-item="" style="overflow: unset;background-color: white !important;">
+                    <li ms-for="el in @getAnnouncementList" style="top: 0px;background-color: white !important;"> {{ el.title }} </li>
+                </div>
+            </div>
+
+        </ul>
+    </div>
+
+    <!-- 发布订单系列内容 -->
+    <div class='itemContent clearfix'>
+        <div class='itemBox'>
+            <a href="./views/order/publishOrder.html"><img src="./images/fbdd.png" alt="发布订单"/></a>
+            <div class='itemTitle'><span class='hLine'></span><span><a
+                    href="./views/order/publishOrder.html">我要发单</a></span><span class='hLine'></span></div>
+            <div class='itemDes font14 color-999'>
+                <p>支持合作商家快捷发布货,主要服务于渣土</p>
+                <p>运输,各种货物运输,GPS实时监控货物运</p>
+                <p>输车辆信息,让你的交易更安全省心！</p>
+            </div>
+        </div>
+        <div class='itemBox'>
+            <img src="./images/qcdt.png" alt="汽车大厅"/>
+            <div class='itemTitle'><span class='hLine'></span><span>我要买车</span><span class='hLine'></span></div>
+            <div class='itemDes font14 color-999'>
+                <p>全国各大货车车商,实时发布最新货车信息</p>
+                <p>了解货车最新行业价格。</p>
+            </div>
+        </div>
+        <div class='itemBox'>
+            <img src="./images/jrfw.png" alt="金融服务"/>
+            <div class='itemTitle'><span class='hLine'></span><span>金融中心</span><span class='hLine'></span></div>
+            <div class='itemDes font14 color-999'>
+                <p>提供货物运输保险,货车车辆保险,让运输</p>
+                <p>有保障,出行更无忧！</p>
+            </div>
+        </div>
+    </div>
+    <!-- 发布订单系列内容结束 -->
+</div>
+<div class='bg-gray indexContent'>
+    <div class='content_box pt50'>
+        <div class='row'>
+            <!-- 轮播新闻 3条新闻进行轮播-->
+            <div class='col-md-4 col-sm-4'>
+                <div class='bannerNews'>
+                    <!-- 代码 开始 -->
+                    <div id="focus">
+                        <ul>
+                            <li ms-for='(index,el) in @newsList' ms-if='index < 3'>
+                                <h2>
+                                    <a href="javascript:;">
+                                        <img ms-attr='{ src:el.images,alt:el.title }' src="./images/1.jpg" width='441px'
+                                             height='294px'/>
+                                    </a>
+                                </h2>
+                                <div class="slideother">
+                                    <div class="h12">
+                                        <a ms-attr="{href:'./views/carHall/carNewsDetail.html?id='+ el.id + '&type=' + el.type + '&news_type=' + el.news_type}"
+                                           ms-text='el.title'></a>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class='banner'>
-        <div class="layui-carousel" id="test10">
-            <div carousel-item="">
-                <div ms-for="el in @bannerImg"><img ms-attr="{ src : el.banner_img }"  width="100%" height='460px'></div>
+            <div class='col-md-4 col-sm-4 showImgs' style='padding-left: 40px;'>
+                <ul class='img_carSeries' ms-for="(index,el) in @newsList" ms-if="index == 3 || index == 4"
+                    ms-attr="{ id : 'show_' + el.id }" ms-mouseover="@changeShow('show_' + el.id )"
+                    ms-mouseout="@hideShow('show_' + el.id)">
+                    <li><img ms-attr='{ src:el.images,alt:el.title }' src="./images/carstyle.jpg" width="331"
+                             height="163"></li>
+                    <li class='info_carSeries dis_none'>
+                        <div class='carIntroduce'><a
+                                ms-attr="{href:'./views/carHall/carNewsDetail.html?id='+ el.id + '&type=' + el.type + '&news_type=' + el.news_type}"
+                                ms-text="el.title"></a></div>
+                    </li>
+                </ul>
             </div>
-        </div>
-    </div>
-    <div class='content_box'>
-        <!--公告通知-->
-        <div class='inform'>
-            <ul class='clearfix'>
-                <li><img src="./images/inform.png" height="24px" alt="公告通知"></li>
-                <li>公告</li>
-                <li>:</li>
-                <li>平台更新,政策调整,重大事件,新功能调整通知！</li>
-            </ul>
-        </div>
-        <!-- 发布订单系列内容 -->
-        <div class='itemContent clearfix'>
-            <div class='itemBox'>
-                <a href="./views/order/publishOrder.html"><img src="./images/fbdd.png" alt="发布订单" /></a>
-                <div class='itemTitle'><span class='hLine'></span><span><a href="./views/order/publishOrder.html">我要发单</a></span><span class='hLine'></span></div>
-                <div class='itemDes font14 color-999'>
-                    <p>支持合作商家快捷发布货,主要服务于渣土</p>
-                    <p>运输,各种货物运输,GPS实时监控货物运</p>
-                    <p>输车辆信息,让你的交易更安全省心！</p>
-                </div>
-            </div>
-            <div class='itemBox'>
-                <img src="./images/qcdt.png" alt="汽车大厅" />
-                <div class='itemTitle'><span class='hLine'></span><span>我要买车</span><span class='hLine'></span></div>
-                <div class='itemDes font14 color-999'>
-                    <p>全国各大货车车商,实时发布最新货车信息</p>
-                    <p>了解货车最新行业价格。</p>
-                </div>
-            </div>
-            <div class='itemBox'>
-                <img src="./images/jrfw.png" alt="金融服务" />
-                <div class='itemTitle'><span class='hLine'></span><span>金融中心</span><span class='hLine'></span></div>
-                <div class='itemDes font14 color-999'>
-                    <p>提供货物运输保险,货车车辆保险,让运输</p>
-                    <p>有保障,出行更无忧！</p>
-                </div>
-            </div>
-        </div>
-        <!-- 发布订单系列内容结束 -->
-    </div>
-    <div class='bg-gray indexContent'>
-        <div class='content_box pt50'>
-            <div class='row'>
-                <!-- 轮播新闻 3条新闻进行轮播-->
-                <div class='col-md-4 col-sm-4'>
-                    <div class='bannerNews'>
-                        <!-- 代码 开始 -->
-                        <div id="focus">
-                            <ul>
-                                <li ms-for='(index,el) in @newsList' ms-if='index < 3'>
-                                    <h2>
-                                        <a href="javascript:;">
-                                            <img ms-attr='{ src:el.images,alt:el.title }' src="./images/1.jpg" width='441px' height='294px'  />
-                                        </a>
-                                    </h2>
-                                    <div class="slideother">
-                                        <div class="h12">
-                                            <a ms-attr="{href:'./views/carHall/carNewsDetail.html?id='+ el.id + '&type=' + el.type + '&news_type=' + el.news_type}" ms-text='el.title'></a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class='col-md-4 col-sm-4 showImgs' style='padding-left: 40px;'>
-                    <ul class='img_carSeries' ms-for="(index,el) in @newsList" ms-if="index == 3 || index == 4" ms-attr="{ id : 'show_' + el.id }" ms-mouseover="@changeShow('show_' + el.id )" ms-mouseout="@hideShow('show_' + el.id)">
-                        <li><img ms-attr='{ src:el.images,alt:el.title }' src="./images/carstyle.jpg" width="331" height="163"></li>
-                        <li class='info_carSeries dis_none'>
-                            <div class='carIntroduce'><a ms-attr="{href:'./views/carHall/carNewsDetail.html?id='+ el.id + '&type=' + el.type + '&news_type=' + el.news_type}" ms-text="el.title"></a></div>
-                        </li>
-                    </ul>
-                </div>
-                <div class='col-md-4 col-sm-4 latestNews pr0'>
-                    <div class="news_title font22 fontw" ms-for="(index,el) in @newsList" ms-if="index == 5"><a  ms-attr="{ href:'./views/carHall/carNewsDetail.html?id='+ el.id + '&type=' + el.type + '&news_type=' + el.news_type}"><span class='line'></span>最新新闻<span class='ml4 mr4'>:</span><span ms-text="el.title"></span></a></div>
-                    <div class='news_list font16'>
-                        <ul class='clearfix' ms-for="(index,el) in @newsList" ms-if="index > 5">
-                            <li><span class='circle-orange'></span></li>
-                            <li class='ml10 pull-left'><a  ms-attr="{ href:'./views/carHall/carNewsDetail.html?id='+ el.id + '&type=' + el.type + '&news_type=' + el.news_type}" ms-text="el.title"></a></li>
-                            <li class='pull-right' ms-text="el.create_time"></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- 行业新闻 -->
-            <div class='businessNews clearfix'>
-                <!--  政策法规-->
-                <div class='businessList news_list font16'>
-                    <div class="news_title font22 fontw"><span class='line'></span>政策法规</div>
-                    <ul class='clearfix' ms-for="el in @ZCFGList">
+            <div class='col-md-4 col-sm-4 latestNews pr0'>
+                <div class="news_title font22 fontw" ms-for="(index,el) in @newsList" ms-if="index == 5"><a
+                        ms-attr="{ href:'./views/carHall/carNewsDetail.html?id='+ el.id + '&type=' + el.type + '&news_type=' + el.news_type}"><span
+                        class='line'></span>最新新闻<span class='ml4 mr4'>:</span><span ms-text="el.title"></span></a></div>
+                <div class='news_list font16'>
+                    <ul class='clearfix' ms-for="(index,el) in @newsList" ms-if="index > 5">
                         <li><span class='circle-orange'></span></li>
-                        <li class='ml4'><a ms-attr="{ href:'./views/carHall/carNewsDetail.html?id='+ el.id + '&type=' + el.type + '&news_type=' + el.news_type}" ms-text="el.title"></a></li>
-                    </ul>
-                </div>
-                <!--  行情导购-->
-                <div class='businessList news_list font16'>
-                    <div class="news_title font22 fontw"><span class='line'></span>行情导购</div>
-                    <ul class='clearfix' ms-for="el in @HQDGList">
-                        <li><span class='circle-orange'></span></li>
-                        <li class='ml4'><a ms-attr="{ href:'./views/carHall/carNewsDetail.html?id='+ el.id + '&type=' + el.type + '&news_type=' + el.news_type}" ms-text="el.title"></a></li>
-                    </ul>
-                </div>
-                <!--  行业资讯-->
-                <div class='businessList news_list font16'>
-                    <div class="news_title font22 fontw"><span class='line'></span>行业资讯</div>
-                    <ul class='clearfix' ms-for="el in @HYZXList">
-                        <li><span class='circle-orange'></span></li>
-                        <li class='ml4'><a ms-attr="{ href:'./views/carHall/carNewsDetail.html?id='+ el.id + '&type=' + el.type + '&news_type=' + el.news_type}" ms-text="el.title"></a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- 合作企业 -->
-            <div class='cooperateList clearfix'>
-                <div class="news_title font26 fontw"><span class='line'></span>合作企业</div>
-                <div class="listItems">
-                    <ul class='cooperateItem' ms-for="(index,el) in @enterpriseList">
-                        <li><img ms-attr="{ src : el.logo ,alt : el.name}" width="127" height="68px"></li>
-                        <li ms-text="el.name"></li>
+                        <li class='ml10 pull-left'><a
+                                ms-attr="{ href:'./views/carHall/carNewsDetail.html?id='+ el.id + '&type=' + el.type + '&news_type=' + el.news_type}"
+                                ms-text="el.title"></a></li>
+                        <li class='pull-right' ms-text="el.create_time"></li>
                     </ul>
                 </div>
             </div>
         </div>
+        <!-- 行业新闻 -->
+        <div class='businessNews clearfix'>
+            <!--  政策法规-->
+            <div class='businessList news_list font16'>
+                <div class="news_title font22 fontw"><span class='line'></span>政策法规</div>
+                <ul class='clearfix' ms-for="el in @ZCFGList">
+                    <li><span class='circle-orange'></span></li>
+                    <li class='ml4'><a
+                            ms-attr="{ href:'./views/carHall/carNewsDetail.html?id='+ el.id + '&type=' + el.type + '&news_type=' + el.news_type}"
+                            ms-text="el.title"></a></li>
+                </ul>
+            </div>
+            <!--  行情导购-->
+            <div class='businessList news_list font16'>
+                <div class="news_title font22 fontw"><span class='line'></span>行情导购</div>
+                <ul class='clearfix' ms-for="el in @HQDGList">
+                    <li><span class='circle-orange'></span></li>
+                    <li class='ml4'><a
+                            ms-attr="{ href:'./views/carHall/carNewsDetail.html?id='+ el.id + '&type=' + el.type + '&news_type=' + el.news_type}"
+                            ms-text="el.title"></a></li>
+                </ul>
+            </div>
+            <!--  行业资讯-->
+            <div class='businessList news_list font16'>
+                <div class="news_title font22 fontw"><span class='line'></span>行业资讯</div>
+                <ul class='clearfix' ms-for="el in @HYZXList">
+                    <li><span class='circle-orange'></span></li>
+                    <li class='ml4'><a
+                            ms-attr="{ href:'./views/carHall/carNewsDetail.html?id='+ el.id + '&type=' + el.type + '&news_type=' + el.news_type}"
+                            ms-text="el.title"></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 合作企业 -->
+        <div class='cooperateList clearfix'>
+            <div class="news_title font26 fontw"><span class='line'></span>合作企业</div>
+            <div class="listItems">
+                <ul class='cooperateItem' ms-for="(index,el) in @enterpriseList">
+                    <li><img ms-attr="{ src : el.logo ,alt : el.name}" width="127" height="68px"></li>
+                    <li ms-text="el.name"></li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <script src="./plugins/common/include.js"></script>
-    <include src="./views/footer/footer.html"></include>
-    <script src='./plugins/jquery/jquery.min.js'></script>
-    <script src='./plugins/layui/dist/layui.all.js'></script>
-    <script src='./plugins/avalon/avalon.min.js'></script>
-    <script src='./data/api.js'></script>
-    <script src='./data/return_data.js'></script>
-    <script src="common/js/kuCity.js"></script>
-    <script src='./js/header.js'></script>
-    <script src='./js/index.js'></script>
-    <script src='./plugins/banner/js/banner.js'></script>
-    <script src="./js/footer.js"></script>
-    </body>
+</div>
+<script src="./plugins/common/include.js"></script>
+<include src="./views/footer/footer.html"></include>
+<script src='./plugins/jquery/jquery.min.js'></script>
+<script src='./plugins/layui/dist/layui.all.js'></script>
+<script src='./plugins/avalon/avalon.min.js'></script>
+<script src='./data/api.js'></script>
+<script src='./data/return_data.js'></script>
+<script src="common/js/kuCity.js"></script>
+<script src='./js/header.js'></script>
+<script src='./js/index.js'></script>
+<script src='./plugins/banner/js/banner.js'></script>
+<script src="./js/footer.js"></script>
+</body>
 </html>

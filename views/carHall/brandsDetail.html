@@ -150,19 +150,19 @@
                 </div>
                 <div class='col-md-9 col-sm-9'>
                     <div class='detail_show clearfix'>
-                        <div class='detail_content clearfix'>
+                        <div class='detail_content clearfix' ms-if = 'isShow.type_10'>
                             <div class='carTitle'>载货车&nbsp;:</div>
                             <div class='carBrands'>
                                 <span  ms-for="(index,el) in @carDetail" ms-if="el.car_ty == 'TRADITIONAL' && el.type == '10' " ms-text="el.series"></span>
                             </div>
                         </div>
-                        <div class='detail_content clearfix'>
+                        <div class='detail_content clearfix' ms-if = 'isShow.type_20'>
                             <div class='carTitle'>牵引车&nbsp;:</div>
                             <div class='carBrands'>
                                 <span  ms-for="(index,el) in @carDetail" ms-if="el.car_ty == 'TRADITIONAL' && el.type == '20' " ms-text="el.series"></span>
                             </div>
                         </div>
-                        <div class='detail_content clearfix'>
+                        <div class='detail_content clearfix' ms-if = 'isShow.type_30'>
                             <div class='carTitle'>自卸车&nbsp;:</div>
                             <div class='carBrands'>
                                 <span ms-for="(index,el) in @carDetail" ms-if="el.car_ty == 'TRADITIONAL' && el.type == '30' " ms-text="el.series"></span>
@@ -195,7 +195,7 @@
             <div class='popularTitle'>热门车型</div>
             <div class='popularType'>
                <div class='carTypeDetail clearfix'>
-                    <ul ms-for="(index,el) in @carType" ms-if="index < 4">
+                    <ul ms-for="(index,el) in @carType" ms-if="index < 4" ms-on-click="@getPage(el.car_ty,el.id)">
                         <li ms-visible="el.appearance_pic != ''"><img ms-attr="{ src : el.appearance_pic }" class="mt20" width="273px" height="221px" alt=""></li>
                         <li ms-visible="el.appearance_pic == ''"><img src="../../images/hottype.png" width="273px" height="221px" alt=""></li>
                         <li class="font20 mt6" ms-text="el.type_name"></li>
@@ -219,12 +219,11 @@
                             <div class="tabItem">
                                 <div class='carItems clearfix' ms-for="(index,el) in @carDetail">
                                     <div class='carImg'>
-                                        <img ms-if="el.image == ''" src="../../images/allSerires.png" width='211' height='159' alt="">
-                                        <img ms-if="el.image != ''" ms-attr="{ src : el.image }" width='200' height='150' alt="">
+                                        <img ms-if="el.image == ''"   ms-on-click="@getDetail(el.car_ty,el.manager_id,el.series)" src="../../images/allSerires.png" width='200' height='150' alt="">
+                                        <img ms-if="el.image != ''"   ms-on-click="@getDetail(el.car_ty,el.manager_id,el.series)" ms-attr="{ src : el.image }" width='200' height='150' alt="">
                                     </div>
-                                    <ul class='carDes'>
-                                        <li class='font20' ms-if="el.car_ty == 'TRADITIONAL'"><span ms-text="el.series" ></span></li>
-                                        <li class='font20' ms-if="el.car_ty == 'ENERGY'"><span ms-text="el.series"  ms-attr="{ title : el.series }" ></span></li>
+                                    <ul class='carDes' ms-on-click="@getDetail(el.car_ty,el.manager_id,el.series)">
+                                        <li class='font20'><span ms-text="el.series" ></span></li>
                                         <li>价格<span>:</span><label ms-text="el.minPrice"></label>~<label ms-text="el.maxPrice"></label>万元</li>
                                         <li>车型<span>:</span>共有<label ms-text="el.car_count"></label>款</li>
                                         <li>图片<span>:</span>共有<label ms-text="el.images_count"></label>张</li>
@@ -233,11 +232,11 @@
                             </div>
                             <div class="tabItem dis_none clearfix">
                                 <div class='carItems clearfix' ms-for="(index,el) in @carDetail" ms-if="el.car_ty == 'TRADITIONAL' && el.type == '20' ">
-                                    <div class='carImg'>
+                                    <div class='carImg' ms-on-click="@getDetail(el.car_ty,el.manager_id,el.series)">
                                         <img ms-if="el.image == ''" src="../../images/allSerires.png" width='200' height='150'  alt="">
-                                        <img ms-if="el.image != ''" ms-attr="{ src : el.image }" width='211' height='159' alt="">
+                                        <img ms-if="el.image != ''" ms-attr="{ src : el.image }" width='200' height='150' alt="">
                                     </div>
-                                    <ul class='carDes'>
+                                    <ul class='carDes' ms-on-click="@getDetail(el.car_ty,el.manager_id,el.series)">
                                         <li class='font20'><label ms-text="el.series" ms-attr="{ title : el.series }" ></label></li>
                                         <li>价格<span>:</span><label ms-text="el.minPrice"></label>~<span ms-text="el.maxPrice"></span>万元</li>
                                         <li>车型<span>:</span>共有<label ms-text="el.car_count"></label>款</li>
@@ -247,11 +246,11 @@
                             </div>
                             <div class="tabItem dis_none">
                                 <div class='carItems clearfix' ms-for="(index,el) in @carDetail" ms-if="el.car_ty == 'TRADITIONAL' && el.type == '10' ">
-                                    <div class='carImg'>
+                                    <div class='carImg' ms-on-click="@getDetail(el.car_ty,el.manager_id,el.series)">
                                         <img ms-if="el.image == ''" src="../../images/allSerires.png" width='200' height='150'  alt="">
                                         <img ms-if="el.image != ''" ms-attr="{ src : el.image }"  width='200' height='150'  alt="">
                                     </div>
-                                    <ul class='carDes'>
+                                    <ul class='carDes' ms-on-click="@getDetail(el.car_ty,el.manager_id,el.series)">
                                         <li class='font20'><label ms-text="el.series" ms-attr="{ title : el.series }" ></label></li>
                                         <li>价格<span>:</span><label ms-text="el.minPrice"></label>~<label ms-text="el.maxPrice"></label>万元</li>
                                         <li>车型<span>:</span>共有<label ms-text="el.car_count"></label>款</li>
@@ -261,11 +260,11 @@
                             </div>
                             <div class="tabItem dis_none">
                                 <div class='carItems clearfix' ms-for="(index,el) in @carDetail" ms-if="el.car_ty == 'TRADITIONAL' && el.type == '30' ">
-                                    <div class='carImg'>
-                                        <img ms-if="el.image == ''" src="../../images/allSerires.png" width='200' height='150'  alt="">
-                                        <img ms-if="el.image != ''" ms-attr="{ src : el.image }" width='211' height='159' alt="">
+                                    <div class='carImg' ms-on-click="@getDetail(el.car_ty,el.manager_id,el.series)">
+                                        <img ms-if="el.image == ''" src="../../images/allSerires.png"  width='200' height='150'  alt="">
+                                        <img ms-if="el.image != ''" ms-attr="{ src : el.image }"   width='200' height='150' alt="">
                                     </div>
-                                    <ul class='carDes'>
+                                    <ul class='carDes' ms-on-click="@getDetail(el.car_ty,el.manager_id,el.series)">
                                         <li class='font20'><label ms-text="el.series"  ms-attr="{ title : el.series }"></label></li>
                                         <li>价格<span>:</span><label ms-text="el.minPrice"></label>~<label ms-text="el.maxPrice"></label>万元</li>
                                         <li>车型<span>:</span>共有<label ms-text="el.car_count"></label>款</li>
@@ -323,7 +322,7 @@
                     <div class='row agent'>
                         <div class='col-md-12 col-sm-12'>
                             <div class='agent_content clearfix'>
-                                <div class='agent_detail font14 fl' ms-for="el in @agentList">
+                                <div class='agent_detail font16 fl' ms-for="el in @agentList">
                                     <ul class='pull-left'>
                                         <li ms-text="el.shop_name"></li>
                                         <li>
@@ -341,11 +340,11 @@
                                     </ul>
                                     <ul class='clearfix'>
                                         <li class='pull-left'>地&emsp;&emsp;址&nbsp;:&nbsp;</li>
-                                        <li class='pull-left' ms-text="el.province + el.city + el.area + el.address"></li>
+                                        <li class='pull-left'  style="width: 248px"><span ms-text="el.province + el.city + el.area + el.address"></span><img style="margin:-8px 0px 0px 6px" class="location" src="../../images/gps.svg" /></li>
                                     </ul>
                                     <ul class='clearfix'>
                                         <li class='pull-left'>经销商电话&nbsp;:&nbsp;</li>
-                                        <li class='pull-left font32 fontw'  ms-text="el.hot_line">4006839788</li>
+                                        <li class='pull-left font30 fontw'  ms-text="el.hot_line">4006839788</li>
                                     </ul>
                                 </div>
                             </div>

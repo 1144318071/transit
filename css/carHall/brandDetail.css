@@ -97,6 +97,7 @@
   margin-left: 12px;
   margin-top: 32px;
   float: left;
+  cursor: pointer;
 }
 .carTypeDetail ul li {
   line-height: 30px;
@@ -153,20 +154,21 @@
 .carItems .carImg,
 .carItems .carDes {
   float: left;
+  cursor: pointer;
 }
 .carItems .carDes {
   padding-left: 22px;
   padding-top: 16px;
 }
 .carItems .carDes li {
-  line-height: 36px;
+  line-height: 35px;
 }
 .carItems .carDes li label{
   font-weight: normal;
   margin-bottom: 0px;
 }
 .carItems .carDes li:not(:first-child) span {
-  margin: 0px 6px;
+  margin: 0px 4px;
 }
 .carItems .carDes li:first-child span{
     display: inline-block;
@@ -255,9 +257,9 @@
 .agent_detail ul {
   line-height: 30px;
 }
-.agent_detail ul:first-child li:last-child {
+/*.agent_detail ul:first-child li:last-child {
   margin-top: 20px;
-}
+}*/
 .agent_detail ul li button {
   width: 52px;
   height: 20px;
