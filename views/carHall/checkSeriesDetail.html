@@ -560,7 +560,8 @@
                                         <div class='col-md-6 col-sm-6'>
                                             <ul class='clearfix pull-left'>
                                                 <li class='pull-left'>轮间差数锁:</li>
-                                                <li class='pull-left' ms-text="@carInfo.difference_lock"></li>
+                                                <li class='pull-left' ms-if="@carInfo.difference_lock == 1">有</li>
+                                                <li class='pull-left' ms-if="@carInfo.difference_lock != 1">无</li>
                                             </ul>
                                         </div>
                                     </div>
