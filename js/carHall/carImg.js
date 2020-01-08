@@ -4,6 +4,17 @@ $('.tab-title li').click(function () {
     $('.tab-content .tab-detail').hide();
     $('.tab-content .tab-detail').eq($(this).index()).show();
 });
+// 公共方法
+function checkToken(res) {
+    let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
+    let code = res.code;
+    if (tokenCode.indexOf(code) >= 0) {
+        getToken();
+        vmCarImg.onLoad();
+    }else{
+        alertMsg(res.message,2);
+    }
+}
 $(function(){
     avalon.ready(function(){
         window.vmCarImg = avalon.define({
@@ -54,20 +65,7 @@ $(function(){
                             }
                         }
                     }else{
-                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                        let code =  res.code;
-                        if(tokenCode.indexOf(code) >= 0){
-                            getToken();
-                            vmCarImg.onLoad();
-                        }else{
-                            let loginCode = [77893,777894];
-                            if(loginCode.indexOf(code) >= 0){
-                                alertMsg(res.message,2);
-                                location.href='../../../login.html';
-                            }else{
-                                alertMsg(res.message,2);
-                            }
-                        }
+                        checkToken(res);
                     }
                 });
             },

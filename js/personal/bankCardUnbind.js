@@ -1,3 +1,17 @@
+function checkToken(res) {
+    let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
+    let loginCode = [77893,77894];
+    let code = res.code;
+    if (tokenCode.indexOf(code) >= 0) {
+        getToken();
+        vmUnbind.onLoad();
+    }else if(loginCode.indexOf(code)>=0){
+        alertMsg(res.message,2);
+        window.location.href='../../login.html';
+    }else{
+        alertMsg(res.message,2);
+    }
+}
 $(function () {
     avalon.ready(function () {
         window.vmUnbind = avalon.define({
@@ -61,7 +75,7 @@ $(function () {
                        vmUnbind.mobile = res.result.mobile;
                        vmUnbind.getCardInfo();
                    }else{
-                       alertMsg(res.message,2);
+                       checkToken(res);
                    }
                 });
             },
@@ -79,7 +93,7 @@ $(function () {
                         vmUnbind.cardInfo = res.result;
                         console.log(res.result)
                     }else{
-                        alertMsg(res.message,2);
+                        checkToken(res);
                     }
                 });
             },
@@ -94,7 +108,7 @@ $(function () {
                             parent.layer.close(parent.layer.index);
                         },1000);*/
                     }else{
-                        alertMsg(res.message,2);
+                        checkToken(res);
                     }
                 })
             },

@@ -98,6 +98,21 @@ function deleteItem(item_one,item_two,item_three){
 }
 deleteItem('.loadAddress','.loadAddress .addressItem_one','.loadAddress .addressItem_two');
 deleteItem('.unloadAddress','.unloadAddress .addressItem_three','.unloadAddress .addressItem_four');
+// 公共方法
+function checkToken(res){
+    let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
+    let loginCode = [77893,77894];
+    let code = res.code;
+    if (tokenCode.indexOf(code) >= 0) {
+        getToken();
+        vmEditOrder.onLoad();
+    }else if(loginCode.indexOf(code)>=0){
+        alertMsg(res.message,2);
+        window.location.href='../../login.html';
+    }else{
+        alertMsg(res.message,2);
+    }
+};
 $(function(){
     $('.demo').ySelect();
     layui.use('laydate', function() {
@@ -340,7 +355,7 @@ $(function(){
                             $('.imgItem').append(html);
                         }
                     }else{
-                        alertMsg(res.message,2);
+                        checkToken(res);
                     }
                 });
             },
@@ -458,7 +473,7 @@ $(function(){
                             alertMsg(res.message,1);
                             location.href='./payPublishOrder.html?goods_id='+vmEditOrder.goods_id;
                         }else{
-                            alertMsg(res.message,2);
+                            checkToken(res);
                         }
                     });
                 }else{

@@ -7,6 +7,21 @@ $('.drivers .title li').click(function(){
    $(this).addClass('active').siblings().removeClass('active');
    $('.itemCon .item').eq($(this).index()).show().siblings().hide();
 });
+// 公共方法
+function checkToken(res) {
+    let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
+    let loginCode = [77893,77894];
+    let code = res.code;
+    if (tokenCode.indexOf(code) >= 0) {
+        getToken();
+        vmLogistics.onLoad();
+    }else if(loginCode.indexOf(code)>=0){
+        alertMsg(res.message,2);
+        window.location.href='../../login.html';
+    }else{
+        alertMsg(res.message,2);
+    }
+}
 $(function(){
     // checkOrders
     avalon.ready(function(){
@@ -71,14 +86,7 @@ $(function(){
                         res.result.area = getAreaName(res.result.area);
                         vmLogistics.companyInfo = res.result;
                     }else{
-                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                        let code =  res.code;
-                        if(tokenCode.indexOf(code) >= 0){
-                            getToken();
-                            vmLogistics.onLoad();
-                        }else{
-                            alertMsg(res.message,2);
-                        }
+                        checkToken(res);
                     }
                 });
             },
@@ -101,11 +109,7 @@ $(function(){
                             $('.noInfo').html('暂无数据');
                             $('#demo2').hide();
                         }else{
-                            let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                            let code =  res.code;
-                            if(tokenCode.indexOf(code)<0){
-                                alertMsg(res.message,2);
-                            }
+                            checkToken(res);
                         }
                     }
                 })
@@ -170,11 +174,7 @@ $(function(){
                             $('#demo3').hide();
                         }else{
                             $('.rentItem .noInfo').hide();
-                            let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                            let code =  res.code;
-                            if(tokenCode.indexOf(code)<0){
-                                alertMsg(res.message,2);
-                            }
+                            checkToken(res);
                         }
                     }
                 })

@@ -1,3 +1,18 @@
+// 公共方法
+function checkToken(res) {
+    let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
+    let loginCode = [77893,77894];
+    let code = res.code;
+    if (tokenCode.indexOf(code) >= 0) {
+        getToken();
+        vmUnbindCar.onLoad();
+    }else if(loginCode.indexOf(code)>=0){
+        alertMsg(res.message,2);
+        window.location.href='../../login.html';
+    }else{
+        alertMsg(res.message,2);
+    }
+}
 $(function(){
    avalon.ready(function () {
        window.vmUnbindCar = avalon.define({
@@ -17,9 +32,9 @@ $(function(){
            setUnbind:function(){
               getAjax(API.URL_POST_VEHICLEUNTIED,'post',).then(function(res){
                     if(res.code == 200){
-
+                        alertMsg(res.message,1);
                     }else{
-                        alertMsg(res.message,2);
+                        checkToken(res);
                     }
                });
            },

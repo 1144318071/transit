@@ -142,6 +142,17 @@ $('.sort li').click(function(){
         $(this).find('.up').text('↑');
     }
 });
+// 公共方法
+function checkToken(res) {
+    let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
+    let code = res.code;
+    if (tokenCode.indexOf(code) >= 0) {
+        getToken();
+        vmCarFilter.onLoad();
+    }else{
+        alertMsg(res.message,2);
+    }
+}
 $(function(){
    avalon.ready(function(){
       window.vmCarFilter = avalon.define({
@@ -201,7 +212,7 @@ $(function(){
               if(keyword != null){
                   vmCarFilter.filterSearch.series = keyword;
               }
-              if(filterType != undefined){
+              if(filterType){
                   switch(filterType){
                       /*轻卡*/
                       case '10':
@@ -294,14 +305,7 @@ $(function(){
                       }
                       vmCarFilter.getSearchResult('10')
                   }else{
-                      let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                      let code =  res.code;
-                      if(tokenCode.indexOf(code) >= 0){
-                          getToken();
-                          vmCarFilter.onLoad();
-                      }else{
-                          alertMsg(res.message,2);
-                      }
+                      checkToken(res);
                   }
               });
           },
@@ -417,11 +421,7 @@ $(function(){
                       }
                       vmCarFilter.getPageList(pageDemo,res.count);
                   }else{
-                      let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                      let code =  res.code;
-                      if(tokenCode.indexOf(code)<0){
-                          alertMsg(res.message,2);
-                      }
+                      checkToken(res);
                   }
               })
           },

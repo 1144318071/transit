@@ -53,14 +53,7 @@ function getAjax(url, type, data) {
                 withCredentials: true
             }
         }).done(function (res) {
-           if(res.code == 77893 || res.code == 77894){
-                alertMsg(res.message, 2);
-                setTimeout(function(){
-                    location.href = '../../login.html';
-                },1000);
-            }else{
-                resolve(res);
-            }
+           resolve(res);
         }).fail(function (err) {
             reject(err);
         });

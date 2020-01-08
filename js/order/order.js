@@ -17,6 +17,22 @@ function myFun(result){
 };
 var myCity = new BMap.LocalCity();
 myCity.get(myFun);
+
+// 公共方法
+function checkToken(res) {
+    let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
+    let loginCode = [77893,77894];
+    let code = res.code;
+    if (tokenCode.indexOf(code) >= 0) {
+        getToken();
+        vmOrder.onLoad();
+    }else if(loginCode.indexOf(code)>=0){
+        alertMsg(res.message,2);
+        window.location.href='../../login.html';
+    }else{
+        alertMsg(res.message,2);
+    }
+}
 $(function(){
     avalon.ready(function(){
         window.vmOrder = avalon.define({
@@ -260,11 +276,7 @@ $(function(){
                         res.result.area = getAreaName(res.result.area);
                         vmOrder.merchantInfo = res.result;
                     }else{
-                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                        let code =  res.code;
-                        if(tokenCode.indexOf(code)<0){
-                            alertMsg(res.message,2);
-                        }
+                        checkToken(res);
                     }
                 });
             },
@@ -272,6 +284,13 @@ $(function(){
             getOrderList:function(elem,goods_status,order_status){
                 vmOrder.postData._token_ = localStorage.getItem('token');
                 vmOrder.orderList = [];
+                vmOrder.DZFList = [];//待支付
+                vmOrder.DJDList = [];//待接单
+                vmOrder.DZHList = [];//待装货
+                vmOrder.YSZList = [];//运输中
+                vmOrder.DQSList = [];//待签收
+                vmOrder.TSList = [];//投诉
+                vmOrder.TKList = [];//退款/赔付
                 vmOrder.postData.goods_status = goods_status;
                 vmOrder.postData.order_status = order_status;
                 getAjax(API.URL_GET_ORDERLIST,'get',vmOrder.postData).then(function(res){
@@ -327,14 +346,7 @@ $(function(){
                             }
                         }
                     }else{
-                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                        let code =  res.code;
-                        if(tokenCode.indexOf(code) >= 0){
-                            getToken();
-                            vmOrder.onLoad();
-                        }else{
-                            alertMsg(res.message,2);
-                        }
+                        checkToken(res);
                     }
                 });
             },
@@ -378,11 +390,7 @@ $(function(){
                         //删除之后重新请求数据
                         vmOrder.getOrderList(demo,goods_status,order_status);
                     }else{
-                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                        let code =  res.code;
-                        if(tokenCode.indexOf(code)<0){
-                            alertMsg(res.message,2);
-                        }
+                        checkToken(res);
                     }
                 });
             },
@@ -412,11 +420,7 @@ $(function(){
                    if(res.code == 200){
                        vmOrder.onlineCar = res.result.onlineCar;
                    }else{
-                       let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                       let code =  res.code;
-                       if(tokenCode.indexOf(code)<0){
-                           alertMsg(res.message,2);
-                       }
+                       checkToken(res);
                    }
                 });
             }

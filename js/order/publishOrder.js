@@ -87,6 +87,20 @@ function deleteItem(item_one,item_two){
 }
 deleteItem('.loadAddress','.loadAddress .addressItem_one');
 deleteItem('.unloadAddress','.loadAddress .addressItem_three');
+function checkToken(res){
+    let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
+    let loginCode = [77893,77894];
+    let code = res.code;
+    if (tokenCode.indexOf(code) >= 0) {
+        getToken();
+        vmPublishOrder.onLoad();
+    }else if(loginCode.indexOf(code)>=0){
+        alertMsg(res.message,2);
+        window.location.href='../../login.html';
+    }else{
+        alertMsg(res.message,2);
+    }
+};
 $(function(){
     $('.demo').ySelect();
     layui.use('laydate', function() {
@@ -145,7 +159,7 @@ $(function(){
            },
            date:{
                 'date':'',
-                'time':''
+                'time':'00:00:00 - 23:59:59'
            },
            goodsInfo:{},
            start:[],
@@ -298,7 +312,7 @@ $(function(){
                             alertMsg(res.message,1);
                             location.href='./payPublishOrder.html?goods_id='+res.result.goods_id;
                         }else{
-                            alertMsg(res.message,2);
+                            checkToken(res);
                         }
                     });
                }else{

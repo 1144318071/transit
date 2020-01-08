@@ -113,6 +113,20 @@ payPassword.on('keyup',"input[name='payPassword_rsainput']",function(e){
         this.value = _val.replace(/\D/g,'');
     }
 });
+function checkToken(res){
+    let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
+    let loginCode = [77893,77894];
+    let code = res.code;
+    if (tokenCode.indexOf(code) >= 0) {
+        getToken();
+        vmPayMoney.onLoad();
+    }else if(loginCode.indexOf(code)>=0){
+        alertMsg(res.message,2);
+        window.location.href='../../login.html';
+    }else{
+        alertMsg(res.message,2);
+    }
+};
 $(function(){
     avalon.ready(function () {
         window.vmPayMoney = avalon.define({
@@ -144,7 +158,7 @@ $(function(){
                             window.parent.location.reload();
                         },1000);
                     }else{
-                        alertMsg(res.message,2);
+                        checkToken(res);
                     }
                 });
             }

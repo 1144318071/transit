@@ -231,6 +231,10 @@
 .circle-gray:hover {
   background-color: #f57619;
 }
+.tabDetail_left{
+  width: 688px;
+  height: 360px;
+}
 .tabDetail_left,
 .tabDetail_right {
   float: left;

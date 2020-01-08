@@ -38,6 +38,21 @@ layui.use('laydate', function () {
         ,format: 'yyyy-M-d'
     });
 });
+// 公共方法
+function checkToken(res) {
+    let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
+    let loginCode = [77893,77894];
+    let code = res.code;
+    if (tokenCode.indexOf(code) >= 0) {
+        getToken();
+        vmPersonal.onLoad();
+    }else if(loginCode.indexOf(code)>=0){
+        alertMsg(res.message,2);
+        window.location.href='../../login.html';
+    }else{
+        alertMsg(res.message,2);
+    }
+}
 $(function(){
     avalon.ready(function(){
         window.vmPersonal = avalon.define({
@@ -191,14 +206,7 @@ $(function(){
                             break;
                         }
                     }else{
-                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                        let code =  res.code;
-                        if(tokenCode.indexOf(code) >= 0){
-                            getToken();
-                            vmPersonal.onLoad();
-                        }else{
-                            alertMsg(res.message,2);
-                        }
+                        checkToken(res);
                     }
                 });
             },
@@ -209,11 +217,7 @@ $(function(){
                    if(res.code == 200){
                        vmPersonal.couponList = res.result;
                    }else{
-                       let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968,40040];
-                       let code =  res.code;
-                       if(tokenCode.indexOf(code)<0){
-                           alertMsg(res.message,2);
-                       }
+                       checkToken(res);
                    }
                 });
             },
@@ -227,11 +231,7 @@ $(function(){
                        }
                        vmPersonal.bankCardList = res.result;
                    }else{
-                       let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                       let code =  res.code;
-                       if(tokenCode.indexOf(code)<0){
-                           alertMsg(res.message,2);
-                       }
+                       checkToken(res);
                    }
                 });
             },
@@ -250,11 +250,7 @@ $(function(){
                         }
                         vmPersonal.carList = res.result;
                    }else{
-                       let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                       let code =  res.code;
-                       if(tokenCode.indexOf(code)<0){
-                           alertMsg(res.message,2);
-                       }
+                       checkToken(res);
                    }
                 });
             },
@@ -277,11 +273,7 @@ $(function(){
                    if(res.code == 200){
                         alertMsg(res.message,1);
                    }else{
-                       let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                       let code =  res.code;
-                       if(tokenCode.indexOf(code)<0){
-                           alertMsg(res.message,2);
-                       }
+                       checkToken(res);
                    }
                 });
             },
@@ -320,11 +312,7 @@ $(function(){
                             });
                         });
                     }else{
-                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                        let code =  res.code;
-                        if(tokenCode.indexOf(code)<0){
-                            alertMsg(res.message,2);
-                        }
+                        checkToken(res);
                     }
                 })
             },
@@ -335,11 +323,7 @@ $(function(){
                    if(res.code == 200){
                         alertMsg(res.message,1);
                    }else{
-                       let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                       let code =  res.code;
-                       if(tokenCode.indexOf(code)<0){
-                           alertMsg(res.message,2);
-                       }
+                       checkToken(res);
                    }
                 });
             },
@@ -368,7 +352,7 @@ $(function(){
                            });
                        });
                    }else{
-                       alertMsg(res.message,2);
+                       checkToken(res);
                    }
                 });
             },
@@ -404,7 +388,7 @@ layui.use('upload', function() {
                 vmPersonal.changeAvatar();
                 window.location.reload();
             }else{
-                alertMsg(res.message,2);
+                checkToken(res);
             }
         }
         , error: function () {

@@ -116,6 +116,20 @@ payPassword.on('keyup',"input[name='payPassword_rsainput']",function(e){
         this.value = _val.replace(/\D/g,'');
     }
 });
+function checkToken(res){
+    let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
+    let loginCode = [77893,77894];
+    let code = res.code;
+    if (tokenCode.indexOf(code) >= 0) {
+        getToken();
+        vmPayOrder.onLoad();
+    }else if(loginCode.indexOf(code)>=0){
+        alertMsg(res.message,2);
+        window.location.href='../../login.html';
+    }else{
+        alertMsg(res.message,2);
+    }
+};
 $(function(){
    avalon.ready(function(){
        window.vmPayOrder = avalon.define({
@@ -202,7 +216,7 @@ $(function(){
                });
            },
            //选择抵用券(弹窗)
-           chooseDiscount:function(el){
+           chooseDiscount:function(){
                top.layer.open({
                    type: 1,
                    title: false,
@@ -216,15 +230,21 @@ $(function(){
                        parent.layer.close(parent.layer.index);
                    }
                });
+               vmPayOrder.getCouponList();
            },
-           //点击去支付
+           //余额支付
            payOrder:function(){
-               if(vmPayOrder.way != null && vmPayOrder.way != ''){
+               //判断支付方式
+               if(vmPayOrder.way){
+                   //选择余额支付
                    if(vmPayOrder.payData.type=='Balance'){
                        let info = JSON.parse(localStorage.getItem('userInfo'));
+                       //判断用户是否设置支付密码
                        if(!info.payment_password){
+                           //提示用户设置支付密码
                            vmPayOrder.payTip();
                        }else{
+                           //显示弹窗
                            $('#pay').show();
                            top.layer.open({
                                type: 1,
@@ -235,12 +255,14 @@ $(function(){
                                shadeClose: true, //开启遮罩关闭
                                content:  $('.payMoney'),
                                cancel: function(){
-                                   $(".payMoney").css({'display':'none'});
+                                   $("#pay").hide();
+                                   $('.payMoney').hide();
                                    parent.layer.close(parent.layer.index);
                                }
                            });
                        }
                    }else{
+                       //选择了其他的支付方式
                        $('#pay').hide();
                        if(vmPayOrder.payData.type=='Alipay'){
                            getAjax(API.URL_POST_GOODSPAY,'get',vmPayOrder.payData).then(function(res){
@@ -266,7 +288,7 @@ $(function(){
                 vmPayOrder.payData.goods_id = url.goods_id;
                 localStorage.setItem('goods_id',url.goods_id);
                 vmPayOrder.getPayOrder();
-                vmPayOrder.getCouponList();
+                /*vmPayOrder.getCouponList();*/
            },
            //获取要支付的订单
            getPayOrder:function(){
@@ -286,7 +308,7 @@ $(function(){
                        vmPayOrder.startAddress = res.result.start_address;
                        vmPayOrder.endAddress = res.result.end_address;
                    }else{
-                        alertMsg(res.message,2);
+                       checkToken(res);
                    }
                });
            },
@@ -305,12 +327,10 @@ $(function(){
            payMoney:function () {
                getAjax(API.URL_POST_GOODSPAY,'get',vmPayOrder.payData).then(function(res){
                    if(res.code == 200){
-                       alertMsg(res.message,1);
-                       setTimeout(function(){
-                           parent.layer.close(parent.layer.index);
-                       },1000)
+                       parent.layer.close(parent.layer.index);
+                       vmPayOrder.paySuccess();
                    }else{
-                       alertMsg(res.message,2);
+                       checkToken(res);
                    }
                });
            },
@@ -354,7 +374,8 @@ $(function(){
            },
            //优惠券列表
            getCouponList:function () {
-               var token = localStorage.getItem('token');
+               let token = localStorage.getItem('token');
+               vmPayOrder.couponList=[];
                getAjax(API.URL_GET_COUPONLIST,'get',{'_token_':token,'status':'10'}).then(function(res){
                    if(res.code == 200){
                        for(var i in res.result){
@@ -365,7 +386,7 @@ $(function(){
                        }
                        vmPayOrder.selectCoupon();
                    }else{
-                       alertMsg(res.message,2);
+                       checkToken(res);
                    }
                });
            },

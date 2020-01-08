@@ -1,3 +1,4 @@
+
 $(function () {
     avalon.ready(function () {
         window.vmIndex = avalon.define({
@@ -52,11 +53,7 @@ $(function () {
                         vmIndex.getHQDGList();
                         vmIndex.getHYZXList();
                     } else {
-                        let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];
-                        let code = res.code;
-                        if (tokenCode.indexOf(code) < 0) {
-                            alertMsg(res.message, 2);
-                        }
+                        checkToken(res);
                     }
                 });
             },
@@ -79,11 +76,7 @@ $(function () {
                                 break;
                         }
                     } else {
-                        let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];
-                        let code = res.code;
-                        if (tokenCode.indexOf(code) < 0) {
-                            alertMsg(res.message, 2);
-                        }
+                        checkToken(res);
                     }
                 });
             },
@@ -114,11 +107,7 @@ $(function () {
                         }
                         vmIndex.enterpriseList = res.result;
                     } else {
-                        let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];
-                        let code = res.code;
-                        if (tokenCode.indexOf(code) < 0) {
-                            alertMsg(res.message, 2);
-                        }
+                        checkToken(res);
                     }
                 });
             },
@@ -157,20 +146,8 @@ $(function () {
                         });
                         vmIndex.getNewsList();
                     } else {
-                        let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];
-                        let code = res.code;
-                        if (tokenCode.indexOf(code) >= 0) {
-                            getToken();
-                            vmIndex.onLoad();
-                        } else {
-                            let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];
-                            let code = res.code;
-                            if (tokenCode.indexOf(code) < 0) {
-                                alertMsg(res.message, 2);
-                            }
-                        }
+                        checkToken(res);
                     }
-
                 })
             },
 
@@ -220,19 +197,13 @@ $('.img_carSeries').hover(function () {
 }, function () {
     $(this).find('.info_carSeries').hide();
 });
-
 // 公共方法
 function checkToken(res) {
-    let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];
+    let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
     let code = res.code;
     if (tokenCode.indexOf(code) >= 0) {
-        getToken();
         vmIndex.onLoad();
-    } else {
-        let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];
-        let code = res.code;
-        if (tokenCode.indexOf(code) < 0) {
-            alertMsg(res.message, 2);
-        }
+    }else{
+        alertMsg(res.message,2);
     }
 }

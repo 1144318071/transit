@@ -11,6 +11,17 @@ $('.kindsContent>div span').click(function(){
     $(this).addClass('active').siblings().removeClass('active');
     $(this).parent().siblings().find('span').removeClass('active');
 });
+// 公共方法
+function checkToken(res) {
+    let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
+    let code = res.code;
+    if (tokenCode.indexOf(code) >= 0) {
+        getToken();
+        vmAllBrands.onLoad();
+    }else{
+        alertMsg(res.message,2);
+    }
+}
 $(function(){
     avalon.ready(function(){
         window.vmAllBrands = avalon.define({
@@ -38,14 +49,7 @@ $(function(){
                     if(res.code == 200){
                         vmAllBrands.keyWordList = res.result;
                     }else{
-                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                        let code =  res.code;
-                        if(tokenCode.indexOf(code) >= 0){
-                            getToken();
-                            window.location.reload();
-                        }else{
-                            alertMsg(res.message,2);
-                        }
+                        checkToken(res);
                     }
                 });
             },
@@ -92,11 +96,7 @@ $(function(){
                             $("#brands").append(htmlContent);
                         });
                     }else{
-                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                        let code =  res.code;
-                        if(tokenCode.indexOf(code)<0){
-                            alertMsg(res.message,2);
-                        }
+                        checkToken(res);
                     }
                 });
             },
@@ -128,11 +128,7 @@ $(function(){
                             $("#test").append(info);
                         });
                     }else{
-                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                        let code =  res.code;
-                        if(tokenCode.indexOf(code)<0){
-                            alertMsg(res.message,2);
-                        }
+                        checkToken(res);
                     }
                 });
             },

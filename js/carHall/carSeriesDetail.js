@@ -27,6 +27,10 @@ function setCity(id) {
     if(id == 1){
         vmCarSeriesDetail.agentData.province='',
         vmCarSeriesDetail.agentData.city='';
+        $('.city').hide();
+        getAgentList();
+    }else{
+        $('.city').show();
         getAgentList();
     }
 }
@@ -61,7 +65,17 @@ $('#province a').click(function () {
 $("#city").delegate("a", "click", function () {
     $(this).addClass('active').siblings().removeClass('active')
 });
-
+// 公共方法
+function checkToken(res) {
+    let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
+    let code = res.code;
+    if (tokenCode.indexOf(code) >= 0) {
+        getToken();
+        vmCarSeriesDetail.onLoad();
+    }else{
+        alertMsg(res.message,2);
+    }
+}
 $(function(){
     avalon.ready(function(){
         window.vmCarSeriesDetail = avalon.define({
@@ -157,14 +171,7 @@ $(function(){
                         vmCarSeriesDetail.carDetail = res.result.list;
                         vmCarSeriesDetail.getStatusList();
                     }else{
-                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                        let code =  res.code;
-                        if(tokenCode.indexOf(code) >= 0){
-                            getToken();
-                            vmCarSeriesDetail.onLoad();
-                        }else{
-                            alertMsg(res.message,2);
-                        }
+                        checkToken(res);
                     }
                 });
             },
@@ -191,11 +198,7 @@ $(function(){
                                 break;
                         }
                     }else{
-                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                        let code =  res.code;
-                        if(tokenCode.indexOf(code)<0){
-                            alertMsg(res.message,2);
-                        }
+                        checkToken(res);
                     }
                 });
             },
@@ -293,11 +296,7 @@ $(function(){
                         });
                         $('.moreData').before(loopItem);
                     }else{
-                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                        let code =  res.code;
-                        if(tokenCode.indexOf(code)<0){
-                            alertMsg(res.message,2);
-                        }
+                        checkToken(res);
                     }
                 });
             },
@@ -370,11 +369,13 @@ $(function(){
                     }else{
                         let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
                         let code =  res.code;
-                        if(tokenCode.indexOf(code)<0){
-                            alertMsg(res.message,2);
-                        }
-                        if(code == 40040){
+                        if(tokenCode.indexOf(code)>=0){
+                            getToken();
+                            vmCarSeriesDetail.onLoad();
+                        }else if(code == 40040){
                             $('#base_drive_'+base).hide();
+                        }else{
+                            alertMsg(res.message,2);
                         }
                     }
                 });
