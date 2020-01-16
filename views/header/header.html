@@ -7,82 +7,171 @@
     <link rel="stylesheet" href="../../common/css/common.css">
     <link rel="stylesheet" href="../../css/header.css">
     <link rel="stylesheet" href="../../common/css/kuCity.css">
-
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=3.0&ak=n6K0xWCoAKyRgR0cYt6uVaC1EgAVAGFR"></script>
 </head>
 <body>
-     <div class='header fixHeader' ms-controller='header'>
-        <header>
-            <!-- 版心 -->
-            <div class='content_box'>
-                <!-- 顶部的引导导航条 -->
-                <div class='row topBar'>
-                    <div class='col-md-6 col-sm-6'>
-                        <div class='row'>
-                            <div class='col-sm-5'>欢迎登陆纵运汽车服务平台</div>
-                            <div class='col-sm-7 citySelect'>成都市|
-                                <!--<span class='changeCity'>切换</span>-->
-                                <input class="address" value="切换">
-                            </div>
+    <header>
+        <!-- 版心 -->
+        <div class='content_box'>
+            <!-- 顶部的引导导航条 -->
+            <div class='row topBar' ms-controller="topBar">
+                <div class='col-md-6 col-sm-6'>
+                    <div class='row'>
+                        <div class='col-sm-5'>欢迎登录纵运服务平台</div>
+                        <div class='col-sm-7 citySelect'><span ms-text="@city"></span>|
+                            <input class="address" value="切换">
                         </div>
-                    </div>
-                    <div class='col-md-6 col-sm-6'>
-                        <div class='row  text-right'>
-                            <div class='col-sm-2 col-sm-offset-6'>消息</div>
-                            <div class='col-md-4 col-sm-4 userMsg dis_none '>
-                                <ul class='clearfix'>
-                                    <li>头像</li>
-                                    <li ms-text='@userInfo.username'>用户名</li>
-                                </ul>
-                            </div>
-                            <div class='col-md-4 col-sm-4 userLogin'>您好,请<a href='javascript:;'>登录</a>或<a href='javascript:;'>注册</a></div>
-                        </div>
+                        <div id="allmap" class="dis_none"></div>
                     </div>
                 </div>
-            </div>
-        </header>
-        <!-- 导航条 -->
-        <div class='navBar  fixNavBar'>
-            <!-- 版心 -->
-            <div class='content_box'>
-                <div class="row">
-                    <div class="col-md-3 col-sm-3 bg-fff">
-                        <div class='row'>
-                            <div class='col-sm-9 text-left'><img src="../../images/logo.png" width='202px' height='80px' alt="logo"></div>
+                <div class='col-md-6 col-sm-6'>
+                    <div class='row  text-right'>
+                        <div class='col-sm-2 col-sm-offset-6 informItem'><a href="../../views/personal/personal.html"><img class="mr6" src="../../images/inform.svg"/>消息<span class="newsCount" ms-if="@newsCount" ms-text="@newsCount"></span></a></div>
+                        <div class='col-md-4 col-sm-4 userInfo text-left'>
+                            <ul class='clearfix'>
+                                <li class="userMsg dis_none ml10"><a href="../../personal/personal.html"><img width="32px" height="32px" id="avatar"/></a></li>
+                                <li class="userMsg dis_none"><a href="../../views/personal/personal.html" ms-text="@userInfo.username"></a><span class="ml8" ms-on-click="@loginOut">退出</span></li>
+                                <li class="userLogin">您好,请<a href='login.html'>登录</a></li>
+                            </ul>
                         </div>
-                    </div>
-                    <div class="col-md-9 col-sm-9 pl0">
-                        <ul class="layui-nav">
-                            <li class="layui-nav-item" data-src='../../index.html' data-index="1"><a href="javascript:;">首页</a></li>
-                            <li class="layui-nav-item" data-src='../../views/carHall/carHall.html'  data-index="2"><a href="javascript:;">汽车大厅</a></li>
-                            <li class="layui-nav-item" data-src='../../views/financial/financial.html'  data-index="3"><a href="javascript:;">金融服务</a></li>
-                            <li class="layui-nav-item" data-src='../../views/order/order.html'  data-index="4"><a href="javascript:;">合作商家</a></li>
-<!--                            <li class="layui-nav-item" data-src='../../views/logistics/logistics.html'  data-index="50"><a href="javascript:;">物流公司</a></li>-->
-                            <li class="layui-nav-item" data-src='../../views/personal/personal.html' data-index="5"><a href="javascript:;">个人中心</a></li>
-                            <li class="layui-nav-item" data-src='../../views/cooperate/cooperate.html' data-index="6"><a href="javascript:;">我要合作</a></li>
-                            <li class="layui-nav-item  downLoad" data-src='javascript:;' data-index="7">
-                                <a href="javascript:;">APP下载</a>
-                                <div class='downloadApp'>
-                                    <ul>
-                                        <li><img src="../../images/qrCode.png" alt=""></li>
-                                        <li>iphone客户端</li>
-                                    </ul>
-                                    <ul>
-                                        <li><img src="../../images/qrCode.png" alt=""></li>
-                                        <li>Android客户端</li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </header>
     <script src='../../plugins/jquery/jquery.min.js'></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
     <script src='../../plugins/layui/dist/layui.all.js'></script>
     <script src='../../plugins/avalon/avalon.min.js'></script>
+    <script src="../../data/api.js"></script>
+    <script src="../../data/data.js"></script>
+    <script src="../../data/return_data.js"></script>
     <script src="../../common/js/kuCity.js"></script>
-     <script src='../../js/header.js'></script>
+    <script type="text/javascript">
+        $('#avatar').click(function(){
+            window.location.href = '../personal/personal.html';
+        });
+        $(function(){
+            $('.address').kuCity();
+            avalon.ready(function(){
+                avalon.config({debug: false});
+                window.vmBar = avalon.define({
+                    $id : 'topBar',
+                    userInfo:{},
+                    city:'',
+                    newsCount:0,
+                    onLoad:function(){
+                        vmBar.isLogin();
+                        /*城市定位*/
+                        // 百度地图API功能
+                        var map = new BMap.Map("allmap");
+                        var point = new BMap.Point(116.331398,39.897445);
+                        map.centerAndZoom(point,12);
+                        function myFun(result){
+                            var cityName = result.name;
+                            map.setCenter(cityName);
+                            vmBar.city = cityName;
+                        }
+                        var myCity = new BMap.LocalCity();
+                        myCity.get(myFun);
+                    },
+                    // 判断用户是否登录
+                    isLogin:function(){
+                        let token = localStorage.getItem('token');
+                        $.ajax({
+                            type:"POST",
+                            url:API.URL__POST_ISLOGIN,
+                            data:{'_token_':token},
+                            dataType:'json',
+                            xhrFields: {
+                                withCredentials: true // 这里设置了withCredentials
+                            },
+                            success:function (res) {
+                                if(res.code == 200){
+                                    let userInfo = JSON.parse(localStorage.getItem('userInfo'));
+                                    //已经登录;
+                                    vmBar.userInfo = userInfo;
+                                    $('.userMsg').show();
+                                    $('.userLogin').hide();
+                                    console.log(userInfo)
+                                    if(vmBar.userInfo.avatar){
+                                        let src  = getApiHost + vmBar.userInfo.avatar;
+                                        $('#avatar').attr('src',src);
+                                    }else{
+                                        $('#avatar').attr('src','../../images/avatar.png');
+                                    }
+                                    var type = userInfo.type;
+                                    switch (type) {
+                                        case 'PERSONAL':
+                                            $('.logistics').attr('data-src','javascript:;');
+                                            $('.layui-nav-item .layui-nav-child').remove();
+                                            break;
+                                        case 'MERCHANT':
+                                            $('.logistics').attr('data-src','javascript:;');
+                                            break;
+                                        case 'LOGISTICS':
+                                            $('.layui-nav-item .layui-nav-child').remove();
+                                            break;
+                                        case 'PROXY':
+                                            $('.logistics').attr('data-src','javascript:;');
+                                            $('.layui-nav-item .layui-nav-child').remove();
+                                            break;
+                                        default:
+                                            break;
+                                    };
+                                    vmBar.getNewsCount();
+                                }else{
+                                    $('.userMsg').hide();
+                                    $('.userLogin').show();
+                                    $('.logistics').attr('data-src','javascript:;');
+                                    $('.layui-nav-item .layui-nav-child').remove();
+                                }
+                            }
+                        });
+                    },
+                    getPage:function(el){
+                        let src = el.currentTarget.dataset.src;
+                        location.href = src;
+                    },
+                    /*退出登录*/
+                    loginOut:function(){
+                        let token = localStorage.getItem('token');
+                        getAjax(API.URL_POST_LOGINOUT,'post',{'_token_':token}).then(function(res){
+                            if(res.code == 200){
+                                localStorage.clear();
+                                location.href = '../../login.html';
+                            }else{
+                                alertMsg(res.message,2);
+                            }
+                        })
+                    },
+                    limitFinancial:function(){
+                        alertMsg('当前模块暂未开放',4);
+                    },
+                    //获取消息条数
+                    getNewsCount:function(){
+                        let token = localStorage.getItem('token');
+                        let params = {
+                            '_token_':token,
+                            'type':vmBar.userInfo.type
+                        };
+                        getAjax(API.URL_POST_NOTICETOTAL,'post',params).then(function(res){
+                            if(res.code == 200){
+                                this.newsCount = res.count;
+                            }else{
+                                let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968,40040,40044,40045,77893,77894];
+                                let code =  res.code;
+                                if(tokenCode.indexOf(code)<0){
+                                    alertMsg(res.message,2);
+                                }
+                            }
+                        })
+
+                    },
+                });
+                vmBar.onLoad();
+                avalon.scan(document.body);
+            });
+        });
+    </script>
 </body>
- 

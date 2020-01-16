@@ -26,6 +26,10 @@ $(".ads").keyup(function () {
     var content = document.getElementsByClassName('num')[3];
     wordStatic(content, this)
 });
+/*省市区插件*/
+$('#distpicker').distpicker({
+    autoSelect:false
+});
 // tab菜单切换
 $('.tabs li').click(function(){
     $('.formItem li input[type="text"]').val('');
@@ -79,6 +83,14 @@ $(function(){
            onLoad:function(){
 
            },
+            // 公共方法
+            checkToken:function(res){
+                let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
+                let code = res.code;
+                if (tokenCode.indexOf(code) < 0) {
+                    alertMsg(res.message,2);
+                }
+            },
             getPCode:function(){
                 vmCooperate.postData.province = $("#province1 option[value =" + vmCooperate.getCode.province + "]").attr('data-code');
             },
@@ -86,21 +98,14 @@ $(function(){
                 vmCooperate.postData.city = $("#city1 option[value =" + vmCooperate.getCode.city + "]").attr('data-code');
             },
             cooperate:function (item) {
-                var token = localStorage.getItem('token');
+                let token = localStorage.getItem('token');
                 vmCooperate.postData._token_ = token;
                 vmCooperate.postData.type = item;
                 getAjax(API.URL_POST_ABOUTTEAMWORK,'post',vmCooperate.postData).then(function (res) {
                     if(res.code == 200){
                         alertMsg(res.message,1);
                     }else{
-                        let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-                        let code =  res.code;
-                        if(tokenCode.indexOf(code) >= 0){
-                            getToken();
-                            vmCooperate.onLoad();
-                        }else{
-                            alertMsg(res.message,2);
-                        }
+                        vmCooperate.checkToken(res);
                     }
                 })
             }

@@ -53,7 +53,7 @@
                  res.result[i].shop_logo = getApiHost + res.result[i].shop_logo;
              }
          }else{
-             alertMsg(res.message,2)
+             checkToken(res);
          }
 
      });
@@ -66,16 +66,13 @@ $('#province a').click(function () {
     $(this).addClass('active').siblings().removeClass('active')
 });
  // 公共方法
-function checkToken(res) {
- let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
- let code = res.code;
- if (tokenCode.indexOf(code) >= 0) {
-     getToken();
-     vmBrandDetail.onLoad();
- }else{
-     alertMsg(res.message,2);
+ function checkToken(res) {
+     let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
+     let code = res.code;
+     if (tokenCode.indexOf(code) < 0) {
+         alertMsg(res.message,2);
+     }
  }
-}
 $(function(){
     avalon.ready(function(){
         window.vmBrandDetail = avalon.define({
@@ -99,7 +96,6 @@ $(function(){
             },
             onLoad:function(){
                 vmBrandDetail.getNewsId();
-                vmBrandDetail.getBrandInfo();
             },
             getNewsId:function(){
                 let url = window.location.href;
@@ -109,6 +105,7 @@ $(function(){
                 vmBrandDetail.queryData.token = token;
                 vmBrandDetail.agentData._token_ = token;
                 vmBrandDetail.agentData.brands_id = urlJson.id;
+                vmBrandDetail.getBrandInfo();
             },
             getBrandInfo:function(){
                 let postData = {

@@ -31,10 +31,7 @@ myCity.get(myFun);
 function checkToken(res) {
     let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
     let code = res.code;
-    if (tokenCode.indexOf(code) >= 0) {
-        getToken();
-        vmCarHall.onLoad();
-    }else{
+    if (tokenCode.indexOf(code) < 0) {
         alertMsg(res.message,2);
     }
 }
@@ -75,6 +72,12 @@ $(function(){
                 vmCarHall.token = token;
                 vmCarHall.getNewsList();
                 vmCarHall.getPopularBrands();
+                vmCarHall.getQualityAgent();
+                /*热门车型的数据*/
+                vmCarHall.getHotCar();
+                /*关注度排行*/
+                vmCarHall.getAttention();
+                vmCarHall.getCityCarList();
             },
             /*新闻列表*/
             getNewsList:function(){
@@ -85,10 +88,6 @@ $(function(){
                         //     res.result[i].images = getApiHost + res.result[i].images;
                         // }
                         vmCarHall.newsList = res.result;
-                        /*热门车型的数据*/
-                        vmCarHall.getHotCar();
-                        /*关注度排行*/
-                        vmCarHall.getAttention();
                     }else{
                         checkToken(res);
                     }
@@ -128,7 +127,6 @@ $(function(){
                             }
                         }
                         vmCarHall.hotCarList = res.result;
-                        vmCarHall.getCityCarList();
                     }else{
                         checkToken(res);
                     }
@@ -143,7 +141,7 @@ $(function(){
                         checkToken(res);
                     }
                 });
-                vmCarHall.getQualityAgent();
+
             },
             //优质经销商
             getQualityAgent:function(){

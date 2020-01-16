@@ -377,6 +377,7 @@ i{
 #demo2, #demo3, #demo4{
   margin-left: 0px;
   margin-top: 20px;
+  text-align: center;
 }
 #demo2{
   width: 100%;

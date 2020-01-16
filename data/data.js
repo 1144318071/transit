@@ -27,11 +27,12 @@ var Area = {
                         ssqname: "北京市市辖区",
                         ssqename: "",
                         areas: {
-                            area: [{
-                                ssqid: "110101",
-                                ssqname: "东城区",
-                                ssqename: ""
-                            },
+                            area: [
+                                {
+                                    ssqid: "110101",
+                                    ssqname: "东城区",
+                                    ssqename: ""
+                                },
                                 {
                                     ssqid: "110102",
                                     ssqname: "西城区",
@@ -99,20 +100,30 @@ var Area = {
                                 },
                                 {
                                     ssqid: "110116",
-                                    ssqname: "平谷区",
+                                    ssqname: "怀柔区",
                                     ssqename: ""
                                 },
                                 {
                                     ssqid: "110117",
-                                    ssqname: "怀柔区",
+                                    ssqname: "平谷区",
                                     ssqename: ""
-                                }
+                                },
+                                {
+                                    ssqid: "110118",
+                                    ssqname: "密云区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "110119",
+                                    ssqname: "延庆区",
+                                    ssqename: ""
+                                },
                             ]
                         }
                     },
                         {
                             ssqid: "110200",
-                            ssqname: "市辖县",
+                            ssqname: "北京市市辖县",
                             ssqename: "",
                             areas: {
                                 area: [{
@@ -141,11 +152,12 @@ var Area = {
                         ssqname: "天津市市辖区",
                         ssqename: "",
                         areas: {
-                            area: [{
-                                ssqid: "120101",
-                                ssqname: "和平区",
-                                ssqename: ""
-                            },
+                            area: [
+                                {
+                                    ssqid: "120101",
+                                    ssqname: "和平区",
+                                    ssqename: ""
+                                },
                                 {
                                     ssqid: "120102",
                                     ssqname: "河东区",
@@ -215,7 +227,22 @@ var Area = {
                                     ssqid: "120115",
                                     ssqname: "宝坻区",
                                     ssqename: ""
-                                }
+                                },
+                                {
+                                    ssqid: "120116",
+                                    ssqname: "滨海新区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "120117",
+                                    ssqname: "宁河区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "120118",
+                                    ssqname: "静海区",
+                                    ssqename: ""
+                                },
                             ]
                         }
                     },
@@ -224,11 +251,12 @@ var Area = {
                             ssqname: "天津市郊县",
                             ssqename: "",
                             areas: {
-                                area: [{
-                                    ssqid: "120221",
-                                    ssqname: "宁河县",
-                                    ssqename: ""
-                                },
+                                area: [
+                                    {
+                                        ssqid: "120221",
+                                        ssqname: "宁河县",
+                                        ssqename: ""
+                                    },
                                     {
                                         ssqid: "120223",
                                         ssqname: "静海县",
@@ -255,11 +283,12 @@ var Area = {
                         ssqname: "石家庄市",
                         ssqename: "",
                         areas: {
-                            area: [{
-                                ssqid: "130102",
-                                ssqname: "长安区",
-                                ssqename: ""
-                            },
+                            area: [
+                                {
+                                    ssqid: "130102",
+                                    ssqname: "长安区",
+                                    ssqename: ""
+                                },
                                 {
                                     ssqid: "130103",
                                     ssqname: "桥东区",
@@ -283,6 +312,21 @@ var Area = {
                                 {
                                     ssqid: "130108",
                                     ssqname: "裕华区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130109",
+                                    ssqname: "藁城区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130110",
+                                    ssqname: "鹿泉区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "130111",
+                                    ssqname: "栾城区",
                                     ssqename: ""
                                 },
                                 {
@@ -5290,11 +5334,22 @@ var Area = {
                             ssqname: "湖州市",
                             ssqename: "",
                             areas: {
-                                area: [{
+                                area: [
+                                    {
+                                        ssqid: "330502",
+                                        ssqname: "吴兴区",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "330503",
+                                        ssqname: "南浔区",
+                                        ssqename: ""
+                                    },
+                                    {
                                     ssqid: "330521",
                                     ssqname: "德清县",
                                     ssqename: ""
-                                },
+                                    },
                                     {
                                         ssqid: "330522",
                                         ssqname: "长兴县",
@@ -11281,59 +11336,62 @@ var Area = {
                 ssqname: "广西壮族自治区",
                 ssqename: "",
                 cities: {
-                    city: [{
-                        ssqid: "450100",
-                        ssqname: "南宁市",
-                        ssqename: "",
-                        areas: {
-                            area: [{
-                                ssqid: "450102",
-                                ssqname: "兴宁区",
-                                ssqename: ""
-                            },
-                                {
-                                    ssqid: "450103",
-                                    ssqname: "新城区",
+                    city: [
+                        {
+                            ssqid: "450100",
+                            ssqname: "南宁市",
+                            ssqename: "",
+                            areas: {
+                                area: [
+                                    {
+                                    ssqid: "450102",
+                                    ssqname: "兴宁区",
                                     ssqename: ""
                                 },
-                                {
-                                    ssqid: "450104",
-                                    ssqname: "城北区",
-                                    ssqename: ""
-                                },
-                                {
-                                    ssqid: "450105",
-                                    ssqname: "江南区",
-                                    ssqename: ""
-                                },
-                                {
-                                    ssqid: "450106",
-                                    ssqname: "永新区",
-                                    ssqename: ""
-                                },
-                                {
-                                    ssqid: "450121",
-                                    ssqname: "邕宁县",
-                                    ssqename: ""
-                                },
-                                {
-                                    ssqid: "450122",
-                                    ssqname: "武鸣县",
-                                    ssqename: ""
-                                }
-                            ]
-                        }
-                    },
+                                    {
+                                        ssqid: "450103",
+                                        ssqname: "新城区",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "450104",
+                                        ssqname: "城北区",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "450105",
+                                        ssqname: "江南区",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "450106",
+                                        ssqname: "永新区",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "450121",
+                                        ssqname: "邕宁县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "450122",
+                                        ssqname: "武鸣县",
+                                        ssqename: ""
+                                    }
+                                ]
+                            }
+                        },
                         {
                             ssqid: "450200",
                             ssqname: "柳州市",
                             ssqename: "",
                             areas: {
-                                area: [{
+                                area: [
+                                    {
                                     ssqid: "450202",
                                     ssqname: "城中区",
                                     ssqename: ""
-                                },
+                                    },
                                     {
                                         ssqid: "450203",
                                         ssqname: "鱼峰区",
@@ -11363,7 +11421,27 @@ var Area = {
                                         ssqid: "450222",
                                         ssqname: "柳城县",
                                         ssqename: ""
-                                    }
+                                    },
+                                    {
+                                        ssqid: "450223",
+                                        ssqname: "鹿寨县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "450224",
+                                        ssqname: "融安县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "450225",
+                                        ssqname: "融水苗族自治县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "450226",
+                                        ssqname: "三江侗族自治县",
+                                        ssqename: ""
+                                    },
                                 ]
                             }
                         },
@@ -11650,6 +11728,251 @@ var Area = {
                                         ssqname: "北流市",
                                         ssqename: ""
                                     }
+                                ]
+                            }
+                        },
+                        {
+                            ssqid:"451000",
+                            ssqname: "百色市",
+                            ssqename: "",
+                            areas: {
+                                area: [
+                                    {
+                                        ssqid: "451002",
+                                        ssqname: "右江区",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451021",
+                                        ssqname: "田阳县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451022",
+                                        ssqname: "田东县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451023",
+                                        ssqname: "平果县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451024",
+                                        ssqname: "德保县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451026",
+                                        ssqname: "那坡县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451027",
+                                        ssqname: "凌云县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451028",
+                                        ssqname: "乐业县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451029",
+                                        ssqname: "田林县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451030",
+                                        ssqname: "西林县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451031",
+                                        ssqname: "隆林各族自治县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451081",
+                                        ssqname: "靖西市",
+                                        ssqename: ""
+                                    },
+                                ]
+                            }
+                        },
+                        {
+                            ssqid:"451100",
+                            ssqname: "贺州市",
+                            ssqename: "",
+                            areas: {
+                                area: [
+                                    {
+                                        ssqid: "451102",
+                                        ssqname: "八步区",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451121",
+                                        ssqname: "昭平县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451122",
+                                        ssqname: "钟山县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451123",
+                                        ssqname: "富川瑶族自治县",
+                                        ssqename: ""
+                                    },
+                                ]
+                            }
+                        },
+                        {
+                            ssqid:"451200",
+                            ssqname: "河池市",
+                            ssqename: "",
+                            areas: {
+                                area: [
+                                    {
+                                        ssqid: "451202",
+                                        ssqname: "金城江区",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451221",
+                                        ssqname: "南丹县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451222",
+                                        ssqname: "天峨县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451223",
+                                        ssqname: "凤山县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451224",
+                                        ssqname: "东兰县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451225",
+                                        ssqname: "罗城仫佬族自治县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451226",
+                                        ssqname: "环江毛南族自治县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451227",
+                                        ssqname: "巴马瑶族自治县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451228",
+                                        ssqname: "都安瑶族自治县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451229",
+                                        ssqname: "大化瑶族自治县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451281",
+                                        ssqname: "宜州市",
+                                        ssqename: ""
+                                    },
+                                ]
+                            }
+                        },
+                        {
+                            ssqid:"451300",
+                            ssqname: "来宾市",
+                            ssqename: "",
+                            areas: {
+                                area: [
+                                    {
+                                        ssqid: "451302",
+                                        ssqname: "兴宾区",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451321",
+                                        ssqname: "忻城县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451322",
+                                        ssqname: "象州县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451323",
+                                        ssqname: "武宣县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451324",
+                                        ssqname: "金秀瑶族自治县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451381",
+                                        ssqname: "合山市",
+                                        ssqename: ""
+                                    },
+                                ]
+                            }
+                        },
+                        {
+                            ssqid:"451400",
+                            ssqname: "崇左市",
+                            ssqename: "",
+                            areas: {
+                                area: [
+                                    {
+                                        ssqid: "451402",
+                                        ssqname: "江州区",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451421",
+                                        ssqname: "扶绥县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451422",
+                                        ssqname: "宁明县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451423",
+                                        ssqname: "龙州县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451324",
+                                        ssqname: "大新县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451425",
+                                        ssqname: "天等县",
+                                        ssqename: ""
+                                    },
+                                    {
+                                        ssqid: "451481",
+                                        ssqname: "凭祥市",
+                                        ssqename: ""
+                                    },
                                 ]
                             }
                         },
@@ -12176,7 +12499,57 @@ var Area = {
                                     ssqid: "500115",
                                     ssqname: "长寿区",
                                     ssqename: ""
-                                }
+                                },
+                                {
+                                    ssqid: "500116",
+                                    ssqname: "江津区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500117",
+                                    ssqname: "合川区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500118",
+                                    ssqname: "永川区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500119",
+                                    ssqname: "南川区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500120",
+                                    ssqname: "璧山区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500151",
+                                    ssqname: "铜梁区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500152",
+                                    ssqname: "潼南区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500153",
+                                    ssqname: "荣昌区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500154",
+                                    ssqname: "开州区",
+                                    ssqename: ""
+                                },
+                                {
+                                    ssqid: "500155",
+                                    ssqname: "梁平区",
+                                    ssqename: ""
+                                },
                             ]
                         }
                     },

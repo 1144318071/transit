@@ -39,7 +39,7 @@ function getToken(){
             }
         }
     });
-}
+};
 //ajax请求数据的公共方法
 function getAjax(url, type, data) {
     return new Promise(function (resolve, reject) {
@@ -59,6 +59,16 @@ function getAjax(url, type, data) {
         });
     });
 };
+function checkToken(){
+    let token = localStorage.getItem('token');
+    getAjax(API.URL_POST_CHECKTOKEN,'post',{'_token_':token}).then(res=>{
+        if(res.code != 200){
+            getToken();
+            window.location.reload();
+        }
+    });
+};
+checkToken();
 //获取get传值的参数
 function GetRequest(urlStr) {
     if (typeof urlStr == "undefined") {

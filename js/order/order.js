@@ -23,14 +23,13 @@ function checkToken(res) {
     let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
     let loginCode = [77893,77894];
     let code = res.code;
-    if (tokenCode.indexOf(code) >= 0) {
-        getToken();
-        vmOrder.onLoad();
-    }else if(loginCode.indexOf(code)>=0){
-        alertMsg(res.message,2);
-        window.location.href='../../login.html';
-    }else{
-        alertMsg(res.message,2);
+    if (tokenCode.indexOf(code) < 0) {
+        if(loginCode.indexOf(code)>=0){
+            alertMsg(res.message,2);
+            window.location.href='../../login.html';
+        }else{
+            alertMsg(res.message,2);
+        }
     }
 }
 $(function(){
@@ -38,9 +37,9 @@ $(function(){
         window.vmOrder = avalon.define({
             $id : 'root',
             state:'',
+            /* 'keyword':'',*/
             postData:{
                 '_token_':'',
-                'keyword':'',
                 'page':'1',
                 'limit':'6',
                 'order_status':'',
@@ -293,7 +292,7 @@ $(function(){
                 vmOrder.TKList = [];//退款/赔付
                 vmOrder.postData.goods_status = goods_status;
                 vmOrder.postData.order_status = order_status;
-                getAjax(API.URL_GET_ORDERLIST,'get',vmOrder.postData).then(function(res){
+                getAjax(API.URL_GET_ORDERTWO,'get',vmOrder.postData).then(function(res){
                     vmOrder.getPageList(elem,res.count,goods_status,order_status);
                     if(res.code == 200) {
                         var result = res.result;
@@ -307,43 +306,39 @@ $(function(){
                                 /*res.result[i].name = res.result[i].name.substr(0,1)+'师傅';*/
                                 res.result[i].tell = getApiHost + res.result[i].tell;
                             }
-                        }
-                        if(goods_status != '40'){
-                            if(goods_status == '10'){
-                                /*待支付列表*/
+                        };
+                        if(goods_status){
+                            if(goods_status=='10'){//待支付
                                 vmOrder.DZFList = res.result;
-                            }else if(goods_status == '20'){
-                                /*待接单列表*/
+                                console.log('待支付',vmOrder.DZFList)
+                            }else if(goods_status=='20'){//待接单
                                 vmOrder.DJDList = res.result;
+                                console.log('待接单',vmOrder.DJDList)
                             }else{
-                                /*全部订单列表*/
-                                vmOrder.orderList = res.result;
+                                if(goods_status=='40'){
+                                    if(order_status=='10'){//待装货
+                                        vmOrder.DZHList = res.result;
+                                        console.log('待装货',vmOrder.DZHList)
+                                    }else if(order_status=='20'){//运输中
+                                        vmOrder.YSZList = res.result;
+                                        console.log('运输中',vmOrder.YSZList)
+                                    }else if(order_status=='40'){//待签收
+                                        vmOrder.DQSList = res.result;
+                                        console.log('待签收',vmOrder.DQSList)
+                                    }
+                                }else{
+                                    if(goods_status==60){
+                                        vmOrder.TSList = res.result;
+                                        console.log('投诉',vmOrder.TSList)
+                                    }else if(goods_status==70){
+                                        vmOrder.TKList = res.result;
+                                        console.log('退款',vmOrder.TKList)
+                                    }
+                                }
                             }
-                        }else{
-                            switch (order_status) {
-                                case '10':
-                                    /*待装货列表*/
-                                    vmOrder.DZHList = res.result;
-                                break;
-                                case '20':
-                                    /*运输中列表*/
-                                    vmOrder.YSZList = res.result;
-                                break;
-                                case '40':
-                                    /*待签收*/
-                                    vmOrder.DQSList = res.result;
-                                break;
-                                case '60':
-                                    /*投诉列表*/
-                                    vmOrder.TSList = res.result;
-                                break;
-                                case '70':
-                                    /*退款赔付列表*/
-                                    vmOrder.TKList = res.result;
-                                break;
-                                default:
-                                break;
-                            }
+                        }else{//goods_status==''    全部订单
+                            vmOrder.orderList = res.result;
+                            console.log('全部',vmOrder.orderList)
                         }
                     }else{
                         checkToken(res);
@@ -352,7 +347,7 @@ $(function(){
             },
             //分页
             getPageList:function(elem,count,goods_status,order_status){
-                /*if(count > 5){*/
+                if(count > 6){
                     layui.use(['laypage', 'layer'], function () {
                         var laypage = layui.laypage,
                             layer = layui.layer;
@@ -370,12 +365,12 @@ $(function(){
                             }
                         });
                     });
-                /*}*/
+                }
             },
             //根据订单状态请求数据
             getStatusOrder:function(el,good_status,order_status){
                 vmOrder.postData.page = '1';
-                vmOrder.postData.keyword='';
+                //vmOrder.postData.keyword='';
                 vmOrder.getOrderList(el,good_status,order_status);
             },
             //删除货单

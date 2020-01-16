@@ -124,6 +124,7 @@ label{
   height: 16px;
   vertical-align: middle;
   margin: 0px 0px 0px;
+  cursor: pointer;
 }
 .formItem ul li select,.formItem ul li input[type='text']{
   width: 133px;

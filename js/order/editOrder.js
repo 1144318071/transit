@@ -1,13 +1,13 @@
-$('#district1').distpicker({
+$('#distpicker').distpicker({
     autoSelect:false
 });
-$('#district1_two').distpicker({
+$('#distpicker_two').distpicker({
     autoSelect:false
 });
-$('#district1_three').distpicker({
+$('#distpicker_three').distpicker({
     autoSelect:false
 });
-$('#district1_four').distpicker({
+$('#distpicker_four').distpicker({
     autoSelect:false
 });
 layui.use('upload', function () {
@@ -103,14 +103,13 @@ function checkToken(res){
     let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
     let loginCode = [77893,77894];
     let code = res.code;
-    if (tokenCode.indexOf(code) >= 0) {
-        getToken();
-        vmEditOrder.onLoad();
-    }else if(loginCode.indexOf(code)>=0){
-        alertMsg(res.message,2);
-        window.location.href='../../login.html';
-    }else{
-        alertMsg(res.message,2);
+    if (tokenCode.indexOf(code) < 0) {
+        if(loginCode.indexOf(code)>=0){
+            alertMsg(res.message,2);
+            window.location.href='../../login.html';
+        }else{
+            alertMsg(res.message,2);
+        }
     }
 };
 $(function(){
@@ -238,6 +237,7 @@ $(function(){
                         vmEditOrder.postData.loading_end_time = res.result.loading_end_time;
                         vmEditOrder.postData.goods_images = res.result.goods_images;
                         vmEditOrder.postData.remark = res.result.remark;
+                        vmEditOrder.postData.expedited = res.result.expedited;
                         let detailAddress = res.result.line;
                         let start = [];
                         let end=[];
@@ -266,6 +266,7 @@ $(function(){
                                 vmEditOrder.model.addressList_one.area=getAreaName(start[0].area);
                                 vmEditOrder.model.addressList_one.address = start[0].address;
                                 vmEditOrder.model.addressList_one.id = start[0].id;
+                                console.log(start[0].province,start[0].city,start[0].area)
                             break;
                             case 2:
                                 $('.addressItem_two').show();
@@ -292,7 +293,6 @@ $(function(){
                                 vmEditOrder.model.addressList_two.area=getAreaName(start[1].area);
                                 vmEditOrder.model.addressList_two.id = start[1].id;
                                 vmEditOrder.model.addressList_two.address=start[1].address;
-
                             break;
                             default:
                             break;
@@ -306,6 +306,7 @@ $(function(){
                                 $("#city1_three").trigger("change");
                                 $(" #district1_three option[data-code ='" + end[0].area + "']").attr("selected", "selected");
                                 $("#district1_three").trigger("change");
+                                console.log(end[0].province,end[0].city,end[0].area)
                                 vmEditOrder.model.addressList_three.province=getProvinceName(end[0].province);
                                 vmEditOrder.model.addressList_three.city=getCityName(end[0].city);
                                 vmEditOrder.model.addressList_three.area=getAreaName(end[0].area);
@@ -343,7 +344,7 @@ $(function(){
                         }
                         /*是否加急*/
                         let urgent = document.getElementsByName("urgent");
-                        if(vmEditOrder.postData.expedited == 'yes'){
+                        if(vmEditOrder.postData.expedited == '10'){
                             urgent[0].checked = true;
                         }else{
                             urgent[1].checked = true;

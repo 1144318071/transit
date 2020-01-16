@@ -163,6 +163,7 @@
             var self = this;
             $('.kucity_item dd').on('click', 'span', function(e) {
                 vmHeader.city = $(e.target).text();
+                vmBar.city = $(e.target).text();
                 self.target.val("切换");
                 self.container.hide();
             });

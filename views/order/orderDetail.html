@@ -60,11 +60,11 @@
         <div class="order_right itemDetail pull-left">
             <ul class="clearfix address"  ms-for="el in @startAddress">
                 <li class="pull-left"><img style="margin-top: -2px;margin-right: 6px" src="../../images/loadGoods.png"/>装货地址<span class="ml6 mr6">:</span></li>
-                <li class="pull-left" style="width: 420px;"  ms-text="el.province + el.city + el.area + el.address"></li>
+                <li class="pull-left" style="width: 420px;"><span ms-if="el.province" ms-text="el.province"></span><span ms-if="el.city" ms-text="el.city"></span><span ms-if="el.area" ms-text="el.area"></span><span ms-if="el.address" ms-text="el.address"></span></li>
             </ul>
             <ul class="clearfix address" ms-for="el in @endAddress">
                 <li class="pull-left"><img style="margin-top: -2px;margin-right: 6px" src="../../images/unloadGoods.png"/>卸货地址<span class="ml6 mr6">:</span></li>
-                <li class="pull-left" style="width: 420px;"  ms-text="el.province + el.city + el.area + el.address"></li>
+                <li class="pull-left" style="width: 420px;"><span ms-if="el.province" ms-text="el.province"></span><span ms-if="el.city" ms-text="el.city"></span><span ms-if="el.area" ms-text="el.area"></span><span ms-if="el.address" ms-text="el.address"></span></li>
             </ul>
             <div class="itemMore clearfix">
                 <ul class="clearfix pull-left">
@@ -93,7 +93,7 @@
                 </ul>
                 <ul class="clearfix pull-left">
                     <li class="pull-left">是否加急<span class="ml6 mr6">:</span></li>
-                    <li class="pull-left" ms-text="@goodsInfo.expedited == 'yes'?'是':'否' ">否</li>
+                    <li class="pull-left" ms-text="@goodsInfo.expedited == '10'?'是':'否' ">否</li>
                 </ul>
             </div>
             <ul class="clearfix">

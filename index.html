@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <title>首页</title>
-    <link rel="shortcut icon" href="http://transit.scsiren.com/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="./plugins/banner/css/banner.css">
     <link rel="stylesheet" href="./plugins/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="./plugins/layui/dist/css/layui.css">
@@ -15,7 +14,7 @@
     <link rel="stylesheet" href="./css/footer.css">
     <link rel="stylesheet" href="./css/index.css">
     <script type="text/javascript"
-            src="http://api.map.baidu.com/api?v=3.0&ak=n6K0xWCoAKyRgR0cYt6uVaC1EgAVAGFR"></script>
+            src="https://api.map.baidu.com/api?v=3.0&ak=n6K0xWCoAKyRgR0cYt6uVaC1EgAVAGFR"></script>
 </head>
 <body ms-controller="home">
 <div class='header fixHeader' ms-controller='header'>
@@ -133,9 +132,8 @@
     <!-- 发布订单系列内容 -->
     <div class='itemContent clearfix'>
         <div class='itemBox'>
-            <a href="./views/order/publishOrder.html"><img src="./images/fbdd.png" alt="发布订单"/></a>
-            <div class='itemTitle'><span class='hLine'></span><span><a
-                    href="./views/order/publishOrder.html">我要发单</a></span><span class='hLine'></span></div>
+            <a href="javascript:;" ms-on-click="publishOrder"><img src="./images/fbdd.png" alt="发布订单"/></a>
+            <div class='itemTitle'><span class='hLine'></span><span><a href="javascript:;" ms-on-click="publishOrder">我要发单</a></span><span class='hLine'></span></div>
             <div class='itemDes font14 color-999'>
                 <p>支持合作商家快捷发布货,主要服务于渣土</p>
                 <p>运输,各种货物运输,GPS实时监控货物运</p>

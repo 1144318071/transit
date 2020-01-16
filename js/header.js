@@ -23,7 +23,6 @@ $('#avatar').click(function(){
 $(function(){
 	$('.address').kuCity();
     avalon.ready(function(){
-        avalon.config({debug: false});
         window.vmHeader = avalon.define({
             $id : 'header',
             userInfo:{},
@@ -32,7 +31,6 @@ $(function(){
             onLoad:function(){
                 vmHeader.isLogin();
                 /*城市定位*/
-                // 百度地图API功能
                 var map = new BMap.Map("allmap");
                 var point = new BMap.Point(116.331398,39.897445);
                 map.centerAndZoom(point,12);
@@ -40,17 +38,16 @@ $(function(){
                     var cityName = result.name;
                     map.setCenter(cityName);
                     vmHeader.city = cityName;
-                }
+                };
                 var myCity = new BMap.LocalCity();
                 myCity.get(myFun);
-
             },
             // 判断用户是否登录
             isLogin:function(){
                 let token = localStorage.getItem('token');
                 $.ajax({
                     type:"POST",
-                    url:API.URL__POST_ISLOGIN,
+                    url:API.URL_POST_ISLOGIN,
                     data:{'_token_':token},
                     dataType:'json',
                     xhrFields: {
@@ -134,7 +131,6 @@ $(function(){
             limitFinancial:function(){
                 alertMsg('当前模块暂未开放',4);
             },
-
             //获取消息条数
             getNewsCount:function(){
                 let token = localStorage.getItem('token');

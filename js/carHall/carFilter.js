@@ -146,10 +146,7 @@ $('.sort li').click(function(){
 function checkToken(res) {
     let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
     let code = res.code;
-    if (tokenCode.indexOf(code) >= 0) {
-        getToken();
-        vmCarFilter.onLoad();
-    }else{
+    if (tokenCode.indexOf(code) < 0) {
         alertMsg(res.message,2);
     }
 }

@@ -29,12 +29,9 @@ $(function () {
 	                	if(res.code == 200){
 							alertMsg(res.message,1);
 						}else{
-							let tokenCode = [43961,43962,43963,43964,43965,43966,43967,43968];
-							let code =  res.code;
-							if(tokenCode.indexOf(code) >= 0){
-								getToken();
-								vmChangePayCode.onLoad();
-							}else{
+							let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
+							let code = res.code;
+							if (tokenCode.indexOf(code) < 0) {
 								alertMsg(res.message,2);
 							}
 						}

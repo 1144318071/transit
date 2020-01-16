@@ -53,14 +53,13 @@ function checkToken(res){
     let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
     let loginCode = [77893,77894];
     let code = res.code;
-    if (tokenCode.indexOf(code) >= 0) {
-        getToken();
-        vmOrderState.onLoad();
-    }else if(loginCode.indexOf(code)>=0){
-        alertMsg(res.message,2);
-        window.location.href='../../login.html';
-    }else{
-        alertMsg(res.message,2);
+    if (tokenCode.indexOf(code) < 0) {
+        if(loginCode.indexOf(code)>=0){
+            alertMsg(res.message,2);
+            window.location.href='../../login.html';
+        }else{
+            alertMsg(res.message,2);
+        }
     }
 };
 $(function () {

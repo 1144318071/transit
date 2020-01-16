@@ -35,8 +35,9 @@ layui.use('upload', function () {
                 }else{
                     alertMsg('最多可以上传6张图片!',2);
                 }
+            }else{
+                checkToken(res);
             }
-            //上传成功
         },
         error: function () {
             //演示失败状态，并实现重传
@@ -62,10 +63,7 @@ $('.uploadContent').delegate('.del','click',function() {
 function checkToken(res) {
     let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
     let code = res.code;
-    if (tokenCode.indexOf(code) >= 0) {
-        getToken();
-        vmAboutUs.onLoad();
-    }else{
+    if (tokenCode.indexOf(code) < 0) {
         alertMsg(res.message,2);
     }
 }

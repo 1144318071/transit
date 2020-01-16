@@ -1,4 +1,4 @@
-var getApiHost = 'http://transit.zyiov.com';
+var getApiHost = 'https://transit.zyiov.com';
 var API = {
     //----------------------------------------------获取TOKEN-----------------------------------
     URL_POST_SETTOKEN: getApiHost + '/set/token',
@@ -13,7 +13,7 @@ var API = {
     // 商家信息完善
     URL_POST_VERIFYCOMPANY: getApiHost + '/company/verify',
     //是否登录
-    URL__POST_ISLOGIN : getApiHost + '/user/isLogin',
+    URL_POST_ISLOGIN : getApiHost + '/user/isLogin',
     // ----------------------------------------------个人中心-----------------------------------
     //判断用户是否登录
     URL_POST_ISLOGIN : getApiHost + '/user/isLogin',
@@ -146,6 +146,8 @@ var API = {
     URL_GET_ONLINECAR: getApiHost + '/onlineCar',
     //退款详情
     URL_POST_REFUNDMONEY : getApiHost + '/refundInfo',
+    //货主订单(第二版)
+    URL_GET_ORDERTWO : getApiHost + '/_order_list_version_2.0',
     //----------------------------------------------物流公司-----------------------------------
     //公司主页
     URL_GET_COMPANYINFO : getApiHost + '/companyInfo',
@@ -162,5 +164,7 @@ var API = {
     /*下架租赁*/
     URL_POST_OBTAINED : getApiHost + '/obtained',
     /*物流公司订单*/
-    URL_GET_LOGISTICSORDER : getApiHost + '/logistics/order'
+    URL_GET_LOGISTICSORDER : getApiHost + '/logistics/order',
+    //token验证
+    URL_POST_CHECKTOKEN : getApiHost + '/check',
 }

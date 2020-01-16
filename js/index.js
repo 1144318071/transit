@@ -18,7 +18,8 @@ $(function () {
             bannerImg: [],
             getAnnouncementList: [],
             onLoad: function () {
-                vmIndex.getToken();
+                vmIndex.getBanners();
+                vmIndex.getAnnouncement();
             },
             getToken: function () {
                 $.ajax({
@@ -33,10 +34,20 @@ $(function () {
                     success: function (res) {
                         if (res.code == 200) {
                             localStorage.setItem('token', res.result.token);
-                            vmIndex.getBanners();
-                            vmIndex.getAnnouncement();
+
                         }
                     }
+                });
+            },
+            /*我要发单*/
+            publishOrder(){
+                let token = localStorage.getItem('token');
+                getAjax(API.URL_POST_ISLOGIN,'post',{'_token_':token}).then(function(res){
+                   if(res.code == 200){
+                       window.location.href = './views/order/publishOrder.html';
+                   }else{
+                        alertMsg('请先登录',2);
+                   }
                 });
             },
             //获取新闻列表
@@ -187,8 +198,6 @@ $(function () {
         vmIndex.onLoad();
         avalon.scan(document.body);
     });
-
-
 });
 // 发布订单系列的内容
 $('.hLine').hide();
@@ -201,9 +210,7 @@ $('.img_carSeries').hover(function () {
 function checkToken(res) {
     let tokenCode = [43961, 43962, 43963, 43964, 43965, 43966, 43967, 43968];//token有误
     let code = res.code;
-    if (tokenCode.indexOf(code) >= 0) {
-        vmIndex.onLoad();
-    }else{
+    if (tokenCode.indexOf(code) < 0) {
         alertMsg(res.message,2);
     }
 }
